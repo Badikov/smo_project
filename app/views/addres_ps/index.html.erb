@@ -1,0 +1,54 @@
+<%- model_class = AddresP -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:subj) %></th>
+      <th><%= model_class.human_attribute_name(:indx) %></th>
+      <th><%= model_class.human_attribute_name(:okato) %></th>
+      <th><%= model_class.human_attribute_name(:rnname) %></th>
+      <th><%= model_class.human_attribute_name(:npname) %></th>
+      <th><%= model_class.human_attribute_name(:ul) %></th>
+      <th><%= model_class.human_attribute_name(:dom) %></th>
+      <th><%= model_class.human_attribute_name(:korp) %></th>
+      <th><%= model_class.human_attribute_name(:kv) %></th>
+      <th><%= model_class.human_attribute_name(:person_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @addres_ps.each do |addres_p| %>
+      <tr>
+        <td><%= link_to addres_p.id, addres_p_path(addres_p) %></td>
+        <td><%= addres_p.subj %></td>
+        <td><%= addres_p.indx %></td>
+        <td><%= addres_p.okato %></td>
+        <td><%= addres_p.rnname %></td>
+        <td><%= addres_p.npname %></td>
+        <td><%= addres_p.ul %></td>
+        <td><%= addres_p.dom %></td>
+        <td><%= addres_p.korp %></td>
+        <td><%= addres_p.kv %></td>
+        <td><%= addres_p.person_id %></td>
+        <td><%=l addres_p.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_addres_p_path(addres_p), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      addres_p_path(addres_p),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_addres_p_path,
+            :class => 'btn btn-primary' %>

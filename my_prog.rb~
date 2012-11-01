@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+
+file = File.open( "Subekti" )
+ file.each { |line|  
+   sim = { kdnpt: "", namenpt: "", kdobl: "", kdate: "", okato: "" }
+   st = line
+   st = st.chomp("\n")
+   ar = []
+   ar = st.split("\t") 
+   
+  i = 0
+  sim.each{|k,v| 
+	  sim[k] = ar[i] 
+	  i+= 1 }
+   p sim
+ }
+  
+file.close

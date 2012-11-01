@@ -1,0 +1,31 @@
+class CreateOps < ActiveRecord::Migration
+  def change
+    create_table :ops, :id => false do |t|
+      t.string :n_rec, :limit => 36
+      t.integer :id, :null => true
+      t.string :tip_op
+      t.references :user
+      t.references :person
+      t.references :doc
+      t.references :old_person
+      t.references :old_doc
+      t.references :addres_g
+      t.references :addres_p
+      t.references :vizit
+      t.references :insurance
+      t.references :personb
+
+      t.timestamps
+    end
+    add_index :ops, :user_id
+    add_index :ops, :person_id
+    add_index :ops, :doc_id
+    add_index :ops, :old_person_id
+    add_index :ops, :old_doc_id
+    add_index :ops, :addres_g_id
+    add_index :ops, :addres_p_id
+    add_index :ops, :vizit_id
+    add_index :ops, :insurance_id
+    add_index :ops, :personb_id
+  end
+end

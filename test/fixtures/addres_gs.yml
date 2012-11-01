@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bomg: 1
+  subj: MyString
+  indx: MyString
+  okato: MyString
+  rnname: MyString
+  npname: MyString
+  ul: MyString
+  dom: MyString
+  korp: MyString
+  kv: MyString
+  dreg: 2012-10-08
+  person: 
+
+two:
+  bomg: 1
+  subj: MyString
+  indx: MyString
+  okato: MyString
+  rnname: MyString
+  npname: MyString
+  ul: MyString
+  dom: MyString
+  korp: MyString
+  kv: MyString
+  dreg: 2012-10-08
+  person: 

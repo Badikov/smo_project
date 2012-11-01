@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h3><%=t 'Файлы XML для передачи' %></h3>
+</div>
+
+<% if @a %>
+  <% @a.each do |a| %>
+    <%=link_to a[:name], files_ops_path(a)  %>
+  <% end %>
+
+<% end %>

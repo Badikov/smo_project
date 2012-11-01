@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kod: MyString
+  name11: MyString
+  alfa2: MyString
+  alfa3: MyString
+
+two:
+  kod: MyString
+  name11: MyString
+  alfa2: MyString
+  alfa3: MyString

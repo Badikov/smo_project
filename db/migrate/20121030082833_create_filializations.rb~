@@ -1,0 +1,9 @@
+class CreateFilializations < ActiveRecord::Migration
+  def change
+    create_table :filializations do |t|
+
+      t.references :user
+    end
+    add_index :filializations, :user_id
+  end
+end

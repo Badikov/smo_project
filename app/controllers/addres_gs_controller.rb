@@ -1,0 +1,2 @@
+class AddresGsController < ApplicationController
+end

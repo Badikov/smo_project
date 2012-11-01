@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doctype: MyString
+  docser: MyString
+  docnum: MyString
+  docdate: 2012-10-06
+  name_vp: MyString
+  mr: MyString
+  person: 
+
+two:
+  doctype: MyString
+  docser: MyString
+  docnum: MyString
+  docdate: 2012-10-06
+  name_vp: MyString
+  mr: MyString
+  person: 

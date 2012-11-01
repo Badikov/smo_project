@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fam: MyString
+  im: MyString
+  ot: MyString
+  w: 1
+  dr: 2012-10-31
+  old_enp: 1
+  person: 
+
+two:
+  fam: MyString
+  im: MyString
+  ot: MyString
+  w: 1
+  dr: 2012-10-31
+  old_enp: 1
+  person: 

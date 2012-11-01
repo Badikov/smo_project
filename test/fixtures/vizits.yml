@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dvizit: 2012-10-12
+  method: 1
+  petition: 1
+  rsmo: 1
+  rpolis: 1
+  fpolis: 1
+  person: 
+
+two:
+  dvizit: 2012-10-12
+  method: 1
+  petition: 1
+  rsmo: 1
+  rpolis: 1
+  fpolis: 1
+  person: 

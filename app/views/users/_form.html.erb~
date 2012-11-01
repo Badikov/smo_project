@@ -1,0 +1,15 @@
+
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <!--<% if @user.new_record? %>-->
+    <%= f.input :login %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  <!--<% end %>-->
+  <%= f.input :filial do %>
+    <%= f.select :filial, Filial.all.map { |r| [r.title, r.id] }, :include_blank => true %>
+  <% end %>
+  <%= f.association :roles,   :as => :check_boxes %>
+  <%= f.button :submit %>
+<% end %>

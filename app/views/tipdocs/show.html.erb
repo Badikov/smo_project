@@ -1,0 +1,31 @@
+<%- model_class = Tipdoc -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:iddoc) %>:</strong></dt>
+  <dd><%= @tipdoc.iddoc %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:docname) %>:</strong></dt>
+  <dd><%= @tipdoc.docname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:docser) %>:</strong></dt>
+  <dd><%= @tipdoc.docser %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:docnum) %>:</strong></dt>
+  <dd><%= @tipdoc.docnum %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:datebeg) %>:</strong></dt>
+  <dd><%= @tipdoc.datebeg %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dateend) %>:</strong></dt>
+  <dd><%= @tipdoc.dateend %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              tipdocs_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_tipdoc_path(@tipdoc), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              tipdoc_path(@tipdoc),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

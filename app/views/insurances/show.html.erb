@@ -1,0 +1,29 @@
+<%- model_class = Insurance -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:ter_st) %>:</strong></dt>
+  <dd><%= @insurance.ter_st %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:enp) %>:</strong></dt>
+  <dd><%= @insurance.enp %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ogrnsmo) %>:</strong></dt>
+  <dd><%= @insurance.ogrnsmo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:erp) %>:</strong></dt>
+  <dd><%= @insurance.erp %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vizit_id) %>:</strong></dt>
+  <dd><%= @insurance.vizit_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              insurances_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_insurance_path(@insurance), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              insurance_path(@insurance),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

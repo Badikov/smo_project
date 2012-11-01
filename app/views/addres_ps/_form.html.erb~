@@ -1,0 +1,25 @@
+<%= form.simple_fields_for :addres_p, :html => { :class => 'form-horizontal' } do |f| %>
+  
+  
+      <%= f.input :subj, :label => 'Субъект РФ',  :collection => Subekti.all(:order => :subname),
+		    :label_method => :subname, :value_method => :kod_okato, :include_blank => true,
+		    :input_html => { :class => "span4" } %>
+    
+      <%= f.input :indx, :label => 'Почтовый индекс' %>
+    
+      <%= f.input :okato, :class => 'text_field' %>
+    
+      <%= f.input :rnname, :label => 'Район' %>
+    
+      <%= f.input :npname, :label => 'Населенный пункт' %>
+   
+       <%= f.input :ul, :label => 'Улица' %>
+      
+      <%= f.input :dom, :label => 'Дом' %>
+   
+      <%= f.input :korp, :label => 'Корпус' %>
+    
+      <%= f.input :kv, :label => 'Квартира' %>
+    
+  
+<% end %>

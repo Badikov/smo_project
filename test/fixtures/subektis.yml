@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kod_tf: MyString
+  subname: MyString
+  kod_okato: MyString
+
+two:
+  kod_tf: MyString
+  subname: MyString
+  kod_okato: MyString

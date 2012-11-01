@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  n_rec: MyString
+  id: 1
+  tip_op: MyString
+  user: 
+  person: 
+  doc: 
+  old_person: 
+  old_doc: 
+  addres_g: 
+  addres_p: 
+  vizit: 
+  insurance: 
+  personb: 
+
+two:
+  n_rec: MyString
+  id: 1
+  tip_op: MyString
+  user: 
+  person: 
+  doc: 
+  old_person: 
+  old_doc: 
+  addres_g: 
+  addres_p: 
+  vizit: 
+  insurance: 
+  personb: 

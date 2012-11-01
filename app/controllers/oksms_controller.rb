@@ -1,0 +1,7 @@
+class OksmsController < ApplicationController
+  def index
+    @oksm = Oksm.order(:alfa3).where("alfa3 like ?", "%#{params[:term]}%")
+    
+    render json: @oksm.map(&:alfa3)
+  end
+end

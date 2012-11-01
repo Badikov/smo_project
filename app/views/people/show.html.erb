@@ -1,0 +1,125 @@
+<%- model_class = Person -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
+</div>
+<div class="person-block">
+<div>
+  <p><strong>Застрахованное лицо</strong></p>
+  <%= @person.fam %> <%= @person.im %> <%= @person.ot %><br />
+  
+  <%= @person.w == 0 ? "мужской" : "женский"  %><br />
+  
+  <%= @person.dr %><br />
+  
+  <%= @person.ss %><br />
+  
+  <%= @person.phone %><br />
+  
+  <%= @person.email %><br />
+  
+</div>
+<div>
+  <p><strong>Удостоверение личности</strong></p>
+  <% if @person.doc %>
+    <%= @person.doc.doctype %><br />
+    <%= @person.doc.docser %>
+    <%= @person.doc.docnum %><br />
+    <%= @person.doc.name_vp %><br />
+    <%= @person.doc.docdate %><br />
+    <%= @person.doc.mr %><br />
+  <% end %>
+</div>
+<div>
+  <p><strong>Место жительства</strong></p>
+  <% if @person.addres_g %>
+    <%= @person.addres_g.indx %>
+    <%= @person.addres_g.subj %><br>
+    <%= @person.addres_g.rnname %>
+    <%= @person.addres_g.npname %><br>
+    
+    <%= @person.addres_g.ul %>
+    <%= @person.addres_g.dom %>
+    <%= @person.addres_g.korp %>
+    <%= @person.addres_g.kv %> <br>
+    <%= @person.addres_g.dreg %><br />
+  <% end %>
+</div>
+  <% if @person.fiopr != "" %>
+    <div>
+      <p><strong>Сведения о представителе</strong></p>
+      <%= @person.fiopr %><br>
+      
+      <%= @person.contact %>
+    </div>
+  <% end %>
+</div>
+<%  @vizit = Vizit.new %>
+<!--<% @vizit.person_id = @person.id %>-->
+<% @vizit.build_insurance %>
+<% @vizit.insurance.build_polis %>
+<%= simple_form_for @vizit, :url => '/vizits', :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :person_id %>
+  
+  <%= render :partial => 'insurances/form', :locals => {:form => f} %>
+  
+  <%= f.input :dvizit, :label => "Дата обращения ЗЛ", :as => :date, :end_year => Date.today.year,:order => [:day, :month, :year] %>
+<% if @person.fiopr != "" %>
+	<%= f.input :method, :label => 'Способ подачи заявления', 
+			:as => :select, :include_blank => false,
+			:collection => [
+			["через представителя",2]],
+			:input_html => { :class => "span4" }%>
+  <% else %>
+	<%= f.input :method, :label => 'Способ подачи заявления', 
+			:as => :select, :include_blank => false,
+			:collection => [
+			["лично",1],
+			["через официальный сайт ТФОМС",3],
+			["через единый портал государственных услуг",4]], 
+			:input_html => { :class => "span4" }%>
+<% end %>
+  <%= f.input :petition, :label => 'Подано ходатайство', :as => :boolean %>
+  <%= f.input :rsmo, :label => 'Причина подачи заявления о выборе(замене) СМО', 
+		  :as => :select, :include_blank => false,
+		  :collection => [
+		  ["первичный выбор СМО",1],
+		  ["замена СМО в соответствии с правом замены",2],
+		  ["замена СМО в связи со сменой места жительства",3],
+		  ["замена СМО в связи с прекращением действия договора",4]], 
+		  :input_html => { :class => "span5" } %>
+  <%= f.input :rpolis, :label => 'Причина подачи заявления о выдаче дубликата или переоформлении полиса', 
+		  :as => :select, 
+		  :collection => [
+		  ["изменение реквизитов",1],
+		  ["установление ошибочности сведений",2],
+		  ["ветхость и непригодность полиса",3],
+		  ["утрата ранее выданного полиса",4],
+		  ["окончание срока действия полиса",5]], 
+		  :input_html => { :class => "span3" } %>
+  <%= f.input :fpolis, :label => 'Выбранная форма изготовления полиса', 
+		  :as => :select, :include_blank => false,
+		  :collection => [
+		  ["не требует изготовления полиса",0],
+		  ["бумажный бланк",1],
+		  ["пластиковая карта",2],
+		  ["в составе УЭК",3]],
+		  :input_html => { :class => "span3" } %>
+		  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    
+  </div>
+<% end %>
+
+
+<!--<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              people_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_person_path(@person), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              person_path(@person),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>-->

@@ -1,0 +1,13 @@
+<%= simple_form_for @tipdoc, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :iddoc %>
+  <%= f.input :docname %>
+  <%= f.input :docser %>
+  <%= f.input :docnum %>
+  <%= f.input :datebeg %>
+  <%= f.input :dateend %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tipdocs_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<%- model_class = Person -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "Search #{model_class.model_name.human}") %></h3>
+</div>
+<%= render :partial => 'part' %>
+
+<% if  @responce %>
+  <p> 
+    <b>Tags:</b> 
+    
+  </p>
+  <% end %>

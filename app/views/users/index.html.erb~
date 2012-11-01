@@ -1,0 +1,40 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => model_class.model_name.human.pluralize %></h3>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:login) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= "Roles" %></th>
+      <th><%= "Filial" %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+	<td><%= link_to user.name, user_path(user) %></td>
+	<td><%= user.login %></td>
+	<td><%= user.email %></td>
+	<td><ul>
+	  <% user.roles.each do |role| %>
+	    <li><%= role.title %></li>
+	  <% end %>
+	</ul></td>
+	<td>
+	<%= user.filial.title %>
+	
+	</td>	
+	<td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,12 @@
+<%= simple_form_for @insurance, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :ter_st %>
+  <%= f.input :enp %>
+  <%= f.input :ogrnsmo %>
+  <%= f.input :erp %>
+  <%= f.input :vizit_id %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                insurances_path, :class => 'btn' %>
+  </div>
+<% end %>

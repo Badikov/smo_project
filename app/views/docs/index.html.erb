@@ -1,0 +1,48 @@
+<%- model_class = Doc -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:doctype) %></th>
+      <th><%= model_class.human_attribute_name(:docser) %></th>
+      <th><%= model_class.human_attribute_name(:docnum) %></th>
+      <th><%= model_class.human_attribute_name(:docdate) %></th>
+      <th><%= model_class.human_attribute_name(:name_vp) %></th>
+      <th><%= model_class.human_attribute_name(:mr) %></th>
+      <th><%= model_class.human_attribute_name(:person_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @docs.each do |doc| %>
+      <tr>
+        <td><%= link_to doc.id, doc_path(doc) %></td>
+        <td><%= doc.doctype %></td>
+        <td><%= doc.docser %></td>
+        <td><%= doc.docnum %></td>
+        <td><%= doc.docdate %></td>
+        <td><%= doc.name_vp %></td>
+        <td><%= doc.mr %></td>
+        <td><%= doc.person_id %></td>
+        <td><%=l doc.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_doc_path(doc), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      doc_path(doc),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_doc_path,
+            :class => 'btn btn-primary' %>

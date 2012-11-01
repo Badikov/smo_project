@@ -1,0 +1,28 @@
+<%= form.simple_fields_for @predstav, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= field_set_tag 'Сведения о представителе' do %>
+  
+      <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+ 
+      <%= f.input :im, :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+    
+      <%= f.input :ot, :label => 'Отчество', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+    
+      <%= f.input :parents, :label => 'Отношение к застрахованному',
+		  :as => :select, :include_blank => true, 
+		  :collection => [["мать",'мать'],["отец",'отец'],["иное",'иное']]%>
+    
+      <%= f.input :doctype, :collection => Tipdoc.all(:order => :docname),
+		    :label_method => :docname, :value_method => :iddoc, :include_blank => true, 
+		    :label => 'Документ', :priority => [ "Паспорт гражданина Российской Федерации" ], 
+		    :input_html => { :class => "span6" }%>
+    
+      <%= f.input :docser, :label => 'Серия' %>
+   
+      <%= f.input :docnum, :label => 'Номер' %>
+      
+      <%= f.input :docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 20,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+   
+      <%= f.input :phone, :label => 'Телефон', :as => :tel %>
+   
+  <% end %>
+<% end %>

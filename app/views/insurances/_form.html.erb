@@ -1,0 +1,16 @@
+<%= form.simple_fields_for :insurance, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :ter_st, :input_html => { :value => @person.addres_p.subj.empty? ? @person.addres_g.subj : @person.addres_p.subj } %>
+  <%= f.input :ogrnsmo, :input_html => { :value => '1042201923720' } %>
+  <%= f.input :erp, :label => 'зарегистрирован в ЦС ЕРП', :as => :boolean %>
+  <%= f.input :enp, :label =>  'Действующий Единый номер полиса ОМС'%>
+  <%= f.simple_fields_for :polis, :html => { :class => 'form-horizontal' } do |fpol| %>
+    <%= fpol.input :spolis, :label => 'Серия полиса' %>
+    <%= fpol.input :npolis, :label => 'Номер полиса' %>
+    <%= fpol.input :dstop, :label => 'дата окончания действия ЕНП', :include_blank => true,:as => :date, :start_year => Date.today.year,:end_year => Date.today.year + 40,:order => [:day, :month, :year] %>
+    <%= fpol.input :vpolis %>
+    <%= fpol.input :dbeg, :as => :date, :include_blank => true %>
+    <%= fpol.input :dend, :as => :date, :include_blank => true %>
+  <% end %>
+  
+   
+<% end %>

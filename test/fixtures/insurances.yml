@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ter_st: MyString
+  enp: 1
+  ogrnsmo: MyString
+  erp: 1
+  vizit: 
+
+two:
+  ter_st: MyString
+  enp: 1
+  ogrnsmo: MyString
+  erp: 1
+  vizit: 

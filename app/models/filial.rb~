@@ -1,0 +1,5 @@
+class Filial < ActiveRecord::Base
+  belongs_to :filialization
+  
+  attr_accessible :title
+end

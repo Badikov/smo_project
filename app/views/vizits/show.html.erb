@@ -1,0 +1,33 @@
+<%- model_class = Vizit -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:dvizit) %>:</strong></dt>
+  <dd><%= @vizit.dvizit %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:method) %>:</strong></dt>
+  <dd><%= @vizit.method %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:petition) %>:</strong></dt>
+  <dd><%= @vizit.petition %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rsmo) %>:</strong></dt>
+  <dd><%= @vizit.rsmo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rpolis) %>:</strong></dt>
+  <dd><%= @vizit.rpolis %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fpolis) %>:</strong></dt>
+  <dd><%= @vizit.fpolis %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:person_id) %>:</strong></dt>
+  <dd><%= @vizit.person_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              vizits_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_vizit_path(@vizit), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              vizit_path(@vizit),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

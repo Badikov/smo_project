@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subj: MyString
+  indx: MyString
+  okato: MyString
+  rnname: MyString
+  npname: MyString
+  ul: MyString
+  dom: MyString
+  korp: MyString
+  kv: MyString
+  person: 
+
+two:
+  subj: MyString
+  indx: MyString
+  okato: MyString
+  rnname: MyString
+  npname: MyString
+  ul: MyString
+  dom: MyString
+  korp: MyString
+  kv: MyString
+  person: 

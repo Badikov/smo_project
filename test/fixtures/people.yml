@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fam: MyString
+  im: MyString
+  ot: MyString
+  w: 1
+  dr: 2012-10-06
+  true_dr: 1
+  c_oksm: MyString
+  ss: MyString
+  phone: MyString
+  email: MyString
+  fiopr: MyString
+  contact: MyString
+  ddeath: 2012-10-06
+
+two:
+  fam: MyString
+  im: MyString
+  ot: MyString
+  w: 1
+  dr: 2012-10-06
+  true_dr: 1
+  c_oksm: MyString
+  ss: MyString
+  phone: MyString
+  email: MyString
+  fiopr: MyString
+  contact: MyString
+  ddeath: 2012-10-06

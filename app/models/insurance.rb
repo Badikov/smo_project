@@ -1,0 +1,8 @@
+class Insurance < ActiveRecord::Base
+  belongs_to :vizit
+  has_one :polis, :dependent => :destroy
+  
+  attr_accessible :enp, :erp, :ogrnsmo, :ter_st, :polis_attributes
+  
+  accepts_nested_attributes_for :polis
+end

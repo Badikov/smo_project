@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kdnpt: MyString
+  namenpt: MyString
+  kdobl: MyString
+  kdate: MyString
+  okato: MyString
+
+two:
+  kdnpt: MyString
+  namenpt: MyString
+  kdobl: MyString
+  kdate: MyString
+  okato: MyString

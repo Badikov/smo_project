@@ -1,0 +1,28 @@
+<%= form.simple_fields_for :addres_g, :html => { :class => 'form-horizontal' } do |f| %>
+  
+       <%= f.input :bomg, :label => 'БОМЖ', :as => :boolean %>
+    
+       <%= f.input :subj, :label => 'Субъект РФ',  :collection => Subekti.all(:order => :subname),
+		    :label_method => :subname, :value_method => :kod_okato, :include_blank => false,
+		    :input_html => { :class => "span4" }%>
+   
+       <%= f.input :indx, :label => 'Почтовый индекс' %>
+    
+       <%= f.input :okato %>
+    
+       <%= f.input :rnname, :label => 'Район' %>
+    
+      <%= f.input :npname, :label => 'Населенный пункт' %>
+   
+       <%= f.input :ul, :label => 'Улица', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+      
+      <%= f.input :dom, :label => 'Дом' %>
+   
+      <%= f.input :korp, :label => 'Корпус' %>
+    
+      <%= f.input :kv, :label => 'Квартира' %>
+    
+      <%= f.input :dreg, :label => 'Дата регистрации', :include_blank => true, :as => :date, :start_year => Date.today.year - 40,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+    
+  <!--, :input_html => {:type => 'hidden'}-->
+<% end %>

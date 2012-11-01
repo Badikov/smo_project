@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iddoc: MyString
+  docname: MyString
+  docser: MyString
+  docnum: MyString
+  datebeg: 2012-10-15
+  dateend: 2012-10-15
+
+two:
+  iddoc: MyString
+  docname: MyString
+  docser: MyString
+  docnum: MyString
+  datebeg: 2012-10-15
+  dateend: 2012-10-15

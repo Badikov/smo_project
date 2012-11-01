@@ -1,0 +1,16 @@
+<%= form_tag('/people/result', :method => :get) do %>
+
+  <%= label_tag 'fam', 'Фамилия' %>
+
+  <%= text_field_tag 'fam' %>
+  
+  <%= label_tag 'im', 'Имя' %>
+  
+  <%= text_field_tag 'im' %>
+  
+  <%= label_tag 'ot', 'Отчество' %>
+  
+  <%= text_field_tag 'ot' %>
+  
+  <p><%= button_tag "Search", :disable_with => "Please wait..." %></p>
+<% end %>

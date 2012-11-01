@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vpolis: 1
+  npolis: MyString
+  spolis: MyString
+  dbeg: 2012-10-22
+  dend: 2012-10-22
+  dstop: 2012-10-22
+  insurance: 
+
+two:
+  vpolis: 1
+  npolis: MyString
+  spolis: MyString
+  dbeg: 2012-10-22
+  dend: 2012-10-22
+  dstop: 2012-10-22
+  insurance: 

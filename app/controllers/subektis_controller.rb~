@@ -1,0 +1,2 @@
+class SubektisController < ApplicationController
+end
