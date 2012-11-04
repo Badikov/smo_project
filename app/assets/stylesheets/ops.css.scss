@@ -1,3 +1,33 @@
 // Place all the styles related to the Ops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin  float {
+  float: left;
+  margin-right: 80px;
+}
+
+#ops {
+  #ops_form {
+    button {
+      margin-bottom: 9px;
+    }
+    @include float
+  }
+  
+  #ops_links {
+    a {
+      display: block;
+      margin-bottom: 9px;
+      &:hover {
+	text-decoration: none;
+      }
+    }
+    @include float
+  }
+  
+  overflow: hidden;
+  position: relative;
+  
+  
+}

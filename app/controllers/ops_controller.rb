@@ -1,23 +1,36 @@
 # encoding: utf-8
 class OpsController < ApplicationController
-   require 'builder'
+  require 'builder'
+  
+  #for CanCan
+#   load_and_authorize_resource
+  
+  @@where_str =DateTime 
    
-   
-   def upload
-     @a=[]
-     ops = Op.select("DISTINCT user_id").all
+  def upload
+
+    respond_to do |format|
+#       flash[:notice] = "Your account has been created."
+      format.html # upload.html.erb
+#       format.json { render json: @a }
+    end
+  end
+  def create_links
+    d = params[:date]
+ #     Thu Nov 01 2012 00:00:00 GMT+0700 (NOVT) 
+    d = DateTime.strptime(d, "%a %b %d %Y %H:%M:%S GMT%z") #if d.empty?
+    @a=[]
+    @@where_str = d
+     ops = Op.select("DISTINCT user_id").where(updated_at: (d.beginning_of_day)..(d.end_of_day))
      fil = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops.map(&:user_id)}) 
      
      fil.each do |f|
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(Time.now.day.to_s) + Time.now.month.to_s + Time.now.year.to_s + "1.xml", id: f[:id]}
+       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + d.month.to_s + d.year.to_s + "1.xml", id: f[:id]}
      end
-
-    respond_to do |format|
-      format.html # upload.html.erb
-      format.json { render json: @a }
-    end
-   end
-   
+#     @a << { name:"i42007_1_021120121.xml", id: 1 } << { name:"i42007_2_021120121.xml", id: 2 } << { name:"i42007_3_021120121.xml", id: 3 }
+     
+     render json: @a
+  end
   
  
   def files
@@ -29,15 +42,14 @@ class OpsController < ApplicationController
 
     win1251 = out_data#.encode('Windows-1251', 'UTF-8', :xml => :text)
     send_data( win1251, :type => "text/xml", :filename => file_name )
-  end 
+  end
+  #!!!!!!!!!!!!!!!!Запрос данных из базы
   def generate_builder(par)
-    
-  
     _users = User.select("users.id").joins(:filials).where(:filials => { id: par[:id] })
     
-    
     ops = []
-    _ops = Op.select("n_rec,id,tip_op,person_id").where(:user_id => _users.map(&:id))                   #updated_at: (Time.now.midnight - 4.day)..Time.now.midnight)
+    #!!!!!!!!!! отбирает записи по массиву юзеров одного филиала и дате
+    _ops = Op.select("n_rec,id,tip_op,person_id").where(:user_id => _users.map(&:id), :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))                   #updated_at: (Time.now.midnight - 4.day)..Time.now.midnight)
       _ops.each do |op_item|
 	tmp = {}
 	  op_item.instance_variables.each do |var|
@@ -131,8 +143,8 @@ class OpsController < ApplicationController
                               doc.dreg( op[:addres_g]["dreg"] )
                                }
                   doc.addres_p{
-                               if op[:addres_p]
-				  doc.subj( op[:addres_p]["subj"] )
+                               if op[:addres_p] #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
+				  doc.subj( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
 				  doc.indx( op[:addres_p]["indx"] )
 				  doc.okato( op[:addres_p]["okato"] )
 				  doc.rnname( op[:addres_p]["rnname"] )

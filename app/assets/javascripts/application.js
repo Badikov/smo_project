@@ -11,7 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery.ui.all
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-ru
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .

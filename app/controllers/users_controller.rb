@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+#      authorize! :read, @users
   end
   def new
     @user = User.new
@@ -19,8 +20,8 @@ class UsersController < ApplicationController
     # auto-login which can't happen here because
     # the User has not yet been activated
     if @user.save
-      flash[:notice] = "Your account has been created."
-      redirect_to people_path#signup_url
+      flash[:notice] = "Новый пользователь успешно добавлен."
+      redirect_to home_path#signup_url
     else
       flash[:notice] = "There was a problem creating you."
       render :action => :new
@@ -33,13 +34,14 @@ class UsersController < ApplicationController
   end
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    params.include?([:id]) ? @user = User.find(params[:id]) : @user = current_user
+    
   end
 
   def update
     @user = User.find(params[:id]) #current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
+      flash[:notice] = "Акаунт обнавлен!"
       redirect_to account_url
     else
       render :action => :edit

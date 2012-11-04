@@ -21,7 +21,7 @@
 	<td><%= user.email %></td>
 	<td><ul>
 	  <% user.roles.each do |role| %>
-	    <li><%= role.title %></li>
+	    <li><%= role.to_s %></li>
 	  <% end %>
 	</ul></td>
 	<td>
@@ -31,12 +31,16 @@
 	
 	</td>	
 	<td>
+	<% if can? :update, User %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini' %>
+        <% end %> 
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% if can? :create, User %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_user_path,
             :class => 'btn btn-primary' %>
+ <% end %>

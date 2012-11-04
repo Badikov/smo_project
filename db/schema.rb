@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031041351) do
+ActiveRecord::Schema.define(:version => 20121104070948) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(:version => 20121031041351) do
   end
 
   add_index "addres_ps", ["person_id"], :name => "index_addres_ps_on_person_id"
-
-  create_table "assignments", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
 
   create_table "docs", :force => true do |t|
     t.string   "doctype"
@@ -220,8 +215,12 @@ ActiveRecord::Schema.define(:version => 20121031041351) do
   add_index "polis", ["insurance_id"], :name => "index_polis_on_insurance_id"
 
   create_table "roles", :force => true do |t|
-    t.string "title"
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
 
   create_table "subektis", :force => true do |t|
     t.string   "kod_tf"
@@ -241,6 +240,15 @@ ActiveRecord::Schema.define(:version => 20121031041351) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "user_roles", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "role_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_roles", ["user_id", "role_id"], :name => "index_user_roles_on_user_id_and_role_id"
 
   create_table "user_sessions", :force => true do |t|
     t.string   "session_id", :null => false

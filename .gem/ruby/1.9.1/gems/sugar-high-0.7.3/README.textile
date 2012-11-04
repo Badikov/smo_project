@@ -1,0 +1,306 @@
+h1. Sugar high!
+
+Inspired by the 'zucker' project.
+
+!https://secure.travis-ci.org/kristianmandrup/sugar-high.png(Build Status)!:http://travis-ci.org/kristianmandrup/sugar-high
+
+h2. Install
+
+<code>gem install sugar-high</code>
+
+h2. Usage
+
+See specs for example use
+
+h2. Update Aug 21, 2011
+
+Extracted *file_mutate* and *sweetloader* gems.
+
+Only tested for Ruby 1.9.2 and 1.9.3. Using *Travis CI*.
+
+h2. Sugar packs
+
+* alias
+* arguments
+* array
+* blank
+* class_ext
+* delegate (extracted from Active Support)
+* dsl
+* enumerable
+* file
+* includes
+* kind_of
+* math
+* metaclass
+* methods
+* module
+* not
+* numeric
+* path
+* properties
+* reg_exp
+
+* rails
+  * concerns
+
+h3. Alias
+
+* multi_alias name, options_hash : creates multiple aliases using patterns
+
+h3. Arguments
+
+* args (Used in generator CLI testing)
+* last_option *args : Returns last argument if hash or empty hash otherwise
+* ...
+
+h3. Array
+
+* pick_one! - pick one random item
+* pick (n) - pick n random item
+* to_symbols
+* to_symbols_uniq
+* to_strings
+* flat_uniq
+* file_join
+* ...
+
+h3. Blank
+
+* blank?
+
+h3. Class Extension
+
+* autoload_modules (by @stanislaw)
+
+Makes it easy to autoload multiple modules by standard folder-to-module mapping convention
+
+* is_class?
+* is_module?
+* class_exists?
+* module_exists?
+* try_class
+* try_module
+* try_module_only
+* find_first_class(*class_names)
+* find_first_module(*module_names)
+
+Note: This pack has recently been extracted into its own gem called *sweet_loader*
+
+h3. Delegate
+
+Extracted from Active Support core extensions:
+
+See "Delegate":http://apidock.com/rails/Module/delegate
+
+@activesupport/lib/active_support/core_ext/module/delegation.rb@
+
+h3. DSL
+
+by @stanislaw
+
+* with(instance, *args &block)
+
+Useful as a building block for DSLs!
+
+<pre>
+with(Hash.new) do
+  merge!(:a => 1)
+  merge!(:b => 2)
+end.should == {:a => 1, :b => 2}
+
+with(Hash.new, :ready => true) do |options|
+  ...
+end
+
+with(Hash.new, 1,2,3) do |*args|
+  ...
+end
+</pre>
+
+h3. Enumerable
+
+* only_kinds_of?(*modules)
+* only_labels?
+* select_kinds_of(*modules)
+* select_kinds_of!
+* select_labels
+* select_labels!
+* select_symbols
+* select_symbols!
+* select_uniq_symbols!
+* select_strings
+* select_strings!
+* select_only(type)
+* select_only!(type)
+
+h3. File
+
+* self.blank? and blank? : Is file empty?
+* self.overwrite : overwrite file with new content (mode = 'w')
+* self.append : append to existing file with content or create new (mode = 'w+')
+
+h3. Hash
+
+* hash_revert : Reverse keys and values
+* try_keys : return value of first key that is in Hash
+
+h3. Includes
+
+* includes : Includes modules listed as symbols
+
+h3. Kind of
+
+* any_kind_of? *const_list
+* kind_of_label? : Symbol or String ?
+
+h3. Metaclass
+
+* metaclass : Get the metaclass, can be used to dynamically add class singleton methods!
+
+h3. Methods
+
+* get_methods *types : Get collection of methods, fx :private and :protected (or :all)
+
+h3. Module
+
+* modules *names
+* nested_modules *names
+
+Create empty namespaces
+
+h3. Not
+
+* not
+
+Adds the _#not_ method to Object, so you can say fx: <code>if x.not.empty?</code>
+
+h3. Numeric
+
+module _NumericCheckExt_
+
+* is_numeric?(arg) - alias numeric?
+* check_numeric!(arg) - raises error if argument is not numeric
+
+module NumberDslExt added to all numeric classes (Float and Numeric)
+* thousand
+* hundred
+
+<pre>3.thousand + 2.hundred 
+  => 3200
+</pre>
+
+h3. Path
+* String#path - extends String instance with PathString
+
+module PathString
+* to_file
+* to_dir
+* to_symlink
+
+<pre>
+"a/b/c".to_dir
+"a/b/c/d.rb".to_file
+</pre>
+
+File type existance
+* exists?
+* file?
+* dir?
+* symlink?
+
+Navigate dirs
+* up
+* down
+* post_up
+* post_down
+
+<pre>
+"a/b/c/d".up(2).should == "a/b"
+"a/b/".post_up(2).should == "a/b/../../"  
+"a/b/../".post_down(1).should == "a/b/"  
+</pre>
+
+h3. Properties
+
+<pre>
+class CruiseShip
+  extend Properties
+
+  property :direction
+  property :speed, is(0..300)
+end
+
+ship = CruiseShip.new
+ship.add_direction_listener(lambda {|x| puts "Oy... someone changed the direction to #{x}"})    
+ship.speed = 200
+ship.speed = 301 # outside valid range!
+</pre>
+
+h3. RegExp
+
+String, RegExp
+* to_regexp
+
+<pre>"a, b /c".to_regexp # escapes it for reg exp!</pre>
+
+MatchData
+* offset_after
+* offset_before
+
+h3. RSpec 2 Matchers
+
+* have_aliases(method, *alias_methods)  
+
+<pre>
+  require 'sugar-high/rspec'
+
+  have_aliases :original, :alias_1, :alias2
+</pre>
+
+h3. Rails
+
+Currently the following Rails packs are included:
+
+* concerns
+
+More to follow in the future...
+
+h4. Concerns
+
+@require 'rails/concerns'@
+
+Useful concern pattern in order to include concern modules into Rails models (or even controllers etc.) 
+
+* concerned_with *concern_modules
+* include_concerns *concern_modules
+* shared_concerns *concern_modules
+* include_shared_concerns *concern_modules
+
+h3. String
+
+Class methods
+* random_letters
+* letters
+
+Instance methods
+* alpha_numeric
+* insert_before_last
+
+If not already defined
+* trim
+* concat
+
+h2. Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+h2. Copyright
+
+Copyright (c) 2010 Kristian Mandrup. See LICENSE for details.

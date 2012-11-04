@@ -1,19 +1,18 @@
 class User < ActiveRecord::Base
-  has_many :assignments
-  has_many :roles, :through => :assignments
-  
+    
   has_many :filializations
   has_many :filials, :through => :filializations
   
   has_many :ops
   
+  validates_presence_of :name
+  validates_uniqueness_of :name, :email, :case_sensitive => false
+  
   acts_as_authentic do |c|
      c.login_field = 'email'
   end # block optional
   
-  def role_symbols
-    (roles || []).map {|r| r.title.to_sym}
-  end
-
+  simple_roles
+  
   attr_accessible :name, :password, :password_confirmation, :login, :email, :filial_ids, :role_ids, :title
 end

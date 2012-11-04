@@ -21,15 +21,19 @@
 	<td><%= user.email %></td>
 	<td><ul>
 	  <% user.roles.each do |role| %>
-	    <li><%= role.title %></li>
+	    <li><%= role.to_s %></li>
 	  <% end %>
 	</ul></td>
 	<td>
-	<%= user.filial.title %>
+	  <% user.filials.each do |fil| %>
+	    <%= fil.title %>
+	  <% end %>
 	
 	</td>	
 	<td>
+	<% if can? :update, user %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini' %>
+        <% end %> 
         </td>
       </tr>
     <% end %>

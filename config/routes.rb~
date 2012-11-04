@@ -13,11 +13,14 @@ SmoProject::Application.routes.draw do
   match 'login' => 'user_sessions#new',      :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'vizits/new/:id' => 'vizits#new', :as => :new_vizit_person
+  match 'home' => 'home#index', :as => :home
   
   resources :users  # give us our some normal resource routes for users
   resource :user, :as => 'account'  # a convenience route
   match 'signup' => 'users#new', :as => :signup
   
+  resources :filials
+  resources :home
   resources :docs
   resources :addres_gs
   resources :addres_ps

@@ -13,7 +13,7 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'jquery-ui-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
   gem 'twitter-bootstrap-rails'
@@ -21,7 +21,8 @@ group :assets do
 end
 
 gem 'authlogic'#, :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
-gem 'declarative_authorization'#, :git => "git://github.com/stffn/declarative_authorization.git"
+gem 'simple_roles' 
+# gem 'declarative_authorization'#, :git => "git://github.com/stffn/declarative_authorization.git"
 gem 'cancan'
 
 gem 'jquery-rails'

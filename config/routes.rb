@@ -34,6 +34,7 @@ SmoProject::Application.routes.draw do
     collection do
       get 'files'
       get 'upload'
+      get 'create_links'
     end
   end
   

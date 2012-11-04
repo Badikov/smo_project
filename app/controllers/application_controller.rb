@@ -1,16 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+#   check_authorization # проверка авторизации и доступа на всех экшенах всех контроллеров
 
   helper_method :current_user_session, :current_user
-  before_filter :set_current_user
-  protected
-    def set_current_user
-      Authorization.current_user = current_user
-    end
-    def permission_denied
-      flash[:error] = "Sorry, you are not allowed to access that page."
-      redirect_to '/'
-    end
+#   before_filter :set_current_user
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied."
+    redirect_to home_path
+  end
 
   private
     def current_user_session
