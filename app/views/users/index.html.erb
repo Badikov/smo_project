@@ -40,7 +40,9 @@
   </tbody>
 </table>
 <% if can? :create, User %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_path,
-            :class => 'btn btn-primary' %>
- <% end %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+	      new_user_path,
+	      :class => 'btn btn-primary' %>
+  <% end %>
+ <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                home_path, :class => 'btn' %>

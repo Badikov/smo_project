@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  kdatemu: 1
+  kdmu: 1
+  date_z: 2012-11-05
+  date_b: 2012-11-05
+  date_e: 2012-11-05
+  person: 
+
+two:
+  type: 
+  kdatemu: 1
+  kdmu: 1
+  date_z: 2012-11-05
+  date_b: 2012-11-05
+  date_e: 2012-11-05
+  person: 

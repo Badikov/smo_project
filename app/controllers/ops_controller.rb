@@ -143,7 +143,7 @@ class OpsController < ApplicationController
                               doc.dreg( op[:addres_g]["dreg"] )
                                }
                   doc.addres_p{
-                               if op[:addres_p] #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
+                               if op[:addres_p]["okato"] != ""  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
 				  doc.subj( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
 				  doc.indx( op[:addres_p]["indx"] )
 				  doc.okato( op[:addres_p]["okato"] )
@@ -168,12 +168,14 @@ class OpsController < ApplicationController
                                doc.enp( op[:insurance]["enp"] )
                                doc.ogrnsmo( op[:insurance]["ogrnsmo"] )
                                doc.polis{
+                                      if op[:polis]   
                                          doc.vpolis( op[:polis]["vpolis"] )
                                         doc.npolis( op[:polis]["npolis"] )
                                         doc.spolis( op[:polis]["spolis"] )
                                         doc.dbeg( op[:polis]["dbeg"] )
                                         doc.dend( op[:polis]["dend"] )
                                         doc.dstop( op[:polis]["dstop"] )
+                                      end
                                         }
                                doc.erp( op[:insurance]["erp"] )
                                }

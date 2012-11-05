@@ -31,7 +31,7 @@
 	
 	</td>	
 	<td>
-	<% if can? :update, user %>
+	<% if can? :update, User %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini' %>
         <% end %> 
         </td>
@@ -39,6 +39,8 @@
     <% end %>
   </tbody>
 </table>
+<% if can? :create, User %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_user_path,
             :class => 'btn btn-primary' %>
+ <% end %>

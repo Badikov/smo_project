@@ -52,7 +52,7 @@ class VizitsController < ApplicationController
       tip_op = "П032"
     elsif (params[:vizit][:rsmo] == '4' and params[:vizit][:fpolis] == '0' and params[:vizit][:insurance_attributes][:enp] != "" and params[:vizit][:rpolis] == "")
       tip_op = "П033"
-      params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 3
+#       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 3 #!!!!оставляю запись Polis - null для 031,032,033
     elsif (params[:vizit][:rsmo] == '2' and params[:vizit][:fpolis] != '0' and params[:vizit][:rpolis] != "")
       tip_op = "П034"
       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 2
@@ -67,13 +67,15 @@ class VizitsController < ApplicationController
       insert_dates(params, tmp)
     end
     if tip_op != ""
-      
+      if params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] == ""
+	params[:vizit][:insurance_attributes].delete(:polis_attributes)
+      end 
+      params[:vizit].delete(:rpolis) if params[:vizit][:rpolis] == ""
       @vizit = Vizit.create(params[:vizit])
-       
+      
       if @vizit.save 
 	@op = Op.find_by_person_id(params[:vizit][:person_id])
-	@op.update_attributes({ tip_op: tip_op, updated_at: Time.now })
-	
+	@op.update_attributes({ tip_op: tip_op, user_id: current_user })
 	redirect_to @vizit, notice: 'Визит сохранен.'
       else
 	redirect_to action: "new", id: params[:vizit][:person_id]

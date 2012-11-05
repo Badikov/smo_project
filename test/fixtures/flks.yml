@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rez: 1
+  at: 
+
+two:
+  rez: 1
+  at: 

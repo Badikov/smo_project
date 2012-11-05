@@ -4,7 +4,7 @@
   
   <div class="form-actions">
     <%= f.button :submit %>
-    <% if !@filial.new_record? %>
+    <% if @filial.new_record? %>
       <%= link_to t('.show', :default => t("helpers.links.show")),
 		  @filial, :class => 'btn' %>
     <% end %>

@@ -16,7 +16,7 @@
 		  :collection => [[ 'Дата достоверна', 1 ], ['Известны достоверно только месяц и год рождения', 2], ['Известен достоверно только год рождения', 3]],
 		  :input_html => { :class => "span5" } %>
     
-      <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', :hint => 'например RUS... Б/Г - без гражданства', :input_html => {data: {autocomplete_source: oksms_path}} %>
+      <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', :hint => 'например RUS... Б/Г - без гражданства', :input_html => {value: 'RUS', data: {autocomplete_source: oksms_path}} %>
     
       <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX' %>
       
@@ -50,7 +50,7 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary', :id => '0856' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                people_path, :class => 'btn' %>
+                home_path, :class => 'btn' %>
   </div>
 <% end %>
 

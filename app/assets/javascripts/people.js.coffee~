@@ -32,7 +32,7 @@ jQuery ->
 #       okato.hide()
       $("#pet_dog").attr checked: 'checked'
       adres.hide()
-	
+
       
   $("#pet_dog").click ->
     if @checked
@@ -45,9 +45,9 @@ jQuery ->
   $("#person_doc_attributes_doctype").change ->
     $("#person_doc_attributes_doctype option:selected").each ->
       if @value is "9"
-	ig.show()
+       ig.show()
       else
-	ig.hide()
+       ig.hide()
  
     
   $('#person_c_oksm').autocomplete
@@ -58,12 +58,12 @@ jQuery ->
    
 #   
      
-   $('#person_addres_p_attributes_npname, #person_addres_g_attributes_npname').autocomplete
+  $('#person_addres_p_attributes_npname, #person_addres_g_attributes_npname').autocomplete
      source:(request,response) ->
        $.ajax url: '/okatos', 
- 	     dataType: "json", 
- 	     data: (maxRows: 12,term: request.term.toUpperCase(), featureClass: "P", style: "full"), 
- 	     success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
+             dataType: "json", 
+             data: (maxRows: 12,term: request.term.toUpperCase(), featureClass: "P", style: "full"), 
+             success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
      minLength: 2,
      open: -> $(@).removeClass("ui-corner-all").addClass("ui-corner-top"), 
      close: -> $(@).removeClass("ui-corner-top").addClass("ui-corner-all"),
@@ -74,7 +74,8 @@ jQuery ->
       _id = _id.slice(0,27).concat("okato")
       $("input#" + _id).attr value: _okato
       
-	
+  $("#new_person").keydown (event) -> 
+   e = event || window.event
       
     
   #console.log(states) .toUpperCase()

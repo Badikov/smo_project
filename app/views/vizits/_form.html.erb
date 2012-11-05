@@ -22,9 +22,9 @@
 			["через единый портал государственных услуг",4]], 
 			:input_html => { :class => "span4" }%>
 <% end %>
-  <%= f.input :petition, :label => 'Подано ходатайство', :as => :boolean %>
+  <%= f.input :petition, :inline_label => 'Подано ходатайство', :as => :boolean %>
   <%= f.input :rsmo, :label => 'Причина подачи заявления о выборе(замене) СМО', 
-		  :as => :select, :include_blank => false,
+		   :include_blank => false,
 		  :collection => [
 		  ["первичный выбор СМО",1],
 		  ["замена СМО в соответствии с правом замены",2],

@@ -1,19 +1,24 @@
 
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   
-  <% if @user == current_user %>
+  <% if (@user == current_user) and (cannot? :create, User) %>
     <%= f.input :name, :label => 'Имя, фамилия', :input_html => {disabled: 'disabled'} %>
     <%= f.input :email, :input_html => {disabled: 'disabled'} %>
     <%= f.input :password, :label => 'Новый пароль' %>
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>
   <% else %>
     <%= f.input :name %>
-    <%= f.input :login %>
+    <%= f.input :login, :input_html => @user.new_record? ? {} : {disabled: 'disabled'} %>
     <%= f.input :email %>
     <%= f.input :password, :label => @user.new_record? ? 'Пароль': 'Новый пароль' %>
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>
     <%= f.association :filials,   :as => :select %>
     <%= f.association :roles,   :as => :check_boxes %>
   <% end %>
-  <%= f.button :submit %>
+  
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                home_path, :class => 'btn' %>
+  </div>
 <% end %>
