@@ -9,8 +9,8 @@ jQuery ->
  pervichniy_vibor_smo.hide()
  $("label[for='vizit_insurance_attributes_erp'], label[for='vizit_petition']").hide()
  $('#vizit_insurance_attributes_erp').removeAttr 'checked' #!!!!!!!начальные настройки на первичный выбор смо
- 
- $("#vizit_rsmo option[value=1]").attr selected: "selected", disabled: 'disabled'
+ $("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
+ $("#vizit_rsmo option[value=1]").attr selected: "selected"
  $("#vizit_fpolis option[value=1]").attr selected: "selected"
  #!!!!!!!!!!!!!!!!!!!!!!!! клик по флажку Зарегестрирован и ЕРП
  $('#vizit_insurance_attributes_erp').click ->
@@ -18,9 +18,11 @@ jQuery ->
      pervichniy_vibor_smo.show()
      zamena_smo.hide()
      $("#vizit_rsmo option[value=1]").removeAttr 'selected'
+     $("#vizit_rsmo option[value=1]").attr disabled: 'disabled'
      $("#vizit_rsmo option[value=2]").attr selected: "selected"
      $("#vizit_rpolis option[value='']").attr selected: "selected"
      $("#vizit_fpolis option[value=1]").removeAttr 'selected'
+     $("#vizit_fpolis option[value=0]").removeAttr 'disabled'
      $("#vizit_fpolis option[value=0]").attr selected: "selected"
      
    else #!!!!!!!!!!!!!!!!!!!!! первичный выбор смо
@@ -29,8 +31,10 @@ jQuery ->
      $("#vizit_rpolis option[value='']").removeAttr 'selected'
      $("#vizit_rsmo option[value=2]").removeAttr 'selected'
      $("#vizit_rsmo option[value=1]").attr selected: "selected"
+     $("#vizit_rsmo option[value=1]").removeAttr 'disabled'
      $("#vizit_fpolis option[value=0]").removeAttr 'selected'
      $("#vizit_fpolis option[value=1]").attr selected: "selected"
+     $("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
  
  $('#vizit_rpolis').change ->
    $("#vizit_rpolis option:selected").each ->

@@ -46,25 +46,32 @@ class VizitsController < ApplicationController
       tip_op = "П010"
       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 2
       insert_dates(params, tmp)
+      
     elsif (params[:vizit][:rsmo] == '2' and params[:vizit][:fpolis] == '0' and params[:vizit][:insurance_attributes][:enp] != "" and params[:vizit][:rpolis] == "")
       tip_op = "П031"
+      
     elsif (params[:vizit][:rsmo] == '3' and params[:vizit][:fpolis] == '0' and params[:vizit][:insurance_attributes][:enp] != "" and params[:vizit][:rpolis] == "")
       tip_op = "П032"
+      
     elsif (params[:vizit][:rsmo] == '4' and params[:vizit][:fpolis] == '0' and params[:vizit][:insurance_attributes][:enp] != "" and params[:vizit][:rpolis] == "")
       tip_op = "П033"
+      
 #       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 3 #!!!!оставляю запись Polis - null для 031,032,033
     elsif (params[:vizit][:rsmo] == '2' and params[:vizit][:fpolis] != '0' and params[:vizit][:rpolis] != "")
       tip_op = "П034"
       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 2
       insert_dates(params, tmp)
+      
     elsif (params[:vizit][:rsmo] == '3' and params[:vizit][:fpolis] != '0' and params[:vizit][:rpolis] != "")
       tip_op = "П035"
       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 2
       insert_dates(params, tmp)
+      
     elsif (params[:vizit][:rsmo] == '4' and params[:vizit][:fpolis] != '0' and params[:vizit][:rpolis] != "")
       tip_op = "П036"
       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 2
       insert_dates(params, tmp)
+      
     end
     if tip_op != ""
       if params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] == ""
@@ -83,6 +90,7 @@ class VizitsController < ApplicationController
       end
     else
       redirect_to action: "new", id: params[:vizit][:person_id]
+#       render json: params
     end
 #      @tmp = (params[:vizit][:insurance_attributes][:polis_attributes]['dend(1i)'] + "-" + params[:vizit][:insurance_attributes][:polis_attributes]['dend(2i)'] + "-" + params[:vizit][:insurance_attributes][:polis_attributes]['dend(3i)'])
 #     render json: @tmp

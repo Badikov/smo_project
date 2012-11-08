@@ -60,19 +60,24 @@ jQuery ->
      
   $('#person_addres_p_attributes_npname, #person_addres_g_attributes_npname').autocomplete
      source:(request,response) ->
-       $.ajax url: '/okatos', 
-             dataType: "json", 
-             data: (maxRows: 12,term: request.term.toUpperCase(), featureClass: "P", style: "full"), 
-             success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
+      $.ajax 
+       url: '/okatos', 
+       dataType: "json", 
+       data: 
+         maxRows: 12,
+         term: request.term.toUpperCase(), 
+         featureClass: "P", 
+         style: "full", 
+       success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
      minLength: 2,
      open: -> $(@).removeClass("ui-corner-all").addClass("ui-corner-top"), 
      close: -> $(@).removeClass("ui-corner-top").addClass("ui-corner-all"),
      select: (event, ui)-> okato_ @,ui.item.okato
 
-     okato_ = (field,_okato) ->
-      _id = field.id
-      _id = _id.slice(0,27).concat("okato")
-      $("input#" + _id).attr value: _okato
+  okato_ = (field,_okato) ->
+   _id = field.id
+   _id = _id.slice(0,27).concat("okato")
+   $("input#" + _id).attr value: _okato
       
   $("#new_person").keydown (event) -> 
    e = event || window.event
