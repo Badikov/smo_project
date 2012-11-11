@@ -14,7 +14,9 @@
     
       <%= f.input :name_vp, :label => 'Кем выдан', :input_html => {class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()'} %>
     
-      <%= f.input :mr, :label => 'Место рождения', :input_html => {class: "span6", data: {autocomplete_source: docs_path}} %>
+      <%= f.input :mr, :label => 'Место рождения', :input_html => {class: "span6", onkeyup: 'this.value=this.value.toUpperCase()'} %>
+      
+<!--       <%= f.input :mr, :label => 'Место рождения', :input_html => {class: "span6", data: {autocomplete_source: docs_path}} %> -->
       
       <%= f.input :ig_doctype, :collection => Tipdoc.all(:order => :docname),
 		    :label_method => :docname, :value_method => :iddoc, :include_blank => true, 

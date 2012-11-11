@@ -56,25 +56,36 @@ set :repository, "git://github.com/Badikov/smo_project.git"
 set :branch, "master"
 # set :git_enable_submodules, 1
 # tasks
-namespace :deploy do
-  task :start, :roles => :app do
-    run "touch #{deploy_to}/tmp/restart.txt"
-  end
-
-  task :stop, :roles => :app do
-    # Do nothing.
-  end
-
-  desc "Restart Application"
-  task :restart, :roles => :app do
-    run "touch #{deploy_to}/tmp/restart.txt"
-  end
-
-  desc "Symlink shared resources on each release - not used"
-  task :symlink_shared, :roles => :app do
-#     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-end
+    namespace :deploy do  
+      task :start, :roles => :app do  
+      end  
+        task :stop, :roles => :app do  
+	end  task :restart, :roles => :app do    
+	  run "touch #{release_path}/tmp/restart.txt"  
+	end  
+	task :after_update_code, :roles => :app do    
+	  run "rm -rf #{release_path}/public/.htaccess"  
+	  end
+    end  
+# namespace :deploy do
+#   task :start, :roles => :app do
+#     run "touch #{current_release}/tmp/restart.txt"
+#   end
+# 
+#   task :stop, :roles => :app do
+#     # Do nothing.
+#   end
+# 
+#   desc "Restart Application"
+#   task :restart, :roles => :app do
+#     run "touch #{current_release}/tmp/restart.txt"
+#   end
+# 
+#   desc "Symlink shared resources on each release - not used"
+#   task :symlink_shared, :roles => :app do
+# #     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+#   end
+# end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
 

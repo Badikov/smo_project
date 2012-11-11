@@ -9,7 +9,7 @@
     
       <%= f.input :parents, :label => 'Отношение к застрахованному',
 		  :as => :select, :include_blank => true, 
-		  :collection => [["мать",'мать'],["отец",'отец'],["иное",'иное']]%>
+		  :collection => [["МАТЬ",'мать'],["ОТЕЦ",'отец'],["ИНОЕ",'иное']]%>
     
       <%= f.input :doctype, :collection => Tipdoc.all(:order => :docname),
 		    :label_method => :docname, :value_method => :iddoc, :include_blank => true, 

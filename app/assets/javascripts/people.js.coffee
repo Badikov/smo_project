@@ -53,8 +53,8 @@ jQuery ->
   $('#person_c_oksm').autocomplete
     source: $('#person_c_oksm').data('autocomplete-source')
     
-  $('#person_doc_attributes_mr').autocomplete
-    source: $('#person_doc_attributes_mr').data('autocomplete-source')
+#   $('#person_doc_attributes_mr').autocomplete
+#     source: $('#person_doc_attributes_mr').data('autocomplete-source')
    
 #   
      

@@ -76,108 +76,108 @@ class OpsController < ApplicationController
       $KCODE = 'Windows-1251'
       doc = Builder::XmlMarkup.new( :target => out_string = "")
       doc.instruct! :xml, :version => "1.0", :encoding =>"windows-1251"
-      doc.oplist(xmlns: "www.kemoms.ru/xsd/zstr") {
-	doc.filename(oplist[:filename])
-	doc.smocod(oplist[:smocod])
-	doc.przcod(oplist[:przcod])
-	doc.nrecords(oplist[:nrecords])
-	doc.op {
+      doc.OPLIST(xmlns: "www.kemoms.ru/xsd/zstr") {
+	doc.FILENAME(oplist[:filename])
+	doc.SMOCOD(oplist[:smocod])
+	doc.PRZCOD(oplist[:przcod])
+	doc.NRECORDS(oplist[:nrecords])
+	doc.OP {
                ops.each { |op|
-		  doc.n_rec( op["n_rec"] )
-		  doc.id( op["id"] )
-		  doc.tip_op( op["tip_op"] )
-                  doc.person {
-                             doc.fam( op[:person]["fam"] )
-                             doc.im( op[:person]["im"] )
-                             doc.ot( op[:person]["ot"] )
-                             doc.w( op[:person]["w"] )
-                             doc.dr( op[:person]["dr"] )
-                             doc.true_dr( op[:person]["true_dr"] )
-                             doc.c_oksm( op[:person]["c_oksm"] )
-                             doc.ss( op[:person]["ss"] )
-                             doc.phone( op[:person]["phone"] )
-                             doc.email( op[:person]["email"] )
-                             doc.fiopr( op[:person]["fiopr"] )
-                             doc.contact( op[:person]["contact"] )
-                             doc.ddeath( op[:person]["ddeath"] )
+		  doc.N_REC( op["n_rec"] )
+		  doc.ID( op["id"] )
+		  doc.TIP_OP( op["tip_op"] )
+                  doc.PERSON {
+                             doc.FAM( op[:person]["fam"] )
+                             doc.IM( op[:person]["im"] )
+                             doc.OT( op[:person]["ot"] )
+                             doc.W( op[:person]["w"] )
+                             doc.DR( op[:person]["dr"] )
+                             doc.TRUE_DR( op[:person]["true_dr"] )
+                             doc.C_OKSM( op[:person]["c_oksm"] )
+                             doc.SS( op[:person]["ss"] )
+                             doc.PHONE( op[:person]["phone"] )
+                             doc.EMAIL( op[:person]["email"] )
+                             doc.FIOPR( op[:person]["fiopr"] )
+                             doc.CONTACT( op[:person]["contact"] )
+                             doc.DDEATH( op[:person]["ddeath"] )
                               }
-                  doc.doc{
-                         doc.doctype( op[:doc]["doctype"] )
-                         doc.docser( op[:doc]["docser"] )
-                         doc.docnum( op[:doc]["docnum"] )
-                         doc.docdate( op[:doc]["docdate"] )
-                         doc.name_vp( op[:doc]["name_vp"] )
-                         doc.mr( op[:doc]["mr"] )
+                  doc.DOC{
+                         doc.DOCTYPE( op[:doc]["doctype"] )
+                         doc.DOCSER( op[:doc]["docser"] )
+                         doc.DOCNUM( op[:doc]["docnum"] )
+                         doc.DOCDATE( op[:doc]["docdate"] )
+                         doc.NAME_VP( op[:doc]["name_vp"] )
+                         doc.MR( op[:doc]["mr"] )
                           }
-                  doc.old_person{
-                                if op[:old_person]
-				    doc.fam( op[:old_person]["fam"] )
-				    doc.im( op[:old_person]["im"] )
-				    doc.ot( op[:old_person]["ot"] )
-				    doc.w( op[:old_person]["w"] )
-				    doc.dr( op[:old_person]["dr"] )
-				    doc.old_enp( op[:old_person]["old_enp"] )
-                                end
+                  doc.OLD_PERSON{
+#                                 if op[:old_person]
+				    doc.FAM( op[:old_person]["fam"] )
+				    doc.IM( op[:old_person]["im"] )
+				    doc.OT( op[:old_person]["ot"] )
+				    doc.W( op[:old_person]["w"] )
+				    doc.DR( op[:old_person]["dr"] )
+				    doc.OLD_ENP( op[:old_person]["old_enp"] )
+#                                 end
                                 }
-                  doc.old_doc{
-                             if op[:old_doc]
-				doc.doctype( op[:old_doc]["doctype"] )
-				doc.docser( op[:old_doc]["docser"] )
-				doc.docnum( op[:old_doc]["docnum"] )
-				doc.docdate( op[:old_doc]["docdate"] )
-				doc.name_vp( op[:old_doc]["name_vp"] )
-				doc.mr( op[:old_doc]["mr"] )
-                             end
+                  doc.OLD_DOC{
+#                              if op[:old_doc]
+				doc.DOCTYPE( op[:old_doc]["doctype"] )
+				doc.DOCSER( op[:old_doc]["docser"] )
+				doc.DOCNUM( op[:old_doc]["docnum"] )
+				doc.DOCDATE( op[:old_doc]["docdate"] )
+				doc.NAME_VP( op[:old_doc]["name_vp"] )
+				doc.MR( op[:old_doc]["mr"] )
+#                              end
                              }
-                  doc.addres_g{
-                              doc.bomg( op[:addres_g]["bomg"] )
-                              doc.subj( op[:addres_g]["subj"] )
-                              doc.indx( op[:addres_g]["indx"] )
-                              doc.okato( op[:addres_g]["okato"] )
-                              doc.rnname( op[:addres_g]["rnname"] )
-                              doc.npname( op[:addres_g]["npname"] )
-                              doc.ul( op[:addres_g]["ul"] )
-                              doc.dom( op[:addres_g]["dom"] )
-                              doc.korp( op[:addres_g]["korp"] )
-                              doc.kv( op[:addres_g]["kv"] )
-                              doc.dreg( op[:addres_g]["dreg"] )
+                  doc.ADDRES_G{
+                              doc.BOMG( op[:addres_g]["bomg"] )
+                              doc.SUBJ( op[:addres_g]["subj"] )
+                              doc.INDX( op[:addres_g]["indx"] )
+                              doc.OKATO( op[:addres_g]["okato"] )
+                              doc.RNNAME( op[:addres_g]["rnname"] )
+                              doc.NPNAME( op[:addres_g]["npname"] )
+                              doc.UL( op[:addres_g]["ul"] )
+                              doc.DOM( op[:addres_g]["dom"] )
+                              doc.KORP( op[:addres_g]["korp"] )
+                              doc.KV( op[:addres_g]["kv"] )
+                              doc.DREG( op[:addres_g]["dreg"] )
                                }
-                  doc.addres_p{
-                               if op[:addres_p]["okato"] != ""  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
-				  doc.subj( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
-				  doc.indx( op[:addres_p]["indx"] )
-				  doc.okato( op[:addres_p]["okato"] )
-				  doc.rnname( op[:addres_p]["rnname"] )
-				  doc.npname( op[:addres_p]["npname"] )
-				  doc.ul( op[:addres_p]["ul"] )
-				  doc.dom( op[:addres_p]["dom"] )
-				  doc.korp( op[:addres_p]["korp"] )
-				  doc.kv( op[:addres_p]["kv"] )
-                              end
+                  doc.ADDRES_P{
+#                                if op[:addres_p]["okato"] != ""  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
+				  doc.SUBJ( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
+				  doc.INDX( op[:addres_p]["indx"] )
+				  doc.OKATO( op[:addres_p]["okato"] )
+				  doc.RNNAME( op[:addres_p]["rnname"] )
+				  doc.NPNAME( op[:addres_p]["npname"] )
+				  doc.UL( op[:addres_p]["ul"] )
+				  doc.DOM( op[:addres_p]["dom"] )
+				  doc.KORP( op[:addres_p]["korp"] )
+				  doc.KV( op[:addres_p]["kv"] )
+#                               end
                               }
-                  doc.vizit{
-                            doc.dvizit( op[:vizit]["dvizit"] )
-                           doc.method( op[:vizit]["method"] )
-                           doc.petition( op[:vizit]["petition"] )
-                           doc.rsmo( op[:vizit]["rsmo"] )
-                           doc.rpolis( op[:vizit]["rpolis"] )
-                           doc.fpolis( op[:vizit]["fpolis"] )
+                  doc.VIZIT{
+                            doc.DVIZIT( op[:vizit]["dvizit"] )
+                           doc.METHOD( op[:vizit]["method"] )
+                           doc.PETITION( op[:vizit]["petition"] )
+                           doc.RSMO( op[:vizit]["rsmo"] )
+                           doc.RPOLIS( op[:vizit]["rpolis"] )
+                           doc.FPOLIS( op[:vizit]["fpolis"] )
                            }
-                  doc.insurance{
-                                doc.ter_st( op[:insurance]["ter_st"] )
-                               doc.enp( op[:insurance]["enp"] )
-                               doc.ogrnsmo( op[:insurance]["ogrnsmo"] )
-                               doc.polis{
-                                      if op[:polis]   
-                                         doc.vpolis( op[:polis]["vpolis"] )
-                                        doc.npolis( op[:polis]["npolis"] )
-                                        doc.spolis( op[:polis]["spolis"] )
-                                        doc.dbeg( op[:polis]["dbeg"] )
-                                        doc.dend( op[:polis]["dend"] )
-                                        doc.dstop( op[:polis]["dstop"] )
-                                      end
+                  doc.INSURANCE{
+                                doc.TER_ST( op[:insurance]["ter_st"] )
+                               doc.ENP( op[:insurance]["enp"] )
+                               doc.OGRNSMO( op[:insurance]["ogrnsmo"] )
+                               doc.POLIS{
+#                                       if op[:polis]   
+                                         doc.VPOLIS( op[:polis]["vpolis"] )
+                                        doc.NPOLIS( op[:polis]["npolis"] )
+                                        doc.SPOLIS( op[:polis]["spolis"] )
+                                        doc.DBEG( op[:polis]["dbeg"] )
+                                        doc.DEND( op[:polis]["dend"] )
+                                        doc.DSTOP( op[:polis]["dstop"] )
+#                                       end
                                         }
-                               doc.erp( op[:insurance]["erp"] )
+                               doc.ERP( op[:insurance]["erp"] )
                                }
                         }
          }

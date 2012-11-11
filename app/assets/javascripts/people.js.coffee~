@@ -69,10 +69,10 @@ jQuery ->
          featureClass: "P", 
          style: "full", 
        success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
-       minLength: 2,
-       open: -> $(@).removeClass("ui-corner-all").addClass("ui-corner-top"), 
-       close: -> $(@).removeClass("ui-corner-top").addClass("ui-corner-all"),
-       select: (event, ui)-> okato_ @,ui.item.okato
+     minLength: 2,
+     open: -> $(@).removeClass("ui-corner-all").addClass("ui-corner-top"), 
+     close: -> $(@).removeClass("ui-corner-top").addClass("ui-corner-all"),
+     select: (event, ui)-> okato_ @,ui.item.okato
 
   okato_ = (field,_okato) ->
    _id = field.id
