@@ -34,6 +34,7 @@ jQuery ->
      $("#vizit_rsmo option[value=1]").removeAttr 'disabled'
      $("#vizit_fpolis option[value=0]").removeAttr 'selected'
      $("#vizit_fpolis option[value=1]").attr selected: "selected"
+     $("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
  
  $('#vizit_rpolis').change ->
    $("#vizit_rpolis option:selected").each ->

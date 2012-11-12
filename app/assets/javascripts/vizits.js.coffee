@@ -51,8 +51,8 @@ jQuery ->
    e = event || window.event
    if e.keyCode is 13
     return false
-
-      
+ 
+ $('a.print').click ->     
 
   
 #   

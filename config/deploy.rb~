@@ -57,7 +57,18 @@ set :repository, "git://github.com/Badikov/smo_project.git"
 set :branch, "master"
 # set :git_enable_submodules, 1
 # tasks
-namespace :deploy do  
+namespace :deploy do 
+  namespace :assets do
+     task :precompile, :roles => :web, :except => { :no_release => true } do
+          from = source.next_revision(current_revision)
+          if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+            run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+          else
+            logger.info "Skipping asset pre-compilation because there were no asset changes"
+          end
+      end
+  end
+    
   desc "Start server"
   task :start, :roles => :app do 
     run "#{try_sudo} touch #{File.join(release_path,'tmp','restart.txt')}"

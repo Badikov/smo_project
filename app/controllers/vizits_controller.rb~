@@ -7,7 +7,7 @@ class VizitsController < ApplicationController
   # GET /vizits/1
   # GET /vizits/1.json
   def show
-    @vizit = Vizit.find(params[:id])
+    @vizit = Vizit.find_by_id(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
@@ -73,7 +73,7 @@ class VizitsController < ApplicationController
       insert_dates(params, tmp)
       
     end
-    if tip_op == ""
+    if tip_op != ""
       if params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] == ""
 	params[:vizit][:insurance_attributes].delete(:polis_attributes)
       end 
@@ -89,8 +89,8 @@ class VizitsController < ApplicationController
 	redirect_to action: "new", id: params[:vizit][:person_id]
       end
     else
-#       redirect_to action: "new", id: params[:vizit][:person_id]
-      render json: params
+      redirect_to action: "new", id: params[:vizit][:person_id]
+#       render json: params
     end
 #      @tmp = (params[:vizit][:insurance_attributes][:polis_attributes]['dend(1i)'] + "-" + params[:vizit][:insurance_attributes][:polis_attributes]['dend(2i)'] + "-" + params[:vizit][:insurance_attributes][:polis_attributes]['dend(3i)'])
 #     render json: @tmp

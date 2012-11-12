@@ -7,7 +7,8 @@ class VizitsController < ApplicationController
   # GET /vizits/1
   # GET /vizits/1.json
   def show
-    @vizit = Vizit.find(params[:id])
+    @vizit = Vizit.find_by_id(params[:id])
+    @person = @vizit.person
     
     respond_to do |format|
       format.html # show.html.erb

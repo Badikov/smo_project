@@ -17,7 +17,7 @@ class OpsController < ApplicationController
   end
   def create_links
     d = params[:date]
- #     Thu Nov 01 2012 00:00:00 GMT+0700 (NOVT) 
+#    d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '
     d = DateTime.strptime(d, "%a %b %d %Y %H:%M:%S GMT%z") #if d.empty?
     @a=[]
     @@where_str = d
@@ -110,24 +110,38 @@ class OpsController < ApplicationController
                          doc.MR( op[:doc]["mr"] )
                           }
                   doc.OLD_PERSON{
-#                                 if op[:old_person]
+                                if op[:old_person]
 				    doc.FAM( op[:old_person]["fam"] )
 				    doc.IM( op[:old_person]["im"] )
 				    doc.OT( op[:old_person]["ot"] )
 				    doc.W( op[:old_person]["w"] )
 				    doc.DR( op[:old_person]["dr"] )
 				    doc.OLD_ENP( op[:old_person]["old_enp"] )
-#                                 end
+                                esle
+				    doc.FAM()
+				    doc.IM()
+				    doc.OT()
+				    doc.W()
+				    doc.DR()
+				    doc.OLD_ENP()
+                                end
                                 }
                   doc.OLD_DOC{
-#                              if op[:old_doc]
+                             if op[:old_doc]
 				doc.DOCTYPE( op[:old_doc]["doctype"] )
 				doc.DOCSER( op[:old_doc]["docser"] )
 				doc.DOCNUM( op[:old_doc]["docnum"] )
 				doc.DOCDATE( op[:old_doc]["docdate"] )
 				doc.NAME_VP( op[:old_doc]["name_vp"] )
 				doc.MR( op[:old_doc]["mr"] )
-#                              end
+                             else
+				doc.DOCTYPE()
+				doc.DOCSER()
+				doc.DOCNUM()
+				doc.DOCDATE()
+				doc.NAME_VP()
+				doc.MR()
+                             end
                              }
                   doc.ADDRES_G{
                               doc.BOMG( op[:addres_g]["bomg"] )
@@ -143,7 +157,7 @@ class OpsController < ApplicationController
                               doc.DREG( op[:addres_g]["dreg"] )
                                }
                   doc.ADDRES_P{
-#                                if op[:addres_p]["okato"] != ""  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
+                               if op[:addres_p]["okato"] != ""  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
 				  doc.SUBJ( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
 				  doc.INDX( op[:addres_p]["indx"] )
 				  doc.OKATO( op[:addres_p]["okato"] )
@@ -153,7 +167,7 @@ class OpsController < ApplicationController
 				  doc.DOM( op[:addres_p]["dom"] )
 				  doc.KORP( op[:addres_p]["korp"] )
 				  doc.KV( op[:addres_p]["kv"] )
-#                               end
+                              end
                               }
                   doc.VIZIT{
                             doc.DVIZIT( op[:vizit]["dvizit"] )
@@ -164,18 +178,25 @@ class OpsController < ApplicationController
                            doc.FPOLIS( op[:vizit]["fpolis"] )
                            }
                   doc.INSURANCE{
-                                doc.TER_ST( op[:insurance]["ter_st"] )
+                               doc.TER_ST( op[:insurance]["ter_st"] )
                                doc.ENP( op[:insurance]["enp"] )
                                doc.OGRNSMO( op[:insurance]["ogrnsmo"] )
                                doc.POLIS{
-#                                       if op[:polis]   
-                                         doc.VPOLIS( op[:polis]["vpolis"] )
+                                      if op[:polis]   
+                                        doc.VPOLIS( op[:polis]["vpolis"] )
                                         doc.NPOLIS( op[:polis]["npolis"] )
                                         doc.SPOLIS( op[:polis]["spolis"] )
                                         doc.DBEG( op[:polis]["dbeg"] )
                                         doc.DEND( op[:polis]["dend"] )
                                         doc.DSTOP( op[:polis]["dstop"] )
-#                                       end
+                                      else
+                                        doc.VPOLIS()
+                                        doc.NPOLIS()
+                                        doc.SPOLIS()
+                                        doc.DBEG()
+                                        doc.DEND()
+                                        doc.DSTOP()
+                                      end
                                         }
                                doc.ERP( op[:insurance]["erp"] )
                                }
@@ -193,7 +214,13 @@ class OpsController < ApplicationController
     return resp_str
   end
   def day_to_str(str)
-    return day_str = "0" + str if str.size == 1
+    day_str =""
+    if str.size == 1
+      day_str = "0" + str 
+    else
+      day_str = str
+    end
+    return day_str
   end
 end
 #     fl_name = "i42007_0_" + Time.now.day.to_s + Time.now.month.to_s + Time.now.year.to_s + "1"
