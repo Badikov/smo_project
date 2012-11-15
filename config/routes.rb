@@ -13,6 +13,8 @@ SmoProject::Application.routes.draw do
   match 'login' => 'user_sessions#new',      :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'vizits/new/:id' => 'vizits#new', :as => :new_vizit_person
+  match 'vizits/print_polis/:id' => 'vizits#print_polis', :as => 'print_polis'
+  match 'vizits/print_petition/:id' => 'vizits#print_petition', :as => 'print_petition'
   match 'home' => 'home#index', :as => :home
   
   resources :users  # give us our some normal resource routes for users
@@ -25,7 +27,11 @@ SmoProject::Application.routes.draw do
   resources :addres_gs
   resources :addres_ps
   resources :predstavitels
-  resources :vizits
+  resources :vizits do
+#     collection do
+#       get 'print_polis'
+#     end
+  end
   resources :tipdocs
   resources :oksms
   resources :subektis

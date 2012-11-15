@@ -1,0 +1,13 @@
+class AddFkInDocs < ActiveRecord::Migration
+  def up
+    execute <<-SQL
+      ALTER TABLE docs
+        ADD CONSTRAINT fk_docs_tipdocs
+        FOREIGN KEY (doctype)
+        REFERENCES tipdocs(id)
+    SQL
+  end
+
+  def down
+  end
+end

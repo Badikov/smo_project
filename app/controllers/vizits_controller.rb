@@ -84,7 +84,7 @@ class VizitsController < ApplicationController
       
       if @vizit.save 
 	@op = Op.find_by_person_id(params[:vizit][:person_id])
-	@op.update_attributes({ tip_op: tip_op, user_id: current_user })
+	@op.update_attributes({ id: @op.person_id, tip_op: tip_op, user_id: current_user })
 	redirect_to @vizit, notice: 'Визит сохранен.'
       else
 	redirect_to action: "new", id: params[:vizit][:person_id]
@@ -108,5 +108,13 @@ class VizitsController < ApplicationController
     params[:vizit][:insurance_attributes][:polis_attributes]['dend(1i)'] = tmp.year.to_s
     params[:vizit][:insurance_attributes][:polis_attributes]['dend(2i)'] = tmp.month.to_s
     params[:vizit][:insurance_attributes][:polis_attributes]['dend(3i)'] = tmp.day.to_s
+  end
+  def print_polis
+    @person = Person.find(params[:id])
+    render :partial => "print_polis", :layout => false
+  end
+  def print_petition
+    @person = Person.find(params[:id])
+    render :partial => "print_petition", :layout => false
   end
 end

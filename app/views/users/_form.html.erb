@@ -12,7 +12,7 @@
     <%= f.input :email %>
     <%= f.input :password, :label => @user.new_record? ? 'Пароль': 'Новый пароль' %>
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>
-    <%= f.association :filials,   :as => :select %>
+    <%= f.association :filials,   :as => :select, :input_html => { class: 'span6' } %>
     <%= f.association :roles,   :as => :check_boxes %>
   <% end %>
   

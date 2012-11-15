@@ -8,6 +8,7 @@ class VizitsController < ApplicationController
   # GET /vizits/1.json
   def show
     @vizit = Vizit.find_by_id(params[:id])
+    @person = @vizit.person
     
     respond_to do |format|
       format.html # show.html.erb
@@ -107,5 +108,13 @@ class VizitsController < ApplicationController
     params[:vizit][:insurance_attributes][:polis_attributes]['dend(1i)'] = tmp.year.to_s
     params[:vizit][:insurance_attributes][:polis_attributes]['dend(2i)'] = tmp.month.to_s
     params[:vizit][:insurance_attributes][:polis_attributes]['dend(3i)'] = tmp.day.to_s
+  end
+  def print_polis
+    @person = Person.find(params[:id])
+    render :partial => "print_polis", :layout => false
+  end
+  def print_petition
+    @person = Person.find(params[:id])
+    render :partial => "print_petition", :layout => false
   end
 end

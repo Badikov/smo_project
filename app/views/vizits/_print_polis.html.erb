@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Печать временного свидетельства</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <!--<%= stylesheet_link_tag    "application", :media => "all" %>
+  
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  
+  <%= stylesheet_link_tag "print", :media => "print" %>
+  <%= javascript_include_tag "print_polis" %>
+</head>
+<body>
+  <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
+  
+  <h5 id="print_vizit_head_1">ООО  Страховая медицинская организация "ЦМС"</h5>
+  <h5 id="print_vizit_head_2">654027  г. Новокузнецк ул. Куйбышева, 1, ☎ (8-3843) 72-18-18</h5>
+  
+  <div id="print_vizit_dvizit"><%= date_in_rus_string(@person.vizit.dvizit) %></div>
+  
+  
+  <div id="print_vizit_person_fio"><%= @person.fam + " " + @person.im + " " + @person.ot%></div>
+  
+  <div id="print_vizit_person_dr">Дата рожд:<%= @person.dr.strftime('%d.%m.%Y') %></div>
+  
+  <% _doc_name ="" %>
+  <% doc_name = Tipdoc.find_by_id(@person.doc.doctype) %>
+  <% _doc_name = doc_name.docname %>
+  <div id="print_vizit_doc_name"><%= _doc_name.to_s %></div>
+  
+  <div id="print_vizit_doc_docser"><%= @person.doc.docser %></div>
+  <div id="print_vizit_doc_docnum"><%= @person.doc.docnum %></div>
+  
+  <div id="print_vizit_doc_docdate">Выдан: <%= @person.doc.docdate.strftime('%d.%m.%Y') %></div>
+  
+  <div id="print_vizit_doc_name_vp"><%= @person.doc.name_vp %></div>
+  <div id="print_vizit_doc_mr"><%= @person.doc.mr %></div>
+  
+  <div id="print_vizit_doc_gender"><%= @person.w %></div>
+  
+  <div id="print_vizit_person" class="man">✔</div>
+  
+  <div id="print_vizit_dend"><%= date_in_rus_string(@person.vizit.dvizit + 42.days)%></div>
+  <div></div>
+  
+</body>
+</html>

@@ -52,8 +52,12 @@ jQuery ->
    if e.keyCode is 13
     return false
  
- $('a.print').click ->     
-
+#  $('a.print').click (event) ->
+#    params = "_blank,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes"
+#    newWind = window.open('about:blank', '', params)
+#    $.get @href,(response) -> newWind.document.body.innerHTML = response
+ 
+   
   
 #   
 #   petition.attr checked: 'checked'

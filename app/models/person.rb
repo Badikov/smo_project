@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_one :doc, :dependent => :destroy#, :conditions => {:enabled => true}
+  has_one :doc, :dependent => :destroy
   has_one :old_person, :dependent => :destroy
   has_one :old_doc, :dependent => :destroy
   has_one :addres_g, :dependent => :destroy
