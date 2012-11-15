@@ -42,6 +42,7 @@ set :application, "smo_project"
 role :web, "217.116.153.106"
 role :app, "217.116.153.106"
 role :db,  "217.116.153.106", :primary => true
+
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -57,17 +58,42 @@ set :repository, "git://github.com/Badikov/smo_project.git"
 set :branch, "master"
 # set :git_enable_submodules, 1
 # tasks
-namespace :deploy do 
+set :max_asset_age, 2 ## Set asset age in minutes to test modified date against.
+
+after "deploy:finalize_update", "deploy:assets:determine_modified_assets", "deploy:assets:conditionally_precompile"
+
+namespace :deploy do
   namespace :assets do
-     task :precompile, :roles => :web, :except => { :no_release => true } do
-          from = source.next_revision(current_revision)
-          if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
-            run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
-          else
-            logger.info "Skipping asset pre-compilation because there were no asset changes"
-          end
+    
+    desc "Figure out modified assets."
+    task :determine_modified_assets, :roles => :app, :except => { :no_release => true } do
+      set :updated_assets, capture("find #{latest_release}/app/assets -type d -name .git -prune -o -mmin -#{max_asset_age} -type f -print", :except => { :no_release => true }).split
+    end
+    
+    desc "Remove callback for asset precompiling unless assets were updated in most recent git commit."
+    task :conditionally_precompile, :roles => :app, :except => { :no_release => true } do
+      if(updated_assets.empty?)
+        callback = callbacks[:after].find{|c| c.source == "deploy:assets:precompile" }
+        callbacks[:after].delete(callback)
+        logger.info("Skipping asset precompiling, no updated assets.")
+      else
+        logger.info("#{updated_assets.length} updated assets. Will precompile.")
       end
+    end
+    
   end
+end
+namespace :deploy do 
+#   namespace :assets do
+#      task :precompile, :roles => :web, :except => { :no_release => true } do
+#           from = source.next_revision(current_revision)
+#           if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+#             run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+#           else
+#             logger.info "Skipping asset pre-compilation because there were no asset changes"
+#           end
+#       end
+#   end
     
   desc "Start server"
   task :start, :roles => :app do 
