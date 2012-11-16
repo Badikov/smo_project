@@ -1,0 +1,38 @@
+#steps { 
+  list-style:none; 
+  width:100%; 
+  overflow:hidden; 
+  margin:0px; 
+  padding:0px;
+        li {
+          font-size:22px; 
+          float:left; 
+          padding:10px; 
+          color:#b0b1b3;
+          span {
+            font-size:11px; 
+            display:block;
+          }
+        }
+        li.current { 
+          color:#000;
+        }
+ }       
+div.person-block {
+  div {
+    float: left;
+    margin-right: 10px;
+  }
+  overflow: hidden;
+  display: block;
+  font-size: small;
+  margin-bottom: 10px;
+}
+form#people_search {
+  div.people_search_fild {
+    float: left;
+    margin-right: 10px;
+  }
+  overflow: hidden;
+  display: block;
+}    

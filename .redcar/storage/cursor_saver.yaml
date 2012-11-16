@@ -1,0 +1,68 @@
+--- 
+cursor_positions: 
+  - :path: app/assets/stylesheets/vizits.css.scss
+    :cursor_offset: 0
+    :timestamp: 2012-10-12 17:13:32 +07:00
+  - :path: app/controllers/vizits_controller.rb~
+    :cursor_offset: 2740
+    :timestamp: 2012-11-15 13:49:38 +06:00
+  - :path: app/assets/javascripts/vizits.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2012-11-14 10:29:27 +06:00
+  - :path: app/assets/stylesheets/scaffolds.css.scss
+    :cursor_offset: 0
+    :timestamp: 2012-10-29 11:38:35 +06:00
+  - :path: vendor/assets/stylesheets/print_petition.css.scss
+    :cursor_offset: 88
+    :timestamp: 2012-11-16 01:27:59 +06:00
+  - :path: app/views/vizits/_print_polis.html.erb
+    :cursor_offset: 994
+    :timestamp: 2012-11-15 13:44:52 +06:00
+    :selection_offset: 984
+    :block_selection_mode: false
+  - :path: app/views/vizits/_form.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-11-06 01:20:23 +06:00
+  - :path: app/views/vizits/_print_petition.html.erb
+    :cursor_offset: 1150
+    :timestamp: 2012-11-16 01:04:36 +06:00
+  - :path: vendor/assets/stylesheets/print.css.scss
+    :cursor_offset: 248
+    :timestamp: 2012-11-15 23:38:32 +06:00
+  - :path: Gemfile
+    :cursor_offset: 872
+    :timestamp: 2012-11-16 03:36:00 +06:00
+  - :path: config/routes.rb
+    :cursor_offset: 198
+    :timestamp: 2012-11-16 03:40:26 +06:00
+  - :path: app/helpers/people_helper.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-22 14:25:18 +07:00
+  - :path: app/assets/stylesheets/application.css
+    :cursor_offset: 718
+    :timestamp: 2012-11-16 04:32:28 +06:00
+  - :path: app/assets/stylesheets/ops.css.scss
+    :cursor_offset: 417
+    :timestamp: 2012-11-15 23:18:21 +06:00
+  - :path: Capfile
+    :cursor_offset: 65
+    :timestamp: 2012-11-16 12:04:59 +06:00
+  - :path: config/environments/production.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-06 15:03:52 +07:00
+  - :path: app/assets/stylesheets/application.css.scss
+    :cursor_offset: 0
+    :timestamp: 2012-11-16 04:32:28 +06:00
+  - :path: config/application.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-29 00:30:01 +06:00
+  - :path: app/views/people/_part.html.erb
+    :cursor_offset: 432
+    :timestamp: 2012-11-16 12:38:36 +06:00
+  - :path: app/views/people/search.html.erb
+    :cursor_offset: 254
+    :timestamp: 2012-11-16 04:46:14 +06:00
+  - :path: config/initializers/backtrace_silencers.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-06 15:03:52 +07:00
+files_to_retain: 0

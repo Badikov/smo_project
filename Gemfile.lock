@@ -87,6 +87,8 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     oj (1.4.3)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -111,6 +113,10 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (0.9.2.2)
+    ransack (0.7.0)
+      actionpack (~> 3.0)
+      activerecord (~> 3.0)
+      polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
     require_all (1.2.1)
@@ -169,6 +175,7 @@ DEPENDENCIES
   jquery-ui-rails
   oj
   rails (= 3.2.8)
+  ransack
   rvm-capistrano
   sass-rails (~> 3.2.3)
   simple_form

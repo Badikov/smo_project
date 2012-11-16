@@ -67,10 +67,14 @@ div#print_vizit_doc_mr {
 }
 div.man {
   position:absolute;
-  top: 93mm;
+  top: 95mm;
   left: 28mm;
 }
-
+div.woman {
+  position:absolute;
+  top: 95mm;
+  left: 56mm;
+}
 div#print_vizit_dend {
   position: absolute;
   top: 105mm;

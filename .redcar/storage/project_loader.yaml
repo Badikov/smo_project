@@ -1,0 +1,4 @@
+--- 
+open_files: 
+  - app/views/people/_part.html.erb
+  - app/views/people/search.html.erb

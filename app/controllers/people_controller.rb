@@ -3,7 +3,9 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    # @people = Person.all
+    @search = Person.search(params[:q])
+  @people = @search.result
 
     respond_to do |format|
       format.html # index.html.erb
@@ -109,19 +111,20 @@ class PeopleController < ApplicationController
     end
   end
   #GET  /people/search
-  def search
-    
-  end
-  #GET  /people/result
-  def result
-    
-    if (params[:fam] != "" and params[:im] == "" and params[:ot] == "") then
-#       @responce = Person.where("fam = :fam AND im = :im AND ot = :ot", {:fam => params[:fam], :im => params[:im], :ot => params[:ot]})
-      @responce = Person.where("fam = :fam", {:fam => params[:fam]})
-    else
-      @responce = 'БАДИКОВ АЮ'
-    end
-    render action: "search"
-#     redirect_to(search_people_path , @responce)
-  end
+  # def search
+#     
+#   end
+#   #GET  /people/result
+#   def result
+#     @q = Person.search(params[:q])
+#     @people = @q.result
+#     # if (params[:fam] != "" and params[:im] == "" and params[:ot] == "") then
+# # #       @responce = Person.where("fam = :fam AND im = :im AND ot = :ot", {:fam => params[:fam], :im => params[:im], :ot => params[:ot]})
+# #       @responce = Person.where("fam = :fam", {:fam => params[:fam]})
+# #     else
+# #       @responce = 'БАДИКОВ АЮ'
+# #     end
+#     render action: "search"
+# #     redirect_to(search_people_path , @responce)
+#   end
 end
