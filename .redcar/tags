@@ -1,4 +1,4 @@
-1353051653
+1353055615
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
 AddFkInDocs	/home/alex/rails_projects/smo_project/db/migrate/20121114091118_add_fk_in_docs.rb	class AddFkInDocs 
