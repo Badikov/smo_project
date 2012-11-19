@@ -13,13 +13,13 @@
     
       <%= f.input :npname, :label => 'Населенный пункт' %>
    
-       <%= f.input :ul, :label => 'Улица' , :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+       <%= f.input :ul, :label => 'Улица' , :input_html => { onkeyup:'this.value=this.value.toUpperCase()', data: {autocomplete_source: streets_path} } %>
       
-      <%= f.input :dom, :label => 'Дом' %>
+      <%= f.input :dom, :label => 'Дом', :input_html => { :class => "span1" } %>
    
-      <%= f.input :korp, :label => 'Корпус' %>
+      <%= f.input :korp, :label => 'Корпус', :input_html => { :class => "span1" } %>
     
-      <%= f.input :kv, :label => 'Квартира' %>
+      <%= f.input :kv, :label => 'Квартира', :input_html => { :class => "span1" } %>
     
   
 <% end %>

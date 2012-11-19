@@ -1,42 +1,42 @@
 <%= simple_form_for @person, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
   <%= field_set_tag 'Сведения о застрахованном лице' do %>
   
-      <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+  <%= f.input :status, :label => 'Статус застрахованного', :collection => status_resource, :include_blank => true, :input_html => {:class => "span7"} %>
+  
+  <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
  
-      <%= f.input :im, :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+  <%= f.input :im, :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
     
-      <%= f.input :ot, :label => 'Отчество', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+  <%= f.input :ot, :label => 'Отчество', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
     
-      <%= f.input :w, :label => 'Пол', :collection => [[ 'Мужской', 0 ], ['Женский', 1]], :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :w, :label => 'Пол', :collection => [[ 'Мужской', 1 ], ['Женский', 2]], :as => :radio_buttons, :item_wrapper_class => 'inline' %>
     
-      <%= f.input :dr, :label => 'Дата рождения', :include_blank => true, :as => :date, :start_year => Date.today.year - 90,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+  <%= f.input :dr, :label => 'Дата рождения', :include_blank => true, :as => :date, :start_year => Date.today.year - 90,:end_year => Date.today.year,:order => [:day, :month, :year] %>
     
-      <%= f.input :true_dr, :label => 'Признак даты', 
+  <%= f.input :true_dr, :label => 'Признак даты', 
 		  :as => :select, :include_blank => false, 
 		  :collection => [[ 'Дата достоверна', 1 ], ['Известны достоверно только месяц и год рождения', 2], ['Известен достоверно только год рождения', 3]],
-		  :input_html => { :class => "span5", :title => 'Признак достоверности даты' } %>
+		  :input_html => { :class => "span4", :title => 'Признак достоверности даты' } %>
     
-      <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', :hint => 'например RUS... Б/Г - без гражданства', :input_html => {value: 'RUS', data: {autocomplete_source: oksms_path}} %>
+  <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', :hint => 'например RUS... Б/Г - без гражданства', :input_html => {value: 'RUS', data: {autocomplete_source: oksms_path}} %>
     
-      <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX' %>
+  <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX' %>
       
-      <%= f.input :phone, :label => 'Телефон', :as => :tel %>
+  <%= f.input :phone, :label => 'Телефон', :as => :tel %>
       
-      <%= f.input :email, :label => 'Эл. почта', :as => :email %>
+  <%= f.input :email, :label => 'Эл. почта', :as => :email %>
     
  <% end %>
-  <%= render :partial => 'docs/form', :locals => {:form => f} %>
+ <%= render :partial => 'docs/form', :locals => {:form => f} %>
   
-  <%= field_set_tag 'Место жительства' do %>
+ <%= field_set_tag 'Место жительства' do %>
   
     <%= render :partial => 'addres_gs/form', :locals => {:form => f} %>
     
     <div class="control-group string">
-	<!--<%= check_box_tag(:pet_dog) %>-->
-	<!--<%= label_tag(:pet_dog, "Фактический адрес совпадает с пропиской") %>-->
-	<label class="checkbox">
-	  <input type="checkbox" name="pet_dog" id="pet_dog"> Фактический адрес совпадает с пропиской
-	</label>
+  	  <label class="checkbox">
+  	  <input type="checkbox" name="pet_dog" id="pet_dog"> Фактический адрес совпадает с пропиской
+  	  </label>
     </div>
       
     <%= render :partial => 'addres_ps/form', :locals => {:form => f} %>

@@ -1,4 +1,8 @@
 SmoProject::Application.routes.draw do
+  get "streets/index"
+
+  get "streets/create"
+
   resources :filials
   resources :home
 
@@ -10,10 +14,11 @@ SmoProject::Application.routes.draw do
   end
   
   resources :user_sessions
+  
   match 'login' => 'user_sessions#new',      :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'vizits/new/:id' => 'vizits#new', :as => :new_vizit_person
-  match 'vizits/print_polis/:id' => 'vizits#print_polis', :as => 'print_polis'
+  match 'print_polis/:id' => 'vizits#print_polis', :as => 'print_polis'
   match 'vizits/print_petition/:id' => 'vizits#print_petition', :as => 'print_petition'
   match 'home' => 'home#index', :as => :home
   
@@ -21,21 +26,19 @@ SmoProject::Application.routes.draw do
   resource :user, :as => 'account'  # a convenience route
   match 'signup' => 'users#new', :as => :signup
   
-  resources :filials
-  resources :home
+  # resources :filials
+  # resources :home
   resources :docs
   resources :addres_gs
   resources :addres_ps
   resources :predstavitels
-  resources :vizits do
-#     collection do
-#       get 'print_polis'
-#     end
-  end
+  resources :vizits 
   resources :tipdocs
   resources :oksms
+  resources :streets
   resources :subektis
   resources :okatos
+  
   resources :ops do
     collection do
       get 'files'

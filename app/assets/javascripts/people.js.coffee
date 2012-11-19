@@ -52,6 +52,14 @@ jQuery ->
     
   $('#person_c_oksm').autocomplete
     source: $('#person_c_oksm').data('autocomplete-source')
+  
+  $('#person_addres_g_attributes_ul').autocomplete
+    source: $('#person_addres_g_attributes_ul').data('autocomplete-source'),
+    minLength: 3
+    
+  $('#person_addres_p_attributes_ul').autocomplete
+    source: $('#person_addres_p_attributes_ul').data('autocomplete-source'),
+    minLength: 3
     
 #   $('#person_doc_attributes_mr').autocomplete
 #     source: $('#person_doc_attributes_mr').data('autocomplete-source')

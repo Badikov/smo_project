@@ -1,4 +1,4 @@
-@media print {
+
 body {
   background: white;
   width: auto;
@@ -6,13 +6,13 @@ body {
   margin-left:7mm;
   padding: 0;
   float: none !important;
-}
-input[type="button"] {
-  display: none;
-}
-div {
-  font-size: 0.83em;
-  position: absolute;
+    input[type= "button"] {
+    display: none;
+    }
+  div {
+   font-size: 0.83em;
+   position: absolute;
+   }
 }
 h5#print_vizit_head_1 {
   /*margin-top: 15mm;*/
@@ -78,5 +78,4 @@ div.woman {
 div#print_vizit_dend {
   top: 105mm;
   left: 110mm;
-}
 }

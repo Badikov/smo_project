@@ -7,7 +7,10 @@ class Person < ActiveRecord::Base
   has_one :op, :dependent => :destroy
   has_one :vizit, :dependent => :destroy
   
-  attr_accessible :c_oksm, :contact, :ddeath, :dr, :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w, 
-		  :doc_attributes, :addres_g_attributes, :addres_p_attributes, :op_attributes, :vizit_attributes
-  accepts_nested_attributes_for :doc, :addres_g, :addres_p, :op
+  attr_accessible :c_oksm, :contact, :ddeath, :dr, 
+  :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w,:status, 
+	:doc_attributes, :addres_g_attributes, :addres_p_attributes, 
+  :op_attributes, :vizit_attributes
+  
+  accepts_nested_attributes_for :doc, :old_person, :old_doc, :addres_g, :addres_p, :op, :vizit
 end

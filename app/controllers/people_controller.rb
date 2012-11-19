@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   def index
     # @people = Person.all
     @search = Person.search(params[:q])
-  @people = @search.result
+    @people = @search.result
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,11 +48,11 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    require "net/http"
-    str_guid = Net::HTTP.get(URI.parse(URI.encode("http://mozilla.pettay.fi/cgi-bin/mozuuid.pl")))
+    # require "net/http"
+    # str_guid = Net::HTTP.get(URI.parse(URI.encode("http://mozilla.pettay.fi/cgi-bin/mozuuid.pl")))
     
     op_attributes = HashWithIndifferentAccess.new
-    op_attributes[:n_rec] = str_guid[0,36]
+    op_attributes[:user_id] = current_user.id
     #TODO: 
     predstav = params[:person][:predstavitel]
     person = params[:person]
@@ -62,23 +62,20 @@ class PeopleController < ApplicationController
     
     
     if (predstav[:fam] != "" and predstav[:im] != "")
-      person[:fiopr] = "#{predstav[:fam]} #{predstav[:im]} #{predstav[:ot]}"
-      person[:contact] = "#{predstav[:parents]} #{predstav[:doctype]} #{predstav[:docser]} #{predstav[:docnum]} #{predstav[:docdate]} #{predstav[:phone]}"
+      predstavitel_doc_date = Date.strptime("{#{ predstav['docdate(1i)']}, #{ predstav['docdate(2i)']}, #{ predstav['docdate(3i)']} }", "{ %Y, %m, %d }")
+      person[:fiopr] = "#{predstav[:fam]}^#{predstav[:im]}^#{predstav[:ot]}"
+      person[:contact] = "#{predstav[:parents]}^#{predstav[:doctype]}^#{predstav[:docser]}^#{predstav[:docnum]}^#{predstavitel_doc_date.to_s}^#{predstav[:phone]}"
     end
 #     if (person[:addres_p_attributes][:subj] == "" and  person[:addres_p_attributes][:okato] == "" and  person[:addres_p_attributes][:npname] == "")
 #       person.delete(:addres_p_attributes)
 #     end
     @person = Person.create(person)
-   
 
     respond_to do |format|
       if @person.save
-#         format.html { redirect_to @person, notice: 'Новое застрахованное лицо успешно создано.' }
-	format.html { redirect_to  new_vizit_person_url(@person.id), notice: 'Новое застрахованное лицо успешно создано.' }
-#         format.json { render json: @person, status: :created, location: @person }
+	      format.html { redirect_to  new_vizit_person_url(@person.id), notice: 'Новое застрахованное лицо успешно создано.' }
       else
         format.html { render action: "new" }
-#         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
     end
   end

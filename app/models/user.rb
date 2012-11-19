@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name, :email, :case_sensitive => false
   
   acts_as_authentic do |c|
-     c.login_field = 'email'
+    c.login_field       = 'email'
+    c.logged_in_timeout = 30.minutes # default is 10.minutes
   end # block optional
   
   simple_roles

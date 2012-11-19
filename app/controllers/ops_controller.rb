@@ -189,6 +189,7 @@ class OpsController < ApplicationController
                                         doc.DBEG( op[:polis]["dbeg"] )
                                         doc.DEND( op[:polis]["dend"] )
                                         doc.DSTOP( op[:polis]["dstop"] )
+                                        doc.DATEPOLIS( op[:polis]["datepolis"])
                                       else
                                         doc.VPOLIS()
                                         doc.NPOLIS()
@@ -196,6 +197,7 @@ class OpsController < ApplicationController
                                         doc.DBEG()
                                         doc.DEND()
                                         doc.DSTOP()
+                                        doc.DATEPOLIS()
                                       end
                                         }
                                doc.ERP( op[:insurance]["erp"] )

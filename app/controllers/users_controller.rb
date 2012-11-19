@@ -1,7 +1,7 @@
 # encoding: utf-8
 class UsersController < ApplicationController
   
-  before_filter :require_user, :only => [:show, :edit, :update]
+  # before_filter :require_user, :only => [:show, :edit, :update]
   
   def index
     @users = User.all
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    #TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #:TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #     params[:user][:login] = 
 #     params[:user][:email] = 'badikov-a@yandex.ru'
     @user = User.new(params[:user])

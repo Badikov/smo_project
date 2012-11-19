@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104070948) do
+ActiveRecord::Schema.define(:version => 20121118082955) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(:version => 20121104070948) do
 
   add_index "addres_ps", ["person_id"], :name => "index_addres_ps_on_person_id"
 
+  create_table "ats", :force => true do |t|
+    t.string   "type"
+    t.integer  "kdatemu"
+    t.integer  "kdmu"
+    t.date     "date_z"
+    t.date     "date_b"
+    t.date     "date_e"
+    t.integer  "person_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ats", ["person_id"], :name => "index_ats_on_person_id"
+
   create_table "docs", :force => true do |t|
     t.string   "doctype"
     t.string   "docser"
@@ -83,6 +97,15 @@ ActiveRecord::Schema.define(:version => 20121104070948) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "flks", :force => true do |t|
+    t.integer  "rez"
+    t.integer  "at_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "flks", ["at_id"], :name => "index_flks_on_at_id"
 
   create_table "insurances", :force => true do |t|
     t.string   "ter_st"
@@ -144,33 +167,17 @@ ActiveRecord::Schema.define(:version => 20121104070948) do
   add_index "old_people", ["person_id"], :name => "index_old_people_on_person_id"
 
   create_table "ops", :id => false, :force => true do |t|
-    t.string   "n_rec",         :limit => 36
+    t.string   "n_rec",      :limit => 36
     t.integer  "id"
     t.string   "tip_op"
     t.integer  "user_id"
     t.integer  "person_id"
-    t.integer  "doc_id"
-    t.integer  "old_person_id"
-    t.integer  "old_doc_id"
-    t.integer  "addres_g_id"
-    t.integer  "addres_p_id"
-    t.integer  "vizit_id"
-    t.integer  "insurance_id"
-    t.integer  "personb_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
-  add_index "ops", ["addres_g_id"], :name => "index_ops_on_addres_g_id"
-  add_index "ops", ["addres_p_id"], :name => "index_ops_on_addres_p_id"
-  add_index "ops", ["doc_id"], :name => "index_ops_on_doc_id"
-  add_index "ops", ["insurance_id"], :name => "index_ops_on_insurance_id"
-  add_index "ops", ["old_doc_id"], :name => "index_ops_on_old_doc_id"
-  add_index "ops", ["old_person_id"], :name => "index_ops_on_old_person_id"
   add_index "ops", ["person_id"], :name => "index_ops_on_person_id"
-  add_index "ops", ["personb_id"], :name => "index_ops_on_personb_id"
   add_index "ops", ["user_id"], :name => "index_ops_on_user_id"
-  add_index "ops", ["vizit_id"], :name => "index_ops_on_vizit_id"
 
   create_table "people", :force => true do |t|
     t.string   "fam"
@@ -188,6 +195,7 @@ ActiveRecord::Schema.define(:version => 20121104070948) do
     t.date     "ddeath"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "status"
   end
 
   create_table "personbs", :force => true do |t|
@@ -210,6 +218,7 @@ ActiveRecord::Schema.define(:version => 20121104070948) do
     t.integer  "insurance_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.date     "datepolis"
   end
 
   add_index "polis", ["insurance_id"], :name => "index_polis_on_insurance_id"
@@ -221,6 +230,13 @@ ActiveRecord::Schema.define(:version => 20121104070948) do
   end
 
   add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
+
+  create_table "streets", :force => true do |t|
+    t.integer "old_id"
+    t.string  "name"
+  end
+
+  add_index "streets", ["name"], :name => "index_streets_on_name"
 
   create_table "subektis", :force => true do |t|
     t.string   "kod_tf"
