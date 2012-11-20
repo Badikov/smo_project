@@ -1,7 +1,0 @@
-#steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
-        #steps li {font-size:22px; float:left; padding:10px; color:#b0b1b3;}
-        #steps li span {font-size:11px; display:block;}
-        #steps li.current { color:#000;}
-        
-div.person-block {overflow: hidden;display: block;font-size: small;}
-      div.person-block div {float: left;margin-right: 10px;}
