@@ -49,7 +49,7 @@ class OpsController < ApplicationController
     
     ops = []
     #!!!!!!!!!! отбирает записи по массиву юзеров одного филиала и дате
-    _ops = Op.select("n_rec,id,tip_op,person_id").where(:user_id => _users.map(&:id), :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))                   #updated_at: (Time.now.midnight - 4.day)..Time.now.midnight)
+    _ops = Op.select("id,tip_op,person_id").where(:user_id => _users.map(&:id), :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))                   #updated_at: (Time.now.midnight - 4.day)..Time.now.midnight)
       _ops.each do |op_item|
 	tmp = {}
 	  op_item.instance_variables.each do |var|
@@ -82,8 +82,9 @@ class OpsController < ApplicationController
 	doc.PRZCOD(oplist[:przcod])
 	doc.NRECORDS(oplist[:nrecords])
 	doc.OP {
+               n_rec = 1
                ops.each { |op|
-		  doc.N_REC( op["n_rec"] )
+		  doc.N_REC( n_rec )
 		  doc.ID( op["id"] )
 		  doc.TIP_OP( op["tip_op"] )
                   doc.PERSON {
@@ -97,8 +98,17 @@ class OpsController < ApplicationController
                              doc.SS( op[:person]["ss"] )
                              doc.PHONE( op[:person]["phone"] )
                              doc.EMAIL( op[:person]["email"] )
-                             doc.FIOPR( op[:person]["fiopr"] )
-                             doc.CONTACT( op[:person]["contact"] )
+                             if !op[:person]["fiopr"].nil?
+				str_fiopr = op[:person]["fiopr"]
+				str_contact = op[:person]["contact"]
+				str_fiopr.gsub!("^"," ")
+				str_contact.gsub!("^"," ")
+				doc.FIOPR( str_fiopr )
+				doc.CONTACT( str_contact )
+                             else
+				doc.FIOPR( op[:person]["fiopr"] )
+				doc.CONTACT( op[:person]["contact"] )
+                             end
                              doc.DDEATH( op[:person]["ddeath"] )
                               }
                   doc.DOC{
@@ -203,7 +213,8 @@ class OpsController < ApplicationController
                                doc.ERP( op[:insurance]["erp"] )
                                }
                         }
-         }
+	      n_rec = n_rec + 1
+               }
 	}
 
 #       File.atomic_write(fl_name + ".xml") do |file|
