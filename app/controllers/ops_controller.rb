@@ -25,9 +25,9 @@ class OpsController < ApplicationController
      fil = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops.map(&:user_id)}) 
      
      fil.each do |f|
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "2.xml", id: f[:id]}
+       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "1.xml", id: f[:id]}
      end
-#     @a << { name:"i42007_1_021120121.xml", id: 1 } << { name:"i42007_2_021120121.xml", id: 2 } << { name:"i42007_3_021120121.xml", id: 3 }
+    # @a << { name:"i42007_1_2111121.xml", id: 1 } << { name:"i42007_2_0211121.xml", id: 2 } << { name:"i42007_3_0211121.xml", id: 3 }
      
      render json: @a.size == 0 ? 201 : @a
   end
@@ -48,8 +48,8 @@ class OpsController < ApplicationController
     _users = User.select("users.id").joins(:filials).where(:filials => { id: par[:id] })
     
     ops = []
-    #!!!!!!!!!! отбирает записи по массиву юзеров одного филиала и дате
-    _ops = Op.select("id,tip_op,person_id").where(:user_id => _users.map(&:id), :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))                   #updated_at: (Time.now.midnight - 4.day)..Time.now.midnight)
+    #!!!!!!!!!! отбирает записи по массиву юзеров одного филиала и дате 
+    _ops = Op.select("id,tip_op,person_id").where(:user_id => _users.map(&:id) , :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))
     
     _ops.each do |op_item|
 	    tmp = {}

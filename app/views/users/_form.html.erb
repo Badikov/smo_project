@@ -8,7 +8,7 @@
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>
   <% else %>
     <%= f.input :name, :label => 'Имя, фамилия' %>
-    <%= f.input :login, :input_html => @user.new_record? ? {} : {disabled: 'disabled'} %>
+    <%= f.input :login, :input_html => @user.new_record? ? {} : {} %>
     <%= f.input :email %>
     <%= f.input :password, :label => @user.new_record? ? 'Пароль': 'Новый пароль' %>
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>

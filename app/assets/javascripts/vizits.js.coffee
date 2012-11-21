@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+ $.datepicker.setDefaults($.extend($.datepicker.regional["ru"]))
+
  hidens = $("form#new_vizit div.optional:eq(0), form#new_vizit div.optional:eq(5)")
 
  pervichniy_vibor_smo = $("form#new_vizit div.optional:eq(2), form#new_vizit div.optional:eq(9)")
@@ -73,23 +75,22 @@ jQuery ->
  $('#vizit_petition').click ->
    if @checked  # выбрано подано ходатайство
     petition.hide()
-    if $('input#vizit_dvizit') is undefined
-      $('form#new_vizit div.form-actions')
+    $('form#new_vizit div.form-actions')
        .before '<label class="string optional control-label" for="vizit_dvizit">Дата временного свидетельства</label><div class="controls"><input id="vizit_dvizit" class="string optional span2" type="text" size="20" name="vizit[dvizit]"></div>'
-     else
-      $('label[for="vizit_dvizit"]').show()
-      $('div.controls:last').show()
    else
      petition.show()
-     $('label[for="vizit_dvizit"]').hide()
-     $('div.controls:last').hide()
+     $('label[for="vizit_dvizit"]').remove()
+     $('div.controls:last').remove()
  
  $("#new_vizit").keydown (event) -> 
    e = event || window.event
    if e.keyCode is 13
     return false
  
-#  $('a.print').click (event) ->
+ $("#vizit_dvizit").live "focus", ->
+   $("#vizit_dvizit").datepicker()
+    
+    #  $('a.print').click (event) ->
 #    params = "_blank,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes"
 #    newWind = window.open('about:blank', '', params)
 #    $.get @href,(response) -> newWind.document.body.innerHTML = response

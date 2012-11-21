@@ -65,20 +65,10 @@ cursor_positions:
     :timestamp: 2012-11-19 21:11:49 +06:00
     :selection_offset: 145
     :block_selection_mode: false
-  - :path: app/controllers/users_controller.rb
-    :cursor_offset: 895
-    :timestamp: 2012-11-19 19:37:04 +06:00
-    :selection_offset: 883
-    :block_selection_mode: false
   - :path: app/views/addres_gs/_form.html.erb
     :cursor_offset: 1272
     :timestamp: 2012-11-19 19:28:25 +06:00
     :selection_offset: 1236
-    :block_selection_mode: false
-  - :path: app/models/doc.rb
-    :cursor_offset: 270
-    :timestamp: 2012-11-14 15:30:40 +06:00
-    :selection_offset: 260
     :block_selection_mode: false
   - :path: app/views/people/_form.html.erb
     :cursor_offset: 91
@@ -102,9 +92,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/vizits.css.scss
     :cursor_offset: 308
     :timestamp: 2012-11-21 03:00:34 +06:00
-  - :path: app/assets/javascripts/ops.js.coffee
-    :cursor_offset: 825
-    :timestamp: 2012-11-21 00:08:13 +06:00
   - :path: app/models/person.rb
     :cursor_offset: 616
     :timestamp: 2012-11-21 11:20:38 +06:00
@@ -114,9 +101,6 @@ cursor_positions:
   - :path: app/models/personb.rb
     :cursor_offset: 0
     :timestamp: 2012-10-19 16:45:48 +07:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 902
-    :timestamp: 2012-11-21 13:33:04 +06:00
   - :path: app/assets/javascripts/vizits.js.coffee
     :cursor_offset: 4038
     :timestamp: 2012-11-21 10:18:45 +06:00
@@ -149,4 +133,24 @@ cursor_positions:
   - :path: vendor/assets/stylesheets/print.css.scss
     :cursor_offset: 420
     :timestamp: 2012-11-21 13:03:15 +06:00
+  - :path: app/assets/javascripts/ops.js.coffee
+    :cursor_offset: 357
+    :timestamp: 2012-11-21 00:08:13 +06:00
+  - :path: app/models/doc.rb
+    :cursor_offset: 270
+    :timestamp: 2012-11-14 15:30:40 +06:00
+    :selection_offset: 260
+    :block_selection_mode: false
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 451
+    :timestamp: 2012-11-22 01:36:59 +06:00
+  - :path: app/views/users/_form.html.erb
+    :cursor_offset: 552
+    :timestamp: 2012-11-22 02:08:26 +06:00
+  - :path: app/views/users/edit.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-10-29 16:48:33 +06:00
+  - :path: app/controllers/users_controller.rb
+    :cursor_offset: 970
+    :timestamp: 2012-11-22 01:47:51 +06:00
 files_to_retain: 0

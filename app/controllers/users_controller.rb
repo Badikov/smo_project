@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     # the User has not yet been activated
     if @user.save
       flash[:notice] = "Новый пользователь успешно добавлен."
-      redirect_to home_path#signup_url
+      redirect_to users_path#signup_url
     else
       flash[:notice] = "There was a problem creating you."
       render :action => :new
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
   # GET /users/1/edit
   def edit
-    params.include?([:id]) ? @user = User.find(params[:id]) : @user = current_user
+    @user = User.find(params[:id])
     
   end
 

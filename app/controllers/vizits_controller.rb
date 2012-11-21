@@ -125,89 +125,85 @@ class VizitsController < ApplicationController
     vizit = params[:vizit]
     vizit[:insurance_attributes][:ter_st] = "32000"
     vizit[:insurance_attributes][:ogrnsmo] = "1042201923720"
+    date_stop = Doc.select("ig_enddate").where(:person_id => vizit[:person_id]).map(&:ig_enddate)
+    if !date_stop.nil?
+      vizit[:insurance_attributes][:polis_attributes][:dstop] = date_stop
+    end
+    
+    vizit[:dvizit] = vizit[:dvizit].nil? ? DateTime.now : vizit[:dvizit].to_date
     
     
     if vizit[:petition]
       
     end
     #:TODO Обработать событие Petition---> dvizit==nil, method==nil, rsmo==nil
-    tmp = Date.strptime("{#{ vizit['dvizit(1i)']}, #{ vizit['dvizit(2i)']}, #{ vizit['dvizit(3i)']} }", "{ %Y, %m, %d }")
+    # tmp = Date.strptime("{#{ vizit['dvizit(1i)']}, #{ vizit['dvizit(2i)']}, #{ vizit['dvizit(3i)']} }", "{ %Y, %m, %d }")
 # 	
     tip_op = ""
     event_logic(vizit,tip_op)
     
     
-    if tip_op != ""
-      if vizit[:insurance_attributes][:polis_attributes][:vpolis] == ""
-	      vizit[:insurance_attributes].delete(:polis_attributes)
-      end 
-      
-      vizit.delete(:rpolis) if vizit[:rpolis] == ""
-      
-      @vizit = Vizit.create(vizit)
-      
-      if @vizit.save 
-	      @op = Op.find_by_person_id(vizit[:person_id])
-  
-	      @op.update_attributes({ id: @op.person_id, tip_op: tip_op, user_id: @current_user })
-  
-	      redirect_to @vizit, notice: 'Визит сохранен.'
-      else
-	      redirect_to action: "new", id: vizit[:person_id]
-      end
-      
-    else
-      redirect_to action: "new", id: vizit[:person_id]
-#       render json: params
-    end
-#      @tmp = (params[:vizit][:insurance_attributes][:polis_attributes]['dend(1i)'] + "-" + params[:vizit][:insurance_attributes][:polis_attributes]['dend(2i)'] + "-" + params[:vizit][:insurance_attributes][:polis_attributes]['dend(3i)'])
-#     render json: @tmp
+    # if tip_op != ""
+    #   # if vizit[:insurance_attributes][:polis_attributes][:vpolis] == ""
+	   #   #  vizit[:insurance_attributes].delete(:polis_attributes)
+    #   # end 
+    #   
+    #   vizit.delete(:rpolis) if vizit[:rpolis] == ""
+    #   @vizit = Vizit.create(vizit)
+    #   
+    #   # if @vizit.save 
+	   #   #  @op = Op.find_by_person_id(vizit[:person_id])
+    #   # 
+	   #   #  @op.update_attributes({ id: @op.person_id, tip_op: tip_op, user_id: @current_user })
+    #   # 
+	   #   #  redirect_to @vizit, notice: 'Визит сохранен.'
+    #   # else
+	   #   #  redirect_to action: "new", id: vizit[:person_id]
+    #   # end
+    #   
+    # else
+    #   # redirect_to action: "new", id: vizit[:person_id]
+    #   render json: vizit
+    # end
+
+    render json: vizit[:dvizit]
  
   end
   def event_logic(vizit,tip_op)
-    if (vizit[:rsmo] == '1' and vizit[:fpolis] != '0')
+    if (vizit[:rsmo] == '1' and vizit[:fpolis] != '0' and vizit[:insurance_attributes][:enp] == "" and vizit[:insurance_attributes][:erp] == 0)
       tip_op = "П010"
       vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2
-      insert_dates(vizit, tmp)
       
-    elsif (vizit[:rsmo] == '2' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:enp] != "" and vizit[:rpolis] == "")
+      
+    elsif (vizit[:rsmo] == '2' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:enp] != "" and vizit[:insurance_attributes][:erp] == 1 and vizit[:rpolis] == "")
       tip_op = "П031"
-      
-    elsif (vizit[:rsmo] == '3' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:enp] != "" and vizit[:rpolis] == "")
+      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3
+    elsif (vizit[:rsmo] == '3' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:enp] != "" and vizit[:insurance_attributes][:erp] == 1 and vizit[:rpolis] == "")
       tip_op = "П032"
-      
-    elsif (vizit[:rsmo] == '4' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:enp] != "" and vizit[:rpolis] == "")
+      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3
+    elsif (vizit[:rsmo] == '4' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:enp] != "" and vizit[:insurance_attributes][:erp] == 1 and vizit[:rpolis] == "")
       tip_op = "П033"
-      
-#       params[:vizit][:insurance_attributes][:polis_attributes][:vpolis] = 3 #!!!!оставляю запись Polis - null для 031,032,033
+      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3
+#       vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3 #!!!!
     elsif (vizit[:rsmo] == '2' and vizit[:fpolis] != '0' and vizit[:rpolis] != "")
       tip_op = "П034"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2
-      insert_dates(vizit, tmp)
+      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2 # или 3 --- черт его знает?
+      
       
     elsif (vizit[:rsmo] == '3' and vizit[:fpolis] != '0' and vizit[:rpolis] != "")
       tip_op = "П035"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2
-      insert_dates(vizit, tmp)
+      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2 # или 3 --- черт его знает?
+      
       
     elsif (vizit[:rsmo] == '4' and vizit[:fpolis] != '0' and vizit[:rpolis] != "")
       tip_op = "П036"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2
-      insert_dates(vizit, tmp)
+      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2 # или 3 --- черт его знает?
+      
       
     end
   end
   
-  # вставляет дату бегин и дату енд в параметры инсерта
-  def insert_dates(vizit, tmp)
-    vizit[:insurance_attributes][:polis_attributes]['dbeg(1i)'] = tmp.year.to_s
-    vizit[:insurance_attributes][:polis_attributes]['dbeg(2i)'] = tmp.month.to_s
-    vizit[:insurance_attributes][:polis_attributes]['dbeg(3i)'] = tmp.day.to_s
-    tmp = tmp + 42
-    vizit[:insurance_attributes][:polis_attributes]['dend(1i)'] = tmp.year.to_s
-    vizit[:insurance_attributes][:polis_attributes]['dend(2i)'] = tmp.month.to_s
-    vizit[:insurance_attributes][:polis_attributes]['dend(3i)'] = tmp.day.to_s
-  end
+  
   def print_polis
     vizit = Vizit.find_by_id(params[:id])
     @person = vizit.person
