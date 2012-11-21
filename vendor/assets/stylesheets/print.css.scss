@@ -3,7 +3,8 @@ body {
   background: white;
   width: auto;
   border: 0;
-  margin-left:7mm;
+  margin-top: 3mm;
+  margin-left:16mm;
   padding: 0;
   float: none !important;
     input[type= "button"] {
@@ -15,17 +16,16 @@ body {
    }
 }
 h5#print_vizit_head_1 {
-  /*margin-top: 15mm;*/
   margin-left: 42mm;
 }
 h5#print_vizit_head_2 {
-  margin-top: 5mm;
+  margin-top: 0mm;
   margin-left: 35mm;
 }
 div#print_vizit_dvizit {
   
   margin-left: 37mm;
-  top: 53mm;
+  top: 50mm;
 }
 div#print_vizit_person_fio {
   
@@ -39,7 +39,7 @@ div#print_vizit_person_dr {
 div#print_vizit_doc_name {
   
   top: 73mm;
-  left: 47mm;
+  left: 57mm;
 }
 div#print_vizit_doc_docser {
   
@@ -59,20 +59,20 @@ div#print_vizit_doc_docdate {
 div#print_vizit_doc_name_vp {
   
   top: 80mm;
-  left: 40mm;
+  left: 50mm;
 }
 div#print_vizit_doc_mr {
   
-  top: 88mm;
-  left: 31mm;
+  top: 87mm;
+  left: 50mm;
 }
 div.man {
   
-  top: 95mm;
-  left: 28mm;
+  top: 94mm;
+  left: 43mm;
 }
 div.woman {
-  top: 95mm;
+  top: 94mm;
   left: 56mm;
 }
 div#print_vizit_dend {

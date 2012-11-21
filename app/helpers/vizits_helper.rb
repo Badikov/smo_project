@@ -51,7 +51,7 @@ module VizitsHelper
       else
 	_m = ""
     end
-    str = "#{d.size == 1 ? "0" + d : d}   #{_m}     #{y}"
+    str = "#{d.size == 1 ? "0" + d : d}" + "   " + "#{_m} "
     return str
   end
 end

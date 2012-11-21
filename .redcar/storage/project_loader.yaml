@@ -1,4 +1,5 @@
 --- 
 open_files: 
-  - app/assets/javascripts/people.js.coffee
   - app/controllers/people_controller.rb
+  - app/controllers/vizits_controller.rb
+  - vendor/assets/stylesheets/print.css.scss

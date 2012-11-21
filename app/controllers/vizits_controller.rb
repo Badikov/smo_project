@@ -7,31 +7,38 @@ class VizitsController < ApplicationController
   # GET /vizits/1
   # GET /vizits/1.json
   def show
+    # (10...566).each do |n| 
+    #   @person = Person.find_by_id(n)
+    #   @person.destroy
+    #   
+    # end
+    # render json: status
     vizit = Vizit.find_by_id(params[:id])
     @person = vizit.person
- 
+    
     respond_to do |format|
       format.html # show.html.erb
       # format.json { render json: @vizit }
     end
   end
+  # DELETE /vizits/1
+  # DELETE /people/1.json 566
+  def destroy
+    
+  end
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open( 'people_.txt' )
+    file = File.open("people_.txt")
     i = 0
       file.each do |line|
-      if  i > 1
-        str = line.delete("null")
-	  przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,contact,ddeath,doctype,docser,docnum,docdate,name_vp,
-	  mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,
-	  spolis,npolis,dbeg,dend,dstop,datepolis,date_modif = str.chomp("\n").split("\t")
-        
-#           statuses << [przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,contact,ddeath,doctype,docser,docnum,docdate,name_vp,
-# 	  mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,
-# 	  spolis,npolis,dbeg,dend,dstop,datepolis,date_modif]
+	
+	if  i > 0
+	  str = line.delete("null")
+	  przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,
+	      docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,
+	      ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_modif = str.chomp("\n").split("\t")
 	  s_oksm= Oksm.select("distinct alfa3").where(:kod =>  kod).map(&:alfa3)
-	  
 	  user_id = cod_podrazdeleniy(przcod)
 	  ss = ss.empty? ? nil : ss
 	  fiopr = fiopr.empty? ? nil : fiopr
@@ -44,40 +51,26 @@ class VizitsController < ApplicationController
 	  dbeg = dbeg.empty? ? nil : dbeg.to_date
 	  dend = dend.empty? ? nil : dend.to_date
 	  dstop = dstop.empty? ? nil : dstop.to_date
-	  datepolis = datepolis.empty? ? nil : datepolis.to_date
 	  date_modif = date_modif.empty? ? nil : date_modif.to_date
 	  name_or = name_vp.upcase
-	  
 	  subj = Subekti.select("distinct kod_okato").where(:kod_tf => kod_tf).map(&:kod_okato)
-	  
 	  korp = korp.empty? ? nil : korp
 	  kv = kv.empty? ? nil : kv
 	  enp = enp.empty? ? nil : enp
 	  spolis = spolis.empty? ? nil : spolis
 	  npolis = npolis.empty? ? nil : npolis
 	  method = method.empty? ? nil : method.to_i
-	  
 	  @person = Person.new({status: status,fam: fam, im: im, ot: ot, w: w, dr: dr, true_dr: 1, c_oksm: s_oksm[0], ss: ss,phone: phone,
 	                        email: email, fiopr: fiopr, contact: contact, ddeath: ddeath})
-# 	  @doc = Doc.new({doctype: doctype, docser: docser, docnum: docnum, docdate: docdate, name_vp: name_or, mr: mr})
-# 	  @addres_g = AddresG.new({bomg: bomg, subj: subj[0], indx: indx, okato: okato, npname: npname, ul: ul, dom: dom, korp: korp, kv: kv,dreg: dreg})
-# 	  @addres_p = AddresP.new()
-# 	  @vizit = Vizit.new({dvizit: dvizit, method: method, petition: petition, rsmo: rsmo, rpolis: rpolis, fpolis: fpolis})
-# 	  @insurance = Insurance.new({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
-# 	  @polis = Polis.new({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: datepolis})
-	  @op = Op.new({id: id_fl, tip_op: tip_op, user_id: user_id})
 	  @person.build_doc({doctype: doctype, docser: docser, docnum: docnum, docdate: docdate, name_vp: name_or, mr: mr})
 	  @person.build_addres_g({bomg: bomg, subj: subj[0], indx: indx, okato: okato, npname: npname, ul: ul, dom: dom, korp: korp, kv: kv,dreg: dreg})
 	  @person.build_addres_p()
 	  @person.build_op({id: id_fl, tip_op: tip_op, user_id: user_id})
 	  @person.build_vizit({dvizit: dvizit, method: method, petition: petition.to_i, rsmo: rsmo, rpolis: rpolis, fpolis: fpolis})
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
-	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: datepolis})
-	  
-# 	 statuses << @op
-# 	 @person.save
-	  
-      end
+	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop})
+# 	  @person.save
+	end
         i = i+1 
       end
     file.close
@@ -221,6 +214,7 @@ class VizitsController < ApplicationController
     render :partial => "print_polis", :layout => false
   end
   def print_petition
+    #TODO: http://www.delphikingdom.com/padeg_online.asp  --- сервис перевода фамилий в родительный падеж
     vizit = Vizit.find_by_id(params[:id])
     @person = vizit.person
     render :partial => "print_petition", :layout => false

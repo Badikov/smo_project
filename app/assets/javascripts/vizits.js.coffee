@@ -6,7 +6,9 @@ jQuery ->
 
  pervichniy_vibor_smo = $("form#new_vizit div.optional:eq(2), form#new_vizit div.optional:eq(9)")
  
- zamena_smo = $("form#new_vizit div.optional:eq(3),form#new_vizit div.optional:eq(4)")
+ zamena_smo = $("form#new_vizit div.optional:eq(3),form#new_vizit div.optional:eq(4),form#new_vizit div.optional:eq(6)")
+
+ petition = $("form#new_vizit div.optional:eq(1),form#new_vizit div.optional:eq(7),form#new_vizit div.optional:eq(8)")
  
  hidens.hide()
  pervichniy_vibor_smo.hide()
@@ -67,7 +69,20 @@ jQuery ->
       $("#vizit_fpolis option[value=0]").removeAttr 'disabled'
       $("#vizit_fpolis option[value=0]").attr selected: "selected"
       $("#vizit_fpolis option[value=1]").removeAttr 'selected'
-      
+ 
+ $('#vizit_petition').click ->
+   if @checked  # выбрано подано ходатайство
+    petition.hide()
+    if $('input#vizit_dvizit') is undefined
+      $('form#new_vizit div.form-actions')
+       .before '<label class="string optional control-label" for="vizit_dvizit">Дата временного свидетельства</label><div class="controls"><input id="vizit_dvizit" class="string optional span2" type="text" size="20" name="vizit[dvizit]"></div>'
+     else
+      $('label[for="vizit_dvizit"]').show()
+      $('div.controls:last').show()
+   else
+     petition.show()
+     $('label[for="vizit_dvizit"]').hide()
+     $('div.controls:last').hide()
  
  $("#new_vizit").keydown (event) -> 
    e = event || window.event

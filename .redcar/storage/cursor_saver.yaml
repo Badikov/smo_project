@@ -22,27 +22,9 @@ cursor_positions:
   - :path: status.txt
     :cursor_offset: 0
     :timestamp: 2012-11-19 16:03:27 +06:00
-  - :path: app/views/vizits/_form.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-11-06 01:20:23 +06:00
   - :path: app/assets/javascripts/print_petition.js.coffee
     :cursor_offset: 0
     :timestamp: 2012-11-15 13:29:55 +06:00
-  - :path: vendor/assets/stylesheets/print.css.scss
-    :cursor_offset: 0
-    :timestamp: 2012-11-16 20:13:19 +06:00
-  - :path: app/views/vizits/_print_polis.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-11-18 01:47:49 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2012-11-18 12:54:32 +06:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2012-11-18 11:32:45 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2012-11-18 02:15:43 +06:00
   - :path: app/assets/javascripts/print_polis.js.coffee
     :cursor_offset: 158
     :timestamp: 2012-11-19 18:18:13 +06:00
@@ -78,9 +60,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/bootstrap_and_overrides.css.less
     :cursor_offset: 1377
     :timestamp: 2012-11-19 19:55:51 +06:00
-  - :path: app/assets/javascripts/people.js.coffee
-    :cursor_offset: 1778
-    :timestamp: 2012-11-19 19:07:16 +06:00
   - :path: app/models/op.rb
     :cursor_offset: 173
     :timestamp: 2012-11-19 21:11:49 +06:00
@@ -111,18 +90,63 @@ cursor_positions:
     :timestamp: 2012-11-19 21:53:53 +06:00
     :selection_offset: 1498
     :block_selection_mode: false
-  - :path: app/helpers/vizits_helper.rb
-    :cursor_offset: 68
-    :timestamp: 2012-11-20 00:56:26 +06:00
-    :selection_offset: 44
-    :block_selection_mode: false
   - :path: app/views/insurances/_form.html.erb
     :cursor_offset: 615
     :timestamp: 2012-11-20 01:34:54 +06:00
-  - :path: app/assets/javascripts/vizits.js.coffee
-    :cursor_offset: 3086
-    :timestamp: 2012-11-20 02:23:57 +06:00
+  - :path: app/views/vizits/_print_petition.html.erb
+    :cursor_offset: 10017
+    :timestamp: 2012-11-20 23:04:07 +06:00
+  - :path: app/assets/javascripts/people.js.coffee
+    :cursor_offset: 1778
+    :timestamp: 2012-11-19 19:07:16 +06:00
+  - :path: app/assets/stylesheets/vizits.css.scss
+    :cursor_offset: 308
+    :timestamp: 2012-11-21 03:00:34 +06:00
+  - :path: app/assets/javascripts/ops.js.coffee
+    :cursor_offset: 825
+    :timestamp: 2012-11-21 00:08:13 +06:00
   - :path: app/models/person.rb
+    :cursor_offset: 616
+    :timestamp: 2012-11-21 11:20:38 +06:00
+  - :path: app/models/person.rb~
+    :cursor_offset: 574
+    :timestamp: 2012-11-21 11:20:48 +06:00
+  - :path: app/models/personb.rb
     :cursor_offset: 0
-    :timestamp: 2012-11-19 01:25:35 +06:00
+    :timestamp: 2012-10-19 16:45:48 +07:00
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 902
+    :timestamp: 2012-11-21 13:33:04 +06:00
+  - :path: app/assets/javascripts/vizits.js.coffee
+    :cursor_offset: 4038
+    :timestamp: 2012-11-21 10:18:45 +06:00
+  - :path: app/views/vizits/_form.html.erb
+    :cursor_offset: 1501
+    :timestamp: 2012-11-21 02:33:17 +06:00
+  - :path: people_.txt
+    :cursor_offset: 119
+    :timestamp: 2012-11-21 14:27:27 +06:00
+    :selection_offset: 112
+    :block_selection_mode: false
+  - :path: app/views/people/index.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-11-16 13:23:23 +06:00
+  - :path: person_.txt
+    :cursor_offset: 0
+    :timestamp: 2012-11-20 04:13:23 +06:00
+  - :path: app/helpers/vizits_helper.rb
+    :cursor_offset: 1452
+    :timestamp: 2012-11-21 13:11:06 +06:00
+  - :path: app/views/vizits/_print_polis.html.erb
+    :cursor_offset: 745
+    :timestamp: 2012-11-21 12:37:12 +06:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 3086
+    :timestamp: 2012-11-19 22:38:19 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 4187
+    :timestamp: 2012-11-21 14:31:59 +06:00
+  - :path: vendor/assets/stylesheets/print.css.scss
+    :cursor_offset: 420
+    :timestamp: 2012-11-21 13:03:15 +06:00
 files_to_retain: 0

@@ -22,7 +22,7 @@ jQuery ->
     url: "/ops/create_links",
     data: (date: $("#dp-fild").datepicker('getDate')),
     success: (response) ->
-     if response == []
+     if response == 201
       $('.row')
        .before '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button>Нет файлов для этой даты</div>'
      else

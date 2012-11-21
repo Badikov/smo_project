@@ -1,4 +1,4 @@
-1353358203
+1353487057
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -171,6 +171,7 @@ change	/home/alex/rails_projects/smo_project/db/migrate/20121006080925_create_pe
 change	/home/alex/rails_projects/smo_project/db/migrate/20121016053355_create_oksms.rb	  def change
 change	/home/alex/rails_projects/smo_project/db/migrate/20121007174250_create_addres_gs.rb	  def change
 change	/home/alex/rails_projects/smo_project/db/migrate/20121016082558_create_subektis.rb	  def change
+cod_podrazdeleniy	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def cod_podrazdeleniy(str)
 create	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/streets_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def create
@@ -188,6 +189,7 @@ day_to_str	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.
 destroy	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def destroy
+destroy	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def destroy
 down	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def down
 down	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	  def down
 down	/home/alex/rails_projects/smo_project/db/migrate/20121104070947_create_user_roles.simple_roles_engine.rb	  def down
@@ -207,10 +209,10 @@ index	/home/alex/rails_projects/smo_project/app/controllers/okatos_controller.rb
 index	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/tipdocs_controller.rb	  def index
-index	/home/alex/rails_projects/smo_project/app/controllers/subektis_controller.rb	def index
 index	/home/alex/rails_projects/smo_project/app/controllers/streets_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def index
+index	/home/alex/rails_projects/smo_project/app/controllers/subektis_controller.rb	def index
 index	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def index
 initialize	/home/alex/rails_projects/smo_project/app/models/ability.rb	  def initialize(user)
 insert_dates	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def insert_dates(vizit, tmp)
