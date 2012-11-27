@@ -1,40 +1,49 @@
 SmoProject::Application.routes.draw do
+  resources :customers do
+    collection do
+      get 'search'
+    end
+  end
+  get "streets/index"
+
+  get "streets/create"
+
   resources :filials
   resources :home
 
   resources :people do
     collection do
-      get 'search'
+      match 'search' => 'people#search', :via => [:get, :post], :as => :search
       get 'result'
     end
   end
   
   resources :user_sessions
+  
   match 'login' => 'user_sessions#new',      :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'vizits/new/:id' => 'vizits#new', :as => :new_vizit_person
-  match 'vizits/print_polis/:id' => 'vizits#print_polis', :as => 'print_polis'
+  match 'print_polis/:id' => 'vizits#print_polis', :as => 'print_polis'
+  match 'vizits/print_petition/:id' => 'vizits#print_petition', :as => 'print_petition'
   match 'home' => 'home#index', :as => :home
   
   resources :users  # give us our some normal resource routes for users
   resource :user, :as => 'account'  # a convenience route
   match 'signup' => 'users#new', :as => :signup
   
-  resources :filials
-  resources :home
+  # resources :filials
+  # resources :home
   resources :docs
   resources :addres_gs
   resources :addres_ps
   resources :predstavitels
-  resources :vizits do
-#     collection do
-#       get 'print_polis'
-#     end
-  end
+  resources :vizits 
   resources :tipdocs
   resources :oksms
+  resources :streets
   resources :subektis
   resources :okatos
+  
   resources :ops do
     collection do
       get 'files'

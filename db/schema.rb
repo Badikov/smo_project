@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118082955) do
+ActiveRecord::Schema.define(:version => 20121126080210) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -167,15 +167,17 @@ ActiveRecord::Schema.define(:version => 20121118082955) do
   add_index "old_people", ["person_id"], :name => "index_old_people_on_person_id"
 
   create_table "ops", :id => false, :force => true do |t|
-    t.string   "n_rec",      :limit => 36
     t.integer  "id"
     t.string   "tip_op"
     t.integer  "user_id"
     t.integer  "person_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.date     "date_uvoln"
+    t.boolean  "active"
   end
 
+  add_index "ops", ["active"], :name => "index_ops_on_active"
   add_index "ops", ["person_id"], :name => "index_ops_on_person_id"
   add_index "ops", ["user_id"], :name => "index_ops_on_user_id"
 
@@ -219,6 +221,7 @@ ActiveRecord::Schema.define(:version => 20121118082955) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.date     "datepolis"
+    t.date     "datepp"
   end
 
   add_index "polis", ["insurance_id"], :name => "index_polis_on_insurance_id"

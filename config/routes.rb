@@ -1,4 +1,12 @@
 SmoProject::Application.routes.draw do
+  resources :customers do
+    collection do
+      match 'search' => 'customers#search', :via => [:get]
+      # match 'search_person/:id' => 'customers#search_person', :as => 'search_person'
+      get 'search_person' => 'customers#search_person'
+      match 'edit_ops' => 'customers#edit_ops'
+    end
+  end
   get "streets/index"
 
   get "streets/create"
@@ -8,8 +16,8 @@ SmoProject::Application.routes.draw do
 
   resources :people do
     collection do
-      match 'search' => 'people#search', :via => [:get, :post], :as => :search
-      get 'result'
+      # match 'search' => 'people#search', :via => [:get, :post], :as => :search
+      # get 'result'
     end
   end
   

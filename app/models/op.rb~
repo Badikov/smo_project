@@ -6,5 +6,5 @@ class Op < ActiveRecord::Base
   attr_accessible :id, :n_rec, :tip_op, :updated_at, :user_id
  
   
-  self.primary_key = "n_rec"
+  self.primary_key = "id"
 end

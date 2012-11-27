@@ -1,7 +1,8 @@
 <div class="page-header">
   <h3><%=t 'Файлы XML для передачи' %></h3>
 </div>
-
+<p>Застрахованные лица</p>
+<br>
 <div id="ops">
   <div id="ops_form">
     <input type="text" id="dp-fild"/>
@@ -9,6 +10,17 @@
   </div>
   <div id="ops_links"></div>
 </div>
+<br>
+<p>Прикрепление к лечебным учреждениям</p>
+<br>
+<div id="ops">
+  <div id="ops_form">
+    <input type="text" id="dp-fild-ats"/>
+    <button id="ats_search" type="submit" name="button" data-disable-with="Please wait...">Search</button>
+  </div>
+  <div id="ats_links"></div>
+</div>
+
 <!--<% if @a %>
   <% @a.each do |a| %>
     <%=link_to a[:name], files_ops_path(a)  %>

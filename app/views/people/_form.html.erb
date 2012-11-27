@@ -16,11 +16,14 @@
   <%= f.input :true_dr, :label => 'Признак даты', 
 		  :as => :select, :include_blank => false, 
 		  :collection => [[ 'Дата достоверна', 1 ], ['Известны достоверно только месяц и год рождения', 2], ['Известен достоверно только год рождения', 3]],
-		  :input_html => { :class => "span4", :title => 'Признак достоверности даты' } %>
+		  :input_html => { :class => "input-large", :title => 'Признак достоверности даты' } %>
     
-  <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', :hint => 'например RUS... Б/Г - без гражданства', :input_html => {value: 'RUS', data: {autocomplete_source: oksms_path}} %>
+  <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', 
+  :hint => 'например RUS... Б/Г - без гражданства', 
+  :input_html => { class: 'input-small', value: 'RUS' } %>
     
-  <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX' %>
+  <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX', 
+  :input_html => {:title => 'дефисы вводятся так, <br> как написано в карточке'} %>
       
   <%= f.input :phone, :label => 'Телефон', :as => :tel %>
       

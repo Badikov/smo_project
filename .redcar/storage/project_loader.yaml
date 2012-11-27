@@ -1,5 +1,9 @@
 --- 
 open_files: 
-  - app/controllers/people_controller.rb
+  - app/views/customers/search.html.erb
+  - app/controllers/customers_controller.rb
+  - app/assets/javascripts/customers.js.coffee
+  - app/views/customers/_customer.html.erb
+  - app/models/doc.rb
+  - app/controllers/tipdocs_controller.rb
   - app/controllers/vizits_controller.rb
-  - vendor/assets/stylesheets/print.css.scss

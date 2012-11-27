@@ -1,0 +1,127 @@
+<div class="person-block">
+  <div>
+    <p><strong>Застрахованное лицо</strong></p>
+    <%= @person.fam %> <%= @person.im %><br><%= @person.ot %><br />
+    
+    <%= @person.w == 1 ? "мужской" : "женский"  %><br />
+    
+    <%= @person.dr %><br />
+    
+    <%= @person.c_oksm %>
+    
+    <%= @person.ss %><br />
+    
+    <%= @person.phone %><br />
+    
+    <%= @person.email %><br />
+    
+  </div>
+  <div>
+    <p><strong>Удостоверение личности</strong></p>
+    <% if @person.doc %>
+    <% doc_name = Tipdoc.find_by_id(@person.doc.doctype)  %>
+    
+      <%= doc_name.docname %><br />
+      <%= @person.doc.docser %>
+      <%= @person.doc.docnum %><br />
+      <%= @person.doc.name_vp %><br />
+      <%= @person.doc.docdate %><br />
+      <%= @person.doc.mr %><br />
+    <% end %>
+  </div>
+  <% if @person.c_oksm != 'RUS'  %>
+    <div>
+      <p><strong>Вид на жительство</strong></p>
+      <%= @person.doc.ig_doctype %>
+      <%= @person.doc.ig_docser %>
+      <%= @person.doc.ig_docnum %>
+      <%= @person.doc.ig_docdate %>
+      <%= @person.doc.ig_name_vp %>
+      <%= @person.doc.ig_startdate %>
+      <%= @person.doc.ig_enddate %>
+    </div>
+  <% end  %>
+  <div>
+    <p><strong>Место жительства</strong></p>
+    <% if @person.addres_g %>
+    <% subj = Subekti.find_by_kod_okato(@person.addres_g.subj)  %>
+      <%= @person.addres_g.indx %><br>
+      <%= subj.subname  %><br>
+      <%= @person.addres_g.rnname %>
+      <%= @person.addres_g.npname %><br>
+      
+      <%= @person.addres_g.ul %>
+      <%= @person.addres_g.dom %>
+      <%= @person.addres_g.korp %>
+      <%= @person.addres_g.kv %> <br>
+      <%= @person.addres_g.dreg %><br />
+    <% end %>
+  </div>
+  <% if @person.fiopr? %>
+    <div>
+      <p><strong>Сведения о представителе</strong></p>
+      <%= @person.fiopr %><br>
+      
+      <%= @person.contact %>
+    </div>
+  <% end %>
+</div>
+<div class="person-block">
+  <% vizit = @person.vizit   %>
+  
+  <% op = @person.op   %>
+  <% if !op.nil? %>
+   <div>
+      <p><strong>События</strong></p>
+      <% op.attributes.each do |attr|  %>
+        <%= attr %><br>
+      <% end  %>
+    </div> 
+  <% end  %>  
+
+  <% insurance = vizit.insurance  %>
+  <% if !insurance.nil? %>
+    <div>
+      <p><strong>Страхование</strong></p>
+        <% insurance.attributes.each do |attr|  %>
+          <%= attr %><br>
+        <% end  %>
+    </div>
+  <% end  %>
+  
+  
+  <% if !vizit.nil? %>
+   <div>
+      <p><strong>Последний визит</strong></p>
+      <% vizit.attributes.each do |attr|  %>
+        <%= attr %><br>
+      <% end  %>
+  
+    </div>
+  <% end %>  
+
+  <% polis = insurance.polis  %>
+  <% if !polis.nil? %>
+    <div>
+      <p><strong>Документ страхования</strong></p>
+        <% polis.attributes.each do |attr|  %>
+          <%= attr %><br>
+        <% end  %>
+    </div>
+  <% end  %>
+
+</div>
+<div class="person-block">
+  <%= link_to t("Выбытие ЗЛ"), {:action => "edit_ops", :id => @person}, 
+  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
+  :default => 'Вы уверенны что это лицо выбыло ?')) } %>
+  
+</div>
+
+
+
+
+
+
+
+

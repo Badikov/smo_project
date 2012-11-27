@@ -2,7 +2,7 @@
 module VizitsHelper
   def method_podachi_zayvlenia
     method_arey = [["лично",1],["через официальный сайт ТФОМС",3],["через единый портал государственных услуг",4]]
-    return method_arey
+      return method_arey
   end
   def vibor_zamena_smo
     vibor_arey = [["первичный выбор СМО",1],["замена СМО в соответствии с правом замены",2],

@@ -1,6 +1,6 @@
 <ul class="nav">
  <li><%= link_to "Новое ЗЛ", new_person_path %></li>
- <li><%= link_to "Найти", people_path %></li>
+ <li><%= link_to "Найти", search_customers_path %></li>
  <!--<li><%= link_to "Contact Us" %></li>-->
  <% if can? :create, User %>
     <li><%= link_to "Файлы", upload_ops_path %></li>

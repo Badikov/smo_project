@@ -1,13 +1,16 @@
-<h1>Вход в программу</h1>
-<%= form_for @user_session, :as => :user_session, :url => { :action => "create" } do |f| %>
+
+<%= form_for @user_session, :as => :user_session, :url => { :action => "create" }, :html => {:class => 'form-signin'} do |f| %>
+<h2 class="form-signin-heading">Вход в программу</h2>
+
   <%= render "shared/error_messages", :target => @user_session %>
-  <%= f.label :email %><br />
-  <%= f.text_field :email %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
-  <%= f.submit "Войти" %>
+  
+  <%= f.text_field :email, :class => 'input-block-level', :placeholder => 'Email address'  %>
+  
+  
+  <%= f.password_field :password, :class => 'input-block-level', :placeholder => 'Пароль' %>
+  
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me , :class => 'checkbox' %><br>
+  <br>
+  <%= f.button "Войти" ,:class => 'btn btn-large btn-primary', :type => 'submit' %>
 <% end %>

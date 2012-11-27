@@ -11,7 +11,7 @@
 	
     <div class="row-fluid">  
       <div class="span2"><%= @person.dr.strftime('%d.%m.%Y') %></div>
-      <div class="span1"><%= @person.w == 0 ? "мужчина" : "женщина"  %></div>
+      <div class="span1"><%= @person.w == 1 ? "мужчина" : "женщина"  %></div>
       <div class="span2"><%= @person.phone %></div>
       <div class="span3"><%= @person.email %></div>
       <div class="span3">СНИЛС: <%= @person.ss %></div>

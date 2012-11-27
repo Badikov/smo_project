@@ -4,6 +4,10 @@
 jQuery ->
   $("#new_person").formToWizard submitButton:'0856'
   
+  $("#person_true_dr, #person_ss").tooltip()
+  
+  
+  
   $("#pet_dog").attr("checked", "checked")
   
   $('#person_addres_g_attributes_bomg').removeAttr 'checked'
@@ -50,9 +54,16 @@ jQuery ->
        ig.hide()
  
     
-  $('#person_c_oksm').autocomplete
-    source: $('#person_c_oksm').data('autocomplete-source')
-  
+  $('#person_c_oksm').typeahead
+    source: (query,process) ->
+      $.ajax
+        url: '/oksms',
+        data:
+          term: query.toUpperCase()
+        success: (data) ->
+          process data
+    
+  # $('#person_c_oksm').change () -> alert('Handler for .change() called.')
   $('#person_addres_g_attributes_ul').autocomplete
     source: $('#person_addres_g_attributes_ul').data('autocomplete-source'),
     minLength: 3
