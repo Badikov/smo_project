@@ -7,7 +7,7 @@ class VizitsController < ApplicationController
   # GET /vizits/1
   # GET /vizits/1.json
   def show
-    # (6..734).each do |n| 
+    # (735..870).each do |n| 
     #   @person = Person.find_by_id(n)
     #   @person.destroy
     #   
@@ -70,7 +70,7 @@ class VizitsController < ApplicationController
     # render json: status
     statuses =[]
     s_oksm = ""
-    file = File.open("people_before_28.txt")
+    file = File.open("people29.txt")
     i = 0
       file.each do |line|
 	
@@ -102,7 +102,7 @@ class VizitsController < ApplicationController
 	  spolis = spolis.empty? ? nil : spolis
 	  npolis = npolis.empty? ? nil : npolis
 	  method = method.empty? ? nil : method.to_i
-    active = date_uvoln.nil? ? 0 : 1
+    active = date_uvoln.nil? ? 1 : 0
 	  @person = Person.new({status: status,fam: fam, im: im, ot: ot, w: w, dr: dr, true_dr: 1, c_oksm: s_oksm[0], ss: ss,phone: phone,
 	                        email: email, fiopr: fiopr, contact: contact, ddeath: ddeath})
 	  @person.build_doc({doctype: doctype, docser: docser, docnum: docnum, docdate: docdate, name_vp: name_or, mr: mr})
@@ -114,7 +114,7 @@ class VizitsController < ApplicationController
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
 	   # @person.save
     
-	  # statuses << @person.op
+	   # statuses << @person.op
     # [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
 	end
         i = i+1 

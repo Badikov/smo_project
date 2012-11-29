@@ -1,4 +1,8 @@
 SmoProject::Application.routes.draw do
+  get "ats/create_links"
+
+  get "ats/files"
+
   resources :customers do
     collection do
       match 'search' => 'customers#search', :via => [:get]

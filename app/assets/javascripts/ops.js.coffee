@@ -5,7 +5,7 @@ jQuery ->
  
   $.datepicker.setDefaults($.extend($.datepicker.regional["ru"]))
   
-  $("#ops_search").attr disabled: 'disabled'
+  $("#ops_search, #ats_search").attr disabled: 'disabled'
   
   $("#dp-fild").datepicker
     beforeShow: (input) ->
@@ -37,7 +37,36 @@ jQuery ->
     (i,item)->
      $('<a>'+item.name+'</a>').attr 
       href: '/ops/files?id='+item.id+'&name='+item.name
-      
      .appendTo "#ops_links"
   
-   
+  $("#dp-fild-ats").datepicker
+    beforeShow: (input) -> $(input).css 'background-color', "#ff9"
+    onSelect: (dateText, inst) -> 
+      $(@).css 'background-color', "" 
+      $("#ats_search").removeAttr 'disabled'
+  
+  
+  
+  
+  
+    
+  # $("#ats_search").click ->
+  #   $(@).attr disabled: 'disabled'
+  #   $.ajax
+  #       type: "GET",
+  #       dataType: 'json',
+  #       url: "/ats/create_links",
+  #       data: (date: $("#dp-fild-ats").datepicker('getDate')),
+  #       success: (response) ->
+  #         if response == 201
+  #           $('.row')
+  #             .before '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button>Нет файлов для этой даты</div>'
+  #         else
+  #           links_ats response  
+  #   return false
+  # 
+  # links_ats = (response) ->
+  #   $.each response, (i,item) ->
+  #     $('<a>'+item.name+'</a>').attr 
+  #      href:'/ats/files?id='+item.id+'&name='+item.name
+  #     .appendTo "#ats_links"

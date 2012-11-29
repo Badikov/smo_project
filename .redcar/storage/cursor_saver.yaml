@@ -164,9 +164,6 @@ cursor_positions:
     :timestamp: 2012-11-26 18:53:10 +06:00
     :selection_offset: 180
     :block_selection_mode: false
-  - :path: app/assets/javascripts/vizits.js.coffee
-    :cursor_offset: 4076
-    :timestamp: 2012-11-23 02:15:32 +06:00
   - :path: status.txt
     :cursor_offset: 0
     :timestamp: 2012-11-19 16:03:27 +06:00
@@ -178,29 +175,14 @@ cursor_positions:
   - :path: app/controllers/streets_controller.rb
     :cursor_offset: 179
     :timestamp: 2012-11-19 18:35:07 +06:00
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 79
-    :timestamp: 2012-11-27 01:24:24 +06:00
   - :path: app/models/tipdoc.rb
     :cursor_offset: 127
     :timestamp: 2012-11-14 14:55:15 +06:00
     :selection_offset: 120
     :block_selection_mode: false
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 1118
-    :timestamp: 2012-11-27 00:29:55 +06:00
-  - :path: app/assets/javascripts/customers.js.coffee
-    :cursor_offset: 1353
-    :timestamp: 2012-11-27 00:56:20 +06:00
-  - :path: app/views/customers/_customer.html.erb
-    :cursor_offset: 496
-    :timestamp: 2012-11-27 01:33:32 +06:00
   - :path: app/views/ops/files.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-26 15:33:15 +07:00
-  - :path: app/models/at.rb
-    :cursor_offset: 0
-    :timestamp: 2012-11-05 13:42:06 +06:00
   - :path: app/assets/stylesheets/ops.css.scss
     :cursor_offset: 556
     :timestamp: 2012-11-27 12:01:33 +06:00
@@ -221,22 +203,9 @@ cursor_positions:
   - :path: app/helpers/vizits_helper.rb
     :cursor_offset: 184
     :timestamp: 2012-11-27 14:14:30 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 4090
-    :timestamp: 2012-11-26 15:28:11 +06:00
-    :selection_offset: 4081
-    :block_selection_mode: false
-  - :path: app/assets/javascripts/ops.js.coffee
-    :cursor_offset: 357
-    :timestamp: 2012-11-21 00:08:13 +06:00
   - :path: app/controllers/application_controller.rb
     :cursor_offset: 0
     :timestamp: 2012-11-17 22:43:19 +06:00
-  - :path: app/views/ops/upload.html.erb
-    :cursor_offset: 706
-    :timestamp: 2012-11-27 12:04:18 +06:00
-    :selection_offset: 664
-    :block_selection_mode: false
   - :path: config/routes.rb
     :cursor_offset: 329
     :timestamp: 2012-11-27 20:21:50 +06:00
@@ -251,9 +220,6 @@ cursor_positions:
   - :path: app/controllers/people_controller.rb
     :cursor_offset: 658
     :timestamp: 2012-11-19 22:38:19 +06:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 161
-    :timestamp: 2012-11-22 01:36:59 +06:00
   - :path: app/helpers/customers_helper.rb
     :cursor_offset: 143
     :timestamp: 2012-11-27 14:54:11 +06:00
@@ -263,4 +229,76 @@ cursor_positions:
   - :path: app/models/op.rb
     :cursor_offset: 106
     :timestamp: 2012-11-28 03:03:09 +06:00
+  - :path: config/deploy.rb
+    :cursor_offset: 0
+    :timestamp: 2012-11-20 16:10:08 +06:00
+  - :path: app/assets/javascripts/vizits.js.coffee
+    :cursor_offset: 4076
+    :timestamp: 2012-11-23 02:15:32 +06:00
+  - :path: app/assets/javascripts/ops.js.coffee
+    :cursor_offset: 2195
+    :timestamp: 2012-11-28 16:21:19 +06:00
+  - :path: app/views/ops/upload.html.erb
+    :cursor_offset: 604
+    :timestamp: 2012-11-27 12:04:18 +06:00
+    :selection_offset: 595
+    :block_selection_mode: false
+  - :path: people29.txt
+    :cursor_offset: 0
+    :timestamp: 2012-11-28 20:47:33 +06:00
+  - :path: db/migrate/20121118045151_add_datepolis_in_polis.rb
+    :cursor_offset: 0
+    :timestamp: 2012-11-18 11:04:36 +06:00
+  - :path: db/migrate/20121105075720_create_flks.rb
+    :cursor_offset: 0
+    :timestamp: 2012-11-05 13:57:20 +06:00
+  - :path: db/migrate/20121105074206_create_ats.rb
+    :cursor_offset: 0
+    :timestamp: 2012-11-05 13:42:06 +06:00
+  - :path: db/migrate/20121019105034_create_ops.rb
+    :cursor_offset: 133
+    :timestamp: 2012-10-19 18:02:22 +07:00
+    :selection_offset: 121
+    :block_selection_mode: false
+  - :path: db/migrate/20121128203456_rename_column_type_in_ats.rb
+    :cursor_offset: 71
+    :timestamp: 2012-11-29 02:58:38 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 881
+    :timestamp: 2012-11-27 20:28:40 +06:00
+    :selection_offset: 863
+    :block_selection_mode: false
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 472
+    :timestamp: 2012-11-28 04:17:42 +06:00
+    :selection_offset: 455
+    :block_selection_mode: false
+  - :path: app/models/at.rb
+    :cursor_offset: 124
+    :timestamp: 2012-11-29 03:03:36 +06:00
+  - :path: app/controllers/ats_controller.rb
+    :cursor_offset: 280
+    :timestamp: 2012-11-28 22:24:18 +06:00
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 1543
+    :timestamp: 2012-11-29 03:24:42 +06:00
+  - :path: atlist29.txt
+    :cursor_offset: 2308
+    :timestamp: 2012-11-28 22:30:09 +06:00
+    :selection_offset: 2262
+    :block_selection_mode: false
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 332
+    :timestamp: 2012-11-28 22:17:07 +06:00
+    :selection_offset: 186
+    :block_selection_mode: false
+  - :path: app/assets/javascripts/customers.js.coffee
+    :cursor_offset: 1353
+    :timestamp: 2012-11-27 00:56:20 +06:00
+  - :path: app/views/customers/_customer.html.erb
+    :cursor_offset: 3022
+    :timestamp: 2012-11-27 21:06:57 +06:00
+  - :path: app/assets/javascripts/ats.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2012-11-28 15:21:15 +06:00
 files_to_retain: 0

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126080210) do
+ActiveRecord::Schema.define(:version => 20121128203456) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20121126080210) do
   add_index "addres_ps", ["person_id"], :name => "index_addres_ps_on_person_id"
 
   create_table "ats", :force => true do |t|
-    t.string   "type"
     t.integer  "kdatemu"
     t.integer  "kdmu"
     t.date     "date_z"
@@ -60,8 +59,6 @@ ActiveRecord::Schema.define(:version => 20121126080210) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "ats", ["person_id"], :name => "index_ats_on_person_id"
 
   create_table "docs", :force => true do |t|
     t.string   "doctype"
