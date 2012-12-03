@@ -45,11 +45,24 @@ jQuery ->
       $(@).css 'background-color', "" 
       $("#ats_search").removeAttr 'disabled'
   
+  $("#ats_search").click ->
+    _date = {date: $("#dp-fild-ats").datepicker 'getDate'}
+    $(@).attr disabled: 'disabled'
+    $('<a id="upload_ats">Скачать файл XML</a>').attr
+      href: '/ats/create_links?' + $.param _date
+    .appendTo "#ats_links" 
   
+  # $("#upload_ats").live "click", ->
+  #   $.ajax
+  #     type: "POST",
+  #     dataType: 'json',
+  #     url: '/ats/create_links',
+  #     data: (date: $("#dp-fild-ats").datepicker('getDate')),
+  #     success: (response) ->
+  #       $('.row')
+  #         .before '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button>Нет файлов для этой даты</div>'
+  #   return false 
   
-  
-  
-    
   # $("#ats_search").click ->
   #   $(@).attr disabled: 'disabled'
   #   $.ajax

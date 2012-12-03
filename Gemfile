@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'oj'
 # gem "xml-simple", "~> 1.1.2"
 gem "ransack"
+gem "rubyzip"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

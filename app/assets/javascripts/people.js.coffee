@@ -6,15 +6,14 @@ jQuery ->
   
   $("#person_true_dr, #person_ss").tooltip()
   
-  
-  
   $("#pet_dog").attr("checked", "checked")
   
   $('#person_addres_g_attributes_bomg').removeAttr 'checked'
   
   adres = $("div#step2 div.string:gt(8)").add("div#step2 div.select:last")
   
-  content = $("div#step2 div.string, div#step2 div.date, div#step2 div.select")
+  # content = $("div#step2 div.string, div#step2 div.date, div#step2 div.select")
+  content = $("div#step2 div.control-group:gt(5)")
   
   okato = $("div#step2 div.string:eq(1), div#step2 div.string:eq(10)")
   
@@ -46,15 +45,17 @@ jQuery ->
 #       okato.hide()
   
   #выбор вид на жительство для инюграждан
-  $("#person_doc_attributes_doctype").change ->
-    $("#person_doc_attributes_doctype option:selected").each ->
-      if @value is "9"
-       ig.show()
-      else
-       ig.hide()
- 
-    
-  $('#person_c_oksm').typeahead
+  $('#person_addres_g_attributes_ul, #person_addres_p_attributes_ul').typeahead
+    source: (query,process) ->
+      $.ajax
+        url: '/streets',
+        data:
+          term: query.toUpperCase()
+        success: (data) ->
+          process data
+  
+      
+  $("#person_c_oksm").typeahead
     source: (query,process) ->
       $.ajax
         url: '/oksms',
@@ -62,15 +63,27 @@ jQuery ->
           term: query.toUpperCase()
         success: (data) ->
           process data
+    # updater: (i) ->
+    #   _c_oksm = i
+    #   $("#person_c_oksm").attr val: _c_oksm
+    #   if i isnt 'RUS'
+    #     ig.show()
     
-  # $('#person_c_oksm').change () -> alert('Handler for .change() called.')
-  $('#person_addres_g_attributes_ul').autocomplete
-    source: $('#person_addres_g_attributes_ul').data('autocomplete-source'),
-    minLength: 3
-    
-  $('#person_addres_p_attributes_ul').autocomplete
-    source: $('#person_addres_p_attributes_ul').data('autocomplete-source'),
-    minLength: 3
+  $('#person_c_oksm').change () -> 
+    _c_oksm = $(@).val()
+    if _c_oksm.length is 3
+      if _c_oksm isnt 'RUS'
+        ig.show()
+        $("#person_doc_attributes_doctype option:selected").each ->
+          $(@).removeAttr 'selected'
+        $("#person_doc_attributes_doctype option[value=9]").attr selected: "selected"
+      else
+        ig.hide()
+        $("#person_doc_attributes_doctype option:selected").each ->
+          $(@).removeAttr 'selected'
+        #$("#person_doc_attributes_doctype option[value=14]").attr selected: "selected"
+        
+  
     
 #   $('#person_doc_attributes_mr').autocomplete
 #     source: $('#person_doc_attributes_mr').data('autocomplete-source')

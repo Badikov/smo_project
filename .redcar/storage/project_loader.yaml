@@ -3,9 +3,6 @@ open_files:
   - app/controllers/customers_controller.rb
   - app/assets/javascripts/customers.js.coffee
   - app/views/customers/_customer.html.erb
-  - app/controllers/vizits_controller.rb
   - app/controllers/ops_controller.rb
-  - app/models/at.rb
-  - app/controllers/ats_controller.rb
+  - app/controllers/vizits_controller.rb
   - app/controllers/docs_controller.rb
-  - atlist29.txt

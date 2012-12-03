@@ -1,6 +1,8 @@
 # encoding: utf-8
 class OpsController < ApplicationController
   require 'builder'
+  require 'zip/zip'
+  
   
   #for CanCan
 #   load_and_authorize_resource
@@ -25,7 +27,7 @@ class OpsController < ApplicationController
      fil = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops.map(&:user_id)}) 
      
      fil.each do |f|
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "4.xml", id: f[:id]}
+       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "1.xml", id: f[:id]}
      end
     # @a << { name:"i42007_1_2111121.xml", id: 1 } << { name:"i42007_2_0211121.xml", id: 2 } << { name:"i42007_3_0211121.xml", id: 3 }
      
@@ -39,9 +41,17 @@ class OpsController < ApplicationController
   
   private
   def hijack_response( out_data, file_name )
+    # zip_file_name = minus_5(file_name) + ".zip"
 
     win1251 = out_data#.encode('Windows-1251', 'UTF-8', :xml => :text)
     send_data( win1251, :type => "text/xml", :filename => file_name )
+    # t = Tempfile.new("my-temp-filename-#{Time.now}")
+    # Zip::ZipFile.open(t.path, Zip::ZipFile::CREATE) do |zipfile|
+    #   zipfile.get_output_stream(file_name) { |f| f << out_data }
+    # end 
+    # send_file t.path, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
+    # t.close
+    
   end
   #!!!!!!!!!!!!!!!!Запрос данных из базы
   def generate_builder(par)
@@ -225,20 +235,7 @@ class OpsController < ApplicationController
 # 	file.write(xml_yes)
      return out_string
   end
-  def minus_5(str)
-    len = str.size - 5
-    resp_str = str.slice(0..len)
-    return resp_str
-  end
-  def day_to_str(str)
-    day_str =""
-    if str.size == 1
-      day_str = "0" + str 
-    else
-      day_str = str
-    end
-    return day_str
-  end
+  
 end
 #     fl_name = "i42007_0_" + Time.now.day.to_s + Time.now.month.to_s + Time.now.year.to_s + "1"
 #     

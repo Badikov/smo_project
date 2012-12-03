@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+  $("#customers_search_query").focus()
+  
   $("#customers_search_query").keyup (event) -> 
     e = event || window.event
     if e.keyCode is 32
@@ -31,9 +33,50 @@ jQuery ->
       success: (data) -> 
         person_info data
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+      
+  #-- выбытие застрахованного по П021
+  $("#customers_search_021").live "click", (event) -> 
+    e = event || window.event
+    e.preventDefault()
+    $.ajax
+      type: "GET"
+      url: @href
+      success: (response) ->
+        if response == 200
+          $('.row')
+            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
+        else
+          $('.row')
+            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+        
+  $("#dp_date_of_death").live "focus", ->
+    $("#dp_date_of_death").datepicker
+      beforeShow: (input) ->
+        $(input).css('background-color', "#ff9")
+      onSelect: (dateText, inst) ->
+        $(@).css('background-color', "")
+        $("#customers_search_022").removeAttr 'disabled'
+    
+  $("#customers_search_022").live "click", ->
+    $.ajax
+      type: "POST"
+      dataType: 'json'
+      url: '/customers/death_of_customer'
+      data:
+        date: $("#dp_date_of_death").datepicker 'getDate'
+        id: $("#customers_search_customer_id").val()
+      success: (response) ->
+        $("#deathModal").modal 'hide'
+        if response == 200
+          $('.row')
+            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
+        else
+          $('.row')
+            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+        
   
   clear_person_info = () ->
-    $("div#customers_customer_info div.person-block").remove()
+    $("div#customers_customer_info div.personale").remove()
   person_info = (data) ->
     $("div#customers_customer_info").append data
   

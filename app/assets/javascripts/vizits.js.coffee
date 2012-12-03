@@ -14,7 +14,7 @@ jQuery ->
  
  hidens.hide()
  pervichniy_vibor_smo.hide()
- $("label[for='vizit_insurance_attributes_erp'], label[for='vizit_petition']").hide()
+ $("label[for='vizit_insurance_attributes_erp'], label[for='vizit_petition'],label[for='vizit_rpolis']").hide()
  $('#vizit_insurance_attributes_erp').removeAttr 'checked' #!!!!!!!начальные настройки на первичный выбор смо
  $("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
  $("#vizit_rsmo option[value=1]").attr selected: "selected"
@@ -36,7 +36,7 @@ jQuery ->
      $("#vizit_rsmo option[value=3]").removeAttr 'disabled'
      $("#vizit_rsmo option[value=4]").removeAttr 'disabled'
      $("#vizit_rsmo option[value=2]").attr selected: "selected"
-     $("#vizit_rpolis option[value='']").attr selected: "selected"
+     # $("#vizit_rpolis option[value='']").attr selected: "selected"
      $("#vizit_fpolis option[value=1]").removeAttr 'selected'
      $("#vizit_fpolis option[value=0]").removeAttr 'disabled'
      $("#vizit_fpolis option[value=0]").attr selected: "selected"
@@ -49,7 +49,7 @@ jQuery ->
      pervichniy_vibor_smo.hide()
      $('#vizit_insurance_attributes_enp').val ''
      $('label[for="vizit_insurance_attributes_polis_attributes_npolis"]').text 'Номер временного свидетельства'
-     $("#vizit_rpolis option[value='']").removeAttr 'selected'
+     $("#vizit_rpolis").removeAttr 'checked'
      $("#vizit_rsmo option[value=2]").removeAttr 'selected'
      $("#vizit_rsmo option[value=1]").removeAttr 'disabled'
      $("#vizit_rsmo option[value=1]").attr selected: "selected"
@@ -63,9 +63,8 @@ jQuery ->
      $("#vizit_fpolis option[value=2]").removeAttr 'disabled'
      $("#vizit_fpolis option[value=3]").removeAttr 'disabled'
  
- $('#vizit_rpolis').change ->
-   $("#vizit_rpolis option:selected").each ->
-     if @value != ""
+ $('#vizit_rpolis').click ->
+     if @checked
       $("form#new_vizit div.optional:eq(3)").show()
       $('label[for="vizit_insurance_attributes_polis_attributes_npolis"]').text 'Номер временного свидетельства'
       $("#vizit_fpolis option[value=0]").removeAttr 'selected'

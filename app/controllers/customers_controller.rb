@@ -30,7 +30,24 @@ class CustomersController < ApplicationController
   def search
   end
   def edit_ops
+    # 021 - снятие с учета в связи с постановкой на учет в другом СМО
     @op = Op.find_by_person_id(params[:id])
+    
+    @op.update_attributes({ active: 0, tip_op: "П021", date_uvoln: DateTime.now })
+    
+    render json: status, :nothing => true
+  end
+  def death_of_customer
+    d = params[:date]
+    
+    # d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '
+    d = DateTime.strptime(d, "%a %b %d %Y %H:%M:%S GMT%z") #if d.empty?
+    @person = Person.find_by_id(params[:id])
+    @op = @person.op
+    
+    @person.update_attributes({ ddeath: d})
+    
+    @op.update_attributes({ active: 0, tip_op: "П022", date_uvoln: DateTime.now })
     
     render json: status, :nothing => true
   end

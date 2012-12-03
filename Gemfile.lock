@@ -120,6 +120,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     require_all (1.2.1)
+    rubyzip (0.9.9)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
     sass (3.2.1)
@@ -176,6 +177,7 @@ DEPENDENCIES
   oj
   rails (= 3.2.8)
   ransack
+  rubyzip
   rvm-capistrano
   sass-rails (~> 3.2.3)
   simple_form

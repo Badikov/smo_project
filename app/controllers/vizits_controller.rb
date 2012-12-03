@@ -7,70 +7,31 @@ class VizitsController < ApplicationController
   # GET /vizits/1
   # GET /vizits/1.json
   def show
-    # (735..870).each do |n| 
-    #   @person = Person.find_by_id(n)
-    #   @person.destroy
-    #   
-    # end
-    # render json: status
-    vizit = Vizit.find_by_id(params[:id])
-    @person = vizit.person
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      # format.json { render json: @vizit }
-    end
+
+     # (6..1090).each do |n| 
+     #  @person = Person.find_by_id(n)
+     #  @person.destroy
+     #   
+     # end
+     # render json: status
+
+     vizit = Vizit.find_by_id(params[:id])
+     @person = vizit.person
+     
+     respond_to do |format|
+       format.html # show.html.erb
+       format.json { render json: @vizit }
+     end
   end
   # DELETE /vizits/1
   # DELETE /people/1.json 566
   def destroy
     
   end
-  def prz_num(old_num)
-    case old_num
-      when  1
-	res = 2
-      when  2
-	res = 3
-      when  3
-	res = 4
-      when  4
-	res = 5
-      when  8
-	res = 6
-      when  9
-	res = 7
-      when  11
-	res = 8
-      when  12
-	res = 9
-	    when  13
-	res = 10
-    end
-    return res
-  end
   def index
-    # file = File.open("people_21_22.txt")
-    # i = 0
-    #   file.each do |line|
-    #     if  i > 0
-    #       str = line.delete("null")
-	   #        przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,
-	   #        docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,
-	   #        ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_modif = str.chomp("\n").split("\t")
-    #         
-    #         user_id = prz_num(przcod)
-    #         @op = Op.find_by_id(id_fl)
-    #         @op.update_attributes({ user_id: user_id })
-    #     end
-    #     i = i+1
-    #   end
-    # 
-    # file.close
-    # render json: status
     statuses =[]
     s_oksm = ""
-    file = File.open("people29.txt")
+    file = File.open("p_01.txt")
     i = 0
       file.each do |line|
 	
@@ -112,9 +73,12 @@ class VizitsController < ApplicationController
 	  @person.build_vizit({dvizit: dvizit, method: method, petition: petition.to_i, rsmo: rsmo, rpolis: rpolis, fpolis: fpolis})
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
-	   # @person.save
+
+	    # @person.save
+
+
     
-	   # statuses << @person.op
+	    # statuses << @person.op
     # [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
 	end
         i = i+1 

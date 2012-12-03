@@ -23,8 +23,7 @@
   <%= f.input :rsmo, :label => 'Причина подачи заявления о выборе(замене) СМО', 
 		  :include_blank => false, :collection => vibor_zamena_smo, :input_html => { :class => "span4" } %>
       
-  <%= f.input :rpolis, :label => 'Причина подачи заявления о выдаче дубликата или переоформлении полиса', 
-		  :as => :select, :collection => prichina_zameni_polisa, :input_html => { :class => "span3" } %>
+  <%= f.input :rpolis, :inline_label => 'с заменой полиса?', :as => :boolean %>   
       
   <%= f.input :fpolis, :label => 'Выбранная форма изготовления полиса', 
 		  :as => :select, :include_blank => false,
@@ -36,5 +35,5 @@
   </div>
 <% end %>
 
-
+<!--  >
 

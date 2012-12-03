@@ -51,5 +51,18 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
-
+    def minus_5(str)
+        len = str.size - 5
+        resp_str = str.slice(0..len)
+      return resp_str
+    end
+    def day_to_str(str)
+      day_str =""
+      if str.size == 1
+        day_str = "0" + str 
+      else
+        day_str = str
+      end
+      return day_str
+    end
 end
