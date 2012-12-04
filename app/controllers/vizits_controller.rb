@@ -31,7 +31,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_01.txt")
+    file = File.open("p_04.txt")
     i = 0
       file.each do |line|
 	

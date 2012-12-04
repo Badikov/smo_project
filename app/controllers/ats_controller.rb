@@ -12,7 +12,7 @@ class AtsController < ApplicationController
     
     if people.size != 0
       # имя файла из заявленной даты
-      file_name = "AT_S_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "1.xml"
+      file_name = "AT_S_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_1.xml"
       hijack_response(generate_builder(people, file_name), file_name)
     else
       render json: people.size == 0 ? 201 : 200, :nothing => true
@@ -33,7 +33,7 @@ class AtsController < ApplicationController
     doc = Builder::XmlMarkup.new( :target => out_string = "")
     doc.instruct! :xml, :version => "1.0", :encoding =>"windows-1251"
     doc.ATLIST(xmlns: "www.kemoms.ru/xsd/zstr") {
-      doc.FILENAME(file_name)
+      doc.FILENAME(minus_5(file_name))
       doc.NRECORDS(people.count.size)
       doc.TYPE("S")
       _i = 1
