@@ -7,3 +7,4 @@ open_files:
   - app/controllers/docs_controller.rb
   - app/controllers/ops_controller.rb
   - app/views/customers/edit.html.erb
+  - app/controllers/ats_controller.rb
