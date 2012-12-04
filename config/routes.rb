@@ -9,7 +9,9 @@ SmoProject::Application.routes.draw do
       # match 'search_person/:id' => 'customers#search_person', :as => 'search_person'
       get 'search_person' => 'customers#search_person'
       match 'edit_ops' => 'customers#edit_ops'
+      match 'edit_polis' => 'customers#edit_polis'
       match 'death_of_customer' => 'customers#death_of_customer'
+      
     end
   end
   get "streets/index"

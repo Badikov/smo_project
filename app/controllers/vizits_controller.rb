@@ -8,7 +8,7 @@ class VizitsController < ApplicationController
   # GET /vizits/1.json
   def show
 
-     # (6..1090).each do |n| 
+     # (6..1185).each do |n| 
      #  @person = Person.find_by_id(n)
      #  @person.destroy
      #   
@@ -31,7 +31,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_04.txt")
+    file = File.open("p_05.txt")
     i = 0
       file.each do |line|
 	
@@ -74,7 +74,9 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
 
-	    # @person.save
+
+	     # @person.save
+
 
 
     

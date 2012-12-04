@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h3><%= @person.fam + " " + @person.im + " " + @person.ot%></h3>
+</div>
+  <%= link_to t("Изменение паспортных данных"), { :action => "edit", :id => @person } ,
+  :id => "customers_edit_doc",:class => "btn", :role => "button"
+  %>
+  
+  <%= link_to t("Изменение Фамилии"), { :action => "edit", :id => @person } ,
+  :id => "customers_edit_person",:class => "btn", :role => "button"
+  %>

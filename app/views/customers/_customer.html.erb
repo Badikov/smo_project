@@ -69,6 +69,13 @@
 </div>
 <div class="person-block personale">
   <% vizit = @person.vizit   %>
+  <% if vizit.nil? %>
+  <% insurance = nil %>
+  <% polis =nil %>
+  <% else %>
+  <% insurance = vizit.insurance %>
+  <% polis = insurance.polis %>
+  <% end %>
   
   <% op = @person.op   %>
   <% if !op.nil? %>
@@ -80,7 +87,7 @@
     </div> 
   <% end  %>  
 
-  <% insurance = vizit.insurance  %>
+  <%   %>
   <% if !insurance.nil? %>
     <div>
       <p><strong>Страхование</strong></p>
@@ -101,7 +108,7 @@
     </div>
   <% end %>  
 
-  <% polis = insurance.polis  %>
+  <%   %>
   <% if !polis.nil? %>
     <div>
       <p><strong>Документ страхования</strong></p>
@@ -114,7 +121,9 @@
 </div>
 <div class="person-block personale">
 <% if vizit.nil? %>
-  <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person} %>
+  <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person},
+  :id => "customers_search_new_vizit",:class => "btn", :role => "button"
+  %>
   <% end %>
   
   <%= link_to t("Выбытие ЗЛ"), {:action => "edit_ops", :id => @person}, 
@@ -124,6 +133,16 @@
   %>
   
   <a href="#deathModal" role="button" class="btn" data-toggle="modal">Выбытие в связи со смертью</a>
+  
+  <%= link_to t("Выдача на руки полиса<br>после временного свидетельства"), {:action => "edit_polis", :id => @person},
+  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
+  :default => 'Вы уверенны, что выдаете полис именно этому лицу ?')) }, 
+  :id => "customers_search_060",:class => "btn", :role => "button"
+  %>
+  
+  <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
+  :id => "customers_search_edit",:class => "btn", :role => "button"
+  %>
   
 </div>
 <!-- Modal -->

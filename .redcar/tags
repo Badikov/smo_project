@@ -1,4 +1,4 @@
-1354608237
+1354653628
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -216,7 +216,9 @@ down	/home/alex/rails_projects/smo_project/db/migrate/20121203053205_chenge_data
 edit	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def edit
+edit	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit
 edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops
+edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_polis
 event_logic	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def event_logic(vizit, tip_op)
 files	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def files
 files	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def files

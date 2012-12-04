@@ -5,3 +5,5 @@ open_files:
   - app/views/customers/_customer.html.erb
   - app/controllers/vizits_controller.rb
   - app/controllers/docs_controller.rb
+  - app/controllers/ops_controller.rb
+  - app/views/customers/edit.html.erb

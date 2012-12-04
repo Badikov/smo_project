@@ -51,4 +51,22 @@ class CustomersController < ApplicationController
     
     render json: status, :nothing => true
   end
+  def edit_polis
+    # 060
+    @op = Op.find_by_person_id(params[:id])
+    @vizit = Vizit.find_by_person_id(params[:id])
+    @polis = @vizit.insurance.polis
+    
+    @polis.update_attributes({dbeg: DateTime.now})
+    @op.update_attributes({tip_op: "П060"})
+    render json: status, :nothing => true
+  end
+  def edit
+    @person = Person.find_by_id(params[:id])
+    
+    respond_to do |format|
+       format.html # edit.html.erb
+       
+     end
+  end
 end
