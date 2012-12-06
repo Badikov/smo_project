@@ -3,6 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $("#customers_search_query").focus()
+
+  $("form").live "keydown", (event) -> 
+    e = event || window.event
+    if e.keyCode is 13
+      return false
   
   $("#customers_search_query").keyup (event) -> 
     e = event || window.event
@@ -12,6 +17,7 @@ jQuery ->
         $.ajax
           url: '/customers',
           type: 'GET',
+          dataType: 'html'
           data:
             term: term.toUpperCase()
           success: (data) -> table_rows data
@@ -73,8 +79,18 @@ jQuery ->
         else
           $('.row')
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
-        
   
+  $("#customers_edit_doc, #customers_edit_person").click ->
+    $.ajax
+      type: "GET"
+      dataType: "html"
+      url: @href
+      success: (data) ->
+        $("div.person-block").remove()
+        $("div.page-body").append data
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+    return false
+
   clear_person_info = () ->
     $("div#customers_customer_info div.personale").remove()
   person_info = (data) ->
@@ -83,5 +99,6 @@ jQuery ->
   table_rows = (data) ->
     clear_person_info()
     $("#customers_table_search tbody").remove()
-    $.map data, (item) ->
-      $("#customers_table_search").append '<tr id=' + item.id + '><td>' + item.fam +  '</td><td>' + item.im +  '</td><td>' + item.ot +  '</td><td>' + item.w +  '</td><td>' + item.dr +  '</td><td>' + item.docser +  '</td><td>' + item.docnum +  '</td></tr>'
+    $("#customers_table_search").append data
+    #// $.map data, (item) ->
+    #//   $("#customers_table_search").append '<tr id=' + item.id + '><td>' + item.fam +  '</td><td>' + item.im +  '</td><td>' + item.ot +  '</td><td>' + item.w +  '</td><td>' + item.dr +  '</td><td>' + item.docser +  '</td><td>' + item.docnum +  '</td></tr>'

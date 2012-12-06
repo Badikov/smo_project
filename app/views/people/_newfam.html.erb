@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h4>Новые личные данные</h4>
+</div>
+
+<%= simple_form_for @person, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
+
+  <%= f.input :id, :as => :hidden %>
+  
+  <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+ 
+  <%= f.input :im, :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+    
+  <%= f.input :ot, :label => 'Отчество', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+    
+  <%= f.input :w, :label => 'Пол', :collection => [[ 'Мужской', 1 ], ['Женский', 2]], :as => :radio_buttons, :item_wrapper_class => 'inline' %>
+    
+  <%= f.input :dr, :label => 'Дата рождения', :include_blank => true, :as => :date, :start_year => Date.today.year - 90,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+    
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary', :id => '' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                home_path, :class => 'btn' %>
+  </div>
+  <% end %>

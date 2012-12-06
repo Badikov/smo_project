@@ -107,6 +107,14 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
+  #GET  /people/newfam?id=
+  def newfam
+    
+    @person =Person.new
+    @person.id = params[:id]
+    
+    render :partial => "newfam", :layout => false
+  end
   #GET  /people/search
   # def search
 #     

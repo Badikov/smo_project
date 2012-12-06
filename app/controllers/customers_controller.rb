@@ -17,10 +17,11 @@ class CustomersController < ApplicationController
       @customer.each do |custoner|
         @respon << { id: custoner.id, fam: custoner.fam, im: custoner.im, 
           ot: custoner.ot, w: custoner.w == 1 ? 'мужской' : 'женский',
-          dr: custoner.dr, docser: custoner.doc.docser, docnum: custoner.doc.docnum }
+          dr: custoner.dr, docser: custoner.doc.docser, docnum: custoner.doc.docnum,
+          active: custoner.op.active}
       
       end
-      render json: @respon, :nothing => true
+      render :partial => "table_rows", :layout => false
   end
   def search_person
     @person = Person.find_by_id(params[:id])

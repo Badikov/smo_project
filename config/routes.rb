@@ -23,6 +23,7 @@ SmoProject::Application.routes.draw do
 
   resources :people do
     collection do
+      match 'newfam' => 'people#newfam'
       # match 'search' => 'people#search', :via => [:get, :post], :as => :search
       # get 'result'
     end

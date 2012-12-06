@@ -11,9 +11,6 @@ cursor_positions:
   - :path: app/helpers/user_sessions_helper.rb
     :cursor_offset: 0
     :timestamp: 2012-10-27 12:48:13 +07:00
-  - :path: app/models/user.rb
-    :cursor_offset: 323
-    :timestamp: 2012-11-19 16:12:35 +06:00
   - :path: app/assets/javascripts/print_petition.js.coffee
     :cursor_offset: 0
     :timestamp: 2012-11-15 13:29:55 +06:00
@@ -32,9 +29,6 @@ cursor_positions:
   - :path: app/person_steps.css.scss
     :cursor_offset: 0
     :timestamp: 2012-10-16 01:34:15 +07:00
-  - :path: app/helpers/people_helper.rb
-    :cursor_offset: 247
-    :timestamp: 2012-11-19 19:17:17 +06:00
   - :path: app/views/addres_ps/_form.html.erb
     :cursor_offset: 982
     :timestamp: 2012-11-19 19:28:43 +06:00
@@ -219,9 +213,6 @@ cursor_positions:
   - :path: app/models/at.rb
     :cursor_offset: 124
     :timestamp: 2012-11-29 03:03:36 +06:00
-  - :path: app/models/op.rb
-    :cursor_offset: 106
-    :timestamp: 2012-11-28 03:03:09 +06:00
   - :path: app/views/ops/upload.html.erb
     :cursor_offset: 383
     :timestamp: 2012-11-27 12:04:18 +06:00
@@ -268,11 +259,6 @@ cursor_positions:
   - :path: app/assets/javascripts/ops.js.coffee
     :cursor_offset: 651
     :timestamp: 2012-11-29 15:48:39 +06:00
-  - :path: app/views/people/_form.html.erb
-    :cursor_offset: 46
-    :timestamp: 2012-11-24 12:49:55 +06:00
-    :selection_offset: 41
-    :block_selection_mode: false
   - :path: app/views/addres_gs/_form.html.erb
     :cursor_offset: 649
     :timestamp: 2012-12-03 15:04:04 +06:00
@@ -316,67 +302,105 @@ cursor_positions:
   - :path: app/views/customers/_customer_links.html.erb
     :cursor_offset: 0
     :timestamp: 2012-11-27 16:21:33 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 658
-    :timestamp: 2012-11-19 22:38:19 +06:00
-  - :path: app/views/customers/search.html.erb
-    :cursor_offset: 67
-    :timestamp: 2012-12-01 12:03:34 +06:00
-    :selection_offset: 0
-    :block_selection_mode: false
   - :path: app/views/vizits/_print_polis.html.erb
     :cursor_offset: 895
     :timestamp: 2012-11-21 12:37:12 +06:00
     :selection_offset: 840
     :block_selection_mode: false
-  - :path: app/views/people/new.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-10-10 11:15:57 +07:00
-  - :path: app/views/docs/new.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-10-08 16:11:23 +07:00
   - :path: app/views/users/_form.html.erb
     :cursor_offset: 1083
     :timestamp: 2012-11-22 02:08:26 +06:00
-  - :path: app/views/user_sessions/new.html.erb
-    :cursor_offset: 485
-    :timestamp: 2012-12-05 00:19:16 +06:00
   - :path: app/views/layouts/account.html.erb
     :cursor_offset: 64
     :timestamp: 2012-12-04 23:43:19 +06:00
-  - :path: app/views/docs/_form.html.erb
-    :cursor_offset: 299
-    :timestamp: 2012-11-11 22:58:08 +06:00
-    :selection_offset: 285
-    :block_selection_mode: false
   - :path: p_05.txt
     :cursor_offset: 0
     :timestamp: 2012-12-05 01:49:39 +06:00
+  - :path: app/views/people/edit.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-10-08 15:58:21 +07:00
+  - :path: app/views/people/new.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-10-10 11:15:57 +07:00
+  - :path: app/views/docs/_form.html.erb
+    :cursor_offset: 2294
+    :timestamp: 2012-12-05 10:27:15 +06:00
+  - :path: app/views/docs/new.html.erb
+    :cursor_offset: 290
+    :timestamp: 2012-12-05 11:53:48 +06:00
+  - :path: app/views/docs/edit.html.erb
+    :cursor_offset: 289
+    :timestamp: 2012-12-05 16:30:41 +06:00
   - :path: app/helpers/vizits_helper.rb
     :cursor_offset: 184
     :timestamp: 2012-11-27 14:14:30 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 2153
-    :timestamp: 2012-12-04 15:57:52 +06:00
-  - :path: app/assets/javascripts/customers.js.coffee
-    :cursor_offset: 986
-    :timestamp: 2012-12-03 12:23:50 +06:00
-  - :path: app/views/customers/_customer.html.erb
-    :cursor_offset: 3136
-    :timestamp: 2012-12-05 00:49:47 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 3384
-    :timestamp: 2012-12-05 02:33:00 +06:00
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 124
-    :timestamp: 2012-12-05 02:33:48 +06:00
-  - :path: app/controllers/ops_controller.rb
+  - :path: app/helpers/people_helper.rb
+    :cursor_offset: 304
+    :timestamp: 2012-12-05 17:20:45 +06:00
+  - :path: app/models/old_doc.rb
     :cursor_offset: 0
-    :timestamp: 2012-12-05 02:47:00 +06:00
-  - :path: app/views/customers/edit.html.erb
-    :cursor_offset: 370
-    :timestamp: 2012-12-04 22:22:33 +06:00
+    :timestamp: 2012-10-31 10:13:51 +06:00
+  - :path: app/views/people/_form.html.erb
+    :cursor_offset: 1661
+    :timestamp: 2012-12-05 17:21:56 +06:00
   - :path: app/controllers/ats_controller.rb
     :cursor_offset: 2026
     :timestamp: 2012-12-05 03:04:14 +06:00
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-12-05 02:47:00 +06:00
+  - :path: app/models/old_person.rb
+    :cursor_offset: 0
+    :timestamp: 2012-12-05 18:47:32 +06:00
+  - :path: app/assets/javascripts/customers.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2012-12-05 17:11:36 +06:00
+  - :path: app/views/people/_newfam.html.erb
+    :cursor_offset: 44
+    :timestamp: 2012-12-05 23:02:01 +06:00
+  - :path: app/views/docs/_newdoc.html.erb
+    :cursor_offset: 67
+    :timestamp: 2012-12-05 22:58:14 +06:00
+    :selection_offset: 0
+    :block_selection_mode: false
+  - :path: app/views/customers/_customer.html.erb
+    :cursor_offset: 2042
+    :timestamp: 2012-12-06 00:56:59 +06:00
+  - :path: app/views/customers/edit.html.erb
+    :cursor_offset: 529
+    :timestamp: 2012-12-05 22:25:15 +06:00
+  - :path: p_06.txt
+    :cursor_offset: 0
+    :timestamp: 2012-12-06 01:45:19 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 2153
+    :timestamp: 2012-12-04 15:57:52 +06:00
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 124
+    :timestamp: 2012-12-06 02:37:35 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 3386
+    :timestamp: 2012-12-06 02:37:25 +06:00
+  - :path: app/models/op.rb
+    :cursor_offset: 106
+    :timestamp: 2012-11-28 03:03:09 +06:00
+    :selection_offset: 100
+    :block_selection_mode: false
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 3337
+    :timestamp: 2012-12-05 22:16:25 +06:00
+    :selection_offset: 3321
+    :block_selection_mode: false
+  - :path: app/views/customers/search.html.erb
+    :cursor_offset: 565
+    :timestamp: 2012-12-01 12:03:34 +06:00
+  - :path: app/views/customers/_table_rows.html.erb
+    :cursor_offset: 339
+    :timestamp: 2012-12-06 13:50:15 +06:00
+  - :path: app/views/user_sessions/new.html.erb
+    :cursor_offset: 556
+    :timestamp: 2012-12-06 01:06:41 +06:00
+  - :path: app/models/user.rb
+    :cursor_offset: 323
+    :timestamp: 2012-11-19 16:12:35 +06:00
 files_to_retain: 0

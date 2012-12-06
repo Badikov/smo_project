@@ -1,34 +1,138 @@
-<div class="person-block personale">
-  <div>
-    <p><strong>Застрахованное лицо</strong></p>
-    <%= @person.fam %> <%= @person.im %><br><%= @person.ot %><br />
-    
-    <%= @person.w == 1 ? "мужской" : "женский"  %><br />
-    
-    <%= @person.dr %><br />
-    
-    <%= @person.c_oksm %>
-    
-    <%= @person.ss %><br />
-    
-    <%= @person.phone %><br />
-    
-    <%= @person.email %><br />
-    <%= @person.ddeath %>
-    
-  </div>
-  <div>
-    <p><strong>Удостоверение личности</strong></p>
-    <% if @person.doc %>
-    <% doc_name = Tipdoc.find_by_id(@person.doc.doctype)  %>
-    
-      <%= doc_name.docname %><br />
-      <%= @person.doc.docser %>
-      <%= @person.doc.docnum %><br />
-      <%= @person.doc.name_vp %><br />
-      <%= @person.doc.docdate %><br />
-      <%= @person.doc.mr %><br />
+<div class="personale">
+
+<% vizit = @person.vizit   %>
+  <% if vizit.nil? %>
+    <% insurance = nil %>
+    <% polis =nil %>
+  <% else %>
+    <% insurance = vizit.insurance %>
+    <% polis = insurance.polis %>
+  <% end %>
+  
+  <% op = @person.op   %>
+  <% filials = Filial.joins(:users).where(:users => {:id => op.user_id}) %>
+  <% user = User.find_by_id(op.user_id) %>
+
+  <div class="accordion" id="accordion2">
+    <div class="accordion-group">
+      <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseZero">
+            <strong>Информация</strong>
+          </a>
+      </div>
+      <div id="collapseZero" class="accordion-body collapse in">
+        <div class="accordion-inner">
+          <dl class="dl-horizontal">
+            <dt>зарегистрирован</dt><dd><%= op.created_at %></dd>
+            <dt>последнее обновление</dt><dd><%= op.updated_at %></dd>
+            <dt>последнее событие</dt><dd><%= op.tip_op  %></dd>
+            <dt>подразделение</dt><dd><%= filials[0].title %></dd>
+            <dt>агент</dt><dd><%= user.name %></dd>
+            <% if !op.date_uvoln.blank? %>
+              <dt>выбыл</dt><dd><%= op.date_uvoln %></dd>
+            <% end %>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="accordion-group">
+      <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+            <strong>Застрахованное лицо</strong>
+          </a>
+      </div>
+      <div id="collapseOne" class="accordion-body collapse in">
+        <div class="accordion-inner">
+          <dl class="dl-horizontal">
+            <dt>ФИО</dt><dd><%= @person.fam %> <%= @person.im %> <%= @person.ot %></dd>
+            <dt>пол</dt><dd><%= @person.w == 1 ? "мужской" : "женский"  %></dd>
+            <dt>дата рожд.</dt><dd><%= @person.dr %></dd>
+            <dt>гражданство</dt><dd><%= @person.c_oksm %></dd>
+            <dt>СНИЛС</dt><dd><%= @person.ss.nil? ? "-" : @person.ss %></dd>
+            <dt>телефон</dt><dd><%= @person.phone.nil? ? "-" : @person.phone %></dd>
+            <dt>email</dt><dd><%= @person.email.blank? ? "-" : @person.email %></dd>
+            <% if !@person.ddeath.blank? %>
+              <dt>дата смерти</dt><dd class="text-error"><%= @person.ddeath %></dd>
+            <% end %>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <% if !@person.fiopr.blank? %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+            <strong>Сведения о представителе</strong>
+          </a>
+      </div>
+      <div id="collapseTwo" class="accordion-body collapse in">
+        <div class="accordion-inner">
+          <dl class="dl-horizontal">
+            <dt>ФИО</dt><dd><%= @person.fiopr.gsub!("^"," ") %></dd>
+            <dt>contact</dt><dd><%= @person.contact.gsub!("^"," ") %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
     <% end %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+            <strong>Удостоверение личности</strong>
+          </a>
+      </div>
+      <div id="collapseThree" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <dl class="dl-horizontal">
+            <% doc_name = Tipdoc.find_by_id(@person.doc.doctype)  %>
+            <dt>Документ</dt><dd><%= doc_name.docname %></dd>
+            <dt>Серия</dt><dd><%= @person.doc.docser %></dd>
+            <dt>Номер</dt><dd><%= @person.doc.docnum %></dd>
+            <dt>Дата выдачи</dt><dd><%= @person.doc.docdate %></dd>
+            <dt>Кем выдан</dt><dd><%= @person.doc.name_vp %></dd>
+            <dt>Место рождения</dt><dd><%= @person.doc.mr %></dd>
+            <dt></dt><dd></dd>
+            <dt></dt><dd></dd>
+            <dt></dt><dd></dd>
+          </dl>
+        </div>
+      </div>
+      <% if @person.old_doc %> 
+        <div class="accordion-group">
+          <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                <strong>Прежнее удостоверение личности</strong>
+              </a>
+          </div>
+          <div id="collapseFour" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <dl class="dl-horizontal">
+                <% old_doc_name = Tipdoc.find_by_id(@person.old_doc.doctype)  %>
+                <dt>Документ</dt><dd><%= old_doc_name.docname %></dd>
+                <dt>Серия</dt><dd><%= @person.doc.docser %></dd>
+                <dt>Номер</dt><dd><%= @person.doc.docnum %></dd>
+                <dt>Дата выдачи</dt><dd><%= @person.doc.docdate %></dd>
+                <dt>Кем выдан</dt><dd><%= @person.doc.name_vp %></dd>
+                <dt>Место рождения</dt><dd><%= @person.doc.mr %></dd>
+                <dt></dt><dd></dd>
+                <dt></dt><dd></dd>
+                <dt></dt><dd></dd>
+              </dl>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="person-block personale">
+   <div>
+    <p></p>
+    
+            
+    
   </div>
   <% if @person.c_oksm != 'RUS'  %>
     <div>
@@ -58,26 +162,17 @@
       <%= @person.addres_g.dreg %><br />
     <% end %>
   </div>
-  <% if @person.fiopr? %>
+  
     <div>
-      <p><strong>Сведения о представителе</strong></p>
-      <%= @person.fiopr %><br>
+      <p></p>
+      <br>
       
-      <%= @person.contact %>
+      
     </div>
-  <% end %>
+  
 </div>
 <div class="person-block personale">
-  <% vizit = @person.vizit   %>
-  <% if vizit.nil? %>
-  <% insurance = nil %>
-  <% polis =nil %>
-  <% else %>
-  <% insurance = vizit.insurance %>
-  <% polis = insurance.polis %>
-  <% end %>
   
-  <% op = @person.op   %>
   <% if !op.nil? %>
    <div>
       <p><strong>События</strong></p>

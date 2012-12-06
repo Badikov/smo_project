@@ -1,3 +1,4 @@
+# encoding: utf-8
 module PeopleHelper
   def status_resource
     statuses =[]
@@ -14,5 +15,10 @@ module PeopleHelper
       end
     file.close
     return statuses
+  end
+  def priznok_date
+    priznok = [[ 'Дата достоверна', 1 ],['Известны достоверно только месяц и год рождения', 2], 
+    ['Известен достоверно только год рождения', 3]]
+    return priznok
   end
 end

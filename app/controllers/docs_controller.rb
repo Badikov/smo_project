@@ -2,7 +2,7 @@
 class DocsController < ApplicationController
   def index
     statuses =[]
-      file = File.open("a_05.txt")
+      file = File.open("a_06.txt")
         i = 0
           file.each do |line|
       	    if  i > 0
@@ -60,6 +60,23 @@ class DocsController < ApplicationController
     end
     render json: status
   end
+  # GET /docs/new
+  # GET /docs/new.json
+  def new
+    @doc = Doc.new
+    @doc.person_id = params[:id]
     
+    render :layout => false
+  end
+  # POST /docs
+  # POST /docs.json
+  def create
+    logger.debug params
+    
+  end
+  # GET /docs/1/edit
+  # def edit
+  #   @doc = Doc.find_by_person_id(params[:id])
+  # end
     
 end

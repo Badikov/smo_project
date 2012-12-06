@@ -44,7 +44,7 @@ jQuery ->
       adres.show()
 #       okato.hide()
   
-  #выбор вид на жительство для инюграждан
+  
   $('#person_addres_g_attributes_ul, #person_addres_p_attributes_ul').typeahead
     source: (query,process) ->
       $.ajax
@@ -69,6 +69,7 @@ jQuery ->
     #   if i isnt 'RUS'
     #     ig.show()
     
+  #выбор вид на жительство для инюграждан  
   $('#person_c_oksm').change () -> 
     _c_oksm = $(@).val()
     if _c_oksm.length is 3
@@ -82,14 +83,7 @@ jQuery ->
         $("#person_doc_attributes_doctype option:selected").each ->
           $(@).removeAttr 'selected'
         #$("#person_doc_attributes_doctype option[value=14]").attr selected: "selected"
-        
-  
-    
-#   $('#person_doc_attributes_mr').autocomplete
-#     source: $('#person_doc_attributes_mr').data('autocomplete-source')
-   
-#   
-     
+
   $('#person_addres_p_attributes_npname, #person_addres_g_attributes_npname').autocomplete
      source:(request,response) ->
       $.ajax 

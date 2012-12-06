@@ -1,0 +1,15 @@
+<tbody>
+<% @respon.each do |item| %>
+
+<tr id=<%= item[:id]%> class=<%= item[:active] ? "success" : "error"%> >
+  <td><%= item[:fam] %></td>
+  <td><%= item[:im] %></td>
+  <td><%= item[:ot] %></td>
+  <td><%= item[:w] %></td>
+  <td><%= item[:dr] %></td>
+  <td><%= item[:docser] %></td>
+  <td><%= item[:docnum] %></td>
+</tr>
+
+<% end %>
+</tbody>
