@@ -8,7 +8,7 @@ class VizitsController < ApplicationController
   # GET /vizits/1.json
   def show
 
-     # (6..1228).each do |n| 
+     # (6..1313).each do |n| 
      #  @person = Person.find_by_id(n)
      #  @person.destroy
      #   
@@ -31,12 +31,12 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_06.txt")
+    file = File.open("p_11.txt")
     i = 0
       file.each do |line|
 	
 	if  i > 0
-	  str = line.delete("null")
+	  str = line#.delete("null")
 	  przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif = str.chomp("\n").split("\t")
 	  s_oksm= Oksm.select("distinct alfa3").where(:kod =>  kod).map(&:alfa3)
 	  user_id = cod_podrazdeleniy(przcod)
@@ -68,20 +68,23 @@ class VizitsController < ApplicationController
 	                        email: email, fiopr: fiopr, contact: contact, ddeath: ddeath})
 	  @person.build_doc({doctype: doctype, docser: docser, docnum: docnum, docdate: docdate, name_vp: name_or, mr: mr})
 	  @person.build_addres_g({bomg: bomg, subj: subj[0], indx: indx, okato: okato, npname: npname, ul: ul, dom: dom, korp: korp, kv: kv,dreg: dreg})
-	  @person.build_addres_p()
+	  # @person.build_addres_p()
 	  @person.build_op({id: id_fl, tip_op: tip_op, user_id: user_id, date_uvoln: date_uvoln, created_at: dvizit, updated_at: date_modif, active: active})
 	  @person.build_vizit({dvizit: dvizit, method: method, petition: petition.to_i, rsmo: rsmo, rpolis: rpolis, fpolis: fpolis})
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
-
-
-	      # @person.save
+   
+       # @person.save
 
 
 
     
-	    # statuses << @person.op
-    # [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
+	     # statuses << @person
+      # [przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
+=begin
+      [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
+=end
+
 	end
         i = i+1 
       end
@@ -140,7 +143,7 @@ class VizitsController < ApplicationController
     
     if tip_op != ""
       if vizit[:petition]
-        #:TODO Обработать событие Petition---> dvizit==nil, method==nil, rsmo==nil
+        #:TODO Обработать событие Petition---> dvizit==nil, method=2, rsmo==nil
         vizit.delete(:dvizit)
         vizit.delete(:method)
         vizit.delete(:rsmo)

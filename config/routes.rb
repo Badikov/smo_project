@@ -1,4 +1,12 @@
 SmoProject::Application.routes.draw do
+  resources :uploads do
+    collection do
+      get "upload_xml" => 'uploads#upload_xml'
+      
+      
+    end
+  end
+
   get "ats/create_links"
 
   get "ats/files"

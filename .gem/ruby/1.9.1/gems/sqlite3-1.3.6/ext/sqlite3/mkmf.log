@@ -1,6 +1,6 @@
 find_header: checking for sqlite3.h... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib      -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -8,7 +8,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"gcc -E -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC  conftest.c -o conftest.i"
+"gcc -E -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC  conftest.c -o conftest.i"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -20,10 +20,11 @@ checked program was:
 
 find_library: checking for sqlite3_libversion_number() in -lsqlite3... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib      -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_libversion_number» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -33,7 +34,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib      -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_libversion_number» [-Wimplicit-function-declaration]
 checked program was:
@@ -49,7 +50,9 @@ checked program was:
 
 have_func: checking for rb_proc_arity()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: В функции «t»:
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -63,10 +66,11 @@ checked program was:
 
 have_func: checking for sqlite3_initialize()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_initialize» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -76,7 +80,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_initialize» [-Wimplicit-function-declaration]
 checked program was:
@@ -92,10 +96,11 @@ checked program was:
 
 have_func: checking for sqlite3_backup_init()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_backup_init» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -105,7 +110,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_backup_init» [-Wimplicit-function-declaration]
 checked program was:
@@ -121,10 +126,11 @@ checked program was:
 
 have_func: checking for sqlite3_column_database_name()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_column_database_name» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -134,7 +140,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_column_database_name» [-Wimplicit-function-declaration]
 checked program was:
@@ -150,10 +156,11 @@ checked program was:
 
 have_func: checking for sqlite3_enable_load_extension()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_enable_load_extension» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -163,7 +170,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_enable_load_extension» [-Wimplicit-function-declaration]
 checked program was:
@@ -179,10 +186,11 @@ checked program was:
 
 have_func: checking for sqlite3_load_extension()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_load_extension» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -192,7 +200,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_load_extension» [-Wimplicit-function-declaration]
 checked program was:
@@ -208,10 +216,11 @@ checked program was:
 
 have_func: checking for sqlite3_open_v2()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_open_v2» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -221,7 +230,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_open_v2» [-Wimplicit-function-declaration]
 checked program was:
@@ -237,10 +246,11 @@ checked program was:
 
 have_func: checking for sqlite3_prepare_v2()... -------------------- yes
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:53: ошибка: «sqlite3_prepare_v2» undeclared (first use in this function)
 conftest.c:5:53: замечание: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: предупреждение: variable «p» set but not used [-Wunused-but-set-variable]
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -250,7 +260,7 @@ checked program was:
 5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return 0; }
 /* end */
 
-"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p194/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+"gcc -o conftest -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -Wl,-R/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/usr/lib -Wl,-R/home/alex/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic -L/home/alex/.rvm/usr/lib  -Wl,-R/home/alex/.rvm/usr/lib     -lsqlite3  -Wl,-R -Wl,/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -L/home/alex/.rvm/rubies/ruby-1.9.3-p327/lib -lruby -lsqlite3  -lpthread -lrt -ldl -lcrypt -lm   -lc"
 conftest.c: В функции «t»:
 conftest.c:5:1: предупреждение: неявная декларация функции «sqlite3_prepare_v2» [-Wimplicit-function-declaration]
 checked program was:
@@ -266,7 +276,7 @@ checked program was:
 
 have_type: checking for sqlite3_int64 in sqlite3.h... -------------------- yes
 
-"gcc -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC   -c conftest.c"
+"gcc -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -282,7 +292,7 @@ checked program was:
 
 have_type: checking for sqlite3_uint64 in sqlite3.h... -------------------- yes
 
-"gcc -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1 -I. -I/home/alex/.rvm/usr/include     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC   -c conftest.c"
+"gcc -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/x86_64-linux -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1/ruby/backward -I/home/alex/.rvm/rubies/ruby-1.9.3-p327/include/ruby-1.9.1 -I.    -I/home/alex/.rvm/usr/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"

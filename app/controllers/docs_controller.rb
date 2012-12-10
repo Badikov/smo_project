@@ -2,10 +2,10 @@
 class DocsController < ApplicationController
   def index
     statuses =[]
-      file = File.open("a_06.txt")
+      file = File.open("a_11.txt")
         i = 0
           file.each do |line|
-      	    if  i > 0
+      	    if  i > 1289
               # statuses = line.chomp("\n").split("\t")
 
              

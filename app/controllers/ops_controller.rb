@@ -159,13 +159,6 @@ class OpsController < ApplicationController
 				   doc.DOCDATE( op[:old_doc]["docdate"] )
 				   doc.NAME_VP( op[:old_doc]["name_vp"] )
 				   doc.MR( op[:old_doc]["mr"] )
-        else
-				   doc.DOCTYPE()
-				   doc.DOCSER()
-				   doc.DOCNUM()
-				   doc.DOCDATE()
-				   doc.NAME_VP()
-				   doc.MR()
         end
            }
         doc.ADDRES_G{
@@ -182,7 +175,7 @@ class OpsController < ApplicationController
            doc.DREG( op[:addres_g]["dreg"] )
            }
          doc.ADDRES_P{
-         if op[:addres_p]["okato"] != ""  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
+         if op[:addres_p]  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
 				   doc.SUBJ( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
 				   doc.INDX( op[:addres_p]["indx"] )
 				   doc.OKATO( op[:addres_p]["okato"] )

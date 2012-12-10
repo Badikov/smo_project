@@ -3,7 +3,16 @@
  <li><%= link_to "Найти", search_customers_path %></li>
  <!--<li><%= link_to "Contact Us" %></li>-->
  <% if can? :create, User %>
-    <li><%= link_to "Файлы", upload_ops_path %></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" id="dLabel">
+          Файлы
+          <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li><%= link_to "Файлы для отправки", upload_ops_path, tabindex: "-1" %></li>
+        <li><%= link_to "Номера полюсов", upload_xml_uploads_path, tabindex: "-1" %></li>
+      </ul>
+    </li>
     <li><%= link_to "Филиалы", filials_path %></li>
     <li><%= link_to "Users", users_path %></li>
  <% end %>

@@ -19,6 +19,6 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
 //= require jquery_ujs
+//=require jquery-fileupload/basic
 //= require twitter/bootstrap
-//= require_tree .
- 
+//= require_tree . 

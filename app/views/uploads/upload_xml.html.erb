@@ -1,0 +1,10 @@
+<h1>Uploads#upload_xml</h1>
+<p>Find me in app/views/uploads/upload_xml.html.erb</p>
+
+<%= form_tag({:action => "create"}, :id => "new_xml") do %>
+    
+  <%= file_field "xml_file", "datafile", :accept => 'text/xml' %>
+  
+<% end %>  
+
+

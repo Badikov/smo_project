@@ -53,6 +53,7 @@ class PeopleController < ApplicationController
     
     op_attributes = HashWithIndifferentAccess.new
     op_attributes[:user_id] = current_user.id
+    op_attributes[:active] = 0
     #TODO: 
     predstav = params[:person][:predstavitel]
     person = params[:person]
@@ -66,9 +67,10 @@ class PeopleController < ApplicationController
       person[:fiopr] = "#{predstav[:fam]}^#{predstav[:im]}^#{predstav[:ot]}"
       person[:contact] = "#{predstav[:parents]}^#{predstav[:doctype]}^#{predstav[:docser]}^#{predstav[:docnum]}^#{predstavitel_doc_date.to_s}^#{predstav[:phone]}"
     end
-#     if (person[:addres_p_attributes][:subj] == "" and  person[:addres_p_attributes][:okato] == "" and  person[:addres_p_attributes][:npname] == "")
-#       person.delete(:addres_p_attributes)
-#     end
+    #--удаляем addres_p_attributes если незаполнены                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
+    if (person[:addres_p_attributes][:subj] == "" and  person[:addres_p_attributes][:okato] == "" and  person[:addres_p_attributes][:npname] == "")
+      person.delete(:addres_p_attributes)
+    end
     @person = Person.create(person)
 
     respond_to do |format|
