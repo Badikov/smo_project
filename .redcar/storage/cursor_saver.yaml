@@ -381,15 +381,6 @@ cursor_positions:
   - :path: config/deploy.rb
     :cursor_offset: 1317
     :timestamp: 2012-11-20 16:10:08 +06:00
-  - :path: app/models/xml_file.rb
-    :cursor_offset: 334
-    :timestamp: 2012-12-09 23:14:31 +06:00
-  - :path: app/assets/javascripts/uploads.js.coffee
-    :cursor_offset: 266
-    :timestamp: 2012-12-09 22:15:16 +06:00
-  - :path: app/views/uploads/upload_xml.html.erb
-    :cursor_offset: 184
-    :timestamp: 2012-12-09 23:15:32 +06:00
   - :path: config.ru
     :cursor_offset: 251
     :timestamp: 2012-11-15 16:33:07 +06:00
@@ -429,15 +420,6 @@ cursor_positions:
   - :path: app/assets/javascripts/application.js
     :cursor_offset: 875
     :timestamp: 2012-12-09 22:04:50 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 929
-    :timestamp: 2012-12-06 13:07:35 +06:00
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 124
-    :timestamp: 2012-12-10 06:45:57 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 3390
-    :timestamp: 2012-12-10 06:45:25 +06:00
   - :path: app/views/people/_form.html.erb
     :cursor_offset: 1454
     :timestamp: 2012-12-10 13:32:26 +06:00
@@ -471,4 +453,25 @@ cursor_positions:
   - :path: .gitignore
     :cursor_offset: 451
     :timestamp: 2012-12-10 23:41:02 +06:00
+  - :path: app/views/primer_data.txt
+    :cursor_offset: 0
+    :timestamp: 2012-10-11 17:35:43 +07:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 929
+    :timestamp: 2012-12-06 13:07:35 +06:00
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 194
+    :timestamp: 2012-12-10 23:25:03 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 3391
+    :timestamp: 2012-12-10 22:57:09 +06:00
+  - :path: app/views/uploads/upload_xml.html.erb
+    :cursor_offset: 233
+    :timestamp: 2012-12-10 14:12:40 +06:00
+  - :path: app/assets/javascripts/uploads.js.coffee
+    :cursor_offset: 266
+    :timestamp: 2012-12-09 22:15:16 +06:00
+  - :path: app/models/xml_file.rb
+    :cursor_offset: 381
+    :timestamp: 2012-12-10 22:01:43 +06:00
 files_to_retain: 0

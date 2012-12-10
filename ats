@@ -1,4 +1,0 @@
-select people.id, people.fam, people.im, people.ot, people.dr, count(people.id) as "cnt" from people 
-INNER JOIN ats ON people.id = ats.person_id 
-where ats.updated_at BETWEEN "2012-11-01" and "2012-11-30"
-group by ats.person_id order by people.id
