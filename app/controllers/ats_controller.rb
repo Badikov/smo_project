@@ -12,7 +12,7 @@ class AtsController < ApplicationController
     
     if people.size != 0
       # имя файла из заявленной даты
-      file_name = "AT_S_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_1.xml"
+      file_name = "AT_S_180" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_2.xml"
       hijack_response(generate_builder(people, file_name), file_name)
     else
       render json: people.size == 0 ? 201 : 200, :nothing => true

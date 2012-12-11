@@ -8,7 +8,7 @@ class VizitsController < ApplicationController
   # GET /vizits/1.json
   def show
 
-     # (6..1313).each do |n| 
+     # (6..1351).each do |n| 
      #  @person = Person.find_by_id(n)
      #  @person.destroy
      #   

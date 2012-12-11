@@ -58,9 +58,9 @@ set :repository, "git://github.com/Badikov/smo_project.git"
 set :branch, "master"
 # set :git_enable_submodules, 1
 # tasks
-set :max_asset_age, 2 ## Set asset age in minutes to test modified date against.
+# set :max_asset_age, 2 ## Set asset age in minutes to test modified date against.
 
-after "deploy:finalize_update", "deploy:assets:determine_modified_assets", "deploy:assets:conditionally_precompile"
+# after "deploy:finalize_update", "deploy:assets:determine_modified_assets", "deploy:assets:conditionally_precompile"
 
 # namespace :deploy do
 #   namespace :assets do

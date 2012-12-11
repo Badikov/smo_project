@@ -1,4 +1,4 @@
-1355164769
+1355210993
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -201,12 +201,12 @@ create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_contr
 create	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
-create	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def create
 createNextButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createNextButton(i)
 createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createPrevButton(i)
-create_links	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_links
 create_links	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def create_links
+create_links	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_links
 create_roles	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def create_roles
 current_user	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user
 current_user_session	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user_session
@@ -230,14 +230,14 @@ edit	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	
 edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops
 edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_polis
 event_logic	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def event_logic(vizit, tip_op)
-files	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def files
 files	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def files
+files	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def files
 forma_polisa	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def forma_polisa
 formapolisa	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def formapolisa(arg)
-generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def generate_builder(people, file_name)
 generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_builder(par)
-hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def hijack_response( out_data, file_name )
+generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def generate_builder(people, file_name)
 hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def hijack_response( out_data, file_name )
+hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def hijack_response( out_data, file_name )
 index	/home/alex/rails_projects/smo_project/app/controllers/home_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/okatos_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def index
@@ -248,8 +248,8 @@ index	/home/alex/rails_projects/smo_project/app/controllers/oksms_controller.rb	
 index	/home/alex/rails_projects/smo_project/app/controllers/tipdocs_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def index
-index	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def index
+index	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def index
 initialize	/home/alex/rails_projects/smo_project/app/models/ability.rb	  def initialize(user)
 method	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def method(arg)
 method_podachi_zayvlenia	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def method_podachi_zayvlenia
@@ -259,8 +259,8 @@ new	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	
 new	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new
-new	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def new
+new	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def new
 newfam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def newfam
 prichina_zameni_polisa	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def prichina_zameni_polisa
 print_petition	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def print_petition
@@ -277,8 +277,8 @@ show	/home/alex/rails_projects/smo_project/app/controllers/home_controller.rb	  
 show	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def show
-show	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def show
+show	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def show
 status_resource	/home/alex/rails_projects/smo_project/app/helpers/people_helper.rb	  def status_resource
 store_location	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def store_location
 test_homepage	/home/alex/rails_projects/smo_project/test/performance/browsing_test.rb	  def test_homepage

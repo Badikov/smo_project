@@ -77,12 +77,12 @@ jQuery ->
         ig.show()
         $("#person_doc_attributes_doctype option:selected").each ->
           $(@).removeAttr 'selected'
-        $("#person_doc_attributes_doctype option[value=9]").attr selected: "selected"
+          $("#person_doc_attributes_doctype option[value=9]").attr selected: "selected"
       else
         ig.hide()
         $("#person_doc_attributes_doctype option:selected").each ->
           $(@).removeAttr 'selected'
-        #$("#person_doc_attributes_doctype option[value=14]").attr selected: "selected"
+          $("#person_doc_attributes_doctype option[value=14]").attr selected: "selected"
 
   $('#person_addres_p_attributes_npname, #person_addres_g_attributes_npname').autocomplete
      source:(request,response) ->

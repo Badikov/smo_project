@@ -1,29 +1,4 @@
-# set :application, "smo_project"
-# set :repository,  "alex@github.com/Badikov/smo_project.git"
-# set :branch, "origin/master"
-# 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-# 
-# # role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-# # role :app, "your app-server here"                          # This may be the same as your `Web` server
-# # role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-# # role :db,  "your slave db-server here"
-# server "217.116.153.106", :app, :web, :db, :primary => true
-# # if you want to clean up old releases on each deploy uncomment this:
-# # after "deploy:restart", "deploy:cleanup"
-# 
-# # if you're still using the script/reaper helper you will need
-# # these http://github.com/rails/irs_process_scripts
-# 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end production.sqlite3
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+
 #33333333333333 копирование файлов по SSH
 # scp ~/.ssh/id_rsa.pub deployer@server:~/.ssh/authorized_keys
 #3333333333333333333333
@@ -57,32 +32,7 @@ set :scm_username, "alex"
 set :repository, "git://github.com/Badikov/smo_project.git"
 set :branch, "master"
 # set :git_enable_submodules, 1
-# tasks
-# set :max_asset_age, 2 ## Set asset age in minutes to test modified date against.
 
-# after "deploy:finalize_update", "deploy:assets:determine_modified_assets", "deploy:assets:conditionally_precompile"
-
-# namespace :deploy do
-#   namespace :assets do
-#     
-#     desc "Figure out modified assets."
-#     task :determine_modified_assets, :roles => assets_role, :except => { :no_release => true } do
-#       set :updated_assets, capture("find #{latest_release}/app/assets -type d -name .git -prune -o -mmin -#{max_asset_age} -type f -print", :except => { :no_release => true }).split
-#     end
-#     
-#     desc "Remove callback for asset precompiling unless assets were updated in most recent git commit."
-#     task :conditionally_precompile, :roles => assets_role, :except => { :no_release => true } do
-#       if(updated_assets.empty?)
-#         callback = callbacks[:after].find{|c| c.source == "deploy:assets:precompile" }
-#         callbacks[:after].delete(callback)
-#         logger.info("Skipping asset precompiling, no updated assets.")
-#       else
-#         logger.info("#{updated_assets.length} updated assets. Will precompile.")
-#       end
-#     end
-#     
-#   end
-# end
 namespace :deploy do 
 #   namespace :assets do
 #      task :precompile, :roles => :web, :except => { :no_release => true } do
