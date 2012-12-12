@@ -3,6 +3,4 @@ open_files:
   - app/controllers/customers_controller.rb
   - app/controllers/docs_controller.rb
   - app/controllers/vizits_controller.rb
-  - app/views/uploads/upload_xml.html.erb
-  - app/assets/javascripts/uploads.js.coffee
-  - app/models/xml_file.rb
+  - app/controllers/people_controller.rb

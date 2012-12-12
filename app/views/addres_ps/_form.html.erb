@@ -1,4 +1,4 @@
-<%= form.simple_fields_for :addres_p, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form.simple_fields_for @person.addres_p, :html => { :class => 'form-horizontal' } do |f| %>
   
   
       <%= f.input :subj, :label => 'Субъект РФ',  :collection => Subekti.all(:order => :subname),

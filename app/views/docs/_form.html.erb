@@ -1,4 +1,4 @@
-<%= form.simple_fields_for :doc, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form.simple_fields_for @person.doc, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>
   <%= field_set_tag 'Удостоверение личности' do %>
   
       <!--<%= f.input :doctype, :label => 'Документ', :input_html => {data: {autocomplete_source: tipdocs_path}} %>-->

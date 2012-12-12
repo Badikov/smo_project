@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203053205) do
+ActiveRecord::Schema.define(:version => 20121211090936) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -223,6 +223,23 @@ ActiveRecord::Schema.define(:version => 20121203053205) do
   end
 
   add_index "polis", ["insurance_id"], :name => "index_polis_on_insurance_id"
+
+  create_table "representatives", :force => true do |t|
+    t.string   "fam"
+    t.string   "im"
+    t.string   "ot"
+    t.string   "parent"
+    t.string   "doctype"
+    t.string   "docser"
+    t.string   "docnum"
+    t.date     "docdate"
+    t.string   "phone"
+    t.integer  "person_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "representatives", ["person_id"], :name => "index_representatives_on_person_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false

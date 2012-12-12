@@ -1,14 +1,17 @@
 # encoding: utf-8
 class VizitsController < ApplicationController
+  # GET /vizits/new
+  # GET /vizits/new.json
   def new
-    @person = Person.find(params[:id])
-    @vizit = Vizit.new
+    person = Person.find(params[:id])
+    @vizit = person.build_vizit
+    # @vizit = Vizit.new
   end
   # GET /vizits/1
   # GET /vizits/1.json
   def show
 
-     # (6..1351).each do |n| 
+     # (6..1374).each do |n| 
      #  @person = Person.find_by_id(n)
      #  @person.destroy
      #   
@@ -31,7 +34,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_11.txt")
+    file = File.open("p_12.txt")
     i = 0
       file.each do |line|
 	
@@ -74,7 +77,7 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
    
-       # @person.save
+        # @person.save
 
 
 

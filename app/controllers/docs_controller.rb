@@ -2,10 +2,10 @@
 class DocsController < ApplicationController
   def index
     statuses =[]
-      file = File.open("a_11.txt")
+      file = File.open("a_12.txt")
         i = 0
           file.each do |line|
-      	    if  i > 1289
+      	    if  i > 1248
               # statuses = line.chomp("\n").split("\t")
 
              
@@ -16,18 +16,22 @@ class DocsController < ApplicationController
                 person_id = person.person_id
                 created_at= person.created_at
                 updated_at= date_modif.to_date#DateTime.now.beginning_of_day - 1.day
-                dtt = date_lpu_t.slice(6,4) + "-" + date_lpu_t.slice(3,2) + "-" + date_lpu_t.slice(0,2)
-                dt = DateTime.strptime(dtt, "%Y-%m-%d")
-              
+                if !date_lpu_t.nil?
+                  dtt = date_lpu_t.slice(6,4) + "-" + date_lpu_t.slice(3,2) + "-" + date_lpu_t.slice(0,2)
+                  dt = DateTime.strptime(dtt, "%Y-%m-%d")
+                else
+                  dtt =nil
+                  dt =nil
+                end
                 _type    = "T"
                 kdatemu = kdatelpu_t.to_i
                 kdmu    = kdlpu_t.to_i
                 date_z  = person.created_at
                 date_b  = dtt
-                
+              if !kdatemu.blank?  and !kdmu.blank?
                 @at_t = At.new({created_at: created_at ,date_b: date_b, type_at: _type, date_z: date_z, kdatemu: kdatemu, kdmu: kdmu, person_id: person_id, updated_at: updated_at})
                 @at_t.save
-                
+              end  
               if !kdlpu_f.blank? and !kdatelpu_f.blank?
                 __type    = "F"
                 _kdatemu = kdatelpu_f.to_i

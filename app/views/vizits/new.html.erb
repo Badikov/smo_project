@@ -4,55 +4,7 @@
                                  :default => "New #{model_class.model_name.human}") %></h3>
 </div>
 <div class="person-block">
-<div>
-  <p><strong>Застрахованное лицо</strong></p>
-  <%= @person.fam %> <%= @person.im %> <%= @person.ot %><br />
-  
-  <%= @person.w == 1 ? "мужской" : "женский"  %><br />
-  
-  <%= @person.dr %><br />
-  
-  <%= @person.ss %><br />
-  
-  <%= @person.phone %><br />
-  
-  <%= @person.email %><br />
-  
-</div>
-<div>
-  <p><strong>Удостоверение личности</strong></p>
-  <% if @person.doc %>
-    <%= @person.doc.doctype %><br />
-    <%= @person.doc.docser %>
-    <%= @person.doc.docnum %><br />
-    <%= @person.doc.name_vp %><br />
-    <%= @person.doc.docdate %><br />
-    <%= @person.doc.mr %><br />
-  <% end %>
-</div>
-<div>
-  <p><strong>Место жительства</strong></p>
-  <% if @person.addres_g %>
-    <%= @person.addres_g.indx %>
-    <%= @person.addres_g.subj %><br>
-    <%= @person.addres_g.rnname %>
-    <%= @person.addres_g.npname %><br>
-    
-    <%= @person.addres_g.ul %>
-    <%= @person.addres_g.dom %>
-    <%= @person.addres_g.korp %>
-    <%= @person.addres_g.kv %> <br>
-    <%= @person.addres_g.dreg %><br />
-  <% end %>
-</div>
-  <% if @person.fiopr? %>
-    <div>
-      <p><strong>Сведения о представителе</strong></p>
-      <%= @person.fiopr %><br>
-      
-      <%= @person.contact %>
-    </div>
-  <% end %>
+  <%= @vizit.person.fam %> <%= @vizit.person.im %> <%= @vizit.person.ot %><br />
 </div>
 
 

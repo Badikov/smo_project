@@ -8,7 +8,11 @@ jQuery ->
   
   $("#pet_dog").attr("checked", "checked")
   
-  $('#person_addres_g_attributes_bomg').removeAttr 'checked'
+  $('#person_addres_g_bomg').removeAttr 'checked'
+
+  $("#person_doc_doctype option[value=14]").attr selected: "selected"
+
+  $("#person_addres_g_subj option[value=32000]").attr selected: "selected"
   
   adres = $("div#step2 div.string:gt(8)").add("div#step2 div.select:last")
   
@@ -26,8 +30,7 @@ jQuery ->
   if $("#pet_dog").attr("checked")
     $(adres).hide()
   
-  $("#person_addres_g_attributes_bomg").click -> 
-  #$("#person_addres_g_attributes_bomg").click ->
+  $("#person_addres_g_bomg").click ->
     if @checked
       content.hide()
     else
@@ -45,7 +48,7 @@ jQuery ->
 #       okato.hide()
   
   
-  $('#person_addres_g_attributes_ul, #person_addres_p_attributes_ul').typeahead
+  $('#person_addres_g_ul, #person_addres_p_ul').typeahead
     source: (query,process) ->
       $.ajax
         url: '/streets',
@@ -75,16 +78,16 @@ jQuery ->
     if _c_oksm.length is 3
       if _c_oksm isnt 'RUS'
         ig.show()
-        $("#person_doc_attributes_doctype option:selected").each ->
+        $("#person_doc_doctype option:selected").each ->
           $(@).removeAttr 'selected'
-          $("#person_doc_attributes_doctype option[value=9]").attr selected: "selected"
+          $("#person_doc_doctype option[value=9]").attr selected: "selected"
       else
         ig.hide()
-        $("#person_doc_attributes_doctype option:selected").each ->
+        $("#person_doc_doctype option:selected").each ->
           $(@).removeAttr 'selected'
-          $("#person_doc_attributes_doctype option[value=14]").attr selected: "selected"
+          $("#person_doc_doctype option[value=14]").attr selected: "selected"
 
-  $('#person_addres_p_attributes_npname, #person_addres_g_attributes_npname').autocomplete
+  $('#person_addres_p_npname, #person_addres_g_npname').autocomplete
      source:(request,response) ->
       $.ajax 
        url: '/okatos', 

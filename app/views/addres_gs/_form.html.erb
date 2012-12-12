@@ -1,6 +1,6 @@
-<%= form.simple_fields_for :addres_g, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form.simple_fields_for @person.addres_g, :html => { :class => 'form-horizontal' } do |f| %>
   
-       <%= f.input :bomg, :label => 'БОМЖ', :as => :boolean %>
+       <%= f.input :bomg, :validate => false,  :label => 'БОМЖ', :as => :boolean %>
     
        <%= f.input :subj, :label => 'Субъект РФ',  :collection => Subekti.all(:order => :subname),
 		    :label_method => :subname, :value_method => :kod_okato, :include_blank => false,

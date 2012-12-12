@@ -31,6 +31,8 @@ gem 'simple_roles'
 gem 'cancan'
 
 gem 'jquery-rails'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 gem 'active_attr'
 gem 'simple_form'

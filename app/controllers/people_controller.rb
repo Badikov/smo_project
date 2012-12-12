@@ -27,12 +27,12 @@ class PeopleController < ApplicationController
   # GET /people/new
   # GET /people/new.json
   def new
-    @predstav = Predstavitel.new
     @person = Person.new
     @person.build_doc
-    @person.build_addres_p
     @person.build_addres_g
-    @person.build_op
+    @person.build_addres_p
+    @person.build_representative
+    # 
     
     respond_to do |format|
       format.html # new.html.erb
@@ -48,38 +48,39 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
+    
+    @person = Person.new(params[:person])
+    
+    if @person.valid?
+       # op_attributes[:user_id] = current_user.id
+      @person.build_op( :user_id => 1, :active => 0 )
+      
+      @person.representative.mark_for_destruction  if @person.representative.fam.blank?
+      @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
+        
+      
+      if @person.save!
+        redirect_to  new_vizit_person_url(@person.id), notice: '#{@person.fam} добавлен(а) в базу.'
+      else
+        render :new
+      end
+    else
+      render :new
+    end
     # require "net/http"
     # str_guid = Net::HTTP.get(URI.parse(URI.encode("http://mozilla.pettay.fi/cgi-bin/mozuuid.pl")))
-    
-    op_attributes = HashWithIndifferentAccess.new
-    op_attributes[:user_id] = current_user.id
-    op_attributes[:active] = 0
-    #TODO: 
-    predstav = params[:person][:predstavitel]
-    person = params[:person]
+        
 #     @person.update_attributes(params[:person].except(:admin))!!кроме :admin, что бы не удалять :predstavitel
-    person.delete(:predstavitel)
-    person[:op_attributes] = op_attributes
-    
-    
-    if (predstav[:fam] != "" and predstav[:im] != "")
-      predstavitel_doc_date = Date.strptime("{#{ predstav['docdate(1i)']}, #{ predstav['docdate(2i)']}, #{ predstav['docdate(3i)']} }", "{ %Y, %m, %d }")
-      person[:fiopr] = "#{predstav[:fam]}^#{predstav[:im]}^#{predstav[:ot]}"
-      person[:contact] = "#{predstav[:parents]}^#{predstav[:doctype]}^#{predstav[:docser]}^#{predstav[:docnum]}^#{predstavitel_doc_date.to_s}^#{predstav[:phone]}"
-    end
-    #--удаляем addres_p_attributes если незаполнены                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
-    if (person[:addres_p_attributes][:subj] == "" and  person[:addres_p_attributes][:okato] == "" and  person[:addres_p_attributes][:npname] == "")
-      person.delete(:addres_p_attributes)
-    end
-    @person = Person.create(person)
+        
+    # @person = Person.create(person) 
 
-    respond_to do |format|
-      if @person.save
-	      format.html { redirect_to  new_vizit_person_url(@person.id), notice: 'Новое застрахованное лицо успешно создано.' }
-      else
-        format.html { render action: "new" }
-      end
-    end
+    # respond_to do |format|
+    #   if @person.save
+	   #    format.html { redirect_to  new_vizit_person_url(@person.id), notice: 'Новое застрахованное лицо успешно создано.' }
+    #   else
+    #     format.html { render action: "new" }
+    #   end
+    # end
   end
 
   # PUT /people/1

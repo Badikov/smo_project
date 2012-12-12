@@ -1,11 +1,11 @@
-<%= simple_form_for @person, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
+<%= simple_form_for @person, :validate => true, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
   <%= field_set_tag 'Сведения о застрахованном лице' do %>
   
   <%= f.input :status, :label => 'Статус застрахованного', :collection => status_resource, :include_blank => true, :input_html => {:class => "span7"} %>
   
-  <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+  <%= f.input :fam,  :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
  
-  <%= f.input :im, :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+  <%= f.input :im,  :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
     
   <%= f.input :ot, :label => 'Отчество', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
     
@@ -44,7 +44,7 @@
   
   <% end %>
    
-  <%= render :partial => 'people/predstav', :locals => {:form => f} %>
+  <%= render :partial => 'representatives/form', :locals => {:form => f} %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary', :id => '0856' %>
