@@ -105,7 +105,7 @@ jQuery ->
 
   okato_ = (field,_okato) ->
    _id = field.id
-   _id = _id.slice(0,27).concat("okato")
+   _id = _id.slice(0,16).concat("okato")
    $("input#" + _id).attr value: _okato
       
   $("#new_person").keydown (event) -> 

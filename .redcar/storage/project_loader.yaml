@@ -3,4 +3,8 @@ open_files:
   - app/controllers/customers_controller.rb
   - app/controllers/docs_controller.rb
   - app/controllers/vizits_controller.rb
+  - app/models/vizit.rb
+  - app/models/person.rb
+  - app/models/insurance.rb
   - app/controllers/people_controller.rb
+  - app/models/polis.rb

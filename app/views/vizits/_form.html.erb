@@ -1,10 +1,6 @@
-<% @vizit.build_insurance %>
-<% @vizit.insurance.build_polis %>
-<% @vizit.insurance.polis[:dstop] = @vizit.person.doc.ig_enddate  %>
+<%= simple_form_for @vizit, :validate => true, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
 
-<%= simple_form_for @vizit, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
-
-  <%= f.input :person_id, :input_html => { :value => @vizit.person_id } %>
+  <%= f.input :person_id, :input_html => { :value => @vizit.person_id }, :as => :hidden %>
   
   <%= render :partial => 'insurances/form', :locals => {:form => f} %>
   

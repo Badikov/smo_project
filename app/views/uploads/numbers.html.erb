@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h3>Задать диапозон номеров временных свидетельств</h3>
+</div>
+
+<div>
+  
+  <%= form_tag({:action => "save_numbers"}, :autocomplete => 'off') do  %>
+  
+  <p>Серии&nbsp;&nbsp;&nbsp;
+    <%= text_field_tag 'start_series', @ini_file["series"]["start"], :placeholder => 'c...' %>
+    
+    <%= text_field_tag "end_series", @ini_file["series"]["end"], :placeholder => 'по...' %>
+  </p>
+  <p>Номера&nbsp;
+    <%= text_field_tag "start_numbers", @ini_file["numbers"]["start"], :placeholder => 'c...' %>
+    
+    <%= text_field_tag "end_numbers", @ini_file["numbers"]["end"], :placeholder => 'по...' %>
+  </p>
+  <div class="form-actions">
+    <%= submit_tag "Save changes", :id => "submit", :name => "submit", :class => "form_submit btn btn-primary", 
+    :disabled => false, :disable_with => "Please wait..." %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                home_path, :class => 'btn' %>
+  </div>
+    <% end %>
+</div>

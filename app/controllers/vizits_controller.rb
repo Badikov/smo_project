@@ -5,13 +5,16 @@ class VizitsController < ApplicationController
   def new
     person = Person.find(params[:id])
     @vizit = person.build_vizit
+    @vizit.build_insurance
+    @vizit.insurance.build_polis
+    @vizit.insurance.polis.dstop = person.doc.ig_enddate
     # @vizit = Vizit.new
   end
   # GET /vizits/1
   # GET /vizits/1.json
   def show
 
-     # (6..1374).each do |n| 
+     # (1390..1440).each do |n| 
      #  @person = Person.find_by_id(n)
      #  @person.destroy
      #   
@@ -34,7 +37,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_12.txt")
+    file = File.open("p_17.txt")
     i = 0
       file.each do |line|
 	
@@ -77,12 +80,12 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
    
-        # @person.save
+          # @person.save
 
 
 
     
-	     # statuses << @person
+	     # statuses << @person.doc
       # [przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
 =begin
       [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
@@ -128,77 +131,85 @@ class VizitsController < ApplicationController
   end
   # POST /vizits
   def create
-    vizit = params[:vizit]
-    vizit[:insurance_attributes][:ter_st] = "32000"
-    vizit[:insurance_attributes][:ogrnsmo] = "1042201923720"
-    date_stop = Doc.select("ig_enddate").where(:person_id => vizit[:person_id]).map(&:ig_enddate)
-    if !date_stop.nil?
-      vizit[:insurance_attributes][:polis_attributes][:dstop] = date_stop
-    end
+    @vizit = Vizit.new(params[:vizit])
+    @vizit.dvizit = DateTime.now if @vizit.dvizit.nil?
     
-    vizit[:dvizit] = vizit[:dvizit].nil? ? DateTime.now : vizit[:dvizit].to_date
-    vizit[:insurance_attributes][:polis_attributes][:dbeg] = vizit[:dvizit]
-    vizit[:insurance_attributes][:polis_attributes][:dend] = vizit[:dvizit] + 42
-    vizit[:insurance_attributes][:polis_attributes][:datepolis] = vizit[:dvizit]
+    @vizit.insurance.polis.dbeg = @vizit.dvizit
+    @vizit.insurance.ter_st = "32000"
+    @vizit.insurance.ogrnsmo = "1042201923720"
+    @vizit.insurance.enp.blank? ? @vizit.insurance.polis.vpolis = 2 : @vizit.insurance.polis.vpolis = 3
     
-    tip_op = ""
-    tip_op = event_logic(vizit, tip_op)
+    if @vizit.valid?
     
-    if tip_op != ""
-      if vizit[:petition]
-        #:TODO Обработать событие Petition---> dvizit==nil, method=2, rsmo==nil
-        vizit.delete(:dvizit)
-        vizit.delete(:method)
-        vizit.delete(:rsmo)
-      end
-      vizit.delete(:rpolis) if vizit[:rpolis] == ""
-      @vizit = Vizit.create(vizit)
-      
-      if @vizit.save 
-	      @op = Op.find_by_person_id(vizit[:person_id])
-      
-	      @op.update_attributes({ id: @op.person_id, tip_op: tip_op })
-      
-	      redirect_to @vizit, notice: 'Визит сохранен.'
-      else
-	      redirect_to action: "new", id: vizit[:person_id]
-      end
+      render json: @vizit.insurance.polis
     else
-      redirect_to action: "new", id: vizit[:person_id]
-    #   render json: vizit
+      render :new
     end
+    # vizit = params[:vizit]
+    # vizit[:insurance_attributes][:ter_st] = "32000"
+    # vizit[:insurance_attributes][:ogrnsmo] = "1042201923720"
+    # date_stop = Doc.select("ig_enddate").where(:person_id => vizit[:person_id]).map(&:ig_enddate)
+    # if !date_stop.nil?
+    #   vizit[:insurance_attributes][:polis_attributes][:dstop] = date_stop
+    # end
+    
+    # vizit[:dvizit] = vizit[:dvizit].nil? ? DateTime.now : vizit[:dvizit].to_date
+    # vizit[:insurance_attributes][:polis_attributes][:dbeg] = vizit[:dvizit]
+    # vizit[:insurance_attributes][:polis_attributes][:dend] = vizit[:dvizit] + 42
+    # vizit[:insurance_attributes][:polis_attributes][:datepolis] = vizit[:dvizit]
+    # 
+    # tip_op = ""
+    # tip_op = event_logic(vizit, tip_op)
+    # 
+    # if tip_op != ""
+    #   if vizit[:petition]
+    #     #:TODO Обработать событие Petition---> dvizit==nil, method=2, rsmo==nil
+    #    
+    #     vizit.delete(:rsmo)
+    #   end
+    #   vizit.delete(:rpolis) if vizit[:rpolis] == ""
+    #   # @vizit = Vizit.create(vizit)
+    #   
+    #   if @vizit.save 
+	   #    @op = Op.find_by_person_id(vizit[:person_id])
+    #   
+	   #    @op.update_attributes({ id: @op.person_id, tip_op: tip_op })
+    #   
+	   #    redirect_to @vizit, notice: 'Визит успешно сохранен.'
+    #   else
+	   #    redirect_to action: "new", id: vizit[:person_id]
+    #   end
+    # else
+    #   redirect_to action: "new", id: vizit[:person_id]
+    # #   render json: vizit
+    # end
   end
   
   def event_logic(vizit, tip_op)
     if (vizit[:rsmo] == '1' and vizit[:fpolis] != '0' and vizit[:insurance_attributes][:erp] == '0' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
       tip_op = "П010"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2
       
-      
+  
     elsif (vizit[:rsmo] == '2' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:polis_attributes][:npolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:rpolis] == "" and vizit[:insurance_attributes][:enp] != "")
       tip_op = "П031"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3
+      
     elsif (vizit[:rsmo] == '3' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:polis_attributes][:npolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:rpolis] == "" and vizit[:insurance_attributes][:enp] != "")
       tip_op = "П032"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3
+      
     elsif (vizit[:rsmo] == '4' and vizit[:fpolis] == '0' and vizit[:insurance_attributes][:polis_attributes][:npolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:rpolis] == "" and vizit[:insurance_attributes][:enp] != "")
       tip_op = "П033"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3
+      
 #       vizit[:insurance_attributes][:polis_attributes][:vpolis] = 3 #!!!!
-    elsif (vizit[:rsmo] == '2' and vizit[:fpolis] != '0' and vizit[:rpolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
-      tip_op = "П034"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2 
-      
-      
-    elsif (vizit[:rsmo] == '3' and vizit[:fpolis] != '0' and vizit[:rpolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
-      tip_op = "П035"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2 
-      
-      
-    elsif (vizit[:rsmo] == '4' and vizit[:fpolis] != '0' and vizit[:rpolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
-      tip_op = "П036"
-      vizit[:insurance_attributes][:polis_attributes][:vpolis] = 2 
-      
+    # elsif (vizit[:rsmo] == '2' and vizit[:fpolis] != '0' and vizit[:rpolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
+    #   tip_op = "П034"
+    #   
+    # 
+    # elsif (vizit[:rsmo] == '3' and vizit[:fpolis] != '0' and vizit[:rpolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
+    #   tip_op = "П035"
+    #   
+    # 
+    # elsif (vizit[:rsmo] == '4' and vizit[:fpolis] != '0' and vizit[:rpolis] != "" and vizit[:insurance_attributes][:erp] == '1' and vizit[:insurance_attributes][:polis_attributes][:spolis] != ""  and vizit[:insurance_attributes][:polis_attributes][:npolis] != "")
+    #   tip_op = "П036"
       
     end
     return tip_op

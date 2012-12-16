@@ -2,7 +2,8 @@ SmoProject::Application.routes.draw do
   resources :uploads do
     collection do
       get "upload_xml" => 'uploads#upload_xml'
-      
+      get "numbers" => 'uploads#numbers'
+      match "save_numbers" => 'uploads#save_numbers'
       
     end
   end

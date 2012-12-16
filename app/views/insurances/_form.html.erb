@@ -1,18 +1,17 @@
-<%= form.simple_fields_for :insurance, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
+<%= form.simple_fields_for @vizit.insurance, :validate => true, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
     
   <%= f.input :erp, :inline_label => 'зарегистрирован в ЦС ЕРП', :as => :boolean %>
   
   <%= f.input :enp, :label =>  'Действующий Единый номер полиса ОМС'%>
   
-  <%= f.simple_fields_for :polis, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+  <%= f.simple_fields_for @vizit.insurance.polis, :validate => true, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
   
     <%= fpol.input :spolis, :label => 'Серия временного свидетельства',:input_html => { :class => "span1" } %>
     
     <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { :class => "span2" } %>
     
-    <%= fpol.input :vpolis %>
-    
-        
+    <%= fpol.input :dstop, :as => :hidden %>
+
   <% end %>
   
    

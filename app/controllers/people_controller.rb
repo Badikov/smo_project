@@ -60,12 +60,12 @@ class PeopleController < ApplicationController
         
       
       if @person.save!
-        redirect_to  new_vizit_person_url(@person.id), notice: '#{@person.fam} добавлен(а) в базу.'
+        redirect_to  new_vizit_person_url(@person.id), notice: @person.fam + ' ' + @person.im + ' ' + @person.ot + ' добавлен(а) в базу.'
       else
         render :new
       end
     else
-      render :new
+      render :new, alert: 'Сохранить не получилось, проверьте ошибки в параметрах.'
     end
     # require "net/http"
     # str_guid = Net::HTTP.get(URI.parse(URI.encode("http://mozilla.pettay.fi/cgi-bin/mozuuid.pl")))
