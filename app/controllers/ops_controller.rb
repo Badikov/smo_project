@@ -41,16 +41,17 @@ class OpsController < ApplicationController
   
   private
   def hijack_response( out_data, file_name )
-    # zip_file_name = minus_5(file_name) + ".zip"
+    # win1251 = out_data#.encode('Windows-1251', 'UTF-8', :xml => :text)
+    # send_data( win1251, :type => "text/xml", :filename => file_name )
+    
+    zip_file_name = minus_5(file_name) + ".zip"
 
-    win1251 = out_data#.encode('Windows-1251', 'UTF-8', :xml => :text)
-    send_data( win1251, :type => "text/xml", :filename => file_name )
-    # t = Tempfile.new("my-temp-filename-#{Time.now}")
-    # Zip::ZipFile.open(t.path, Zip::ZipFile::CREATE) do |zipfile|
-    #   zipfile.get_output_stream(file_name) { |f| f << out_data }
-    # end 
-    # send_file t.path, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
-    # t.close
+    t = Tempfile.new("my-temp-filename-#{Time.now}")
+    Zip::ZipFile.open(t.path, Zip::ZipFile::CREATE) do |zipfile|
+      zipfile.get_output_stream(file_name) { |f| f << out_data }
+    end 
+    send_file t.path, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
+    t.close
     
   end
   #!!!!!!!!!!!!!!!!Запрос данных из базы
@@ -204,7 +205,7 @@ class OpsController < ApplicationController
               doc.VPOLIS( op[:polis]["vpolis"] )
               doc.NPOLIS( op[:polis]["npolis"] )
               doc.SPOLIS( op[:polis]["spolis"] )
-              doc.DBEG( op[:polis]["dbeg"].to_date )
+              doc.DBEG( op[:polis]["dbeg"].nil? ? nil : op[:polis]["dbeg"].to_date )
               doc.DEND( op[:polis]["dend"] )
               doc.DSTOP( op[:polis]["dstop"] )
            else
