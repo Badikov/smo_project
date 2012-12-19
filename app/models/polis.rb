@@ -3,20 +3,21 @@ class Polis < ActiveRecord::Base
   belongs_to :insurance
   
   attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp
+    
+  validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
+  validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
   
-  # after_validation :check_numbers
-  # 
-  # validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
-  # validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
-  # 
-  # validates_each :npolis do |record, attr, value|
-  #   if record.spolis.blank?
-  #     record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
-  #   else
-  #     
-  #     record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
-  #   end
-  # end
+  validates_each :npolis do |record, attr, value|
+    if record.spolis.blank?
+      record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
+    else
+      
+      record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
+    end
+  end
+  
+  after_validation :check_numbers
+  before_save :spolis_nil
   
   private
   
@@ -39,5 +40,7 @@ class Polis < ActiveRecord::Base
       end
     end
   end
-  
+  def spolis_nil
+    self.spolis = nil if self.spolis.blank?
+  end
 end

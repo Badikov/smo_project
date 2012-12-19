@@ -20,7 +20,7 @@
   :hint => 'например RUS... Б/Г - без гражданства', 
   :input_html => { class: 'input-small', value: 'RUS' } %>
     
-  <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX или ХХХ-ХХХ-ХХХ ХХ', 
+  <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX или ХХХ-ХХХ-ХХХ ХХ', :placeholder => 'XXX-XXX-XXX-XX',
   :input_html => {:title => 'дефисы вводятся так, как написано в карточке'} %>
       
   <%= f.input :phone, :label => 'Телефон', :as => :tel %>

@@ -6,5 +6,5 @@ class Op < ActiveRecord::Base
   attr_accessible :id, :active, :tip_op, :updated_at, :user_id, :date_uvoln, :created_at
  
   
-  self.primary_key = "id"
+  self.primary_key = "person_id"
 end

@@ -53,7 +53,7 @@ class PeopleController < ApplicationController
     
     if @person.valid?
        # op_attributes[:user_id] = current_user.id
-      @person.build_op( :user_id => 1, :active => 0 )
+      @person.build_op( :user_id => current_user.id, :active => 0 )
       
       @person.representative.mark_for_destruction  if @person.representative.fam.blank?
       @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
@@ -71,16 +71,6 @@ class PeopleController < ApplicationController
     # str_guid = Net::HTTP.get(URI.parse(URI.encode("http://mozilla.pettay.fi/cgi-bin/mozuuid.pl")))
         
 #     @person.update_attributes(params[:person].except(:admin))!!кроме :admin, что бы не удалять :predstavitel
-        
-    # @person = Person.create(person) 
-
-    # respond_to do |format|
-    #   if @person.save
-	   #    format.html { redirect_to  new_vizit_person_url(@person.id), notice: 'Новое застрахованное лицо успешно создано.' }
-    #   else
-    #     format.html { render action: "new" }
-    #   end
-    # end
   end
 
   # PUT /people/1

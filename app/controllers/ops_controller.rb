@@ -46,12 +46,15 @@ class OpsController < ApplicationController
     
     zip_file_name = minus_5(file_name) + ".zip"
 
-    t = Tempfile.new("my-temp-filename-#{Time.now}")
-    Zip::ZipFile.open(t.path, Zip::ZipFile::CREATE) do |zipfile|
-      zipfile.get_output_stream(file_name) { |f| f << out_data }
+    tempfile = File.join('tmp',zip_file_name)
+    logger.debug { tempfile.path }
+    Zip::ZipFile.open(tempfile, Zip::ZipFile::CREATE) do |zipfile|
+      
+      zipfile.get_output_stream(file_name) { |f| f.puts out_data }
+      zipfile.close()
     end 
-    send_file t.path, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
-    t.close
+    send_file tempfile, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
+     # FileUtils.rm(tempfile.path)
     
   end
   #!!!!!!!!!!!!!!!!Запрос данных из базы

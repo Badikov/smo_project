@@ -80,7 +80,7 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
    
-         @person.save
+         # @person.save
 
 
 
@@ -153,9 +153,14 @@ class VizitsController < ApplicationController
         else
           tip_op = nil
       end
-      @vizit.person.op.update_attributes()
-    
-      render json: tip_op
+      op = Op.find_by_person_id(@vizit.person_id)
+      id_for_op = @vizit.person_id
+      if @vizit.save! and op.update_attributes({tip_op: tip_op, active: 1, id: id_for_op})
+        redirect_to @vizit, notice: 'Визит успешно сохранен.'
+      else
+        render :new
+      # render json: tip_op
+      end
     else
       render :new
     end

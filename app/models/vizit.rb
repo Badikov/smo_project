@@ -10,18 +10,20 @@ class Vizit < ActiveRecord::Base
   
   alias_method :insurance=, :insurance_attributes=
   
-  # validates_associated :insurance
-  # 
-  # validates_each :dvizit do |record, attr, value|
-  #   logger.debug { value }
-  #   if record.petition == "1"
-  #     record.errors.add(attr, 'введите дату ходатайства') if value.nil?
-  #   end
-  # end
-  # 
-  # after_validation :dates_logic
+  validates_associated :insurance
+  
+  validates_each :dvizit do |record, attr, value|
+    logger.debug { value }
+    if record.petition == "1"
+      record.errors.add(attr, 'введите дату ходатайства') if value.nil?
+    end
+  end
+  
+  after_validation :dates_logic
+  before_save :rpolis_nil
   
   def dates_logic
+    self.method = "2" if self.method.nil?
     self.dvizit = DateTime.now if self.dvizit.nil?
     self.insurance.polis.dbeg = self.dvizit
     if self.insurance.erp == 0 || (self.insurance.erp? and self.rpolis?)
@@ -30,5 +32,8 @@ class Vizit < ActiveRecord::Base
     else
       self.insurance.polis.vpolis = 3
     end
+  end
+  def rpolis_nil
+    self.rpolis = nil
   end
 end
