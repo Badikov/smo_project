@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211090936) do
+ActiveRecord::Schema.define(:version => 20121218142230) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -212,7 +212,6 @@ ActiveRecord::Schema.define(:version => 20121211090936) do
     t.integer  "vpolis"
     t.string   "npolis"
     t.string   "spolis"
-    t.date     "dbeg"
     t.date     "dend"
     t.date     "dstop"
     t.integer  "insurance_id"
@@ -220,6 +219,7 @@ ActiveRecord::Schema.define(:version => 20121211090936) do
     t.datetime "updated_at",   :null => false
     t.date     "datepolis"
     t.date     "datepp"
+    t.datetime "dbeg"
   end
 
   add_index "polis", ["insurance_id"], :name => "index_polis_on_insurance_id"
@@ -315,7 +315,6 @@ ActiveRecord::Schema.define(:version => 20121211090936) do
   end
 
   create_table "vizits", :force => true do |t|
-    t.date     "dvizit"
     t.integer  "rsmo"
     t.integer  "rpolis"
     t.integer  "fpolis"
@@ -324,6 +323,7 @@ ActiveRecord::Schema.define(:version => 20121211090936) do
     t.datetime "updated_at",              :null => false
     t.string   "petition",   :limit => 1
     t.string   "method",     :limit => 1
+    t.datetime "dvizit"
   end
 
   add_index "vizits", ["person_id"], :name => "index_vizits_on_person_id"

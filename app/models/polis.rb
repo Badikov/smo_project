@@ -4,14 +4,12 @@ class Polis < ActiveRecord::Base
   
   attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp
   
-  # before_validation :check_numbers
-  
-  # validates :npolis, :allow_blank => true
-  # validates :npolis, :format => { :with => /\d/ , :message => "должны быть только цифры"}, :allow_blank => false
+  # after_validation :check_numbers
+  # 
+  # validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
   # validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
   # 
   # validates_each :npolis do |record, attr, value|
-  #   logger.debug { value }
   #   if record.spolis.blank?
   #     record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
   #   else
@@ -23,7 +21,7 @@ class Polis < ActiveRecord::Base
   private
   
   def check_numbers
-    if self.new_record? and self.vpolis == 2
+    if self.new_record? and !self.spolis.blank?
       directory = "public/numbers"
       name = "numbers.ini"
       path = File.join(directory, name)
@@ -33,6 +31,7 @@ class Polis < ActiveRecord::Base
       ser = _ser["start"].to_i .. _ser["end"].to_i
       num = _num["start"].to_i .. _num["end"].to_i
       if ser.include?(self.spolis.to_i) and num.include?(self.npolis.to_i)
+        logger.debug { "серия - номер: true"  }
         true
       else
         logger.debug { "серия - номер: false"  }

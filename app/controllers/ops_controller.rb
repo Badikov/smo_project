@@ -27,7 +27,7 @@ class OpsController < ApplicationController
      fil = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops.map(&:user_id)}) 
      
      fil.each do |f|
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "1.xml", id: f[:id]}
+       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "2.xml", id: f[:id]}
      end
     # @a << { name:"i42007_1_2111121.xml", id: 1 } << { name:"i42007_2_0211121.xml", id: 2 } << { name:"i42007_3_0211121.xml", id: 3 }
      
@@ -175,8 +175,8 @@ class OpsController < ApplicationController
            doc.DREG( op[:addres_g]["dreg"] )
            }
          doc.ADDRES_P{
-         if op[:addres_p]  #!!!!!!!!!!!!всегда не nil , но может иметь пустые значения, это используется
-				   doc.SUBJ( op[:addres_p]["subj"] ) #!!!! в insurance _form для определения территории страхования ter_st
+         if op[:addres_p]  
+				   doc.SUBJ( op[:addres_p]["subj"] ) 
 				   doc.INDX( op[:addres_p]["indx"] )
 				   doc.OKATO( op[:addres_p]["okato"] )
 				   doc.RNNAME( op[:addres_p]["rnname"] )
@@ -188,7 +188,7 @@ class OpsController < ApplicationController
          end
            }
          doc.VIZIT{
-           doc.DVIZIT( op[:vizit]["dvizit"] )
+           doc.DVIZIT( op[:vizit]["dvizit"].to_date )
            doc.METHOD( op[:vizit]["method"] )
            doc.PETITION( op[:vizit]["petition"] )
            doc.RSMO( op[:vizit]["rsmo"] )
@@ -204,7 +204,7 @@ class OpsController < ApplicationController
               doc.VPOLIS( op[:polis]["vpolis"] )
               doc.NPOLIS( op[:polis]["npolis"] )
               doc.SPOLIS( op[:polis]["spolis"] )
-              doc.DBEG( op[:polis]["dbeg"] )
+              doc.DBEG( op[:polis]["dbeg"].to_date )
               doc.DEND( op[:polis]["dend"] )
               doc.DSTOP( op[:polis]["dstop"] )
            else

@@ -188,9 +188,6 @@ cursor_positions:
   - :path: p_01.txt
     :cursor_offset: 0
     :timestamp: 2012-12-03 02:14:47 +06:00
-  - :path: db/migrate/20121128203456_rename_column_type_in_ats.rb
-    :cursor_offset: 71
-    :timestamp: 2012-11-29 02:58:38 +06:00
   - :path: db/migrate/20121105074206_create_ats.rb
     :cursor_offset: 172
     :timestamp: 2012-11-05 13:42:06 +06:00
@@ -330,9 +327,6 @@ cursor_positions:
   - :path: public/assets/application.js
     :cursor_offset: 0
     :timestamp: 2012-12-09 22:15:16 +06:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 6039
-    :timestamp: 2012-12-10 13:46:42 +06:00
   - :path: public/data/upakovka_.xml
     :cursor_offset: 0
     :timestamp: 2012-12-10 14:25:57 +06:00
@@ -354,9 +348,6 @@ cursor_positions:
   - :path: app/views/primer_data.txt
     :cursor_offset: 0
     :timestamp: 2012-10-11 17:35:43 +07:00
-  - :path: app/controllers/ats_controller.rb
-    :cursor_offset: 546
-    :timestamp: 2012-12-11 13:45:36 +06:00
   - :path: app/assets/javascripts/uploads.js.coffee
     :cursor_offset: 266
     :timestamp: 2012-12-09 22:15:16 +06:00
@@ -394,9 +385,6 @@ cursor_positions:
     :timestamp: 2012-10-08 00:48:32 +07:00
     :selection_offset: 100
     :block_selection_mode: false
-  - :path: app/helpers/vizits_helper.rb
-    :cursor_offset: 408
-    :timestamp: 2012-12-13 02:43:53 +06:00
   - :path: app/views/customers/_table_rows.html.erb
     :cursor_offset: 339
     :timestamp: 2012-12-06 13:50:15 +06:00
@@ -484,44 +472,89 @@ cursor_positions:
   - :path: app/views/addres_gs/_form.html.erb
     :cursor_offset: 1148
     :timestamp: 2012-12-17 01:34:36 +06:00
-  - :path: app/assets/javascripts/vizits.js.coffee
-    :cursor_offset: 4354
-    :timestamp: 2012-12-17 02:45:20 +06:00
   - :path: p_17.txt
     :cursor_offset: 681
     :timestamp: 2012-12-17 04:01:27 +06:00
-  - :path: app/models/doc.rb
-    :cursor_offset: 552
-    :timestamp: 2012-12-17 04:21:55 +06:00
-    :selection_offset: 254
-    :block_selection_mode: false
   - :path: a_17.txt
     :cursor_offset: 76
     :timestamp: 2012-12-17 04:28:53 +06:00
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-26 18:55:23 +07:00
+  - :path: p_18.txt
+    :cursor_offset: 1586
+    :timestamp: 2012-12-18 09:44:10 +06:00
+  - :path: a_18.txt
+    :cursor_offset: 76
+    :timestamp: 2012-12-18 10:02:03 +06:00
+  - :path: db/migrate/20121128203456_rename_column_type_in_ats.rb
+    :cursor_offset: 71
+    :timestamp: 2012-11-29 02:58:38 +06:00
+  - :path: db/migrate/20121012100954_create_vizits.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-12 17:09:54 +07:00
+  - :path: db/migrate/20121025070044_remove_method_petition_from_vizits.rb
+    :cursor_offset: 106
+    :timestamp: 2012-10-25 14:16:07 +07:00
+    :selection_offset: 76
+    :block_selection_mode: false
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 7104
+    :timestamp: 2012-12-18 16:18:41 +06:00
+  - :path: app/controllers/ats_controller.rb
+    :cursor_offset: 546
+    :timestamp: 2012-12-17 15:01:29 +06:00
+  - :path: db/migrate/20121218142230_recreate_dvizit2.rb
+    :cursor_offset: 143
+    :timestamp: 2012-12-18 20:23:34 +06:00
+  - :path: db/migrate/20121218084409_recreate_dvizit.rb
+    :cursor_offset: 184
+    :timestamp: 2012-12-18 15:13:03 +06:00
+    :selection_offset: 53
+    :block_selection_mode: false
+  - :path: app/helpers/vizits_helper.rb
+    :cursor_offset: 408
+    :timestamp: 2012-12-13 02:43:53 +06:00
+  - :path: app/assets/javascripts/vizits.js.coffee
+    :cursor_offset: 3711
+    :timestamp: 2012-12-18 22:01:29 +06:00
   - :path: app/controllers/customers_controller.rb
     :cursor_offset: 929
     :timestamp: 2012-12-06 13:07:35 +06:00
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 191
-    :timestamp: 2012-12-17 03:28:07 +06:00
   - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 3589
-    :timestamp: 2012-12-17 04:29:22 +06:00
+    :cursor_offset: 3596
+    :timestamp: 2012-12-19 12:03:14 +06:00
   - :path: app/models/vizit.rb
-    :cursor_offset: 327
-    :timestamp: 2012-12-17 02:46:49 +06:00
+    :cursor_offset: 602
+    :timestamp: 2012-12-19 12:01:09 +06:00
+    :selection_offset: 345
+    :block_selection_mode: false
   - :path: app/models/person.rb
-    :cursor_offset: 1749
-    :timestamp: 2012-12-17 02:44:23 +06:00
+    :cursor_offset: 1976
+    :timestamp: 2012-12-19 12:00:44 +06:00
+    :selection_offset: 1120
+    :block_selection_mode: false
   - :path: app/models/insurance.rb
-    :cursor_offset: 327
-    :timestamp: 2012-12-17 02:46:26 +06:00
+    :cursor_offset: 367
+    :timestamp: 2012-12-19 12:00:23 +06:00
     :selection_offset: 289
     :block_selection_mode: false
   - :path: app/controllers/people_controller.rb
-    :cursor_offset: 1659
+    :cursor_offset: 1232
     :timestamp: 2012-12-14 22:57:27 +06:00
+    :selection_offset: 1211
+    :block_selection_mode: false
   - :path: app/models/polis.rb
-    :cursor_offset: 170
-    :timestamp: 2012-12-17 02:45:57 +06:00
+    :cursor_offset: 791
+    :timestamp: 2012-12-19 12:00:02 +06:00
+    :selection_offset: 170
+    :block_selection_mode: false
+  - :path: app/models/doc.rb
+    :cursor_offset: 546
+    :timestamp: 2012-12-19 11:59:33 +06:00
+    :selection_offset: 254
+    :block_selection_mode: false
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 124
+    :timestamp: 2012-12-19 12:43:11 +06:00
 files_to_retain: 0

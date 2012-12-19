@@ -78,16 +78,18 @@ jQuery ->
       $("#vizit_fpolis option[value=0]").removeAttr 'disabled'
       $("#vizit_fpolis option[value=0]").attr selected: "selected"
       $("#vizit_fpolis option[value=1]").removeAttr 'selected'
+      $("#vizit_fpolis option[value=1]").attr disabled: 'disabled'
  
  $('#vizit_petition').click ->
    if @checked  # выбрано подано ходатайство
     petition.hide()
     $('form#new_vizit div.form-actions')
-       .before '<label class="string optional control-label" for="vizit_dvizit">Дата временного свидетельства</label><div class="controls"><input id="vizit_dvizit" class="string optional span2" type="text" size="20" name="vizit[dvizit]"></div>'
+       .before '<div class="control-group string optional error"><label class="string optional control-label" for="vizit_dvizit">Дата временного свидетельства</label><div class="controls"><input id="vizit_dvizit" class="string optional span2" type="text" size="20" name="vizit[dvizit]"><span class="help-inline">введите дату ходатайства</span></div></div>'
    else
      petition.show()
-     $('label[for="vizit_dvizit"]').remove()
-     $('div.controls:last').remove()
+     # $('label[for="vizit_dvizit"]').remove()
+     # $('div.controls:last').remove()
+     $('div.control-group:last').remove()
  
  $("#new_vizit").keydown (event) -> 
    e = event || window.event
