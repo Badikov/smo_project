@@ -27,7 +27,7 @@ class OpsController < ApplicationController
      fil = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops.map(&:user_id)}) 
      
      fil.each do |f|
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "2.xml", id: f[:id]}
+       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "5.xml", id: f[:id]}
      end
     # @a << { name:"i42007_1_2111121.xml", id: 1 } << { name:"i42007_2_0211121.xml", id: 2 } << { name:"i42007_3_0211121.xml", id: 3 }
      

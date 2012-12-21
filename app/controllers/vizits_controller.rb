@@ -37,7 +37,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_19.txt")
+    file = File.open("p_21.txt")
     i = 0
       file.each do |line|
 	
@@ -80,12 +80,12 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
    
-         # @person.save
+           # @person.save
 
 
 
     
-	     # statuses << @person.doc
+	      # statuses << @person.op
       # [przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
 =begin
       [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
@@ -139,17 +139,23 @@ class VizitsController < ApplicationController
         @vizit.rsmo = nil
       end
       tip_op = ""
-      case @vizit.rsmo
-        when nil
+      case (@vizit.rsmo.to_s + @vizit.rpolis.to_s)
+        when "0"
           tip_op = "П010"
-        when 1
+        when "10"
           tip_op = "П010"
-        when 2
+        when "20"
           tip_op = "П031"
-        when 3
+        when "30"
           tip_op = "П032"
-        when 4
+        when "40"
           tip_op = "П033"
+        when "21"
+          tip_op = "П034"
+        when "31"
+          tip_op = "П035"
+        when "41"
+          tip_op = "П036"
         else
           tip_op = nil
       end
@@ -159,8 +165,9 @@ class VizitsController < ApplicationController
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
         render :new
-      # render json: tip_op
+      
       end
+       # render json: tip_op
     else
       render :new
     end
