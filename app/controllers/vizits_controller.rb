@@ -37,7 +37,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_21.txt")
+    file = File.open("p_25.txt")
     i = 0
       file.each do |line|
 	
@@ -80,7 +80,7 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
    
-           # @person.save
+           @person.save
 
 
 
@@ -167,35 +167,10 @@ class VizitsController < ApplicationController
         render :new
       
       end
-       # render json: tip_op
+        # render json: @vizit
     else
       render :new
     end
-    # vizit = params[:vizit]
-            
-    
-    # if tip_op != ""
-    #   if vizit[:petition]
-    #     #:TODO Обработать событие Petition---> dvizit==nil, method=2, rsmo==nil
-    #    
-    #     vizit.delete(:rsmo)
-    #   end
-    #   vizit.delete(:rpolis) if vizit[:rpolis] == ""
-    #   # @vizit = Vizit.create(vizit)
-    #   
-    #   if @vizit.save 
-	   #    @op = Op.find_by_person_id(vizit[:person_id])
-    #   
-	   #    @op.update_attributes({ id: @op.person_id, tip_op: tip_op })
-    #   
-	   #    redirect_to @vizit, notice: 'Визит успешно сохранен.'
-    #   else
-	   #    redirect_to action: "new", id: vizit[:person_id]
-    #   end
-    # else
-    #   redirect_to action: "new", id: vizit[:person_id]
-    # #   render json: vizit
-    # end
   end
   
   

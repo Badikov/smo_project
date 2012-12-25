@@ -30,8 +30,8 @@ SimpleForm.setup do |config|
     # Calculates maxlength from length validations for string inputs
     b.optional :maxlength
 
-    # Calculates pattern from format validations for string inputs
-    b.optional :pattern
+    # Calculates pattern from format validations for string inputs я поменял
+    b.use :pattern
 
     # Calculates min and max from length validations for numeric inputs
     b.optional :min_max

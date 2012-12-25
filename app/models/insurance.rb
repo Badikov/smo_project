@@ -10,7 +10,7 @@ class Insurance < ActiveRecord::Base
   
   alias_method :polis=, :polis_attributes=
   
-  before_validation :app_logic
+  after_validation :app_logic
   
   validates_associated :polis
   validates :enp, :length => { :is => 16, :message => "должен быть 16 цифр" }, :allow_blank => true

@@ -97,10 +97,41 @@ jQuery ->
     return false
  
  $("#vizit_dvizit").live "focus", ->
-   $("#vizit_dvizit").datepicker()
+   $("#vizit_dvizit").datepicker
+    onSelect: (dateText, inst) -> 
+      $('div.control-group:last').removeClass 'error'
+      $('div.control-group:last>div.controls>span.help-inline').remove()
   
- 
-    
+ if $("div#atlhModal")
+  setTimeout(-> 
+    $("div#atlhModal").modal
+      show: true
+      keyboard: false
+      backdrop: false 
+   3000)
+  $("div#atlhModal select#kdmu").change ->
+    $("#create_at_t").removeAttr 'disabled'
+  $("#create_at_t").click ->
+    $.ajax
+      type: "POST"
+      dataType: 'json'
+      url: '/ats'
+      data:
+        person_id: $("#create_at_t_person_id").val()
+        kdatemu: $("#create_at_t_kdatemu").val()
+        kdmu: $("#kdmu option:selected").attr 'value'
+      success: (response) ->
+        $("div#atlhModal").modal 'hide'
+        if response == 200
+          $('.row')
+            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о прикреплении к ЛПУ.</div>'
+        else
+          $('.row')
+            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+    return false
+
+      
     #  $('a.print').click (event) ->
 #    params = "_blank,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes"
 #    newWind = window.open('about:blank', '', params)

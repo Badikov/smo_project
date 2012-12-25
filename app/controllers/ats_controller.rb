@@ -2,6 +2,12 @@
 class AtsController < ApplicationController
   require 'builder'
   
+  def create
+    @at = At.new(:person_id => params[:person_id], :kdatemu => params[:kdatemu], :kdmu => params[:kdmu])
+    @at.save!
+    render json: status, :nothing => true
+  end
+  
   def create_links
     d = params[:date]
     

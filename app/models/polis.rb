@@ -16,13 +16,16 @@ class Polis < ActiveRecord::Base
     end
   end
   
-  after_validation :check_numbers
+  before_validation :check_numbers, :if => :before_check_numbers?
   before_save :spolis_nil
   
   private
-  
-  def check_numbers
+  def before_check_numbers?
     if self.new_record? and !self.spolis.blank?
+      true
+    end
+  end
+  def check_numbers
       directory = "public/numbers"
       name = "numbers.ini"
       path = File.join(directory, name)
@@ -38,8 +41,8 @@ class Polis < ActiveRecord::Base
         logger.debug { "серия - номер: false"  }
         false
       end
-    end
   end
+  
   def spolis_nil
     self.spolis = nil if self.spolis.blank?
   end

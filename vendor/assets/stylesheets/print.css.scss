@@ -1,81 +1,79 @@
 
+$marginElement: 0 0 0 0;
+$leftBord1: 38mm;
+@mixin elementPosition {
+  position: absolute;
+}
 body {
+  p {
+    margin: $marginElement;
+    @include elementPosition;
+    left: $leftBord1;
+  }
+  p#print_vizit_head_1 {
+    top: 0mm;
+  }
+  p#print_vizit_head_2 {
+    top: 7mm;
+  }
+  div.dvizit_to_string {
+    @include elementPosition;
+    left: $leftBord1;
+    top: 42mm;
+    span {
+      margin-right: 7mm;
+    }
+    span:last-child {
+      margin-left: 8mm;
+    }
+  }
+  div#print_vizit_person_fio {
+    @include elementPosition;    
+    left: 82mm;
+    top: 56mm;
+  }
+  div#print_vizit_person_dr {
+    @include elementPosition;
+    top: 63mm;
+    span {
+      margin-right: 5mm;
+    }
+  }
+  div#print_vizit_doc_docdate {
+    @include elementPosition;
+    top: 70mm;
+    span {
+      margin-right: 5mm;
+    }
+  }
+  div#print_vizit_doc_mr {
+    @include elementPosition;
+    left: 35mm;
+    top: 77mm;
+  }
+  div#gender {
+    @include elementPosition;
+    top: 86mm;
+  }
+  div.vizit_dend_to_string {
+    @include elementPosition;
+    left: 107mm;
+    top: 96mm;
+    span {
+      margin-right: 7mm;
+    }
+    span:last-child {
+      margin-left: 7mm;
+    }
+  }
   background: white;
-  width: auto;
   border: 0;
-  margin-top: 3mm;
-  margin-left:16mm;
+  margin: 0;
   padding: 0;
   float: none !important;
-    input[type= "button"] {
-    display: none;
-    }
-  div {
-   font-size: 0.83em;
-   position: absolute;
-   }
+  font-size: 12px; 
+  width: 185mm; 
 }
-h5#print_vizit_head_1 {
-  margin-left: 42mm;
-}
-h5#print_vizit_head_2 {
-  margin-top: 0mm;
-  margin-left: 35mm;
-}
-div#print_vizit_dvizit {
-  
-  margin-left: 37mm;
-  top: 50mm;
-}
-div#print_vizit_person_fio {
-  
-  margin-left: 78mm;
-  top: 67mm;
-}
-div#print_vizit_person_dr {
-  
-  top: 73mm;
-}
-div#print_vizit_doc_name {
-  
-  top: 73mm;
-  left: 57mm;
-}
-div#print_vizit_doc_docser {
-  
-  top: 73mm;
-  left: 158mm;
-}
-div#print_vizit_doc_docnum {
-  
-  top: 73mm;
-  left: 170mm;
-}
-div#print_vizit_doc_docdate {
-  
-  top: 80mm;
-  
-}
-div#print_vizit_doc_name_vp {
-  
-  top: 80mm;
-  left: 50mm;
-}
-div#print_vizit_doc_mr {
-  
-  top: 87mm;
-  left: 50mm;
-}
-div.man {
-  
-  top: 94mm;
-  left: 43mm;
-}
-div.woman {
-  top: 94mm;
-  left: 56mm;
-}
-div#print_vizit_dend {
-  top: 105mm;
-  left: 110mm;
+input[type="button"] {
+  display: none;
 }

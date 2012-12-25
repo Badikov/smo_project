@@ -41,7 +41,7 @@
 
         function createPrevButton(i) {
             var stepName = "step" + i;
-            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Prev' class='prev'>< Back</a>");
+            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Prev' class='prev btn btn-small btn-info'>< Назад</a>");
 
             $("#" + stepName + "Prev").bind("click", function(e) {
                 $("#" + stepName).hide();
@@ -53,7 +53,7 @@
 
         function createNextButton(i) {
             var stepName = "step" + i;
-            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class='next'>Next ></a>");
+            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class='next btn btn-small btn-info'>Вперед ></a>");
 
             $("#" + stepName + "Next").bind("click", function(e) {
                 $("#" + stepName).hide();

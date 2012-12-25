@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* Style ver 3.5 mix color */
+
+/*
+lightColor1 - f67825
+darkColor2 - 555555
+mainBG - fbe49e
+
+headBorders - 396e6c
+mnuTop border - d49185
+contentBorder  - 707070
+textColor - 4a4a4a
+
+h1color - 222
+hOther - 444
+
+*/
+
+html, body { padding:0; margin:0; font-size:13px; font-family:Arial; color:#4a4a4a;}
+
+/*BG Color + Gradient*/
+body {
+	background:#fbe49e url(http://oml.ru/d/148282/t/images/tm06/bg.png) 0px 0px repeat-x fixed;
+	_background:#fbe49e none;
+	}
+
+/*LINK Color*/
+a { text-decoration:underline; color:#0066cc}
+a:hover {text-decoration: none; color:#0066cc}
+
+/* подчищаем float */
+.clearfloat {clear:both; height:0; font-size: 0px; line-height: 0px;}
+
+h1 { padding:0; margin:0 0 20px 0; color:#222; font:normal 23px Tahoma, sans-serif;}
+h2,h3,h4,h5,h6 { margin:17px 0; padding:0; color:#444;  font-family:Tahoma, sans-serif;}
+h2 { font-size:18px;}
+h3 { font-size:16px}
+h4 { font-size:14px}
+h5,h6 { font-size:12px}
+
+#wrap { width:970px; margin:0 auto;}
+#top { height:90px; padding:21px; position:relative;}
+.name { color:#6a6a6a; height:90px;}
+.name p {margin:0; font: normal 24px/24px Tahoma, sans-serif; padding:27px 0 5px;}
+.name span { font-size:12px;}
+.logo { overflow:hidden; height:90px; float: left; margin-right:15px;}
+
+
+.tel {	position:absolute; font:normal 23px Tahoma, sans-serif; text-align:right; top:30px; right:20px;}
+.tel span {font:normal 13px Tahoma}
+
+.content {  clear:both;border: 1px solid #707070; }
+.nobr { border-top: none;}
+#textbody {background:#fff; zoom:1; }
+
+/*TOP MENU*/
+#tmenu { padding:5px 0 0 9px; margin:0; list-style:none; border-bottom:7px solid #b5c07a; height:33px; 
+background: #6f7453 url(http://oml.ru/d/148282/t/images/tm06/tmenu_bg.png) 0 0 repeat-x; 
+_background: #6f7453 none; 
+}
+#tmenu li { float:left; padding:0 1px 0 0; margin:0;}
+#tmenu li a { font: normal 13px/33px Tahoma, Geneva, sans-serif; color:#fff; display:block; text-decoration:none; padding:0 13px;}
+#tmenu li a:hover { background:#b5c07a url(http://oml.ru/d/148282/t/images/tm06/tmenu_h.png) 0 0 repeat-x; _background:#b5c07a none;}
+#tmenu li a.ovr,#tmenu li a.ovr:hover { font: normal 13px/33px Tahoma, Geneva, sans-serif; color:#fff; display:block; text-decoration:none; padding:0 13px; background:#b5c07a url(http://oml.ru/d/148282/t/images/tm06/tmenu_h.png) 0 0 repeat-x;_background:#b5c07a none;}
+
+
+#head { clear:both;background:#f67825 url(http://oml.ru/d/148282/t/images/tm06/head_bg.png) 0 0 repeat-x; _background:#f67825 none; height:239px; border-top:1px solid #97894c; border-bottom:1px solid #ac673b;  position:relative;}
+#head_pic {
+  height:239px; 
+  overflow:hidden; 
+  padding:0 20px;
+  background: url(http://zdravo.su/d/286204/d/head_1.jpg) 0px 0px no-repeat;
+}
+
+#head_text { font:normal 25px Tahoma, sans-serif; color:#fff; padding:50px 0 20px 0; height:50px;}
+
+#head_path {color:#fff; font-size:11px;}
+#head_path a { color:#fff; text-decoration:underline}
+#head_path a:hover { color:#fff; text-decoration:none}
+#head_path span { font:normal 13px Arial;}
+
+
+#col1 { padding:25px 25px 45px 25px; line-height:1.5em;}
+
+
+#col2 {float:left; width:100%;}
+#col2 .inner {padding:25px 25px 45px 25px; line-height:1.5em; margin:0 0 0 225px; }
+
+#left { width:220px; margin-left: -100%; float:left}
+
+#lmenu { margin:0 0 20px 0; padding:10px 0; list-style:none; border-top:1px solid #878b70; background: #6f7453 url(http://oml.ru/d/148282/t/images/tm06/lmenu_bg.png) 0 0 repeat-x; _background:#6f7453 none;}
+#lmenu li {padding: 0 0 1px 0;}
+#lmenu li a { font: normal 13px Tahoma, Geneva, sans-serif; color:#fff; display:block; text-decoration:none; padding:9px 13px 9px 18px;}
+#lmenu li a:hover {background:#b5c07a url(http://oml.ru/d/148282/t/images/tm06/lmenu_h.png) 0 0 repeat-x; _background:#b5c07a none;}
+
+#lmenu li a.ovr,#lmenu li a.ovr:hover { font: normal 13px Tahoma, Geneva, sans-serif; color:#fff; display:block; text-decoration:none; padding:9px 13px 9px 18px;  background:#b5c07a url(http://oml.ru/d/148282/t/images/tm06/lmenu_h.png) 0 0 repeat-x; _background:#b5c07a none;}
+
+#welcom {
+  position: fixed;
+  top:10px;
+  right:10px;
+}
+
+
+.bmenu { padding:0px; margin:0; list-style:none;}
+.bmenu li { padding:0; margin:0; float:left;  border-top:5px solid #6f7453; padding:0 12px;}
+.bmenu li a { font: normal 11px/41px Tahoma, Geneva, sans-serif; color:#666; text-decoration: underline;}
+.bmenu li a:hover { color:#0066cc; text-decoration:none;}
+
+
+
+
+#footer {clear:both; padding:10px 25px 5px 25px;}
+
+.cname { font:bold 12px Tahoma, sans-serif; color:#222; float:left}
+.copyright {color:#222; float:right; font:normal 11px Tahoma; text-align:right}
+.counters { clear:both; padding:10px 0;}
+.btitle { font:normal 10px Tahoma; color:#666; padding-top:10px; text-align:right}
+
+
+
+
+
+table.table0 { border-collapse:collapse;}
+table.table0 td { padding:5px; border: none}
+
+table.table1 { border-collapse:collapse;}
+table.table1 tr:hover {background: #e0e0e0}
+table.table1 td { padding:5px; border: 1px solid #91949a;}
+
+table.table2 { border-collapse:collapse;}
+table.table2 th { padding:8px 5px; border: 1px solid #fff; background:#6f7453; color:#fff; text-align:left;}
+table.table2 tr:hover {background: #e0e0e0}
+table.table2 td { padding:5px; border: 1px solid #91949a;}

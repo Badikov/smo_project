@@ -1,5 +1,7 @@
 # encoding: utf-8
 class CustomersController < ApplicationController
+  
+  
   def index
     @respon = []
     fio_array = params[:term].split(" ")
@@ -23,13 +25,19 @@ class CustomersController < ApplicationController
       end
       render :partial => "table_rows", :layout => false
   end
+  
+  
   def search_person
     @person = Person.find_by_id(params[:id])
 
     render :partial => "customer" 
   end
+  
+  
   def search
   end
+  
+  
   def edit_ops
     # 021 - снятие с учета в связи с постановкой на учет в другом СМО
     @op = Op.find_by_person_id(params[:id])
@@ -38,6 +46,8 @@ class CustomersController < ApplicationController
     
     render json: status, :nothing => true
   end
+  
+  
   def death_of_customer
     d = params[:date]
     
@@ -52,6 +62,8 @@ class CustomersController < ApplicationController
     
     render json: status, :nothing => true
   end
+  
+  
   def edit_polis
     # 060
     @op = Op.find_by_person_id(params[:id])
@@ -62,6 +74,8 @@ class CustomersController < ApplicationController
     @op.update_attributes({tip_op: "П060"})
     render json: status, :nothing => true
   end
+  
+  
   def edit
     @person = Person.find_by_id(params[:id])
     

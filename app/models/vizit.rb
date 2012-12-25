@@ -23,9 +23,9 @@ class Vizit < ActiveRecord::Base
   before_save :rpolis_nil
   
   def dates_logic
-    self.method = "2" if self.method.nil?
-    self.dvizit = DateTime.now if self.dvizit.nil?
-    self.insurance.polis.dbeg = self.dvizit
+    self.method = "2" if self.method.nil? #nil если был представитель, на форме method disabled
+    self.dvizit = DateTime.now if self.dvizit.nil? #дата визита - сейчас для всех кроме по ходатайству
+    self.insurance.polis.dbeg = self.dvizit #дата начала действия документа страхования
     if self.insurance.erp == 0 || (self.insurance.erp? and self.rpolis?)
       self.insurance.polis.dend = self.insurance.polis.dbeg + 42.day
       self.insurance.polis.vpolis = 2

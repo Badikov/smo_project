@@ -24,7 +24,7 @@
   <%= f.input :fpolis, :label => 'Выбранная форма изготовления полиса', 
 		  :as => :select, :include_blank => false,
 		  :collection => forma_polisa, :input_html => { :class => "span3" } %>
-
+      
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

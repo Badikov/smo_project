@@ -12,42 +12,45 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <%= stylesheet_link_tag "print", :media => "screen" %>
-  <%= javascript_include_tag "print_polis" %>
+  <%= stylesheet_link_tag "print", :media => "print" %>
+  <%= javascript_include_tag "jquery", "print_polis" %>
 </head>
 <body>
-  <!--
+  <% doc_name = Tipdoc.find_by_id(@person.doc.doctype) %>
   <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
--->
-  <h5 id="print_vizit_head_1">ООО  Страховая медицинская организация "ЦМС"</h5>
-  <h5 id="print_vizit_head_2">654027  г. Новокузнецк ул. Куйбышева, 1, ☎ (8-3843) 72-18-18</h5>
-  
-  <div id="print_vizit_dvizit"><%= date_in_rus_string(@person.vizit.dvizit) %></div>
-  
+  <p id="print_vizit_head_1">ООО  Страховая медицинская организация "ЦМС"</p>
+  <p id="print_vizit_head_2">654027  г. Новокузнецк ул. Куйбышева, 1, ☎ (8-3843) 72-18-18</p>
+  <div class="dvizit_to_string">
+    <span><%= @person.vizit.dvizit.day %></span>
+    <span id="print_vizit_dvizit"><%= month_in_rus_string(@person.vizit.dvizit) %></span>
+    <span><%= @person.vizit.dvizit.year.to_s.slice(2,2) %></span>
+  </div>
   
   <div id="print_vizit_person_fio"><%= @person.fam + " " + @person.im + " " + @person.ot%></div>
   
-  <div id="print_vizit_person_dr">Дата рожд:<%= @person.dr.strftime('%d.%m.%Y') %></div>
+  <div id="print_vizit_person_dr">
+    <span>Дата рожд:</span>
+    <span><%= @person.dr.strftime('%d.%m.%Y') %></span>
+    <span ><%= doc_name.docname %></span>
+    <span ><%= @person.doc.docser %></span>
+    <span ><%= @person.doc.docnum %></span>
+  </div>
   
-  <% _doc_name ="" %>
-  <% doc_name = Tipdoc.find_by_id(@person.doc.doctype) %>
-  <% _doc_name = doc_name.docname %>
-  <div id="print_vizit_doc_name"><%= _doc_name.to_s %></div>
-  
-  <div id="print_vizit_doc_docser"><%= @person.doc.docser %></div>
-  <div id="print_vizit_doc_docnum"><%= @person.doc.docnum %></div>
-  
-  <div id="print_vizit_doc_docdate">Выдан: <%= @person.doc.docdate.strftime('%d.%m.%Y') %></div>
-  
-  <div id="print_vizit_doc_name_vp"><%= @person.doc.name_vp %></div>
+  <div id="print_vizit_doc_docdate">
+    <span>Выдан:</span>
+    <span ><%= @person.doc.docdate.strftime('%d.%m.%Y') %></span>
+    <span ><%= @person.doc.name_vp %></span>
+  </div>
+
   <div id="print_vizit_doc_mr"><%= @person.doc.mr %></div>
   
-  <div id="print_vizit_doc_gender"><%= @person.w %></div>
-  
-  <div id="print_vizit_person" class="man">✔</div>
-  
-  <div id="print_vizit_dend"><%= date_in_rus_string(@person.vizit.dvizit + 42.days)%></div>
-  <div></div>
+  <div id="gender" myvalue=<%= @person.w %> >✔</div>
+    
+  <div class="vizit_dend_to_string">
+    <span><%= @person.vizit.insurance.polis.dend.day %></span>
+    <span ><%= month_in_rus_string(@person.vizit.insurance.polis.dend) %></span>
+    <span><%= @person.vizit.insurance.polis.dend.year.to_s.slice(2,2) %></span>
+  </div>
   
 </body>
 </html>

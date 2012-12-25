@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218142230) do
+ActiveRecord::Schema.define(:version => 20121224115953) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -116,6 +116,16 @@ ActiveRecord::Schema.define(:version => 20121218142230) do
   end
 
   add_index "insurances", ["vizit_id"], :name => "index_insurances_on_vizit_id"
+
+  create_table "nsilpus", :force => true do |t|
+    t.integer "kdlpu"
+    t.string  "kdate"
+    t.string  "namelpu"
+    t.integer "kdlpu_ur"
+    t.integer "kdate_ur"
+    t.integer "status"
+    t.integer "kdtype"
+  end
 
   create_table "okatos", :force => true do |t|
     t.string   "kdnpt"

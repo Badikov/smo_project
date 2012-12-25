@@ -8,5 +8,7 @@ open_files:
   - app/controllers/people_controller.rb
   - app/models/polis.rb
   - app/models/doc.rb
-  - app/models/op.rb
-  - app/assets/javascripts/docs.js.coffee
+  - app/views/layouts/account.html.erb
+  - app/views/layouts/main.html.erb
+  - app/views/main/default.html.erb
+  - vendor/assets/stylesheets/styles06.css

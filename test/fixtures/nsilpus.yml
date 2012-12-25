@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kdlpu: 1
+  kdate: 1
+  namelpu: MyString
+  kdlpu_ur: 1
+  kdate_ur: 1
+  status: 1
+  kdtype: 1
+
+two:
+  kdlpu: 1
+  kdate: 1
+  namelpu: MyString
+  kdlpu_ur: 1
+  kdate_ur: 1
+  status: 1
+  kdtype: 1

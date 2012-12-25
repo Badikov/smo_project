@@ -1,29 +1,61 @@
 <%- model_class = Vizit -%>
 <div class="page-header">
-  <h6><%=t '.title', :default => model_class.model_name.human %></h6>
+  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
 </div>
-
-
-    <div class="row-fluid">
-	<div class="span8"><%= @person.fam + " " + @person.im + " " + @person.ot%></div>
-	<div class="span4"><%=  %></div>
-    </div>
+<div class="person-block">
+  <%= @person.fam %> <%= @person.im %> <%= @person.ot %><br />
+  <% np_name = '' %>
+  <% if @person.addres_p %>
+    <span>Проживает по адресу:</span>
+    <%  np_name = @person.addres_p.npname %>
+    <%= @person.addres_p.npname %>
+    <%= @person.addres_p.ul  %>
+    <%= @person.addres_p.dom  %>
+    <%= @person.addres_p.korp  %>
+    <%= @person.addres_p.kv  %>
+  <% else %>
+    <span>Фактический адрес совпадает с пропиской:</span>
+    <%  np_name = @person.addres_g.npname %>
+    <%= @person.addres_g.npname %>
+    <%= @person.addres_g.ul  %>
+    <%= @person.addres_g.dom  %>
+    <%= @person.addres_g.korp  %>
+    <%= @person.addres_g.kv  %>
+  <% end %>
+</div>
 	
-    <div class="row-fluid">  
-      <div class="span2"><%= @person.dr.strftime('%d.%m.%Y') %></div>
-      <div class="span1"><%= @person.w == 1 ? "мужчина" : "женщина"  %></div>
-      <div class="span2"><%= @person.phone %></div>
-      <div class="span3"><%= @person.email %></div>
-      <div class="span3">СНИЛС: <%= @person.ss %></div>
-      <div class="span4"><%= @person.fiopr %></div>
-      <div class="span8"><%= @person.contact %></div>
-    </div>
+  <% if @person.vizit.insurance.erp == 0 || (@person.vizit.insurance.erp? and @person.vizit.rpolis?) %>  
     <p>
       <%= link_to "Печать временного свидетельства", print_polis_url, :id => @person.vizit.id, target: "_blank"  %>
     </p>
+  <% end -%>
     <p>
       <%= link_to "Печать заявления о выборе(замене) СМО", print_petition_url, :id => @person.vizit.id, target: "_blank"  %>
     </p>
+
+
+<!-- Modal -->
+<div id="atlhModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="terPrikreplenie" aria-hidden="true">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="terPrikreplenie">Выбор территориального прикрепления</h3>
+  </div>
+  <div class="modal-body">
+    <input id="create_at_t_person_id" type="hidden" value=<%= @person.id %> />
+    <% _np = Okato.find_by_namenpt(np_name) %>
+    <% lpu_arrey = [] %>
+    <% lpus = Nsilpu.find_by_kdate(_np.kdate) %>
+    <% lpus.each do |lpu| %>
+    <% lpu_arrey << [lpu.namelpu, lpu.kdlpu] %>
+    <% end %>
+    <%= select_tag(:kdmu, options_for_select(lpu_arrey), {:include_blank => true, :class => "select optional span5"}) %>
+    <%  %>
+    <input id="create_at_t_kdatemu" type="hidden" value=<%= _np.kdate %> />
+  </div>
+  <div class="modal-footer">
+    <button id="create_at_t" class="btn btn-primary" disabled="disabled">Save changes</button>
+  </div>
+</div>
     
 
 

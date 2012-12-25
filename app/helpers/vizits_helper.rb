@@ -19,10 +19,9 @@ module VizitsHelper
     f_arey = [["не требует изготовления полиса",0],["бумажный бланк",1],["пластиковая карта",2],["в составе УЭК",3]]
     return f_arey
   end
-  def date_in_rus_string(d_date)
-    y = d_date.year.to_s
+  def month_in_rus_string(d_date)
     m = d_date.month
-    d = d_date.day.to_s
+    
     case m
       when  1  
 	_m = "января" 
@@ -51,7 +50,7 @@ module VizitsHelper
       else
 	_m = ""
     end
-    str = "#{d.size == 1 ? "0" + d : d}" + "   " + "#{_m} "
-    return str
+    
+    return _m
   end
 end
