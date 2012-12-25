@@ -155,9 +155,6 @@ cursor_positions:
   - :path: i42007_1_2911121.zip
     :cursor_offset: 0
     :timestamp: 2012-12-03 01:05:14 +06:00
-  - :path: config/environments/production.rb
-    :cursor_offset: 1066
-    :timestamp: 2012-12-03 01:56:10 +06:00
   - :path: p_01.txt
     :cursor_offset: 0
     :timestamp: 2012-12-03 02:14:47 +06:00
@@ -633,4 +630,7 @@ cursor_positions:
   - :path: config/routes.rb
     :cursor_offset: 3329
     :timestamp: 2012-12-25 04:51:38 +06:00
+  - :path: config/environments/production.rb
+    :cursor_offset: 752
+    :timestamp: 2012-12-25 15:03:11 +06:00
 files_to_retain: 0
