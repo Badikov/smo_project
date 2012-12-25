@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Страховая Медицинская Организация "ЦМС"</title>
-    <%= stylesheet_link_tag  "styles06" %>
-    
+    <%= stylesheet_link_tag  "styles06","style1" %>
+    <%= javascript_include_tag "jquery" %>
     <%= csrf_meta_tags %>
     
   </head>
@@ -25,31 +25,28 @@
       <div class="content">
         <ul id="tmenu">
           <li>
-            <a class="ovr" href="/about">О компании</a>
+            <a class="ovr" href="/">О компании</a>
           </li>
           <li>
-            <a href="/trebovaniya">Порядок получения полиса</a>
+            <a href="/main/trebovaniya">Порядок получения полиса</a>
           </li>
           <li>
-            <a href="/prava">Права и обязанности ЗЛ защита прав граждан</a>
+            <a href="/main/prava">Права и обязанности ЗЛ защита прав граждан</a>
           </li>
           <li>
-            <a href="/registry">Перечень СМО и МО</a>
+            <a href="/main/registry">Перечень СМО и МО</a>
           </li>
           <li>
-            <a href="/contacts">Контакты</a>
+            <a href="/main/contacts">Контакты</a>
           </li>
           <li>
-            <a href="/napishite-nam">Вопрос - ответ</a>
+            <a href="/main/napishite_nam">Вопрос - ответ</a>
           </li>
         </ul>
         <div id="head">
           <div id="head_pic">
           <div id="head_text"></div>
           <div id="head_path">
-          <a href="/">Главная</a>
-          \ О компании
-          <span>→</span>
           </div>
           </div>
         </div>
@@ -62,22 +59,22 @@
       </div>
       <ul class="bmenu">
           <li>
-          <a href="/about">О компании</a>
+          <a href="/">О компании</a>
           </li>
           <li>
-          <a href="/trebovaniya">Порядок получения полиса</a>
+          <a href="/main/trebovaniya">Порядок получения полиса</a>
           </li>
           <li>
-          <a href="/prava">Права и обязанности ЗЛ защита прав граждан</a>
+          <a href="/main/prava">Права и обязанности ЗЛ защита прав граждан</a>
           </li>
           <li>
-          <a href="/registry">Перечень СМО и МО</a>
+          <a href="/main/registry">Перечень СМО и МО</a>
           </li>
           <li>
-          <a href="/contacts">Контакты</a>
+          <a href="/main/contacts">Контакты</a>
           </li>
           <li>
-          <a href="/napishite-nam">Вопрос - ответ</a>
+          <a href="/main/napishite_nam">Вопрос - ответ</a>
           </li>
       </ul>
       <div id="footer">

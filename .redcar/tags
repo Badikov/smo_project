@@ -1,4 +1,4 @@
-1356426191
+1356470929
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -318,6 +318,7 @@ spolis_nil	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def spoli
 status_resource	/home/alex/rails_projects/smo_project/app/helpers/people_helper.rb	  def status_resource
 store_location	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def store_location
 test_homepage	/home/alex/rails_projects/smo_project/test/performance/browsing_test.rb	  def test_homepage
+trebovaniya	/home/alex/rails_projects/smo_project/app/controllers/main_controller.rb	  def trebovaniya
 up	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20121118053926_remove_column_from_table_ops.rb	  def up

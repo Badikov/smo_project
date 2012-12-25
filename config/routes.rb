@@ -72,7 +72,19 @@ SmoProject::Application.routes.draw do
       get 'create_links'
     end
   end
-  
+  resources :main do
+    collection do
+      get 'trebovaniya'
+      get 'prava'
+      get 'registry'
+      get 'vidy_i_usloviya_okazaniya_medicinsk'
+      get 'contacts'
+      get 'perechen_dokumentov_neobhodimyh_dl'
+      get 'licenziya'
+      get 'o_finansovyh_rezultatah_deyatelnost'
+      get 'napishite_nam'
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

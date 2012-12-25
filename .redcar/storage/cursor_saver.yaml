@@ -615,22 +615,28 @@ cursor_positions:
   - :path: config/environments/development.rb
     :cursor_offset: 0
     :timestamp: 2012-10-06 15:03:52 +07:00
-  - :path: app/views/main/default.html.erb
-    :cursor_offset: 126
-    :timestamp: 2012-12-25 14:29:42 +06:00
-  - :path: app/views/layouts/account.html.erb
-    :cursor_offset: 561
-    :timestamp: 2012-12-04 23:43:19 +06:00
   - :path: vendor/assets/stylesheets/styles06.css
     :cursor_offset: 4076
     :timestamp: 2012-12-25 14:53:33 +06:00
-  - :path: app/views/layouts/main.html.erb
-    :cursor_offset: 360
-    :timestamp: 2012-12-25 14:49:39 +06:00
-  - :path: config/routes.rb
-    :cursor_offset: 3329
-    :timestamp: 2012-12-25 04:51:38 +06:00
+  - :path: app/views/main/perechen_dokumentov_neobhodimyh_dl.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-12-26 01:58:27 +06:00
   - :path: config/environments/production.rb
-    :cursor_offset: 752
-    :timestamp: 2012-12-25 15:03:11 +06:00
+    :cursor_offset: 773
+    :timestamp: 2012-12-26 02:50:21 +06:00
+  - :path: app/views/main/default.html.erb
+    :cursor_offset: 9507
+    :timestamp: 2012-12-26 02:18:15 +06:00
+  - :path: app/views/layouts/account.html.erb
+    :cursor_offset: 561
+    :timestamp: 2012-12-04 23:43:19 +06:00
+  - :path: app/views/layouts/main.html.erb
+    :cursor_offset: 1474
+    :timestamp: 2012-12-26 03:13:10 +06:00
+  - :path: config/routes.rb
+    :cursor_offset: 2311
+    :timestamp: 2012-12-26 02:41:46 +06:00
+  - :path: app/views/main/trebovaniya.html.erb
+    :cursor_offset: 7887
+    :timestamp: 2012-12-26 02:00:21 +06:00
 files_to_retain: 0

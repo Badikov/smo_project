@@ -3,4 +3,7 @@ class MainController < ApplicationController
   def default
     
   end
+  def trebovaniya
+    
+  end
 end

@@ -4,18 +4,16 @@
 </div>
 <div class="person-block">
   <%= @person.fam %> <%= @person.im %> <%= @person.ot %><br />
-  <% np_name = '' %>
+  <% np_name = @person.addres_g.npname %>
   <% if @person.addres_p %>
-    <span>Проживает по адресу:</span>
-    <%  np_name = @person.addres_p.npname %>
+    <span>Без регистрации проживает по адресу:</span>
     <%= @person.addres_p.npname %>
     <%= @person.addres_p.ul  %>
     <%= @person.addres_p.dom  %>
     <%= @person.addres_p.korp  %>
     <%= @person.addres_p.kv  %>
   <% else %>
-    <span>Фактический адрес совпадает с пропиской:</span>
-    <%  np_name = @person.addres_g.npname %>
+    <span>Фактический адрес совпадает с регистрацией:</span>
     <%= @person.addres_g.npname %>
     <%= @person.addres_g.ul  %>
     <%= @person.addres_g.dom  %>
