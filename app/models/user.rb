@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
     
-  has_many :filializations
-  has_many :filials, :through => :filializations
-  
+  # has_many :filializations
+  # has_many :filials, :through => :filializations
+  belongs_to :filial
   has_many :ops
   
-  validates_presence_of :name
-  validates_uniqueness_of :name, :email, :case_sensitive => false
+  validates_presence_of :name, :login, :email, :password, :filial_id, :role_ids
+  validates_uniqueness_of :name,:login, :email, :case_sensitive => false
   
   acts_as_authentic do |c|
     c.login_field       = 'email'
@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
   
   simple_roles
   
-  attr_accessible :name, :password, :password_confirmation, :login, :email, :filial_ids, :role_ids, :title
+  attr_accessible :name, :password, :password_confirmation, :login, :email, :filial_id, :role_ids, :title
 end

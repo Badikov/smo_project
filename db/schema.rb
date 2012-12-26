@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224115953) do
+ActiveRecord::Schema.define(:version => 20121226181155) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -322,7 +322,10 @@ ActiveRecord::Schema.define(:version => 20121224115953) do
     t.string   "last_login_ip"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.integer  "filial_id"
   end
+
+  add_index "users", ["filial_id"], :name => "index_users_on_filial_id"
 
   create_table "vizits", :force => true do |t|
     t.integer  "rsmo"

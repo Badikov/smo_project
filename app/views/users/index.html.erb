@@ -25,11 +25,8 @@
 	  <% end %>
 	</ul></td>
 	<td>
-	  <% user.filials.each do |fil| %>
-	    <%= fil.title %>
-	  <% end %>
-	
-	</td>	
+    <%= user.filial.title %>
+  </td>	
 	<td>
 	<% if can? :update, User %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini' %>

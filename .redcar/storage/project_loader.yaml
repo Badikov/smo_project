@@ -8,7 +8,6 @@ open_files:
   - app/controllers/people_controller.rb
   - app/models/polis.rb
   - app/models/doc.rb
-  - app/views/layouts/account.html.erb
-  - app/views/layouts/main.html.erb
-  - app/views/main/default.html.erb
-  - vendor/assets/stylesheets/styles06.css
+  - app/models/op.rb
+  - app/views/shared/_links.html.erb
+  - config/routes.rb

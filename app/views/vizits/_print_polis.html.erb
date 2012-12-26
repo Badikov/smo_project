@@ -17,6 +17,7 @@
 </head>
 <body>
   <% doc_name = Tipdoc.find_by_id(@person.doc.doctype) %>
+  <% require 'unicode_utils/upcase' -%>
   <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
   <p id="print_vizit_head_1">ООО  Страховая медицинская организация "ЦМС"</p>
   <p id="print_vizit_head_2">654027  г. Новокузнецк ул. Куйбышева, 1, ☎ (8-3843) 72-18-18</p>
@@ -31,7 +32,7 @@
   <div id="print_vizit_person_dr">
     <span>Дата рожд:</span>
     <span><%= @person.dr.strftime('%d.%m.%Y') %></span>
-    <span ><%= doc_name.docname %></span>
+    <span><%= UnicodeUtils.upcase(doc_name.docname) %></span>
     <span ><%= @person.doc.docser %></span>
     <span ><%= @person.doc.docnum %></span>
   </div>

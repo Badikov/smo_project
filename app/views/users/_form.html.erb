@@ -12,12 +12,12 @@
     <%= f.input :email %>
     <%= f.input :password, :label => @user.new_record? ? 'Пароль': 'Новый пароль' %>
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>
-    <%= f.association :filials,   :as => :select, :input_html => { class: 'span6' } %>
-    <%= f.association :roles,   :as => :check_boxes %>
+    <%= f.association :filial,:label => 'Относится к филиалу', :as => :select, :input_html => { class: 'span4' } %>
+    <%= f.association :roles,:label => 'Роль в программе', :as => :check_boxes %>
   <% end %>
   
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 home_path, :class => 'btn' %>
   </div>

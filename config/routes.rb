@@ -1,4 +1,6 @@
 SmoProject::Application.routes.draw do
+  get "reports/today"
+
   resources :uploads do
     collection do
       get "upload_xml" => 'uploads#upload_xml'
@@ -64,6 +66,12 @@ SmoProject::Application.routes.draw do
   resources :streets
   resources :subektis
   resources :okatos
+  
+  resources :reports do
+    collection do
+      get 'today'
+    end
+  end
   
   resources :ops do
     collection do
@@ -139,7 +147,7 @@ SmoProject::Application.routes.draw do
    root :to => 'main#default'
 #    'users#new'
 #    
-#    'people#index'
+
 
   # See how all your routes lay out with "rake routes"
 

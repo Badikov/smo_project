@@ -1,6 +1,6 @@
 
 $marginElement: 0 0 0 0;
-$leftBord1: 38mm;
+$leftBord1: 34mm;
 @mixin elementPosition {
   position: absolute;
 }
@@ -19,7 +19,7 @@ body {
   div.dvizit_to_string {
     @include elementPosition;
     left: $leftBord1;
-    top: 42mm;
+    top: 40mm;
     span {
       margin-right: 7mm;
     }
@@ -35,6 +35,7 @@ body {
   div#print_vizit_person_dr {
     @include elementPosition;
     top: 63mm;
+    
     span {
       margin-right: 5mm;
     }
@@ -53,12 +54,12 @@ body {
   }
   div#gender {
     @include elementPosition;
-    top: 86mm;
+    top: 83mm;
   }
   div.vizit_dend_to_string {
     @include elementPosition;
-    left: 107mm;
-    top: 96mm;
+    left: 100mm;
+    top: 94mm;
     span {
       margin-right: 7mm;
     }

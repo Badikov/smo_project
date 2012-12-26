@@ -25,6 +25,8 @@ class Person < ActiveRecord::Base
   alias_method :addres_p=, :addres_p_attributes=
   alias_method :representative=, :representative_attributes=
   
+ 
+  
   
   validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => true, :if => :can_validate?
   validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => {:message => "Не должно быть пустым."}
