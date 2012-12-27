@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  layout "report"
   def today
     @ops = Op.new_today_active
     

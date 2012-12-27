@@ -63,7 +63,11 @@
       </div>
     </div>
 
-    <% if !@person.fiopr.blank? %>
+    <% if @person.representative %>
+    <%  parent_name = @person.representative.fam + " " + @person.representative.im + " " + @person.representative.ot  %>
+    <%  @person.representative %>
+    <%  doc_parent = Tipdoc.find_by_id(@person.representative.doctype).docname if @person.representative.doctype %>
+
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
@@ -73,8 +77,13 @@
         <div id="collapseTwo" class="accordion-body collapse in">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              <dt>ФИО</dt><dd><%= @person.fiopr.gsub!("^"," ") %></dd>
-              <dt>contact</dt><dd><%= @person.contact.gsub!("^"," ") %></dd>
+              <dt>ФИО</dt><dd><%= parent_name  %></dd>
+              <dt>Отношение к застрахованному</dt><dd><%= @person.representative.parent if @person.representative %></dd>
+              <dt>Вид документа</dt><dd><%= UnicodeUtils.upcase(doc_parent) %></dd>
+              <dt>Серия</dt><dd><%= @person.representative.docser || "-" %></dd>
+              <dt>Номер</dt><dd><%= @person.representative.docnum || "-" %></dd>
+              <dt>Дата выдачи</dt><dd><%= @person.representative.docdate || "-" %></dd>
+              <dt>Контактный телефон</dt><dd>@person.representative.phone</dd>
             </dl>
           </div>
         </div>
@@ -90,8 +99,8 @@
       <div id="collapseThree" class="accordion-body collapse">
         <div class="accordion-inner">
           <dl class="dl-horizontal">
-            <% doc_name = Tipdoc.find_by_id(@person.doc.doctype)  %>
-            <dt>Документ</dt><dd><%= doc_name.docname %></dd>
+            <% doc_name = Tipdoc.find_by_id(@person.doc.doctype).docname  %>
+            <dt>Документ</dt><dd><%= UnicodeUtils.upcase(doc_name) %></dd>
             <dt>Серия</dt><dd><%= @person.doc.docser %></dd>
             <dt>Номер</dt><dd><%= @person.doc.docnum %></dd>
             <dt>Дата выдачи</dt><dd><%= @person.doc.docdate %></dd>
@@ -103,7 +112,7 @@
     </div> 
 
     <% if @person.c_oksm != 'RUS'  %>
-      <% doc_type = Tipdoc.find_by_id(@person.doc.ig_doctype)  %>
+      <% doc_type = Tipdoc.find_by_id(@person.doc.ig_doctype).docname  %>
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
@@ -114,7 +123,7 @@
           <div class="accordion-inner">
             <dl class="dl-horizontal">
               
-              <dt>Документ</dt><dd><%= doc_type.docname if !doc_type.nil? %></dd>
+              <dt>Документ</dt><dd><%= UnicodeUtils.upcase(doc_type) if !doc_type.nil? %></dd>
               <dt>Серия</dt><dd><%= @person.doc.ig_docser %></dd>
               <dt>Номер</dt><dd><%= @person.doc.ig_docnum %></dd>
               <dt>Дата выдачи</dt><dd><%= @person.doc.ig_docdate %></dd>
@@ -129,7 +138,7 @@
   
 
     <% if @person.old_doc %> 
-      <% old_doc_name = Tipdoc.find_by_id(@person.old_doc.doctype)  %>
+      <% old_doc_name = Tipdoc.find_by_id(@person.old_doc.doctype).docname  %>
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
@@ -140,7 +149,7 @@
           <div class="accordion-inner">
             <dl class="dl-horizontal">
               
-              <dt>Документ</dt><dd><%= old_doc_name.docname %></dd>
+              <dt>Документ</dt><dd><%= UnicodeUtils.upcase(old_doc_name) %></dd>
               <dt>Серия</dt><dd><%= @person.old_doc.docser %></dd>
               <dt>Номер</dt><dd><%= @person.old_doc.docnum %></dd>
               <dt>Дата выдачи</dt><dd><%= @person.old_doc.docdate %></dd>

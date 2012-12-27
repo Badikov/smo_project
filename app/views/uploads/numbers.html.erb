@@ -5,6 +5,15 @@
 <div>
   
   <%= form_tag({:action => "save_numbers"}, :autocomplete => 'off') do  %>
+  <% @ini_file.keys.each do |key| %>
+  <% hash = @ini_file[key] %>
+  <% %>
+  <% %>
+  <% %>
+  <% end %>
+  
+  
+  
   
   <p>Серии&nbsp;&nbsp;&nbsp;
     <%= text_field_tag 'start_series', @ini_file["series"]["start"], :placeholder => 'c...' %>

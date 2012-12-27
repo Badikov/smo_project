@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-  $("div.row div.span3").remove()
-  $('#today_table_id').dataTable
-    sPaginationType: "full_numbers"
-    bJQueryUI: true
+   	$('#today_table_id').dataTable
+    	sPaginationType: "full_numbers"
+    	bJQueryUI: true

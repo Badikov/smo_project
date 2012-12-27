@@ -24,21 +24,21 @@ class UploadsController < ApplicationController
     path = File.join(directory, name)
     @ini_file = IniFile.load(path).to_h
     
-     # render json: @ini_file
+       render json: @ini_file.values[0]
   end
   def save_numbers
-    directory = "public/numbers"
-    name = "numbers.ini"
-    path = File.join(directory, name)
-    ini_file = IniFile.load(path)
-    
-    ini_file["series"] = {:start => params["start_series"],:end => params["end_series"]}
-    ini_file["numbers"] = {:start => params["start_numbers"],:end => params["end_numbers"]}
-    
-    if ini_file.write
-      redirect_to home_path, notice: 'Изменения внесены успешно.'
-    else
-      render :numbers, alert: 'Не удалось сохранить изменения.'
-    end
+    # directory = "public/numbers"
+    # name = "numbers.ini"
+    # path = File.join(directory, name)
+    # ini_file = IniFile.load(path)
+    # 
+    # ini_file["series"] = {:start => params["start_series"],:end => params["end_series"]}
+    # ini_file["numbers"] = {:start => params["start_numbers"],:end => params["end_numbers"]}
+    # 
+    # if ini_file.write
+    #   redirect_to home_path, notice: 'Изменения внесены успешно.'
+    # else
+    #   render :numbers, alert: 'Не удалось сохранить изменения.'
+    # end
   end
 end
