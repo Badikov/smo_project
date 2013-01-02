@@ -4,7 +4,7 @@
       <!--<%= f.input :doctype, :label => 'Документ', :input_html => {data: {autocomplete_source: tipdocs_path}} %>-->
       <%= f.input :doctype, :collection => Tipdoc.all(:order => :docname),
 		    :label_method => :docname, :value_method => :iddoc, :include_blank => false, 
-		    :label => 'Документ', :input_html => {class: "span6"}%>
+		    :label => 'Документ', :input_html => { class: "span6", color: " #B0B1B3" }%>
     
       <%= f.input :docser, :label => 'Серия' %>
    

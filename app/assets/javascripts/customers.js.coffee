@@ -54,7 +54,8 @@ jQuery ->
         else
           $('.row')
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
-        
+ 
+  #-- выбытие застрахованного по П022      
   $("#dp_date_of_death").live "focus", ->
     $("#dp_date_of_death").datepicker
       beforeShow: (input) ->
@@ -80,6 +81,16 @@ jQuery ->
           $('.row')
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
   
+  #-- выдача на руки полиса по П060
+  $("#dp_date_begin").live "focus", ->
+    $("#dp_date_begin").datepicker
+      beforeShow: (input) ->
+        $(input).css('background-color', "#ff9")
+      onSelect: (dateText, inst) ->
+        $(@).css('background-color', "")
+        $("#customers_search_060").removeAttr 'disabled'
+
+
   $("#customers_edit_doc, #customers_edit_person").click ->
     $.ajax
       type: "GET"

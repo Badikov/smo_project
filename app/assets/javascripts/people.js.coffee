@@ -10,6 +10,10 @@ jQuery ->
   
   $('#person_addres_g_bomg').removeAttr 'checked'
 
+  $("#person_doc_doctype option").css "color","#999999"
+
+  $("#person_doc_doctype option[value=14], #person_doc_doctype option[value=3]").css "color","#0D0534"
+
   $("#person_doc_doctype option[value=14]").attr selected: "selected"
 
   $("#person_addres_g_subj option[value=32000]").attr selected: "selected"
@@ -17,7 +21,7 @@ jQuery ->
   adres = $("div#step2 div.string:gt(8)").add("div#step2 div.select:last")
   
   # content = $("div#step2 div.string, div#step2 div.date, div#step2 div.select")
-  content = $("div#step2 div.control-group:gt(5)")
+  content = $("div#step2 div.control-group:gt(5)").not($("div#step2 div.control-group:eq(11)"))
   
   okato = $("div#step2 div.string:eq(1), div#step2 div.string:eq(10)")
   
@@ -33,6 +37,7 @@ jQuery ->
   $("#person_addres_g_bomg").click ->
     if @checked
       content.hide()
+      $("#pet_dog").attr checked: 'checked'
     else
       content.show()
 #       okato.hide()
@@ -43,6 +48,9 @@ jQuery ->
   $("#pet_dog").click ->
     if @checked
       adres.hide()
+      adres.each ->
+        $(@).find("input, select")
+        .val ''
     else
       adres.show()
 #       okato.hide()
@@ -66,12 +74,7 @@ jQuery ->
           term: query.toUpperCase()
         success: (data) ->
           process data
-    # updater: (i) ->
-    #   _c_oksm = i
-    #   $("#person_c_oksm").attr val: _c_oksm
-    #   if i isnt 'RUS'
-    #     ig.show()
-    
+        
   #выбор вид на жительство для инюграждан  
   $('#person_c_oksm').change () -> 
     _c_oksm = $(@).val()
@@ -112,6 +115,21 @@ jQuery ->
    e = event || window.event
    if e.keyCode is 13
     return false
+
+  $("a#step0Next").click ->
+    #console.log($("div#step0 input[name^='person']").serializeArray())
+    #return false
+    $.ajax
+      url: '/people/checking',
+      dataType: "json", 
+      data: ($("div#step0 input[name^='person'], div#step0 select[name^='person']").serializeArray()),
+      success: (data, textStatus, jqXHR) ->
+        if data.length > 0
+          _person = data[0]
+          $('.row')
+            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' + _person.fam + ' ' + _person.im + ' ' + _person.ot + ', ' + _person.dr + ' г. рожд. уже есть в нашей базе.</div>'
+      error: (jqXHR, textStatus, errorThrown) ->
+        alert errorThrown
       
     
   #console.log(states) .toUpperCase()

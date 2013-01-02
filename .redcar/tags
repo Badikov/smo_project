@@ -1,4 +1,4 @@
-1356647180
+1357162335
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -224,17 +224,18 @@ change	/home/alex/rails_projects/smo_project/db/migrate/20121218142230_recreate_
 change	/home/alex/rails_projects/smo_project/db/migrate/20121224115953_create_nsilpus.rb	  def change
 change	/home/alex/rails_projects/smo_project/db/migrate/20121226181155_add_reference_in_user.rb	  def change
 check_numbers	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def check_numbers
+checking	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def checking
 chenge	/home/alex/rails_projects/smo_project/db/migrate/20121128203456_rename_column_type_in_ats.rb	  def chenge
 cod_podrazdeleniy	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def cod_podrazdeleniy(str)
 create	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/streets_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def create
-create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def create
-create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
 createNextButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createNextButton(i)
 createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createPrevButton(i)
 create_links	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_links
@@ -335,8 +336,8 @@ up	/home/alex/rails_projects/smo_project/db/migrate/20121118045151_add_datepolis
 up	/home/alex/rails_projects/smo_project/db/migrate/20121203053205_chenge_data_type_in_ats.rb	  def up
 update	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def update
-update	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update
+update	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def update
 upload	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def upload
 upload_xml	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def upload_xml
 vibor_smo	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def vibor_smo(arg)

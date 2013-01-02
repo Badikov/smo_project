@@ -108,6 +108,12 @@ class PeopleController < ApplicationController
     
     render :partial => "newfam", :layout => false
   end
+  
+  def checking
+    @person = Person.new(params[:person])
+    person = Person.where("fam=\"#{@person.fam}\" and im=\"#{@person.im}\" and ot=\"#{@person.ot}\" and dr=\"#{@person.dr}\"")
+    render json: person , :nothing => true
+  end
   #GET  /people/search
   # def search
 #     

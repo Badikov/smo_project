@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Печать заявления о выдаче дубликата полиса или переоформлении полиса</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  
+  
+  
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <%= stylesheet_link_tag "print_petition", :media => "print" %>
+  <%= javascript_include_tag "jquery", "print_petition" %>
+</head>
+  <body>
+    <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
+  <div id="ot_kogo">
+    <p>В ООО Страховая медицинская организация "ЦМС"</p>
+    <p>от<span class="content" fam=<%= @person.fam %> im=<%= @person.im %> ot=<%= @person.ot %> id="pp_fio" ><%= @person.fam + " " + @person.im + " " + @person.ot%></span></p>
+  </div>
+  <h3>ЗАЯВЛЕНИЕ</h3>
+  <h3>о выдаче дубликата полиса или переоформлении полиса<sup>1</sup></h3>
+  <p class="start_abzats">Прошу выдать мне (гражданину, представителем которого я являюсь) (нужное подчеркнуть) в соответствии с Федеральным законом «Об обязательном медицинском страховании в Российской Федерации» (нужное отметить знаком «✔»):</p>
+  <table class="single_column"  myvalue=<%= @person %> id="">
+    <tr><td class="selected" id="1"></td><td class="context">1) переоформленный полис обязательного медицинского страхования;</td></tr>
+    <tr><td class="selected" id="2"></td><td class="context">2) дубликат полиса обязательного медицинского страхования.</td></tr>
+  </table>
+  <table class="single_column"  myvalue=<%= @person %> id="">
+    <tr><td class="selected" id="1"></td><td class="context">1) в форме бумажного бланка;</td></tr>
+    <tr><td class="selected" id="2"></td><td class="context">2) в форме пластиковой карты с электронным носителем;</td></tr>
+    <tr><td class="selected" id="3"></td><td class="context">3) в составе универсальной электронной карты гражданина.</td></tr>
+  </table>
+  <p class="start_abzats">в связи с (нужное отметить знаком «✔»):</p>
+  <table class="single_column"  myvalue=<%= @person %> id="">
+    <tr><td class="selected" id=""></td><td class="context">изменением фамилии, имени, отчества (при наличии), пола, даты или места рождения, места жительства;</td></tr>
+    <tr><td class="selected" id=""></td><td class="context">установлением неточности или ошибочности сведений, содержащихся в полисе;</td></tr>
+    <tr><td class="selected" id=""></td><td class="context">ветхостью и непригодностью полиса;</td></tr>
+    <tr><td class="selected" id=""></td><td class="context">утратой ранее выданного полиса;</td></tr>
+    <tr><td class="selected" id=""></td><td class="context">окончанием срока действия полиса<sup>1</sup>.</td></tr>
+  </table>
+  <h3>1. Сведения о застрахованном лице</h3>
+  <table class="single_row interval" myvalue=<%=  %> id="">
+      <tr><td>1.1.</td><td class="enp"></td><td class="left-pad">Совпадают со сведениями в заявлении о выборе (замене) страховой медицинской организации<sup>3</sup></td></tr>
+  </table>
+  <div class="interval"><span>1.2.  Фамилия</span><span class="content"><%= @person.fam  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность<sup>4</sup>)</div></div>
+    <div class="interval"><span>1.3.  Имя</span><span class="content"><%= @person.im  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
+    <div class="interval"><span>1.4.  Отчество (при наличии)<sup>5</sup></span><span class="content"><%= @person.ot  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
+  <div class="interval">1.5.  Категория застрахованного лица (нужное отметить знаком «✔»):</div>
+    <table class="single_column" myvalue=<%= @person.status %> id="pp_status">
+      <tr><td class="selected" id="101"></td><td class="context">1) работающий гражданин Российской Федерации;</td></tr>
+      <tr><td class="selected" id="102"></td><td class="context">2) работающий постоянно проживающий в Российской Федерации иностранный гражданин;</td></tr>
+      <tr><td class="selected" id="103"></td><td class="context">3) работающий временно проживающий в Российской Федерации иностранный гражданин;</td></tr>
+      <tr><td class="selected" id="104"></td><td class="context">4) работающее лицо без гражданства;</td></tr>
+      <tr><td class="selected" id="105"></td><td class="context">5) работающее лицо, имеющее право на медицинскую помощь в соответствии с Федеральным законом «О беженцах»;</td></tr>
+      <tr><td class="selected" id="106"></td><td class="context">6) неработающий гражданин Российской Федерации;</td></tr>
+      <tr><td class="selected" id="107"></td><td class="context">7) неработающий постоянно проживающий в Российской Федерации иностранный гражданин;</td></tr>
+      <tr><td class="selected" id="108"></td><td class="context">8) неработающий временно проживающий в Российской Федерации иностранный гражданин;</td></tr>
+      <tr><td class="selected" id="109"></td><td class="context">9) неработающее лицо без гражданства;</td></tr>
+      <tr><td class="selected" id="110"></td><td class="context">10)  неработающее лицо, имеющее право на медицинскую помощь в соответствии с Федеральным законом «О беженцах».</td></tr>
+    </table>
+
+    <p class="start_abzats">Не являюсь высококвалифицированным специалистом и членом семьи высококвалифицированного специалиста в соответствии с Федеральным законом от 25 июля 2002 года №115-ФЗ «О правовом положении иностранных граждан в Российской Федерации» и не являюсь военнослужащим и приравненным к ним в организации оказания медицинской помощи лицом<sup>5</sup></p>
+    <div class="signature"><div>(подпись застрахованного лица или его представителя)</div></div>
+
+    <table class="single_row interval" myvalue=<%= @person.w %> id="pp_w">
+      <tr><td class="context">1.6.  Пол:</td><td class="enp" id="1"></td><td class="context">муж.</td><td class="enp" id="2"></td><td>жен.   (нужное отметить знаком «✔»)</td></tr>
+    </table>
+    <div class="interval-small"><span>1.7.  Дата рождения (число, месяц, год)</span><span class="content"><%= @person.dr.strftime('%d.%m.%Y') %></span><div></div></div>
+    <div class="interval"><span>1.8.  Место рождения</span><span class="content"><%= @person.doc.mr %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
+    <div class="interval"><span>1.9.  Вид документа, удостоверяющего личность</span><span class="content"><%= doc_name.docname %></span><div></div></div>
+    <div class="in-line-cont">
+      <div class="interval floating"><span>1.10. Серия</span><span class="content"><%= @person.doc.docser %></span><div></div></div> 
+      <div class="interval floating"><span>1.10. Номер</span><span class="content"><%= @person.doc.docnum %></span><div></div></div>
+    </div>
+    <div class="in-line-cont">
+      <div class="interval small"><span>1.11. Дата выдачи </span><span class="content"><%= @person.doc.docdate.strftime('%d.%m.%Y') %></span><div></div></div> 
+      <div class="interval floating-big"><span>Кем выдан</span><span class="content"><%= @person.doc.name_vp %></span><div></div></div>
+    </div>
+    <% contry = Oksm.find_by_alfa3(@person.c_oksm) %>
+    <div class="interval more"><span>1.12. Гражданство</span><span class="content"><%= contry.name11.split("^")[0] %></span><div>(название государства; лицо без гражданства)</div></div>
+    <div class="interval"><span>1.13. Адрес регистрации по месту жительства в Российской Федерации<sup>6</sup>: </span></div>
+    <!-- Адрес по прописке -->
+    <table class="single_row interval marcer-list" myvalue=<%= @person.addres_g.indx %> id="pp_addres_g_indx">
+      <tr><td class="context">а) почтовый индекс</td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td></tr>
+    </table>
+    <% subj = Subekti.find_by_kod_okato(@person.addres_g.subj)  %>
+    <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= subj.subname  %></span><div>(республика, край, область, округ)</div></div> 
+
+    <div class="in-line-cont marcer-list">
+      <div class="interval floating"><span>в) район </span><span class="content"><%= @person.addres_g.rnname %></span><div></div></div> 
+      <div class="interval floating"><span>г) город </span><span class="content"><%= @person.addres_g.npname %></span><div></div></div>
+    </div>
+    <div class="interval marcer-list"><span>д) населенный пункт (село, поселок и т.п.)</span><span class="content"><%= %></span></div>
+    <div class="interval marcer-list"><span>е) улица (проспект, переулок и т.п.)</span><span class="content"><%= @person.addres_g.ul %></span><div></div></div>
+
+    <div class="in-line-cont marcer-list">
+      <div class="interval small"><span>ж) № дома (владения)</span><span class="content"><%= @person.addres_g.dom %></span><div></div></div> 
+      <div class="interval small"><span>з) корпус (строение) </span><span class="content"><%= @person.addres_g.korp %></span><div></div></div>
+      <div class="interval small"><span>и) квартира </span><span class="content"><%= @person.addres_g.kv %></span><div></div></div>
+    </div>
+
+    <div class="interval-small marcer-list"><span>к) дата регистрации по месту жительства</span><span class="content"><%= @person.addres_g.dreg.strftime('%d.%m.%Y') %></span><div></div></div>
+    
+    <table class="single_row interval" myvalue=<%= @person.addres_g.bomg %> id="pp_addres_g_bomg">
+      <tr><td class="enp"></td><td class="left-pad">лицо без определенного места жительства<sup>7</sup></td></tr>
+    </table>
+
+    <div class="interval"><span>1.14. Адрес места пребывания<sup>8</sup> (указывается в случае пребывания гражданина по адресу, отличному от адреса регистрации по месту жительства): </span></div>
+
+
+<!-- Адрес фактический -->
+    <table class="single_row interval marcer-list" myvalue=<%= @person.addres_p.indx if @person.addres_p %> id="pp_addres_p_indx">
+      <tr><td class="context">а) почтовый индекс</td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td></tr>
+    </table>
+    <% subj_p = Subekti.find_by_kod_okato(@person.addres_p.subj) if @person.addres_p  %>
+    <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= subj_p.subname if @person.addres_p  %></span><div>(республика, край, область, округ)</div></div> 
+
+    <div class="in-line-cont marcer-list">
+      <div class="interval floating"><span>в) район </span><span class="content"><%= @person.addres_p.rnname if @person.addres_p %></span><div></div></div> 
+      <div class="interval floating"><span>г) город </span><span class="content"><%= @person.addres_p.npname if @person.addres_p %></span><div></div></div>
+    </div>
+    <div class="interval marcer-list"><span>д) населенный пункт (село, поселок и т.п.)</span><span class="content"><%= %></span></div>
+    <div class="interval marcer-list"><span>е) улица (проспект, переулок и т.п.)</span><span class="content"><%= @person.addres_p.ul if @person.addres_p %></span><div></div></div>
+
+    <div class="in-line-cont marcer-list">
+      <div class="interval small"><span>ж) № дома (владения)</span><span class="content"><%= @person.addres_p.dom if @person.addres_p %></span><div></div></div> 
+      <div class="interval small"><span>з) корпус (строение) </span><span class="content"><%= @person.addres_p.korp if @person.addres_p %></span><div></div></div>
+      <div class="interval small"><span>и) квартира </span><span class="content"><%= @person.addres_p.kv if @person.addres_p %></span><div></div></div>
+    </div>
+    
+    <div class="interval"><span>1.15. Сведения о документе, подтверждающем регистрацию по месту жительства в Российской Федерации<sup>9</sup>:</span></div>
+    <div class="interval marcer-list"><span>а) вид документа</span><span><%= %></span><div></div></div>
+    <div class="in-line-cont marcer-list">
+      <div class="interval small"><span>б) серия</span><span class="content"><%=  %></span><div></div></div> 
+      <div class="interval small"><span>в) номер</span><span class="content"><%=  %></span><div></div></div>
+    </div>
+    
+    <div class="interval marcer-list"><span>г) кем и когда выдан </span><span><%= %></span><div></div></div>
+    
+    <div class="interval"><span>  1.16. Срок действия вида на жительство или другого документа, подтверждающего право на проживание (временного проживания) на территории Российской Федерации (для иностранного гражданина и лица без гражданства):</span></div>
+
+    <div class="in-line-cont marcer-list">
+      <div class="interval floating"><span>с (число, месяц, год)</span><span class="content"><%= @person.doc.ig_startdate.strftime('%d.%m.%Y') if @person.doc.ig_startdate %></span><div></div></div> 
+      <div class="interval floating"><span>по (число, месяц, год)</span><span class="content"><%= @person.doc.ig_enddate.strftime('%d.%m.%Y') if @person.doc.ig_enddate %></span><div></div></div>
+    </div>
+
+    <div class="interval"><span>1.17. Страховой номер индивидуального лицевого счета (СНИЛС) (при наличии)</span><span class="content"><%= @person.ss  %></span><div></div></div>
+    <div class="interval"><span>1.18. Контактная информация:</span></div>
+    <div class="in-line-cont marcer-list">
+      <div class="interval floating"><span>1.18.1.  Телефон (с кодом): домашний</span><span class="content"><%= @person.phone %></span><div></div></div> 
+      <div class="interval floating"><span>служебный </span><span class="content"><%=  %></span><div></div></div>
+      <div class="interval floating"><span>1.18.2.  Адрес электронной почты</span><span class="content"><%= @person.email  %></span><div></div></div>
+    </div>
+       
+       <h3>2. Сведения о застрахованном лице до изменения или исправления анкетных данных<sup>10</sup></h3>
+
+    <div class="interval"><span>2.1.  Фамилия</span><span class="content"><%= @person.fam  %></span><div>(указывается в точном соответствии с записью в полисе)</div></div>
+    <div class="interval"><span>2.2.  Имя</span><span class="content"><%= @person.im  %></span><div>(указывается в точном соответствии с записью в полисе)</div></div>
+    <div class="interval"><span>2.3.  Отчество (при наличии)<sup>5</sup></span><span class="content"><%= @person.ot  %></span><div>(указывается в точном соответствии с записью в полисе)</div></div>
+    <table class="single_row interval" myvalue=<%= @person.w %> id="pp_w">
+      <tr><td class="context">2.4.  Пол:</td><td class="enp" id="1"></td><td class="context">муж.</td><td class="enp" id="2"></td><td>жен.   (нужное отметить знаком «✔»)</td></tr>
+    </table>
+    <div class="interval-small"><span>2.5.  Дата рождения (число, месяц, год)</span><span class="content"><%= @person.dr.strftime('%d.%m.%Y') %></span><div></div></div>
+    <div class="interval"><span>2.6.  Место рождения</span><span class="content"><%= @person.doc.mr %></span><div>(указывается в точном соответствии с записью в полисе)</div></div>
+
+      <h3>3. Сведения о представителе застрахованного лица<sup>11</sup></h3>
+  <table class="single_row interval" myvalue=<%=  %> id="">
+  <tr><td>3.1.</td><td class="enp"></td><td class="left-pad">Совпадают со сведениями в заявлении о выборе (замене) страховой медицинской организации<sup>12</sup></td></tr>
+  </table>
+  <div class="interval"><span>3.2.  Фамилия</span><span class="content"><%= @person.fam  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
+    <div class="interval"><span>3.3.  Имя</span><span class="content"><%= @person.im  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
+    <div class="interval"><span>3.4.  Отчество (при наличии)</span><span class="content"><%= @person.ot  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
+
+    <table class="single_row interval" myvalue=<%= @person.representative.parent if @person.representative %> id="pp_representative_parent">
+      <tr>
+        <td class="context">3.5.Отношение к застрахованному лицу,<br>сведения о котором указаны в заявлении</td>
+        <td>мать</td><td class="enp" id="мать"></td>
+        <td>отец</td><td class="enp" id="отец"></td>
+        <td>иное</td><td class="enp" id="иное"></td>
+        <td class="left-pad">(нужное отметить знаком «✔»)</td>
+      </tr>
+    </table>
+    
+    <% doc_parent = Tipdoc.find_by_id(@person.representative.doctype) if @person.representative %>
+    <div class="interval"><span>3.6.  Вид документа, удостоверяющего личность</span><span class="content"><%= doc_parent.docname if @person.representative  %></span><div></div></div>
+    <div class="in-line-cont">
+      <div class="interval floating"><span>3.7. Серия</span><span class="content"><%= @person.representative.docser if @person.representative %></span><div></div></div> 
+      <div class="interval floating"><span>3.8. Номер</span><span class="content"><%= @person.representative.docnum if @person.representative %></span><div></div></div>
+    </div>
+    <div class="interval"><span>3.9.  Дата выдачи(число, месяц, год)</span><span class="content"><%= @person.representative.docdate.strftime('%d.%m.%Y') if @person.representative  %></span><div></div></div>
+    <div class="in-line-cont">
+      <div class="interval floating"><span>3.10. Контактный телефон:</span><span class="content"><%= @person.representative.phone if @person.representative %></span><div></div></div> 
+      <div class="interval floating"><span>служебный</span><span class="content"><%=  %></span><div></div></div>
+    </div>
+
+    <h3>4. Достоверность и полноту указанных сведений подтверждаю.</h3>
+    <%  fio_person = "" %>
+    <% if @person.representative %>
+    <%  fio_person = @person.representative.fam + " " + @person.representative.im.slice(0,1) + "." + @person.representative.ot.slice(0,1) + "."%>
+    <% else %>
+    <%  fio_person = @person.fam + " " + @person.im.slice(0,1) + "." + @person.ot.slice(0,1) + "." %>
+    <% end %>
+    <% vremen_svid = ""; date_vrem = "" %>
+    <% if @person.vizit.insurance.polis.spolis %>
+    <%  vremen_svid = @person.vizit.insurance.polis.spolis + "  " + @person.vizit.insurance.polis.npolis %>
+    <%  date_vrem = @person.vizit.insurance.polis.dbeg.strftime('%d.%m.%Y') %>
+    <% end %>
+
+    <div class="in-line-signature">
+      <div class="interval floating"><span class="content"></span><div>(подпись застрахованного лица/его представителя<sup>13</sup>)</div></div>
+      <div class="interval floating mp"><span class="content"><%= fio_person %></span><div><%= rp %></div></div> 
+    </div>
+    
+    <div class="interval-small clear"><span>Дата (число, месяц, год):</span><span class="content"><%= @person.vizit.dvizit.strftime('%d.%m.%Y')  %></span><div></div></div>
+    <% user = User.find_by_id(@person.op.user_id) %>
+    
+    <div class="in-line-signature">
+      <div class="interval floating"><span>Заявление принял:</span><div>(подпись представителя страховой медицинской организации (филиала))</div></div>
+      <div class="interval floating mp"><span></span><span class="content"><%= user.name %></span><div><%= rp %></div></div> 
+    </div>
+
+    <div class="interval-small clear"><span>Выдано временное свидетельство № </span><span class="content"><%= vremen_svid  %></span><div></div></div>
+    
+    <div class="in-line-signature">
+      <div class="interval-big floating"><span>Дата (число, месяц, год):</span><span class="content"><%= date_vrem %></span><div></div></div>
+      <div class="interval-big floating mp"><span>М.П.</span></div> 
+    </div>
+    
+    
+    <div class="in-line-signature clear">
+      <div class="interval floating"><span class="content"></span><div>(подпись застрахованного лица/его представителя<sup>14</sup>)</div></div>
+      <div class="interval floating mp"><span class="content"><%= fio_person %></span><div><%= rp %></div></div> 
+    </div>
+
+    <div class="clear end-futer">
+      <table>
+        <tr><td>1</td><td>Исправления не допускаются.</td></tr>
+        <tr><td>2</td><td>Для лиц, указанных в пунктах 32 и 33 Правил обязательного медицинского страхования.</td></tr>
+        <tr><td>3</td><td>В случае совпадения отметить знаком «V». При выборе этого элемента пункты 1.2.-1.18. не заполняются.</td></tr>
+        <tr><td>4</td><td>При отсутствии отчества в документе, удостоверяющем личность, в графе отчество ставится прочерк.</td></tr>
+        <tr><td>5</td><td>Поле, обязательное для заполнения.</td></tr>
+      </table>
+    </div>  
+
+    <div class="clear end-futer">
+      <table>
+        <tr><td>6</td><td>Указывается адрес места постоянной регистрации застрахованного.</td></tr>
+        <tr><td>7</td><td>Отмечается знаком «V».</td></tr>
+        <tr><td>8</td><td>Указывается адрес места временной регистрации или фактического пребывания застрахованного.</td></tr>
+        <tr><td>9</td><td>Для лиц, указанных в частях 3, 5, 6 и 7 пункта 9 Правил обязательного медицинского страхования.</td></tr>
+        <tr><td>10</td><td>Указывается в случае замены полиса вследствие изменения, неточности или ошибочности сведений, содержащихся в полисе.</td></tr>
+      </table>
+    </div>  
+    
+    <div class="clear end-futer">
+      <table>
+        <tr><td>11</td><td>Заполняется в случае составления настоящего заявления представителем застрахованного лица</td></tr>
+        <tr><td>12</td><td>В случае совпадения отметить знаком «V». При выборе этого элемента пункты 3.2 - 3.10 заявления не заполняются.</td></tr>
+        <tr><td>13</td><td>Нужное подчеркнуть</td></tr>
+        <tr><td>14</td><td>Нужное подчеркнуть</td></tr>
+      </table>
+    </div>   
+
+
+
+
+  </body>
+</html>

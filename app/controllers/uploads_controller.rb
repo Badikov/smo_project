@@ -24,21 +24,46 @@ class UploadsController < ApplicationController
     path = File.join(directory, name)
     @ini_file = IniFile.load(path).to_h
     
-       render json: @ini_file.values[0]
+     # render json: @ini_file.values.collect{|x| x["series"]}
   end
   def save_numbers
-    # directory = "public/numbers"
-    # name = "numbers.ini"
-    # path = File.join(directory, name)
+    directory = "public/numbers"
+    name = "numbers.ini"
+    path = File.join(directory, name)
     # ini_file = IniFile.load(path)
-    # 
-    # ini_file["series"] = {:start => params["start_series"],:end => params["end_series"]}
-    # ini_file["numbers"] = {:start => params["start_numbers"],:end => params["end_numbers"]}
-    # 
-    # if ini_file.write
-    #   redirect_to home_path, notice: 'Изменения внесены успешно.'
-    # else
-    #   render :numbers, alert: 'Не удалось сохранить изменения.'
-    # end
+    File.delete(path)
+    
+    records = Hash.new
+    params.each_pair do |key,val|
+      if key.start_with?("line")
+        k_1, k_2 = key.split("_")
+        if records[k_1].nil?
+          records[k_1] = {k_2.to_sym => val}
+        else
+          records[k_1] = records[k_1].merge({k_2.to_sym => val})
+        end
+      end
+    end
+    n= records.length
+    logger.debug n
+    ini_file = IniFile.new( :filename => path )
+    i=0
+    records.each_pair do |key,val|
+      if !val.values.include? ""
+        ini_file["line" + i.to_s] = val
+        i+= 1
+      end
+    end
+    logger.debug i
+    # render json: records
+    if ini_file.write
+      if n == i
+        redirect_to home_path, notice: 'Изменения внесены успешно.'
+      else
+        redirect_to home_path, :flash => { :info => 'Не все записи были сохранены. Вернитесь в операцию и проверьте, что вы сохранили.'}
+      end
+    else
+      render :numbers, alert: 'Не удалось сохранить изменения.'
+    end
   end
 end

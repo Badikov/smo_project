@@ -70,7 +70,7 @@ class CustomersController < ApplicationController
     @vizit = Vizit.find_by_person_id(params[:id])
     @polis = @vizit.insurance.polis
     
-    @polis.update_attributes({dbeg: DateTime.now})
+    @polis.update_attributes({dbeg: DateTime.now, dend: nil, spolis: nil, vpolis: 3})
     @op.update_attributes({tip_op: "П060"})
     render json: status, :nothing => true
   end

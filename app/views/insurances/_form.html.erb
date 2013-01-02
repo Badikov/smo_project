@@ -1,12 +1,16 @@
 <%= form.simple_fields_for @vizit.insurance,  :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
-    
+<% directory = "public/numbers" %>
+<% name = "numbers.ini" %>
+<% path = File.join(directory, name) %>
+<% ini_file = IniFile.load(path).to_h %>  
+  
   <%= f.input :erp, :inline_label => 'зарегистрирован в ЦС ЕРП', :as => :boolean %>
   
   <%= f.input :enp, :label =>  'Действующий Единый номер полиса ОМС'%>
   
   <%= f.simple_fields_for @vizit.insurance.polis, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
   
-    <%= fpol.input :spolis, :label => 'Серия временного свидетельства',:input_html => { :class => "span1" } %>
+    <%= fpol.input :spolis, :collection => ini_file.values.collect{|x| x["series"]}, :label => 'Серия временного свидетельства',:input_html => { :class => "span1" } %>
     
     <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { :class => "span2" } %>
     

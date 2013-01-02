@@ -5,25 +5,18 @@
 <div>
   
   <%= form_tag({:action => "save_numbers"}, :autocomplete => 'off') do  %>
-  <% @ini_file.keys.each do |key| %>
-  <% hash = @ini_file[key] %>
+  <% @ini_file.each_pair do |key,val| %>
+  
+  <div class="numbers-line">
+  <%= text_field_tag key + '_series', val["series"] , :placeholder => 'серия' %>
+  <%= text_field_tag key + '_start', val["start"] , :placeholder => 'c...' %>
+  <%= text_field_tag key + '_end', val["end"] , :placeholder => 'по...' %>
+  <%= link_to "Удалить", nil, {:class => "numbers-line-remove"} %>
   <% %>
-  <% %>
-  <% %>
+  </div>
   <% end %>
-  
-  
-  
-  
-  <p>Серии&nbsp;&nbsp;&nbsp;
-    <%= text_field_tag 'start_series', @ini_file["series"]["start"], :placeholder => 'c...' %>
-    
-    <%= text_field_tag "end_series", @ini_file["series"]["end"], :placeholder => 'по...' %>
-  </p>
-  <p>Номера&nbsp;
-    <%= text_field_tag "start_numbers", @ini_file["numbers"]["start"], :placeholder => 'c...' %>
-    
-    <%= text_field_tag "end_numbers", @ini_file["numbers"]["end"], :placeholder => 'по...' %>
+  <p id="numbers_line_add">
+    <%= link_to "Добавить", nil, {:class => "numbers-line-add"} %>
   </p>
   <div class="form-actions">
     <%= submit_tag "Save changes", :id => "submit", :name => "submit", :class => "form_submit btn btn-primary", 

@@ -24,7 +24,8 @@
     <tbody>
      <% @ops.find_each do |op| %> 
         <tr>
-            <td><%= op.user.name %></td>
+            <% user_name = op.user.name.split(" ") %>
+            <td><%= user_name[0] + " " + user_name[1].slice(0,1) + "." %></td>
             <td><%= op.person.fam %></td>
             <td><%= op.person.im %></td>
             <td><%= op.person.ot %></td>

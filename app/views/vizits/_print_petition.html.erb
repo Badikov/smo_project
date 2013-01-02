@@ -213,6 +213,7 @@
     
     <div class="interval-small clear"><span>Дата (число, месяц, год):</span><span class="content"><%= @person.vizit.dvizit.strftime('%d.%m.%Y')  %></span><div></div></div>
     <% user = User.find_by_id(@person.op.user_id) %>
+    
     <div class="in-line-signature">
       <div class="interval floating"><span>Заявление принял:</span><div>(подпись представителя страховой медицинской организации (филиала))</div></div>
       <div class="interval floating mp"><span></span><span class="content"><%= user.name %></span><div><%= rp %></div></div> 
