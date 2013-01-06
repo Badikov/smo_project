@@ -25,13 +25,13 @@
         <div id="collapseZero" class="accordion-body collapse in">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              <dt>появился</dt><dd><%= op.created_at %></dd>
-              <dt>последнее обновление</dt><dd><%= op.updated_at %></dd>
+              <dt>появился</dt><dd><%= op.created_at.strftime('%d.%m.%Y') %></dd>
+              <dt>последнее обновление</dt><dd><%= op.updated_at.strftime('%d.%m.%Y') %></dd>
               <dt>последнее событие</dt><dd><%= op.tip_op || "-" %></dd>
               <dt>подразделение</dt><dd><%= filials[0].title %></dd>
               <dt>агент</dt><dd><%= user.name %></dd>
               <% if !op.date_uvoln.blank? %>
-                <dt>выбыл</dt><dd><%= op.date_uvoln %></dd>
+                <dt>выбыл</dt><dd><%= op.date_uvoln.strftime('%d.%m.%Y') %></dd>
               <% end %>
             </dl>
           </div>
@@ -50,13 +50,13 @@
           <dl class="dl-horizontal">
             <dt>ФИО</dt><dd><%= @person.fam %> <%= @person.im %> <%= @person.ot %></dd>
             <dt>пол</dt><dd><%= @person.w == 1 ? "мужской" : "женский"  %></dd>
-            <dt>дата рожд.</dt><dd><%= @person.dr %></dd>
+            <dt>дата рожд.</dt><dd><%= @person.dr.strftime('%d.%m.%Y') %></dd>
             <dt>гражданство</dt><dd><%= @person.c_oksm %></dd>
             <dt>СНИЛС</dt><dd><%= @person.ss || " - " %></dd>
             <dt>телефон</dt><dd><%= @person.phone.blank? ? "-" : @person.phone %></dd>
             <dt>email</dt><dd><%= @person.email.blank? ? "-" : @person.email %></dd>
             <% if !@person.ddeath.blank? %>
-              <dt>дата смерти</dt><dd class="text-error"><%= @person.ddeath %></dd>
+              <dt>дата смерти</dt><dd class="text-error"><%= @person.ddeath.strftime('%d.%m.%Y') %></dd>
             <% end %>
           </dl>
         </div>
@@ -82,7 +82,7 @@
               <dt>Вид документа</dt><dd><%= UnicodeUtils.upcase(doc_parent) %></dd>
               <dt>Серия</dt><dd><%= @person.representative.docser || "-" %></dd>
               <dt>Номер</dt><dd><%= @person.representative.docnum || "-" %></dd>
-              <dt>Дата выдачи</dt><dd><%= @person.representative.docdate || "-" %></dd>
+              <dt>Дата выдачи</dt><dd><%= @person.representative.docdate.strftime('%d.%m.%Y') || "-" %></dd>
               <dt>Контактный телефон</dt><dd>@person.representative.phone</dd>
             </dl>
           </div>
@@ -103,7 +103,7 @@
             <dt>Документ</dt><dd><%= UnicodeUtils.upcase(doc_name) %></dd>
             <dt>Серия</dt><dd><%= @person.doc.docser %></dd>
             <dt>Номер</dt><dd><%= @person.doc.docnum %></dd>
-            <dt>Дата выдачи</dt><dd><%= @person.doc.docdate %></dd>
+            <dt>Дата выдачи</dt><dd><%= @person.doc.docdate.strftime('%d.%m.%Y') %></dd>
             <dt>Кем выдан</dt><dd><%= @person.doc.name_vp %></dd>
             <dt>Место рождения</dt><dd><%= @person.doc.mr %></dd>
           </dl>
@@ -142,7 +142,7 @@
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-              <strong>Прежнее удостоверение личности</strong>
+              <strong>Прежднее удостоверение личности</strong>
             </a>
         </div>
         <div id="collapseFive" class="accordion-body collapse">
@@ -235,28 +235,37 @@
       </div>
     <% end %> 
 
+    <% if insurance and polis %>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseN">
+              <strong>Страхование</strong>
+            </a>
+        </div>
+        <div id="collapseN" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <dl class="dl-horizontal">
+              <dt>номер полиса</dt><dd><%= insurance.enp || "-" %></dd>
+              <% if polis.vpolis == 2 %>
+              <dt>серия временного</dt><dd><%= polis.spolis %></dd>
+              <dt>номер временного</dt><dd><%= polis.npolis %></dd>
+              <dt>дата начала</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
+              <dt>плюс 42 дня</dt><dd><%= polis.dend.strftime('%d.%m.%Y') %></dd>
+              <% elsif polis.vpolis == 3 %>
+              <dt>номер бланка</dt><dd><%= polis.npolis %></dd>
+              <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
+              <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
+              <% end %>
+            </dl>
+          </div>
+        </div>
+      </div>
+    <% end  %>
+
   </div>
 </div>
 
-<div class="person-block personale">
-  <% if !insurance.nil? %>
-    <div>
-      <p><strong>Страхование</strong></p>
-        <% insurance.attributes.each do |attr|  %>
-          <%= attr %><br>
-        <% end  %>
-    </div>
-  <% end  %>
-  <% if !polis.nil? %>
-    <div>
-      <p><strong>Документ страхования</strong></p>
-        <% polis.attributes.each do |attr|  %>
-          <%= attr %><br>
-        <% end  %>
-    </div>
-  <% end  %>
 
-</div>
 <div class="person-block personale">
 <% if vizit.nil? %>
   <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person},
@@ -264,12 +273,23 @@
   %>
 <% else %>  
   
-  <%= link_to t("Выбытие ЗЛ"), {:action => "edit_ops", :id => @person}, 
+  <%= link_to t("Выбытие ЗЛ П021"), {:action => "edit_ops", :id => @person}, 
   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
   :default => 'Вы уверенны что это лицо выбыло ?')) }, 
   :id => "customers_search_021",:class => "btn", :role => "button"
   %>
+  <a href="#deathModal" role="button" class="btn" data-toggle="modal">Выбытие в связи со смертью П022</a>
+  <%= link_to t("Удалить дублирующую запись П023"), {:action => "edit_ops_as_doublicat", :id => @person}, 
+  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
+  :default => 'Вы уверенны что это дубликат ?')) }, 
+  :id => "customers_search_023",:class => "btn", :role => "button"
+  %>
   
+  
+
+<% end %>  
+</div>
+<div class="person-block personale">
   <a href="#edit_polisModal" role="button" class="btn" data-toggle="modal">Выдача на руки полиса<br/>после временного свидетельства</a>
   
     
@@ -277,10 +297,10 @@
   :id => "customers_search_edit",:class => "btn", :role => "button"
   %>
 
-  <a href="#deathModal" role="button" class="btn" data-toggle="modal">Выбытие в связи со смертью</a>
-
-<% end %>  
+  
 </div>
+
+
 <!-- Modal death-->
 <div id="deathModal" class="modal hide fade personale" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">

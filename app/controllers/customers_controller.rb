@@ -46,9 +46,9 @@ class CustomersController < ApplicationController
     
     render json: status, :nothing => true
   end
-  
-  
+    
   def death_of_customer
+    # 022 - снятие с учета в связи со смертью
     d = params[:date]
     
     # d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '
@@ -63,6 +63,9 @@ class CustomersController < ApplicationController
     render json: status, :nothing => true
   end
   
+  def edit_ops_as_doublicat
+    # 023 - 
+  end
   
   def edit_polis
     # 060

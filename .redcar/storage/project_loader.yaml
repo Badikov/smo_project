@@ -9,3 +9,4 @@ open_files:
   - app/models/doc.rb
   - app/models/op.rb
   - app/controllers/people_controller.rb
+  - app/controllers/docs_controller.rb

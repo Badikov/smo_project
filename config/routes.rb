@@ -22,7 +22,7 @@ SmoProject::Application.routes.draw do
       match 'edit_ops' => 'customers#edit_ops'
       match 'edit_polis' => 'customers#edit_polis'
       match 'death_of_customer' => 'customers#death_of_customer'
-      
+      match 'edit_ops_as_doublicat' => 'customers#edit_ops_as_doublicat'
     end
   end
   get "streets/index"
@@ -34,7 +34,8 @@ SmoProject::Application.routes.draw do
 
   resources :people do
     collection do
-      match 'newfam' => 'people#newfam'
+      get 'newfam' => 'people#newfam'
+      post 'newfam' => 'people#new_fam'
       match 'checking' => 'people#checking', :as => :checking
       # match 'search' => 'people#search', :via => [:get, :post], :as => :search
       # get 'result'

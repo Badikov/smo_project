@@ -41,9 +41,9 @@ class PeopleController < ApplicationController
   end
 
   # GET /people/1/edit
-  def edit
-    @person = Person.find(params[:id])
-  end
+  # def edit
+  #   @person = Person.find(params[:id])
+  # end
 
   # POST /people
   # POST /people.json
@@ -65,7 +65,8 @@ class PeopleController < ApplicationController
         render :new
       end
     else
-      render :new, alert: 'Сохранить не получилось, проверьте ошибки в параметрах.'
+      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
+      render :new
     end
     # require "net/http"
     # str_guid = Net::HTTP.get(URI.parse(URI.encode("http://mozilla.pettay.fi/cgi-bin/mozuuid.pl")))
@@ -75,19 +76,19 @@ class PeopleController < ApplicationController
 
   # PUT /people/1
   # PUT /people/1.json
-  def update
-    @person = Person.find(params[:id])
-
-    respond_to do |format|
-      if @person.update_attributes(params[:person])
-        format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   @person = Person.find(params[:id])
+  # 
+  #   respond_to do |format|
+  #     if @person.update_attributes(params[:person])
+  #       format.html { redirect_to @person, notice: 'Person was successfully updated.' }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: "edit" }
+  #       format.json { render json: @person.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /people/1
   # DELETE /people/1.json
@@ -102,11 +103,28 @@ class PeopleController < ApplicationController
   end
   #GET  /people/newfam?id=
   def newfam
-    
-    @person =Person.new
-    @person.id = params[:id]
+    @person =Person.find_by_id(params[:id])
+    # @person.id = params[:id]
     
     render :partial => "newfam", :layout => false
+  end
+  # POST /people/newfam
+  def new_fam
+    old_person = Person.find_by_id(params[:person][:id])
+    old_person_hash = old_person.as_json
+    old_person_hash = old_person_hash.delete_if {|key, value| key.start_with?('s','c','u','dd','e','t','p','fi','id')}
+    old_person_hash.merge!({old_enp: old_person.vizit.insurance.enp})
+    
+    @person = Person.new(params[:person])
+    if @person.valid?
+      
+      render json: old_person_hash
+    else
+      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
+      render :newfam
+    end
+    # OldPerson
+    
   end
   
   def checking

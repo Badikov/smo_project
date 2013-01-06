@@ -2,11 +2,11 @@
   <h3><%= @person.fam + " " + @person.im + " " + @person.ot%></h3>
 </div>
 <div class="person-block">
-  <%= link_to t("Изменение паспортных данных"), { :controller => "docs", :action => "new", :id => @person } ,
+  <%= link_to t("Изменение паспортных данных П040"), { :controller => "docs", :action => "new", :id => @person } ,
   :id => "customers_edit_doc",:class => "btn", :role => "button"
   %>
   
-  <%= link_to t("Изменение Фамилии"), { :controller => "people", :action => "newfam", :id => @person } ,
+  <%= link_to t("Изменение Фамилии П061"), { :controller => "people", :action => "newfam", :id => @person } ,
   :id => "customers_edit_person",:class => "btn", :role => "button"
   %>
 </div>

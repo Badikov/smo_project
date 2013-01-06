@@ -2,9 +2,11 @@
   <h4>Новые личные данные</h4>
 </div>
 
-<%= simple_form_for @person, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
+<%= simple_form_for @person, :url => newfam_people_path, :method => :post, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
 
   <%= f.input :id, :as => :hidden %>
+  <%= f.input :status, :as => :hidden %>
+  <%= f.input :c_oksm, :as => :hidden %>
   
   <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
  

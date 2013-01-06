@@ -65,16 +65,39 @@ class DocsController < ApplicationController
   # GET /docs/new
   # GET /docs/new.json
   def new
+    doc = Doc.find_by_person_id(params[:id])
     @doc = Doc.new
-    @doc.person_id = params[:id]
+    @doc.person_id = doc.person_id
+    @doc.mr = doc.mr
     
     render :layout => false
   end
   # POST /docs
   # POST /docs.json
   def create
-    logger.debug params
+    old_doc = Doc.find_by_person_id(params[:doc][:person_id])
+    old_doc_hash = old_doc.as_json
+    old_doc_hash = old_doc_hash.delete_if {|key, value| key.start_with?('i','c','u')}
+        
+    @doc = Doc.new(params[:doc])
     
+    if @doc.valid?
+      @old_doc = OldDoc.where(:person_id => params[:doc][:person_id]).first
+      @old_doc.destroy if @old_doc
+    
+      @old_doc = OldDoc.new(old_doc_hash)
+      op = Op.find_by_person_id(@doc.person_id)
+      if old_doc.update_attributes(params[:doc]) and @old_doc.save! and op.update_attributes({tip_op: "П040"})
+        flash[:notice] = "Новые паспортные данные успешно сохранились."
+        redirect_to home_path
+      else
+        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
+        render :new
+      end
+    else
+      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
+      render :new
+    end
   end
   # GET /docs/1/edit
   # def edit

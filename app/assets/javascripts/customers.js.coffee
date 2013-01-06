@@ -90,7 +90,7 @@ jQuery ->
         $(@).css('background-color', "")
         $("#customers_search_060").removeAttr 'disabled'
 
-
+  #-- подгружает формы на странице http://localhost:3000/customers/{id}/edit
   $("#customers_edit_doc, #customers_edit_person").click ->
     $.ajax
       type: "GET"
