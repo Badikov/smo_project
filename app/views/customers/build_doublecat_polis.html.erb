@@ -1,0 +1,46 @@
+<%- model_class = Vizit -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h3>
+</div>
+<div class="person-block">
+  <%= @vizit.person.fam %> <%= @vizit.person.im %> <%= @vizit.person.ot %><br />
+</div>
+<% directory = "public/numbers" %>
+<% name = "numbers.ini" %>
+<% path = File.join(directory, name) %>
+<% ini_file = IniFile.load(path).to_h %>
+
+<%= simple_form_for :polis, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+
+    <div class="control-group radio_buttons required">
+      <label class="radio_buttons required control-label">
+        <abbr title="required">*</abbr>
+        Причина
+      </label>
+      <div class="controls">
+        <label class="radio radio inline">
+          <%= radio_button_tag "vizit[rpolis]",3,  :checked => true %>
+          ветхость и непригодность полиса
+        </label>
+        <label class="radio radio inline">
+          <%= radio_button_tag "vizit[rpolis]",4 %>
+          утрата ранее выданного полиса
+        </label>
+      </div>
+  </div>
+    
+  
+    <%= fpol.input :spolis, :collection => ini_file.values.collect{|x| x["series"]}, :label => 'Серия временного свидетельства',:input_html => { :class => "span2" } %>
+    
+    <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { :class => "span2" } %>
+    
+    <%= fpol.input :dstop, :as => :hidden %>
+    
+    <div class="form-actions">
+    <%= fpol.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                home_path, :class => 'btn' %>
+  </div>
+
+<% end %>

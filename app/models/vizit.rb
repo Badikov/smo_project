@@ -20,7 +20,7 @@ class Vizit < ActiveRecord::Base
   end
   
   after_validation :dates_logic
-  before_save :rpolis_nil
+  before_save :rpolis_nil #TODO -- только для новых застрахованных... отключить для клиентов
   
   def dates_logic
     self.method = "2" if self.method.nil? #nil если был представитель, на форме method disabled

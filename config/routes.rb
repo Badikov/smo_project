@@ -19,6 +19,8 @@ SmoProject::Application.routes.draw do
       match 'search' => 'customers#search', :via => [:get]
       # match 'search_person/:id' => 'customers#search_person', :as => 'search_person'
       get 'search_person' => 'customers#search_person'
+      get 'build_doublecat_polis' => 'customers#build_doublecat_polis'
+      post 'build_doublecat_polis' => 'customers#save_doublecat_polis'
       match 'edit_ops' => 'customers#edit_ops'
       match 'edit_polis' => 'customers#edit_polis'
       match 'death_of_customer' => 'customers#death_of_customer'

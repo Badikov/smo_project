@@ -53,7 +53,7 @@ class PeopleController < ApplicationController
     
     if @person.valid?
        # op_attributes[:user_id] = current_user.id
-      @person.build_op( :user_id => current_user.id, :active => 0 )
+      @person.build_op( :user_id => 1, :active => 0 )
       
       @person.representative.mark_for_destruction  if @person.representative.fam.blank?
       @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
@@ -113,12 +113,23 @@ class PeopleController < ApplicationController
     old_person = Person.find_by_id(params[:person][:id])
     old_person_hash = old_person.as_json
     old_person_hash = old_person_hash.delete_if {|key, value| key.start_with?('s','c','u','dd','e','t','p','fi','id')}
-    old_person_hash.merge!({old_enp: old_person.vizit.insurance.enp})
+    old_person_hash.merge!({old_enp: old_person.vizit.insurance.enp, person_id: old_person.id})
     
     @person = Person.new(params[:person])
     if @person.valid?
+      @old_person = OldPerson.find_by_person_id(params[:person][:id])
+      logger.debug @old_person
+      @old_person.destroy if @old_person
+      @old_person = OldPerson.new(old_person_hash)
       
-      render json: old_person_hash
+      op = Op.find_by_person_id(old_person.id)
+      if old_person.update_attributes(params[:person]) and @old_person.save! and op.update_attributes({tip_op: "П061"})
+        
+      else
+        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
+        render :new
+      end
+      # render json: op
     else
       flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
       render :newfam

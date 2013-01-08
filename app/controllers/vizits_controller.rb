@@ -164,11 +164,12 @@ class VizitsController < ApplicationController
       if @vizit.save! and op.update_attributes({tip_op: tip_op, active: 1, id: id_for_op})
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
+        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
         render :new
-      
       end
         # render json: @vizit
     else
+      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
       render :new
     end
   end

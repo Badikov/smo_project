@@ -77,8 +77,15 @@ class CustomersController < ApplicationController
     @op.update_attributes({tip_op: "П060"})
     render json: status, :nothing => true
   end
+  # GET customers/build_doublecat_polis?id=
+  def build_doublecat_polis
+    @vizit = Vizit.find_by_person_id(params[:id])
+    @polis = Polis.new
+  end
   
-  
+  def save_doublecat_polis
+    
+  end
   def edit
     @person = Person.find_by_id(params[:id])
     

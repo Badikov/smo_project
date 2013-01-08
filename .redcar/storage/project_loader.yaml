@@ -6,7 +6,5 @@ open_files:
   - app/models/person.rb
   - app/models/insurance.rb
   - app/models/polis.rb
-  - app/models/doc.rb
   - app/models/op.rb
   - app/controllers/people_controller.rb
-  - app/controllers/docs_controller.rb
