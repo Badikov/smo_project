@@ -19,23 +19,7 @@
   <%= f.input :name_vp, :label => 'Кем выдан', :input_html => {class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()'} %>
 
   <%= f.input :mr, :as => :hidden %>
- <!-- 
-  <%= f.input :ig_doctype, :collection => Tipdoc.all(:order => :docname),
-		    :label_method => :docname, :value_method => :iddoc, :include_blank => true, 
-		    :label => 'Вид на жительство', :input_html => {class: "span6"}%>
-  
-  <%= f.input :ig_docser, :label => 'Серия'%>
-  
-  <%= f.input :ig_docnum, :label => 'Номер'%>
-  
-  <%= f.input :ig_docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 20,:end_year => Date.today.year,:order => [:day, :month, :year] %>
-  TODO
-  <%= f.input :ig_name_vp, :label => 'Кем выдан', :input_html => { class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()' } %>
-  
-  <%= f.input :ig_startdate,:label => 'с', :include_blank => true,:as => :date, :start_year => Date.today.year - 20,:end_year => Date.today.year,:order => [:day, :month, :year]%>
-  
-  <%= f.input :ig_enddate,:label => 'по', :include_blank => true,:as => :date, :start_year => Date.today.year,:end_year => Date.today.year + 40,:order => [:day, :month, :year] %>
-  -->
+ 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

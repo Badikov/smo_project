@@ -34,6 +34,6 @@ class Vizit < ActiveRecord::Base
     end
   end
   def rpolis_nil
-    self.rpolis = nil
+    self.rpolis = nil unless self.rsmo.nil?
   end
 end

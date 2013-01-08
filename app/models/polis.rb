@@ -31,31 +31,21 @@ class Polis < ActiveRecord::Base
       path = File.join(directory, name)
       ini_file = IniFile.load(path).to_h
       
+      flag = false
       ini_file.values.each do |line|
-        if line["series"] == self.spolis
-          if line["start"].upto(line["end"]).to_a.include?(self.npolis)
-            logger.debug { "серия - номер: true"  }
-            true
-          else
-            logger.debug { "серия - номер: false"  }
-            record.errors.add(:npolis, 'номер временного свидетельства введен не правильно.')
-            false
-          end
+        if line["start"].upto(line["end"]).to_a.include?(self.npolis) and line["series"] == self.spolis
+          flag = true
         end
       end
       
-      # _ser = ini_file["series"]
-      # _num = ini_file["numbers"]
-      # ser = _ser["start"].to_i .. _ser["end"].to_i
-      # num = _num["start"].to_i .. _num["end"].to_i
-      # 
-      # if num.include?(self.npolis.to_i)
-      #   logger.debug { "серия - номер: true"  }
-      #   true
-      # else
-      #   logger.debug { "серия - номер: false"  }
-      #   false
-      # end
+      if flag
+        logger.debug { "серия - номер: true"  }
+        true
+      else
+        logger.debug { "серия - номер: false"  }
+        self.errors.add(:npolis, 'номер временного свидетельства введен не правильно.')
+        false
+      end
   end
   
   def spolis_nil

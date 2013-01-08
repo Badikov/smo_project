@@ -18,10 +18,42 @@
     
   <%= f.input :dr, :label => 'Дата рождения', :include_blank => true, :as => :date, :start_year => Date.today.year - 90,:end_year => Date.today.year,:order => [:day, :month, :year] %>
     
+  <% directory = "public/numbers" %>
+  <% name = "numbers.ini" %>
+  <% path = File.join(directory, name) %>
+  <% ini_file = IniFile.load(path).to_h %>
   
+  <%= f.simple_fields_for :polis, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+
+    <div class="control-group radio_buttons required">
+      <label class="radio_buttons required control-label">
+        <abbr title="required">*</abbr>
+        Причина
+      </label>
+      <div class="controls">
+        <label class="radio radio inline">
+          <%= radio_button_tag "vizit[rpolis]",1,  :checked => true %>
+          изменение реквизитов
+        </label>
+        <label class="radio radio inline">
+          <%= radio_button_tag "vizit[rpolis]",2 %>
+          установление ошибочности сведений
+        </label>
+      </div>
+  </div>
+    
+  
+    <%= fpol.input :spolis, :collection => ini_file.values.collect{|x| x["series"]}, :label => 'Серия временного свидетельства',:input_html => { :class => "span2" } %>
+    
+    <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { :class => "span2" } %>
+    
+    <%= fpol.input :dstop, :as => :hidden %>
+  
+  <% end %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary', :id => '' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 home_path, :class => 'btn' %>
   </div>
   <% end %>
+  

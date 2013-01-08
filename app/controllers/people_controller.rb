@@ -1,5 +1,7 @@
 # encoding: utf-8
 class PeopleController < ApplicationController
+  
+  before_filter :require_user
   # GET /people
   # GET /people.json
   def index
@@ -60,6 +62,7 @@ class PeopleController < ApplicationController
         
       
       if @person.save!
+        # @person.op.update_attributes({id: @person.id})
         redirect_to  new_vizit_person_url(@person.id), notice: @person.fam + ' ' + @person.im + ' ' + @person.ot + ' добавлен(а) в базу.'
       else
         render :new
@@ -106,7 +109,7 @@ class PeopleController < ApplicationController
     @person =Person.find_by_id(params[:id])
     # @person.id = params[:id]
     
-    render :partial => "newfam", :layout => false
+    render :layout => false
   end
   # POST /people/newfam
   def new_fam
@@ -115,27 +118,37 @@ class PeopleController < ApplicationController
     old_person_hash = old_person_hash.delete_if {|key, value| key.start_with?('s','c','u','dd','e','t','p','fi','id')}
     old_person_hash.merge!({old_enp: old_person.vizit.insurance.enp, person_id: old_person.id})
     
-    @person = Person.new(params[:person])
-    if @person.valid?
+    @person = Person.new(params[:person].except(:polis))
+    @polis = Polis.new(params[:person][:polis])
+    if @person.valid? and @polis.valid?
       @old_person = OldPerson.find_by_person_id(params[:person][:id])
       logger.debug @old_person
       @old_person.destroy if @old_person
       @old_person = OldPerson.new(old_person_hash)
       
       op = Op.find_by_person_id(old_person.id)
-      if old_person.update_attributes(params[:person]) and @old_person.save! and op.update_attributes({tip_op: "П061"})
+      if old_person.update_attributes(params[:person].except(:polis)) and @old_person.save! and op.update_attributes({tip_op: "П061"})
+        @vizit = Vizit.find_by_person_id(old_person.id)
+        @vizit.destroy
         
+        @vizit = old_person.build_vizit({method: old_person.representative.nil? ? "1" : "2" , petition: "0", fpolis: 1, rpolis: params[:vizit][:rpolis]})
+        @vizit.build_insurance({erp: 1})
+        @vizit.insurance.build_polis(params[:person][:polis])
+        @vizit.insurance.polis.dstop = old_person.doc.ig_enddate
+        @vizit.save!
+        
+        redirect_to old_person, notice: 'Новые данные успешно сохранены.'
       else
         flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
-        render :new
+        render :newfam
       end
-      # render json: op
+      # 
     else
       flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
       render :newfam
     end
     # OldPerson
-    
+    # render json: @person
   end
   
   def checking

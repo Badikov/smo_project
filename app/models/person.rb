@@ -12,7 +12,7 @@ class Person < ActiveRecord::Base
   has_many :ats
   has_one :representative, :dependent => :destroy
     
-  attr_accessible :c_oksm, :contact, :ddeath, :dr, 
+  attr_accessible :c_oksm, :contact, :ddeath, :dr, :id,
   :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w,:status, 
 	:representative, :doc, :addres_g, :addres_p,
   :doc_attributes, :addres_g_attributes, :addres_p_attributes, :representative_attributes,

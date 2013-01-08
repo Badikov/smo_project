@@ -1,17 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-#   check_authorization # проверка авторизации и доступа на всех экшенах всех контроллеров
+   # check_authorization  # проверка авторизации и доступа на всех экшенах всех контроллеров
 
   helper_method :current_user_session, :current_user
 #   before_filter :set_current_user
   
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied."
-    redirect_to home_path
+    redirect_to root_url, :alert => exception.message
   end
 
   private
+  
+  
+  
     def current_user_session
       
       return @current_user_session if defined?(@current_user_session)
@@ -28,7 +30,7 @@ class ApplicationController < ActionController::Base
       unless current_user
         store_location
         flash[:notice] = "You must be logged in to access this page"
-        redirect_to new_user_session_url
+        redirect_to login_url
         return false
       end
     end

@@ -99,6 +99,7 @@ jQuery ->
       success: (data) ->
         $("div.person-block").remove()
         $("div.page-body").append data
+        doc_style_()
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     return false
 

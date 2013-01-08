@@ -45,7 +45,7 @@
             <strong>Застрахованное лицо</strong>
           </a>
       </div>
-      <div id="collapseOne" class="accordion-body collapse in">
+      <div id="collapseOne" class="accordion-body collapse">
         <div class="accordion-inner">
           <dl class="dl-horizontal">
             <dt>ФИО</dt><dd><%= @person.fam %> <%= @person.im %> <%= @person.ot %></dd>
@@ -63,6 +63,26 @@
       </div>
     </div>
 
+    <% if @person.old_person %>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOnePlus">
+              <strong>Преждние сведения о застрахованном лице</strong>
+            </a>
+        </div>
+        <div id="collapseOnePlus" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <dl class="dl-horizontal">
+              <dt>ФИО</dt><dd><%= @person.old_person.fam %> <%= @person.old_person.im %> <%= @person.old_person.ot %></dd>
+              <dt>пол</dt><dd><%= @person.old_person.w == 1 ? "мужской" : "женский"  %></dd>
+              <dt>дата рожд.</dt><dd><%= @person.old_person.dr.strftime('%d.%m.%Y') %></dd>
+              <dt>преждний ЕНП</dt><dd><%= @person.old_person.old_enp %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
     <% if @person.representative %>
     <%  parent_name = @person.representative.fam + " " + @person.representative.im + " " + @person.representative.ot  %>
     <%  @person.representative %>
@@ -74,7 +94,7 @@
               <strong>Сведения о представителе</strong>
             </a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse in">
+        <div id="collapseTwo" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
               <dt>ФИО</dt><dd><%= parent_name  %></dd>
@@ -112,19 +132,19 @@
     </div> 
 
     <% if @person.c_oksm != 'RUS'  %>
-      <% doc_type = Tipdoc.find_by_id(@person.doc.ig_doctype).docname  %>
+      <% doc_type = Tipdoc.find_by_id().docname  %>
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-              <strong>Вид на жительство в Российской Федерации</strong>
+              <strong>Разрешение на проживание в Российской Федерации</strong>
             </a>
         </div>
         <div id="collapseFour" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
               
-              <dt>Документ</dt><dd><%= UnicodeUtils.upcase(doc_type) if !doc_type.nil? %></dd>
-              <dt>Серия</dt><dd><%= @person.doc.ig_docser %></dd>
+              <dt>Документ</dt><dd><%= UnicodeUtils.upcase(@person.doc.ig_doctype) unless @person.doc.ig_doctype.nil? %></dd>
+              <dt>Серия</dt><dd><%= @person.doc.ig_docser || "-" %></dd>
               <dt>Номер</dt><dd><%= @person.doc.ig_docnum %></dd>
               <dt>Дата выдачи</dt><dd><%= @person.doc.ig_docdate %></dd>
               <dt>Кем выдан</dt><dd><%= @person.doc.ig_name_vp %></dd>

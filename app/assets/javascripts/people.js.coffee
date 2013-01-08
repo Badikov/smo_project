@@ -90,16 +90,14 @@ jQuery ->
           $(@).removeAttr 'selected'
           $("#person_doc_doctype option[value=14]").attr selected: "selected"
 
+
   $('#person_addres_p_npname, #person_addres_g_npname').autocomplete
      source:(request,response) ->
       $.ajax 
        url: '/okatos', 
        dataType: "json", 
        data: 
-         maxRows: 12,
-         term: request.term.toUpperCase(), 
-         featureClass: "P", 
-         style: "full", 
+         term: request.term.toUpperCase() 
        success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
      minLength: 2,
      open: -> $(@).removeClass("ui-corner-all").addClass("ui-corner-top"), 
