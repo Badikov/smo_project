@@ -53,7 +53,7 @@ class PeopleController < ApplicationController
     
     if @person.valid?
        # op_attributes[:user_id] = current_user.id
-      @person.build_op( :user_id => 1, :active => 0 )
+      @person.build_op( :user_id => current_user.id, :active => 0 )
       
       @person.representative.mark_for_destruction  if @person.representative.fam.blank?
       @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
