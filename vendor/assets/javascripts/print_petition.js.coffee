@@ -11,6 +11,16 @@ jQuery ->
 	$("table#pp_fpolis td.selected").each ->
 		if @id is fpolis
 			$(@).text "✔"
+	rpolis = $("table#pd_rpolis").attr 'myvalue'
+	$("table#pd_rpolis td.selected").each ->
+		if @id is rpolis
+			$(@).text "✔"
+	rpolis_ = $("table#pd_rpolis1").attr 'myvalue'
+	if rpolis_ is "3" or rpolis_ is "4"
+	  $("table#pd_rpolis1 td#2").text "✔"
+	else
+	  if rpolis_ is "1" or rpolis_ is "2" or rpolis_ is "5"
+	  	$("table#pd_rpolis1 td#1").text "✔"
 	status = $("table#pp_status").attr 'myvalue'
 	$("table#pp_status td.selected").each ->
 		if @id is status
@@ -41,18 +51,18 @@ jQuery ->
 		$("table#pp_representative_parent td.enp").each ->
 			if @id is representative_parent
 				$(@).text "✔"
-	$.ajax
-	  type: "POST"
-	  dataType: 'text/html'
-	  crossDomain: true
-	  contentType: 'application/x-www-form-urlencoded; charset=windows-1251'
-	  url: "http://www.delphikingdom.com/padeg_online.asp"
-	  data: $.param(fioFName:im, fioLName:fam, fioMName:ot, nPadeg:2, send:on, Gender:2, Submit: "Проверить")
-	  xhrFields: withCredentials: true
-	  success: (data, textStatus, jqXHR) ->
-		alert "ok"
-	  error: (jqXHR, textStatus, errorThrown) ->
-	  	alert "error"
+	#$.ajax
+	 # type: "POST"
+	  #dataType: 'text/html'
+	#  crossDomain: true
+	#  contentType: 'application/x-www-form-urlencoded; charset=windows-1251'
+	#  url: "http://www.delphikingdom.com/padeg_online.asp"
+	#  data: $.param(fioFName:im, fioLName:fam, fioMName:ot, nPadeg:2, send:on, Gender:2, Submit: "Проверить")
+	#  xhrFields: withCredentials: true
+	#  success: (data, textStatus, jqXHR) ->
+	#	alert "ok"
+	#  error: (jqXHR, textStatus, errorThrown) ->
+	#  	alert "error"
 	
 
 	#//utf8 to 1251 converter (1 byte format, RU/EN support only + any other symbols) by drgluck

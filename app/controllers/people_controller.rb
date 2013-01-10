@@ -107,36 +107,57 @@ class PeopleController < ApplicationController
   #GET  /people/newfam?id=
   def newfam
     @person =Person.find_by_id(params[:id])
-    # @person.id = params[:id]
-    
+    @polis = Polis.new
     render :layout => false
   end
+  
   # POST /people/newfam
   def new_fam
     old_person = Person.find_by_id(params[:person][:id])
     old_person_hash = old_person.as_json
-    old_person_hash = old_person_hash.delete_if {|key, value| key.start_with?('s','c','u','dd','e','t','p','fi','id')}
-    old_person_hash.merge!({old_enp: old_person.vizit.insurance.enp, person_id: old_person.id})
+    
+    old_person_hash.delete_if {|key, value| key.start_with?('s','c','u','dd','e','t','p','fi','id')}
+    old_person_hash.merge!({old_enp: old_person.vizit.insurance.enp})
+    
+    logger.debug old_person_hash
     
     @person = Person.new(params[:person].except(:polis))
-    @polis = Polis.new(params[:person][:polis])
+    @polis = Polis.new(params[:polis])
     if @person.valid? and @polis.valid?
+      # polis_hash = Hash.new
+      # polis_hash = params[:person][:polis]
+      # params[:person].delete_if {|key, value| key == :polis}
+      
+      # logger.debug polis_hash
+      
       @old_person = OldPerson.find_by_person_id(params[:person][:id])
-      logger.debug @old_person
       @old_person.destroy if @old_person
-      @old_person = OldPerson.new(old_person_hash)
+      old_person.create_old_person(old_person_hash)
+      # @old_person = OldPerson.create(old_person_hash)
+      
+      if params[:vizit][:rpolis] == '1'
+        old_doc = Doc.find_by_person_id(params[:person][:id])
+        old_doc_hash = old_doc.as_json
+        old_doc_hash = old_doc_hash.delete_if {|key, value| key.start_with?('i','c','u')}
+        @old_doc = OldDoc.where(:person_id => params[:person][:id]).first
+        @old_doc.destroy if @old_doc
+      
+        @old_doc = OldDoc.create(old_doc_hash)
+      else
+        params[:person].delete_if {|key, value| key == "doc"}
+      end
       
       op = Op.find_by_person_id(old_person.id)
-      if old_person.update_attributes(params[:person].except(:polis)) and @old_person.save! and op.update_attributes({tip_op: "П061"})
-        @vizit = Vizit.find_by_person_id(old_person.id)
-        @vizit.destroy
-        
-        @vizit = old_person.build_vizit({method: old_person.representative.nil? ? "1" : "2" , petition: "0", fpolis: 1, rpolis: params[:vizit][:rpolis]})
-        @vizit.build_insurance({erp: 1})
-        @vizit.insurance.build_polis(params[:person][:polis])
-        @vizit.insurance.polis.dstop = old_person.doc.ig_enddate
-        @vizit.save!
-        
+      if old_person.update_attributes(params[:person]) and op.update_attributes({tip_op: "П061"})
+        # @vizit = Vizit.find_by_person_id(old_person.id)
+        # @vizit.destroy
+        # 
+        # @vizit = old_person.build_vizit({method: old_person.representative.nil? ? "1" : "2" , petition: "0", fpolis: 1, rpolis: params[:vizit][:rpolis]})
+        # @vizit.build_insurance({erp: 1})
+        # @vizit.insurance.build_polis(params[:person][:polis])
+        # @vizit.insurance.polis.dstop = old_person.doc.ig_enddate
+        # @vizit.save(:validate => false)
+        # render json: params[:person]
         redirect_to old_person, notice: 'Новые данные успешно сохранены.'
       else
         flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."

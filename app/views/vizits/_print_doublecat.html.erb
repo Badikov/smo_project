@@ -23,25 +23,25 @@
   <h3>ЗАЯВЛЕНИЕ</h3>
   <h3>о выдаче дубликата полиса или переоформлении полиса<sup>1</sup></h3>
   <p class="start_abzats">Прошу выдать мне (гражданину, представителем которого я являюсь) (нужное подчеркнуть) в соответствии с Федеральным законом «Об обязательном медицинском страховании в Российской Федерации» (нужное отметить знаком «✔»):</p>
-  <table class="single_column"  myvalue=<%= @person %> id="">
+  <table class="single_column"  myvalue=<%= @person.vizit.rpolis  %> id="pd_rpolis1">
     <tr><td class="selected" id="1"></td><td class="context">1) переоформленный полис обязательного медицинского страхования;</td></tr>
     <tr><td class="selected" id="2"></td><td class="context">2) дубликат полиса обязательного медицинского страхования.</td></tr>
   </table>
-  <table class="single_column"  myvalue=<%= @person %> id="">
+  <table class="single_column"  myvalue=<%= @person.vizit.fpolis %> id="pp_fpolis">
     <tr><td class="selected" id="1"></td><td class="context">1) в форме бумажного бланка;</td></tr>
     <tr><td class="selected" id="2"></td><td class="context">2) в форме пластиковой карты с электронным носителем;</td></tr>
     <tr><td class="selected" id="3"></td><td class="context">3) в составе универсальной электронной карты гражданина.</td></tr>
   </table>
   <p class="start_abzats">в связи с (нужное отметить знаком «✔»):</p>
-  <table class="single_column"  myvalue=<%= @person %> id="">
-    <tr><td class="selected" id=""></td><td class="context">изменением фамилии, имени, отчества (при наличии), пола, даты или места рождения, места жительства;</td></tr>
-    <tr><td class="selected" id=""></td><td class="context">установлением неточности или ошибочности сведений, содержащихся в полисе;</td></tr>
-    <tr><td class="selected" id=""></td><td class="context">ветхостью и непригодностью полиса;</td></tr>
-    <tr><td class="selected" id=""></td><td class="context">утратой ранее выданного полиса;</td></tr>
-    <tr><td class="selected" id=""></td><td class="context">окончанием срока действия полиса<sup>1</sup>.</td></tr>
+  <table class="single_column"  myvalue=<%= @person.vizit.rpolis %> id="pd_rpolis">
+    <tr><td class="selected" id="1"></td><td class="context">изменением фамилии, имени, отчества (при наличии), пола, даты или места рождения, места жительства;</td></tr>
+    <tr><td class="selected" id="2"></td><td class="context">установлением неточности или ошибочности сведений, содержащихся в полисе;</td></tr>
+    <tr><td class="selected" id="3"></td><td class="context">ветхостью и непригодностью полиса;</td></tr>
+    <tr><td class="selected" id="4"></td><td class="context">утратой ранее выданного полиса;</td></tr>
+    <tr><td class="selected" id="5"></td><td class="context">окончанием срока действия полиса<sup>2</sup>.</td></tr>
   </table>
   <h3>1. Сведения о застрахованном лице</h3>
-  <table class="single_row interval" myvalue=<%=  %> id="">
+  <table class="single_row interval" myvalue=<%= @person.old_person.nil? ? 0 : 1  %> id="pd_">
       <tr><td>1.1.</td><td class="enp"></td><td class="left-pad">Совпадают со сведениями в заявлении о выборе (замене) страховой медицинской организации<sup>3</sup></td></tr>
   </table>
   <div class="interval"><span>1.2.  Фамилия</span><span class="content"><%= @person.fam  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность<sup>4</sup>)</div></div>
@@ -64,12 +64,14 @@
     <p class="start_abzats">Не являюсь высококвалифицированным специалистом и членом семьи высококвалифицированного специалиста в соответствии с Федеральным законом от 25 июля 2002 года №115-ФЗ «О правовом положении иностранных граждан в Российской Федерации» и не являюсь военнослужащим и приравненным к ним в организации оказания медицинской помощи лицом<sup>5</sup></p>
     <div class="signature"><div>(подпись застрахованного лица или его представителя)</div></div>
 
+    <% rp = "(расшифровка подписи)" %>
+
     <table class="single_row interval" myvalue=<%= @person.w %> id="pp_w">
       <tr><td class="context">1.6.  Пол:</td><td class="enp" id="1"></td><td class="context">муж.</td><td class="enp" id="2"></td><td>жен.   (нужное отметить знаком «✔»)</td></tr>
     </table>
     <div class="interval-small"><span>1.7.  Дата рождения (число, месяц, год)</span><span class="content"><%= @person.dr.strftime('%d.%m.%Y') %></span><div></div></div>
     <div class="interval"><span>1.8.  Место рождения</span><span class="content"><%= @person.doc.mr %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
-    <div class="interval"><span>1.9.  Вид документа, удостоверяющего личность</span><span class="content"><%= doc_name.docname %></span><div></div></div>
+    <div class="interval"><span>1.9.  Вид документа, удостоверяющего личность</span><span class="content"><%=  %></span><div></div></div>
     <div class="in-line-cont">
       <div class="interval floating"><span>1.10. Серия</span><span class="content"><%= @person.doc.docser %></span><div></div></div> 
       <div class="interval floating"><span>1.10. Номер</span><span class="content"><%= @person.doc.docnum %></span><div></div></div>
@@ -81,6 +83,8 @@
     <% contry = Oksm.find_by_alfa3(@person.c_oksm) %>
     <div class="interval more"><span>1.12. Гражданство</span><span class="content"><%= contry.name11.split("^")[0] %></span><div>(название государства; лицо без гражданства)</div></div>
     <div class="interval"><span>1.13. Адрес регистрации по месту жительства в Российской Федерации<sup>6</sup>: </span></div>
+
+
     <!-- Адрес по прописке -->
     <table class="single_row interval marcer-list" myvalue=<%= @person.addres_g.indx %> id="pp_addres_g_indx">
       <tr><td class="context">а) почтовый индекс</td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td></tr>
@@ -101,7 +105,10 @@
       <div class="interval small"><span>и) квартира </span><span class="content"><%= @person.addres_g.kv %></span><div></div></div>
     </div>
 
-    <div class="interval-small marcer-list"><span>к) дата регистрации по месту жительства</span><span class="content"><%= @person.addres_g.dreg.strftime('%d.%m.%Y') %></span><div></div></div>
+    <div class="interval-small marcer-list"><span>к) дата регистрации по месту жительства</span>
+      <span class="content"><%= @person.addres_g.dreg.strftime('%d.%m.%Y') if @person.addres_g.dreg  %></span>
+      <div></div>
+    </div>
     
     <table class="single_row interval" myvalue=<%= @person.addres_g.bomg %> id="pp_addres_g_bomg">
       <tr><td class="enp"></td><td class="left-pad">лицо без определенного места жительства<sup>7</sup></td></tr>

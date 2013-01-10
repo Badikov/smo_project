@@ -1,6 +1,6 @@
 
 <%= form_for @user_session, :as => :user_session, :url => { :action => "create" }, :html => {:class => 'form-signin'} do |f| %>
-<h2 class="form-signin-heading">Вход в программу</h2>
+<h3 class="form-signin-heading">Вход в программу</h3>
 
   <%= render "shared/error_messages", :target => @user_session %>
   

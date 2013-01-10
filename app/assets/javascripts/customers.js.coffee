@@ -103,6 +103,12 @@ jQuery ->
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     return false
 
+  $('input[name="vizit[rpolis]"]:radio').live "change", ->
+    if @value is "2"
+      $('div.control-group:gt(8)').not($('div.control-group:gt(14)')).hide("slow")
+    else
+      $('div.control-group:gt(8)').not($('div.control-group:gt(14)')).show("slow")
+
   clear_person_info = () ->
     $("div#customers_customer_info div.personale").remove()
   person_info = (data) ->

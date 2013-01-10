@@ -22,11 +22,14 @@ class Vizit < ActiveRecord::Base
   after_validation :dates_logic
   before_save :rpolis_nil #TODO -- только для новых застрахованных... отключить для клиентов
   
+  
+  
   def dates_logic
+    logger.debug { "привет из визита"  }
     self.method = "2" if self.method.nil? #nil если был представитель, на форме method disabled
     self.dvizit = DateTime.now if self.dvizit.nil? #дата визита - сейчас для всех кроме по ходатайству
     self.insurance.polis.dbeg = self.dvizit #дата начала действия документа страхования
-    if self.insurance.erp == 0 || (self.insurance.erp? and self.rpolis?)
+    if self.insurance.erp == 0 || (self.insurance.erp == 1 and self.rpolis?)
       self.insurance.polis.dend = self.insurance.polis.dbeg + 42.day
       self.insurance.polis.vpolis = 2
     else

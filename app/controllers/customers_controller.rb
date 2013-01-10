@@ -69,13 +69,13 @@ class CustomersController < ApplicationController
   
   def edit_polis
     # 060
-    @op = Op.find_by_person_id(params[:id])
-    @vizit = Vizit.find_by_person_id(params[:id])
-    @polis = @vizit.insurance.polis
-    
-    @polis.update_attributes({dbeg: DateTime.now, dend: nil, spolis: nil, vpolis: 3})
-    @op.update_attributes({tip_op: "П060"})
-    render json: status, :nothing => true
+    # @op = Op.find_by_person_id(params[:id])
+    # @vizit = Vizit.find_by_person_id(params[:id])
+    # @polis = @vizit.insurance.polis
+    # 
+    # @polis.update_attributes({dbeg: DateTime.now, dend: nil, spolis: nil, vpolis: 3})
+    # @op.update_attributes({tip_op: "П060"})
+    # render json: status, :nothing => true
   end
   # GET customers/build_doublecat_polis?id=
   def build_doublecat_polis
@@ -84,7 +84,23 @@ class CustomersController < ApplicationController
   end
   
   def save_doublecat_polis
-    
+    @vizit = Vizit.find_by_id(params[:vizit][:id])
+    @polis = Polis.new(params[:polis])
+    if @polis.valid?
+      params[:polis][:datepp]= nil
+      params[:vizit][:dvizit]= DateTime.now
+      params[:vizit][:rsmo]= nil
+      
+      if @vizit.update_attributes(params[:vizit]) and @vizit.insurance.polis.update_attributes(params[:polis]) and @vizit.person.op.update_attributes({tip_op: "П062"})
+        redirect_to @vizit.person, notice: 'Новые данные успешно сохранены.'
+      else
+        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
+        render :build_doublecat_polis
+      end
+    else
+      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
+      render :build_doublecat_polis
+    end
   end
   def edit
     @person = Person.find_by_id(params[:id])

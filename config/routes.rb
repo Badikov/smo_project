@@ -51,6 +51,7 @@ SmoProject::Application.routes.draw do
   match 'vizits/new/:id' => 'vizits#new', :as => :new_vizit_person
   match 'print_polis/:id' => 'vizits#print_polis', :as => 'print_polis'
   match 'vizits/print_petition/:id' => 'vizits#print_petition', :as => 'print_petition'
+  match 'vizits/print_doublecat/:id' => 'vizits#print_doublecat', :as => 'print_doublecat'
   match 'home' => 'home#index', :as => :home
   
   resources :users  # give us our some normal resource routes for users

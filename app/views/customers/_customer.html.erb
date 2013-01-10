@@ -243,7 +243,7 @@
         <div id="collapseEight" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              <dt>дата визита</dt><dd><%= vizit.dvizit || "-" %></dd>
+              <dt>дата визита</dt><dd><%= vizit.dvizit.strftime('%d.%m.%Y %H:%M') if vizit.dvizit  %></dd>
               <dt>способ визита</dt><dd><%= method(vizit.method) %></dd>
               <% if !vizit.rsmo.nil? %><dt>выбор СМО</dt><dd><%= vibor_smo(vizit.rsmo) %></dd><% end %>
               <% if vizit.petition == "1" %><dt>подано ходатайство</dt><dd>ДА</dd><% end %>
@@ -273,7 +273,7 @@
               <dt>плюс 42 дня</dt><dd><%= polis.dend.strftime('%d.%m.%Y') %></dd>
               <% elsif polis.vpolis == 3 %>
               <dt>номер бланка</dt><dd><%= polis.npolis %></dd>
-              <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
+              <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') if polis.dbeg %></dd>
               <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
               <% end %>
             </dl>

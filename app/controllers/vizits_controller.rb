@@ -37,7 +37,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_30.txt")
+    file = File.open("p_10.txt")
     i = 0
       file.each do |line|
 	
@@ -80,7 +80,7 @@ class VizitsController < ApplicationController
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp})
    
-            # @person.save
+             @person.save
 
 
 
@@ -187,5 +187,9 @@ class VizitsController < ApplicationController
     vizit = Vizit.find_by_id(params[:id])
     @person = vizit.person
     render :partial => "print_petition", :layout => false
+  end
+  def print_doublecat
+    @person = Person.find_by_id(params[:id])
+    render :partial => "print_doublecat", :layout => false
   end
 end

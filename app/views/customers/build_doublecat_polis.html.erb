@@ -11,7 +11,9 @@
 <% path = File.join(directory, name) %>
 <% ini_file = IniFile.load(path).to_h %>
 
-<%= simple_form_for :polis, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+<%= simple_form_for @polis, :url => build_doublecat_polis_customers_path, :method => :post,  :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+
+    <%= hidden_field_tag "vizit[id]", @vizit.id %>
 
     <div class="control-group radio_buttons required">
       <label class="radio_buttons required control-label">
@@ -35,7 +37,7 @@
     
     <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { :class => "span2" } %>
     
-    <%= fpol.input :dstop, :as => :hidden %>
+    
     
     <div class="form-actions">
     <%= fpol.button :submit, :class => 'btn-primary' %>

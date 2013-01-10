@@ -2,7 +2,7 @@
 class Polis < ActiveRecord::Base
   belongs_to :insurance
   
-  attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp
+  attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp, :insurance_id
     
   validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
   validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
@@ -18,13 +18,21 @@ class Polis < ActiveRecord::Base
   
   before_validation :check_numbers, :if => :before_check_numbers?
   before_save :spolis_nil
+  before_update :data_logic 
   
   private
+    
   def before_check_numbers?
     if self.new_record? and !self.spolis.blank?
       true
     end
   end
+  
+  def data_logic
+    
+    logger.debug { "привет из апдейта"  }
+  end
+  
   def check_numbers
       directory = "public/numbers"
       name = "numbers.ini"
