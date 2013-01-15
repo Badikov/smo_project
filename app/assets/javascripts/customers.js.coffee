@@ -120,7 +120,7 @@ jQuery ->
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
 
   #-- подгружает формы на странице http://localhost:3000/customers/{id}/edit
-  $("#customers_edit_doc, #customers_edit_person").click ->
+  $("#customers_edit_doc, #customers_edit_person, #customers_edit_addres_g").click ->
     $.ajax
       type: "GET"
       dataType: "html"

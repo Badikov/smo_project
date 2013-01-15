@@ -168,14 +168,12 @@ class VizitsController < ApplicationController
   
   
   def print_polis
-    vizit = Vizit.find_by_id(params[:id])
-    @person = vizit.person
+    @person = Person.find_by_id(params[:id])
     render :partial => "print_polis", :layout => false
   end
   def print_petition
     #TODO: http://www.delphikingdom.com/padeg_online.asp  --- сервис перевода фамилий в родительный падеж
-    vizit = Vizit.find_by_id(params[:id])
-    @person = vizit.person
+    @person = Person.find_by_id(params[:id])
     render :partial => "print_petition", :layout => false
   end
   def print_doublecat

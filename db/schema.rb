@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226181155) do
+ActiveRecord::Schema.define(:version => 20130115205809) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -174,19 +174,21 @@ ActiveRecord::Schema.define(:version => 20121226181155) do
 
   add_index "old_people", ["person_id"], :name => "index_old_people_on_person_id"
 
-  create_table "ops", :id => false, :force => true do |t|
-    t.integer  "id"
-    t.string   "tip_op"
-    t.integer  "user_id"
-    t.integer  "person_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "ops", :force => true do |t|
+    t.string   "tip_op",     :limit => 4
+    t.boolean  "active",                  :default => false, :null => false
     t.date     "date_uvoln"
-    t.boolean  "active"
+    t.integer  "person_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   add_index "ops", ["active"], :name => "index_ops_on_active"
+  add_index "ops", ["created_at"], :name => "index_ops_on_created_at"
   add_index "ops", ["person_id"], :name => "index_ops_on_person_id"
+  add_index "ops", ["updated_at"], :name => "index_ops_on_updated_at"
+  add_index "ops", ["user_id", "person_id"], :name => "index_ops_on_user_id_and_person_id", :unique => true
   add_index "ops", ["user_id"], :name => "index_ops_on_user_id"
 
   create_table "people", :force => true do |t|

@@ -9,7 +9,7 @@ class Op < ActiveRecord::Base
   scope :new_today_active, -> { new_today.where("active= ?", true) }
  
   
-  self.primary_key = "person_id"#"id" #
+  # self.primary_key = "person_id"#"id" #
   
   before_update :save_id_for_terfond
   

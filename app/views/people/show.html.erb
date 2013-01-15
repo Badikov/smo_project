@@ -19,11 +19,11 @@
     </div>
 </div>
 
-  <% if @person.vizit.insurance.erp == 0 || (@person.vizit.insurance.erp? and @person.vizit.rpolis?) %>  
+  <% if @person.vizit.insurance.polis.vpolis == 2 %>  
     <p>
-      <%= link_to "Печать временного свидетельства", print_polis_url, :id => @person.vizit.id, target: "_blank"  %>
+      <%= link_to "Печать временного свидетельства", print_polis_url, :id => @person, target: "_blank"  %>
     </p>
   <% end -%>
     <p>
-      <%= link_to "Печать заявления о выдаче дубликата полиса или переоформлении полиса", print_doublecat_url, :id => @person.id, target: "_blank"  %>
+      <%= link_to "Печать заявления о выдаче дубликата полиса или переоформлении полиса", print_doublecat_url, :id => @person, target: "_blank"  %>
     </p>

@@ -9,7 +9,7 @@
     
       <%= f.input :okato, :class => 'text_field' %>
     
-      <%= f.input :rnname, :label => 'Район' %>
+      <%= f.input :rnname, :label => 'Район', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
     
       <%= f.input :npname, :label => 'Населенный пункт' %>
    

@@ -1,4 +1,4 @@
-<%= form.simple_fields_for @person.addres_g, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @addres_g, :validate => true, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
   
        <%= f.input :bomg, :validate => false,  :label => 'БОМЖ', :as => :boolean %>
     
@@ -24,4 +24,10 @@
     
       <%= f.input :dreg, :label => 'Дата регистрации', :include_blank => true, :as => :date, :start_year => Date.today.year - 40,:end_year => Date.today.year,:order => [:day, :month, :year] %>
     
+      <%= f.input :person_id, :as => :hidden %>
+      
+      <div class="form-actions">
+        <%= f.button :submit, :class => 'btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), home_path, :class => 'btn' %>
+      </div>
 <% end %>

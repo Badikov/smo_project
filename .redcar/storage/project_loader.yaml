@@ -8,4 +8,3 @@ open_files:
   - app/models/op.rb
   - app/controllers/people_controller.rb
   - app/models/person.rb
-  - app/controllers/docs_controller.rb

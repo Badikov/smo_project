@@ -52,10 +52,14 @@
             <dt>пол</dt><dd><%= @person.w == 1 ? "мужской" : "женский"  %></dd>
             <dt>дата рожд.</dt><dd><%= @person.dr.strftime('%d.%m.%Y') %></dd>
             <dt>гражданство</dt><dd><%= @person.c_oksm %></dd>
-            <dt>СНИЛС</dt><dd><%= @person.ss || " - " %></dd>
-            <dt>телефон</dt><dd><%= @person.phone.blank? ? "-" : @person.phone %></dd>
-            <dt>email</dt><dd><%= @person.email.blank? ? "-" : @person.email %></dd>
-            <% if !@person.ddeath.blank? %>
+            <dt>СНИЛС</dt><dd><%= @person.ss.blank? ? "-" : @person.ss %></dd>
+            <% unless @person.phone.blank? %>
+              <dt>телефон</dt><dd><%= @person.phone %></dd>
+            <% end %>
+            <% unless @person.email.blank? %>
+              <dt>email</dt><dd><%= @person.email %></dd>
+            <% end %>
+            <% unless @person.ddeath.blank? %>
               <dt>дата смерти</dt><dd class="text-error"><%= @person.ddeath.strftime('%d.%m.%Y') %></dd>
             <% end %>
           </dl>
@@ -102,8 +106,8 @@
               <dt>Вид документа</dt><dd><%= UnicodeUtils.upcase(doc_parent) %></dd>
               <dt>Серия</dt><dd><%= @person.representative.docser || "-" %></dd>
               <dt>Номер</dt><dd><%= @person.representative.docnum || "-" %></dd>
-              <dt>Дата выдачи</dt><dd><%= @person.representative.docdate.strftime('%d.%m.%Y') || "-" %></dd>
-              <dt>Контактный телефон</dt><dd>@person.representative.phone</dd>
+              <dt>Дата выдачи</dt><dd><%= @person.representative.docdate.strftime('%d.%m.%Y') || "-" if @person.representative %></dd>
+              <dt>Контактный телефон</dt><dd><%= @person.representative.phone  %></dd>
             </dl>
           </div>
         </div>
@@ -132,7 +136,7 @@
     </div> 
 
     <% if @person.c_oksm != 'RUS'  %>
-      <% doc_type = Tipdoc.find_by_id().docname  %>
+      
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
@@ -192,16 +196,16 @@
           <div id="collapseSix" class="accordion-body collapse">
             <div class="accordion-inner">
               <dl class="dl-horizontal">
-                <% if !@person.addres_g.bomg.blank? && @person.addres_g.bomg == 1 %><dt>-</dt><dd><%= "БОМЖ" %></dd><% end %>
-                <% if !@person.addres_g.indx.blank? %><dt>Индекс</dt><dd><%= @person.addres_g.indx %></dd><% end %>
-                <% if !subj.nil? %><dt>Субъект РФ</dt><dd><%= subj.subname  %></dd><% end %>
-                <% if !@person.addres_g.rnname.blank? %><dt>Район</dt><dd><%= @person.addres_g.rnname %></dd><% end %>
-                <% if !@person.addres_g.npname.blank? %><dt>Населенный пункт</dt><dd><%= @person.addres_g.npname %></dd><% end %>
-                <% if !@person.addres_g.ul.blank? %><dt>Улица</dt><dd><%= @person.addres_g.ul %></dd><% end %>
-                <% if !@person.addres_g.dom.blank? %><dt>Дом</dt><dd><%= @person.addres_g.dom %></dd><% end %>
-                <% if !@person.addres_g.korp.blank? %><dt>Корпус</dt><dd><%= @person.addres_g.korp %></dd><% end %>
-                <% if !@person.addres_g.kv.blank? %><dt>Квартира</dt><dd><%= @person.addres_g.kv %></dd><% end %>
-                <% if !@person.addres_g.dreg.blank? %><dt>Дата регистрации</dt><dd><%= @person.addres_g.dreg %></dd><% end %>
+                <% unless @person.addres_g.bomg.blank? && @person.addres_g.bomg == 1 %><dt>-</dt><dd><%= "БОМЖ" %></dd><% end %>
+                <% unless @person.addres_g.indx.blank? %><dt>Индекс</dt><dd><%= @person.addres_g.indx %></dd><% end %>
+                <% unless subj.nil? %><dt>Субъект РФ</dt><dd><%= subj.subname  %></dd><% end %>
+                <% unless @person.addres_g.rnname.blank? %><dt>Район</dt><dd><%= @person.addres_g.rnname %></dd><% end %>
+                <% unless @person.addres_g.npname.blank? %><dt>Населенный пункт</dt><dd><%= @person.addres_g.npname %></dd><% end %>
+                <% unless @person.addres_g.ul.blank? %><dt>Улица</dt><dd><%= @person.addres_g.ul %></dd><% end %>
+                <% unless @person.addres_g.dom.blank? %><dt>Дом</dt><dd><%= @person.addres_g.dom %></dd><% end %>
+                <% unless @person.addres_g.korp.blank? %><dt>Корпус</dt><dd><%= @person.addres_g.korp %></dd><% end %>
+                <% unless @person.addres_g.kv.blank? %><dt>Квартира</dt><dd><%= @person.addres_g.kv %></dd><% end %>
+                <% unless @person.addres_g.dreg.blank? %><dt>Дата регистрации</dt><dd><%= @person.addres_g.dreg %></dd><% end %>
               </dl>
             </div>
           </div>
@@ -219,21 +223,21 @@
         <div id="collapseSeven" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              <% if !@person.addres_p.indx.blank? %><dt>Индекс</dt><dd><%= @person.addres_p.indx %></dd><% end %>
-              <% if !subj_p.nil? %><dt>Субъект РФ</dt><dd><%= subj_p.subname  %></dd><% end %>
-              <% if !@person.addres_p.rnname.blank? %><dt>Район</dt><dd><%= @person.addres_p.rnname %></dd><% end %>
-              <% if !@person.addres_p.npname.blank? %><dt>Населенный пункт</dt><dd><%= @person.addres_p.npname %></dd><% end %>
-              <% if !@person.addres_p.ul.blank? %><dt>Улица</dt><dd><%= @person.addres_p.ul %></dd><% end %>
-              <% if !@person.addres_p.dom.blank? %><dt>Дом</dt><dd><%= @person.addres_p.dom %></dd><% end %>
-              <% if !@person.addres_p.korp.blank? %><dt>Корпус</dt><dd><%= @person.addres_p.korp %></dd><% end %>
-              <% if !@person.addres_p.kv.blank? %><dt>Квартира</dt><dd><%= @person.addres_p.kv %></dd><% end %>
+              <% unless @person.addres_p.indx.blank? %><dt>Индекс</dt><dd><%= @person.addres_p.indx %></dd><% end %>
+              <% unless subj_p.nil? %><dt>Субъект РФ</dt><dd><%= subj_p.subname  %></dd><% end %>
+              <% unless @person.addres_p.rnname.blank? %><dt>Район</dt><dd><%= @person.addres_p.rnname %></dd><% end %>
+              <% unless @person.addres_p.npname.blank? %><dt>Населенный пункт</dt><dd><%= @person.addres_p.npname %></dd><% end %>
+              <% unless @person.addres_p.ul.blank? %><dt>Улица</dt><dd><%= @person.addres_p.ul %></dd><% end %>
+              <% unless @person.addres_p.dom.blank? %><dt>Дом</dt><dd><%= @person.addres_p.dom %></dd><% end %>
+              <% unless @person.addres_p.korp.blank? %><dt>Корпус</dt><dd><%= @person.addres_p.korp %></dd><% end %>
+              <% unless @person.addres_p.kv.blank? %><dt>Квартира</dt><dd><%= @person.addres_p.kv %></dd><% end %>
             </dl>
           </div>
         </div>
       </div>
     <% end %>
 
-    <% if !vizit.nil? %>
+    <% unless vizit.nil? %>
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
@@ -267,14 +271,14 @@
             <dl class="dl-horizontal">
               <dt>номер полиса</dt><dd><%= insurance.enp || "-" %></dd>
               <% if polis.vpolis == 2 %>
-              <dt>серия временного</dt><dd><%= polis.spolis %></dd>
-              <dt>номер временного</dt><dd><%= polis.npolis %></dd>
-              <dt>дата начала</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
-              <dt>плюс 42 дня</dt><dd><%= polis.dend.strftime('%d.%m.%Y') %></dd>
+                <dt>серия временного</dt><dd><%= polis.spolis %></dd>
+                <dt>номер временного</dt><dd><%= polis.npolis %></dd>
+                <dt>дата начала</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
+                <dt>плюс 42 дня</dt><dd><%= polis.dend.strftime('%d.%m.%Y') %></dd>
               <% elsif polis.vpolis == 3 %>
-              <dt>номер бланка</dt><dd><%= polis.npolis %></dd>
-              <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') if polis.dbeg %></dd>
-              <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
+                <dt>номер бланка</dt><dd><%= polis.npolis %></dd>
+                <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') if polis.dbeg %></dd>
+                <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
               <% end %>
             </dl>
           </div>
@@ -310,17 +314,16 @@
 <% end %>  
 </div>
 <div class="person-block personale">
-  <a href="#edit_polisModal" role="button" class="btn" data-toggle="modal">Выдача на руки полиса<br/>после временного свидетельства П060</a>
-  
-    
-  <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
-  :id => "customers_search_edit",:class => "btn", :role => "button"
-  %>
+  <% if polis.vpolis == 3 and polis.dbeg.blank? %>
+    <a href="#edit_polisModal" role="button" class="btn" data-toggle="modal">Выдача на руки полиса<br/>после временного свидетельства П060</a>
 
-  <%= link_to t("Оформление дубликата полиса <br> застрахованного лица П062"), { :action => "build_doublecat_polis", :id => @person } ,
-  :id => "customers_search_build_doublecat_polis",:class => "btn", :role => "button"
-  %>
+  <% elsif polis.vpolis == 3 and polis.dbeg %>
   
+    <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
+    :id => "customers_search_edit",:class => "btn", :role => "button" %>
+    <%= link_to t("Оформление дубликата полиса <br> застрахованного лица П062"), { :action => "build_doublecat_polis", :id => @person } ,
+    :id => "customers_search_build_doublecat_polis",:class => "btn", :role => "button" %>
+  <% end %> 
 </div>
 
 

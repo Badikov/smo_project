@@ -35,6 +35,10 @@ jQuery ->
 	$("table#pp_w td.enp").each ->
 		if @id is w
 			$(@).text "✔"
+	w_old = $("table#pp_w_old").attr 'myvalue'
+	$("table#pp_w_old td.enp").each ->
+		if @id is w_old
+			$(@).text "✔"
 	addres_g_indx = $("table#pp_addres_g_indx").attr 'myvalue'
 	if addres_g_indx isnt undefined
 		$("table#pp_addres_g_indx td.enp").each (i)->
@@ -51,6 +55,18 @@ jQuery ->
 		$("table#pp_representative_parent td.enp").each ->
 			if @id is representative_parent
 				$(@).text "✔"
+	rnname = $("span#pp_rnname").attr 'myval'
+	if rnname is ""
+		$("span#pp_npname").text ''
+	else
+		$("span#pp_city").text ''
+	rnname_p = $("span#pp_p_rnname").attr 'myval'
+	if rnname_p is ""
+		$("span#pp_p_npname").text ''
+	else
+		$("span#pp_p_city").text ''
+
+
 	#$.ajax
 	 # type: "POST"
 	  #dataType: 'text/html'

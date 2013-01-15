@@ -98,12 +98,18 @@
     <% subj = Subekti.find_by_kod_okato(@person.addres_g.subj)  %>
     <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= subj.subname  %></span><div>(республика, край, область, округ)</div></div> 
 
+
+
+<!-- Обработка района, города, населенного пункта в JavaScript -->
     <div class="in-line-cont marcer-list">
-      <div class="interval floating"><span>в) район </span><span class="content"><%= @person.addres_g.rnname %></span><div></div></div> 
-      <div class="interval floating"><span>г) город </span><span class="content"><%= @person.addres_g.npname %></span><div></div></div>
+      <div class="interval floating"><span>в) район </span><span class="content" id="pp_rnname" myval=<%= @person.addres_g.rnname %>><%= @person.addres_g.rnname %></span><div></div></div> 
+      <div class="interval floating"><span>г) город </span><span id="pp_city" class="content"><%= @person.addres_g.npname %></span><div></div></div>
     </div>
-    <div class="interval marcer-list"><span>д) населенный пункт (село, поселок и т.п.)</span><span class="content"><%= %></span></div>
+    <div class="interval marcer-list"><span>д) населенный пункт (село, поселок и т.п.)</span><span id="pp_npname" class="content"><%= @person.addres_g.npname %></span></div>
     <div class="interval marcer-list"><span>е) улица (проспект, переулок и т.п.)</span><span class="content"><%= @person.addres_g.ul %></span><div></div></div>
+
+
+
 
     <div class="in-line-cont marcer-list">
       <div class="interval small"><span>ж) № дома (владения)</span><span class="content"><%= @person.addres_g.dom %></span><div></div></div> 
@@ -111,7 +117,7 @@
       <div class="interval small"><span>и) квартира </span><span class="content"><%= @person.addres_g.kv %></span><div></div></div>
     </div>
 
-    <div class="interval-small marcer-list"><span>к) дата регистрации по месту жительства</span><span class="content"><%= @person.addres_g.dreg.strftime('%d.%m.%Y') %></span><div></div></div>
+    <div class="interval-small marcer-list"><span>к) дата регистрации по месту жительства</span><span class="content"><%= @person.addres_g.dreg.strftime('%d.%m.%Y') if @person.addres_g.dreg %></span><div></div></div>
     
     <table class="single_row interval" myvalue=<%= @person.addres_g.bomg %> id="pp_addres_g_bomg">
       <tr><td class="enp"></td><td class="left-pad">лицо без определенного места жительства<sup>8</sup></td></tr>
@@ -126,12 +132,12 @@
     </table>
     <% subj_p = Subekti.find_by_kod_okato(@person.addres_p.subj) if @person.addres_p  %>
     <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= subj_p.subname if @person.addres_p  %></span><div>(республика, край, область, округ)</div></div> 
-
+<!-- Обработка района, города, населенного пункта в JavaScript -->
     <div class="in-line-cont marcer-list">
-      <div class="interval floating"><span>в) район </span><span class="content"><%= @person.addres_p.rnname if @person.addres_p %></span><div></div></div> 
-      <div class="interval floating"><span>г) город </span><span class="content"><%= @person.addres_p.npname if @person.addres_p %></span><div></div></div>
+      <div class="interval floating"><span>в) район </span><span id="pp_p_rnname" class="content" myval=<%= @person.addres_p.rnname if @person.addres_p %> ><%= @person.addres_p.rnname if @person.addres_p %></span><div></div></div> 
+      <div class="interval floating"><span>г) город </span><span id="pp_p_city" class="content"><%= @person.addres_p.npname if @person.addres_p %></span><div></div></div>
     </div>
-    <div class="interval marcer-list"><span>д) населенный пункт (село, поселок и т.п.)</span><span class="content"><%= %></span></div>
+    <div class="interval marcer-list"><span>д) населенный пункт (село, поселок и т.п.)</span><span id="pp_p_npname" class="content"><%= @person.addres_p.npname if @person.addres_p %></span></div>
     <div class="interval marcer-list"><span>е) улица (проспект, переулок и т.п.)</span><span class="content"><%= @person.addres_p.ul if @person.addres_p %></span><div></div></div>
 
     <div class="in-line-cont marcer-list">
@@ -143,13 +149,16 @@
 
 
     <div class="interval"><span>1.14. Сведения о документе, подтверждающем регистрацию по месту жительства в Российской Федерации<sup>10</sup>:</span></div>
-    <div class="interval marcer-list"><span>а) вид документа</span><span><%= %></span><div></div></div>
+    <div class="interval marcer-list"><span>а) вид документа</span><span class="content"><%= @person.doc.ig_doctype %></span><div></div></div>
     <div class="in-line-cont marcer-list">
-      <div class="interval small"><span>б) серия</span><span class="content"><%=  %></span><div></div></div> 
-      <div class="interval small"><span>в) номер</span><span class="content"><%=  %></span><div></div></div>
+      <div class="interval small"><span>б) серия</span><span class="content"><%= @person.doc.ig_docser %></span><div></div></div> 
+      <div class="interval small"><span>в) номер</span><span class="content"><%= @person.doc.ig_docnum %></span><div></div></div>
     </div>
     
-    <div class="interval marcer-list"><span>г) кем и когда выдан </span><span><%= %></span><div></div></div>
+    <div class="interval marcer-list"><span>г) кем и когда выдан </span>
+      <span class="content"><%= @person.doc.ig_name_vp %><%= " " + @person.doc.ig_docdate.strftime('%d.%m.%Y') if @person.doc.ig_docdate %></span>
+      <div></div>
+    </div>
     
     <div class="interval"><span>  1.15. Срок действия вида на жительство или другого документа, подтверждающего право на проживание (временного проживания) на территории Российской Федерации (для иностранного гражданина и лица без гражданства):</span></div>
 
@@ -163,7 +172,7 @@
     <div class="in-line-cont marcer-list">
       <div class="interval floating"><span>1.17.1.  Телефон (с кодом): домашний</span><span class="content"><%= @person.phone %></span><div></div></div> 
       <div class="interval floating"><span>служебный </span><span class="content"><%=  %></span><div></div></div>
-      <div class="interval floating"><span>1.17.2.  Адрес электронной почты</span><span class="content"><%= @person.email  %></span><div></div></div>
+      <div class="interval floating-big"><span>1.17.2.  Адрес электронной почты</span><span class="content"><%= @person.email  %></span><div></div></div>
     </div>
        
     <h3>2. Сведения о представителе застрахованного лица<sup>11</sup></h3>
