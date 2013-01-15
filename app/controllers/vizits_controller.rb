@@ -37,7 +37,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_10.txt")
+    file = File.open("p_15.txt")
     i = 0
       file.each do |line|
 	
@@ -132,12 +132,6 @@ class VizitsController < ApplicationController
   # POST /vizits
   def create
     @vizit = Vizit.new(params[:vizit])
-    
-    if @vizit.valid?
-      if @vizit.petition == "1"
-        @vizit.method = "2"
-        @vizit.rsmo = nil
-      end
       tip_op = ""
       case (@vizit.rsmo.to_s + @vizit.rpolis.to_s)
         when "0"
@@ -159,19 +153,15 @@ class VizitsController < ApplicationController
         else
           tip_op = nil
       end
-      op = Op.find_by_person_id(@vizit.person_id)
-      id_for_op = @vizit.person_id
-      if @vizit.save! and op.update_attributes({tip_op: tip_op, active: 1, id: id_for_op})
+ 
+      if @vizit.save 
+        op = Op.find_by_person_id(@vizit.person_id)
+        op.update_attributes({tip_op: tip_op, active: 1})
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
-        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
+        flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
         render :new
       end
-        # render json: @vizit
-    else
-      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
-      render :new
-    end
   end
   
   

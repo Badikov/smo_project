@@ -2,6 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+  $('form[id*="edit_vizit"] input#vizit_insurance_polis_npolis').val (index, value) ->
+    if value.length isnt 6
+      value = ''
+    else
+      value
+
+  $('form[id*="edit_vizit"] input[id*="vizit_rpolis"]').each (i) ->
+    if (i == 0) || (i == 1) || (i == 4)
+      $(@).parent().hide()
+
   $("#customers_search_query").focus()
 
   $("form").live "keydown", (event) -> 
@@ -80,6 +90,7 @@ jQuery ->
         else
           $('.row')
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
   
   #-- выдача на руки полиса по П060
   $("#dp_date_begin").live "focus", ->
@@ -89,6 +100,24 @@ jQuery ->
       onSelect: (dateText, inst) ->
         $(@).css('background-color', "")
         $("#customers_search_060").removeAttr 'disabled'
+
+  $("#customers_search_060").live "click", ->
+    $.ajax
+      type: "POST"
+      dataType: 'json'
+      url: '/customers/edit_polis'
+      data:
+        date: $("#dp_date_begin").datepicker 'getDate'
+        id: $("#customers_puts_customer_id").val()
+      success: (response) ->
+        $("#edit_polisModal").modal 'hide'
+        if response == 200
+          $('.row')
+            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Данные о выдаче полиса успешно сохранились.</div>'
+        else
+          $('.row')
+            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию.</div>'
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
 
   #-- подгружает формы на странице http://localhost:3000/customers/{id}/edit
   $("#customers_edit_doc, #customers_edit_person").click ->

@@ -1,16 +1,16 @@
 # encoding: utf-8
 class Person < ActiveRecord::Base
   
-  has_one :doc, :dependent => :destroy
-  has_one :old_person, :dependent => :destroy
-  has_one :old_doc, :dependent => :destroy
-  has_one :addres_g, :dependent => :destroy
-  has_one :addres_p, :dependent => :destroy
-  has_one :op, :dependent => :destroy
-  has_one :vizit, :dependent => :destroy
-  has_one :personb, :dependent => :destroy
+  has_one :doc#, :dependent => :destroy
+  has_one :old_person#, :dependent => :destroy
+  has_one :old_doc#, :dependent => :destroy
+  has_one :addres_g#, :dependent => :destroy
+  has_one :addres_p#, :dependent => :destroy
+  has_one :op#, :dependent => :destroy
+  has_one :vizit#, :dependent => :destroy
+  has_one :personb#, :dependent => :destroy
   has_many :ats
-  has_one :representative, :dependent => :destroy
+  has_one :representative#, :dependent => :destroy
     
   attr_accessible :c_oksm, :contact, :ddeath, :dr, :id,
   :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w,:status, 
@@ -39,7 +39,35 @@ class Person < ActiveRecord::Base
   
   validates_associated :doc, :addres_g, :addres_p, :representative
   
+  before_update :save_old_data
+  
+  protected
+  
   def can_validate?
     true
   end
+  
+  def save_old_data
+    logger.debug { "привет из персон колбэка"  }
+    changed_ = self.changed?
+    # yield
+    if changed_
+      self.save_old_data_of_person
+    end
+  end
+  
+  def save_old_data_of_person
+    old_per = OldPerson.find_by_person_id(self.id)
+    old_per.destroy if old_per
+    person = Person.find_by_id(self.id)
+    # OldPerson.create()
+    self.create_old_person({fam: person.fam, im: person.im, ot: person.ot, w: person.w, dr: person.dr, old_enp: person.vizit.insurance.enp})
+  end
+  
+  # def save_old_recvisites_of_person
+  #   self.save_old_data_of_person
+  #   old_doc = OldDoc.find_by_person_id(self.id)
+  #   old_doc.destroy if old_doc
+  #   self.create_old_doc({docdate:self.doc.docdate, docnum:self.doc.docnum, docser:self.doc.docser, doctype:self.doc.doctype, mr:self.doc.mr, name_vp:self.doc.name_vp})
+  # end
 end

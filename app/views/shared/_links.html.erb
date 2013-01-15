@@ -1,7 +1,7 @@
 <ul class="nav">
  <li><%= link_to "Новое ЗЛ", new_person_path %></li>
  <li><%= link_to "Найти", search_customers_path %></li>
- <!--<li><%= link_to "Contact Us" %></li>-->
+ 
  <% if can? :create, User %>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" id="dLabel">
@@ -10,7 +10,7 @@
       </a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
         <li><%= link_to "Файлы для отправки", upload_ops_path, tabindex: "-1" %></li>
-        <li><%= link_to "Номера полюсов", upload_xml_uploads_path, tabindex: "-1" %></li>
+        <li><%= link_to "Номера полисов из XML-файла", upload_xml_uploads_path, tabindex: "-1" %></li>
       </ul>
     </li>
     <li class="dropdown">
@@ -37,6 +37,7 @@
  <% end %>
  <% if current_user %>
    <li><%= link_to "Мой профиль", user_path(:current) %></li>
-   <li><%= link_to "Выход", logout_path %></li>
  <% end %>
+   <li><%= link_to "Выход", logout_path %></li>
+ 
 </ul>

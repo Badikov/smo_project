@@ -243,7 +243,7 @@
         <div id="collapseEight" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              <dt>дата визита</dt><dd><%= vizit.dvizit.strftime('%d.%m.%Y %H:%M') if vizit.dvizit  %></dd>
+              <dt>дата визита</dt><dd><%= vizit.dvizit.strftime('%d.%m.%Y %H:%M') %></dd>
               <dt>способ визита</dt><dd><%= method(vizit.method) %></dd>
               <% if !vizit.rsmo.nil? %><dt>выбор СМО</dt><dd><%= vibor_smo(vizit.rsmo) %></dd><% end %>
               <% if vizit.petition == "1" %><dt>подано ходатайство</dt><dd>ДА</dd><% end %>
@@ -292,32 +292,32 @@
   :id => "customers_search_new_vizit",:class => "btn", :role => "button"
   %>
 <% else %>  
-  
-  <%= link_to t("Выбытие ЗЛ П021"), {:action => "edit_ops", :id => @person}, 
-  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
-  :default => 'Вы уверенны что это лицо выбыло ?')) }, 
-  :id => "customers_search_021",:class => "btn", :role => "button"
-  %>
-  <a href="#deathModal" role="button" class="btn" data-toggle="modal">Выбытие в связи со смертью П022</a>
-  <%= link_to t("Удалить дублирующую запись П023"), {:action => "edit_ops_as_doublicat", :id => @person}, 
-  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
-  :default => 'Вы уверенны что это дубликат ?')) }, 
-  :id => "customers_search_023",:class => "btn", :role => "button"
-  %>
-  
+  <% if can? :create, User %>
+    <%= link_to t("Выбытие ЗЛ П021"), {:action => "edit_ops", :id => @person}, 
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
+    :default => 'Вы уверенны что это лицо выбыло ?')) }, 
+    :id => "customers_search_021",:class => "btn", :role => "button" %>
+
+    <a href="#deathModal" role="button" class="btn" data-toggle="modal">Выбытие в связи со смертью П022</a>
+
+    <%= link_to t("Удалить дублирующую запись П023"), {:action => "edit_ops_as_doublicat", :id => @person}, 
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
+    :default => 'Вы уверенны что это дубликат ?')) }, 
+    :id => "customers_search_023",:class => "btn", :role => "button" %>
+  <% end %>
   
 
 <% end %>  
 </div>
 <div class="person-block personale">
-  <a href="#edit_polisModal" role="button" class="btn" data-toggle="modal">Выдача на руки полиса<br/>после временного свидетельства</a>
+  <a href="#edit_polisModal" role="button" class="btn" data-toggle="modal">Выдача на руки полиса<br/>после временного свидетельства П060</a>
   
     
   <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
   :id => "customers_search_edit",:class => "btn", :role => "button"
   %>
 
-  <%= link_to t("Оформление дубликата полиса <br> застрахованного лица"), { :action => "build_doublecat_polis", :id => @person } ,
+  <%= link_to t("Оформление дубликата полиса <br> застрахованного лица П062"), { :action => "build_doublecat_polis", :id => @person } ,
   :id => "customers_search_build_doublecat_polis",:class => "btn", :role => "button"
   %>
   
@@ -340,14 +340,14 @@
     <button id="customers_search_022" class="btn btn-primary" disabled="disabled">Save changes</button>
   </div>
 </div>
-<!-- Modal -->
+<!-- Modal puts polis-->
 <div id="edit_polisModal" class="modal hide fade personale" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2" aria-hidden="true">
   <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabe2">Укажите дату выдача на руки полиса</h3>
   </div>
   <div class="modal-body">
-    <input id="customers_search_customer_id" type="hidden" value=<%= @person.id %> />
+    <input id="customers_puts_customer_id" type="hidden" value=<%= @person.id %> />
     
     <p><input type="text" id="dp_date_begin"/></p>
   </div>

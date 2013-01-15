@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
@@ -8,6 +9,26 @@ class ApplicationController < ActionController::Base
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
+  end
+  
+  def respect_user(user)
+    fio =[]
+    res, hel =""
+    fio = user.split(" ")
+    # fio.shift
+    fio.each_with_index {|v,i| res += v+' ' if i>0}
+    now = Time.current.hour
+    if (0..5).include?(now)
+      hel = 'Дрброй ночи, '
+    elsif (6..11).include?(now)
+      hel = 'Дрброе утро, '
+    elsif (12..17).include?(now)
+      hel = 'Дрбрый день, '
+    elsif (18..23).include?(now)
+      hel = 'Дрбрый вечер, '
+    end
+    logger.debug now
+    return hel + res
   end
 
   private

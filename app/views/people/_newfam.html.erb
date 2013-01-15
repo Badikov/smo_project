@@ -35,41 +35,38 @@
     
   <%= f.input :dr, :label => 'Дата рождения', :include_blank => true, :as => :date, :start_year => Date.today.year - 90,:end_year => Date.today.year,:order => [:day, :month, :year] %>
    
-  <%= f.simple_fields_for @person.doc, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fdoc| %>
+    <%= f.simple_fields_for @person.doc, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fdoc| %>
+    
+    <%= fdoc.input :doctype, :collection => Tipdoc.all(:order => :docname),
+  		    :label_method => :docname, :value_method => :iddoc, :include_blank => false, 
+  		    :label => 'Документ', :input_html => {class: "span6"}%>
   
-  <%= fdoc.input :doctype, :collection => Tipdoc.all(:order => :docname),
-		    :label_method => :docname, :value_method => :iddoc, :include_blank => false, 
-		    :label => 'Документ', :input_html => {class: "span6"}%>
-
-  <%= fdoc.input :docser, :label => 'Серия' %>
-
-  <%= fdoc.input :docnum, :label => 'Номер' %>
+    <%= fdoc.input :docser, :label => 'Серия' %>
   
-  <%= fdoc.input :docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 20,:end_year => Date.today.year,:order => [:day, :month, :year] %>
-
-  <%= fdoc.input :name_vp, :label => 'Кем выдан', :input_html => {class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()'} %>
-
-  <%= fdoc.input :mr, :as => :hidden %>
-  <% end %>
+    <%= fdoc.input :docnum, :label => 'Номер' %>
+    
+    <%= fdoc.input :docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 20,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+  
+    <%= fdoc.input :name_vp, :label => 'Кем выдан', :input_html => {class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()'} %>
+  
+    
+    <%= fdoc.input :mr, :as => :hidden %>
+    
+    <%= fdoc.input :person_id, :as => :hidden %>
+    <%= fdoc.input :id, :as => :hidden %>
+    <% end %>
   
   <% directory = "public/numbers" %>
   <% name = "numbers.ini" %>
   <% path = File.join(directory, name) %>
   <% ini_file = IniFile.load(path).to_h %>
-  <%= fields_for @polis do |p| %>
-    <div class="control-group select optional">
-      <label class="select optional control-label" for="polis_spolis">Серия временного свидетельства</label>
-      <div class="controls">
-        <%= p.select(:spolis,options_for_select(ini_file.values.collect{|x| x["series"]}),{:include_blank => true, :class => "select optional span2"})%>
-      </div>
-      </div>
-      <div class="control-group string optional">
-      <label class="string optional control-label" for="polis_npolis">Номер временного свидетельства</label>
-      <div class="controls">
-        <%= p.text_field(:npolis, {:class => "string optional span2", :maxlength => 6}) %>
-      </div>
-    </div>
+  
+  <%= simple_fields_for @polis do |p| %>
+  <%= p.input :spolis, :collection => ini_file.values.collect{|x| x["series"]}, :label => 'Серия временного свидетельства', :input_html => {class: "span2"} %>
+  <%= p.input :npolis, :label => 'Номер временного свидетельства', :input_html => {class: "span2", maxlength: 6} %>
+  <%= p.input :dstop, :as => :hidden %>
   <% end  %>
+  
   
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary', :id => '' %>

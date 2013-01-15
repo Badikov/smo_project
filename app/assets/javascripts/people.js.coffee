@@ -14,7 +14,7 @@ jQuery ->
 
   $("#person_doc_doctype option[value=14], #person_doc_doctype option[value=3]").css "color","#0D0534"
 
-  $("#person_doc_doctype option[value=14]").attr selected: "selected"
+  $("form#new_person select#person_doc_doctype option[value=14]").attr selected: "selected"
 
   $("#person_addres_g_subj option[value=32000]").attr selected: "selected"
   

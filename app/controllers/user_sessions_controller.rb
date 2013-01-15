@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] =  @user_session.user.name #"Login successful!"
+      flash[:notice] =  respect_user @user_session.user.name.to_s #"Login successful!"
 #       redirect_back_or_default people_path#account_url(@current_user)
       redirect_to home_path
     else

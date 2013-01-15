@@ -24,7 +24,7 @@ jQuery ->
  #!!!!!!!!!!!!!!!!!!!!!!!! клик по флажку Зарегестрирован и ЕРП
  $('#vizit_insurance_erp').click ->
    if @checked #!!!!!!!!!!!!!! замена смо
-     pervichniy_vibor_smo.show()
+     pervichniy_vibor_smo.show("slow")
      zamena_smo.hide()
      $('label[for="vizit_insurance_polis_npolis"]').text 'Номер бланка полиса единого образца'
      $('#vizit_insurance_polis_spolis').val ''
@@ -45,7 +45,7 @@ jQuery ->
      $("#vizit_fpolis option[value=0]").attr selected: "selected"
           
    else #!!!!!!!!!!!!!!!!!!!!! первичный выбор смо
-     zamena_smo.show()
+     zamena_smo.show("slow")
      pervichniy_vibor_smo.hide()
      $('#vizit_insurance_enp').val ''
      $('label[for="vizit_insurance_polis_npolis"]').text 'Номер временного свидетельства'
@@ -66,7 +66,7 @@ jQuery ->
       
  $('#vizit_rpolis').click ->
      if @checked
-      $("form#new_vizit div.optional:eq(2)").show()
+      $("form#new_vizit div.optional:eq(2)").show("slow")
       $('label[for="vizit_insurance_polis_npolis"]').text 'Номер временного свидетельства'
       $("#vizit_fpolis option[value=0]").removeAttr 'selected'
       $("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
@@ -86,7 +86,7 @@ jQuery ->
     $('form#new_vizit div.form-actions')
        .before '<div class="control-group string optional error"><label class="string optional control-label" for="vizit_dvizit">Дата временного свидетельства</label><div class="controls"><input id="vizit_dvizit" class="string optional span2" type="text" size="20" name="vizit[dvizit]"><span class="help-inline">введите дату ходатайства</span></div></div>'
    else
-     petition.show()
+     petition.show("slow")
      # $('label[for="vizit_dvizit"]').remove()
      # $('div.controls:last').remove()
      $('div.control-group:last').remove()

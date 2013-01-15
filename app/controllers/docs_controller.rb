@@ -2,7 +2,7 @@
 class DocsController < ApplicationController
   def index
     statuses =[]
-      file = File.open("a_10.txt")
+      file = File.open("a_15.txt")
         i = 0
           file.each do |line|
       	    if  i > 0
@@ -65,35 +65,23 @@ class DocsController < ApplicationController
   # GET /docs/new
   # GET /docs/new.json
   def new
-    doc = Doc.find_by_person_id(params[:id])
-    @doc = Doc.new
-    @doc.person_id = doc.person_id
-    @doc.mr = doc.mr
+    @doc = Doc.find_by_person_id(params[:id])
+    # @doc = Doc.new
+    # @doc.person_id = doc.person_id
+    # @doc.mr = doc.mr
     
     render :layout => false
   end
   # POST /docs
   # POST /docs.json
   def create
-    old_doc = Doc.find_by_person_id(params[:doc][:person_id])
-    old_doc_hash = old_doc.as_json
-    old_doc_hash = old_doc_hash.delete_if {|key, value| key.start_with?('i','c','u')}
-        
-    @doc = Doc.new(params[:doc])
+    @doc = Doc.find_by_id(params[:doc][:id])
     
-    if @doc.valid?
-      @old_doc = OldDoc.where(:person_id => params[:doc][:person_id]).first
-      @old_doc.destroy if @old_doc
-    
-      @old_doc = OldDoc.new(old_doc_hash)
-      op = Op.find_by_person_id(@doc.person_id)
-      if old_doc.update_attributes(params[:doc]) and @old_doc.save! and op.update_attributes({tip_op: "П040"})
-        flash[:notice] = "Новые паспортные данные успешно сохранились."
-        redirect_to home_path
-      else
-        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
-        render :new
-      end
+    if @doc.update_attributes(params[:doc])
+      # op = Op.find_by_person_id(@doc.person_id)
+      @doc.person.op.update_attributes({tip_op: "П040"})
+      
+      redirect_to home_path, notice:"Новые паспортные данные успешно сохранились."
     else
       flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
       render :new

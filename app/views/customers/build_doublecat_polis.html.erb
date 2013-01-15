@@ -11,36 +11,35 @@
 <% path = File.join(directory, name) %>
 <% ini_file = IniFile.load(path).to_h %>
 
-<%= simple_form_for @polis, :url => build_doublecat_polis_customers_path, :method => :post,  :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+<%= simple_form_for @vizit, :url => build_doublecat_polis_customers_path, :method => :post,  :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
 
-    <%= hidden_field_tag "vizit[id]", @vizit.id %>
+    <%= f.input :id, :as => :hidden %>
+    
+    <%= f.input :rpolis, :as => :radio_buttons,:label => 'Причина', :item_wrapper_class => 'inline',:collection =>  zamena_polis_datas  %>
 
-    <div class="control-group radio_buttons required">
-      <label class="radio_buttons required control-label">
-        <abbr title="required">*</abbr>
-        Причина
-      </label>
-      <div class="controls">
-        <label class="radio radio inline">
-          <%= radio_button_tag "vizit[rpolis]",3,  :checked => true %>
-          ветхость и непригодность полиса
-        </label>
-        <label class="radio radio inline">
-          <%= radio_button_tag "vizit[rpolis]",4 %>
-          утрата ранее выданного полиса
-        </label>
-      </div>
-  </div>
+    <%= f.simple_fields_for @vizit.insurance do |fin| %>
     
-  
-    <%= fpol.input :spolis, :collection => ini_file.values.collect{|x| x["series"]}, :label => 'Серия временного свидетельства',:input_html => { :class => "span2" } %>
+    <%= fin.input :id, :as => :hidden %>
     
-    <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { :class => "span2" } %>
+    <%= fin.input :vizit_id, :as => :hidden %>
     
+      <%= fin.simple_fields_for @vizit.insurance.polis, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |fpol| %>
+    
+      <%= fpol.input :spolis, :collection => ini_file.values.collect{|x| x["series"]}, :label => 'Серия временного свидетельства',:input_html => { :class => "span1" } %>
+      
+      <%= fpol.input :npolis, :label => 'Номер временного свидетельства',:input_html => { class: "span2", maxlength: 6 } %>
+      
+      <%= fpol.input :dstop, :as => :hidden %>
+      
+      <%= fpol.input :insurance_id, :as => :hidden %>
+      
+      <%= fpol.input :id, :as => :hidden %>
+      <% end %>
+    <% end %>
     
     
     <div class="form-actions">
-    <%= fpol.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 home_path, :class => 'btn' %>
   </div>

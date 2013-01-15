@@ -1,6 +1,6 @@
 # encoding: utf-8
 class CustomersController < ApplicationController
-  
+  before_filter :require_user
   
   def index
     @respon = []
@@ -54,11 +54,10 @@ class CustomersController < ApplicationController
     # d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '
     d = DateTime.strptime(d, "%a %b %d %Y %H:%M:%S GMT%z") #if d.empty?
     @person = Person.find_by_id(params[:id])
-    @op = @person.op
     
     @person.update_attributes({ ddeath: d})
     
-    @op.update_attributes({ active: 0, tip_op: "П022", date_uvoln: DateTime.now })
+    @person.op.update_attributes({ active: 0, tip_op: "П022", date_uvoln: DateTime.now })
     
     render json: status, :nothing => true
   end
@@ -69,39 +68,37 @@ class CustomersController < ApplicationController
   
   def edit_polis
     # 060
+    d = params[:date]
+    
+    # d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '
+    d = DateTime.strptime(d, "%a %b %d %Y %H:%M:%S GMT%z") #if d.empty?
+    @person = Person.find_by_id(params[:id])
+    
     # @op = Op.find_by_person_id(params[:id])
     # @vizit = Vizit.find_by_person_id(params[:id])
-    # @polis = @vizit.insurance.polis
-    # 
-    # @polis.update_attributes({dbeg: DateTime.now, dend: nil, spolis: nil, vpolis: 3})
-    # @op.update_attributes({tip_op: "П060"})
-    # render json: status, :nothing => true
+    # @person.vizit.insurance.polis.update_attributes({dbeg: DateTime.now, dend: nil, spolis: nil, vpolis: 3})
+    @person.vizit.insurance.polis.update_attributes({dbeg: d})
+    
+    @person.op.update_attributes({tip_op: "П060"})
+    render json: status, :nothing => true
   end
   # GET customers/build_doublecat_polis?id=
   def build_doublecat_polis
     @vizit = Vizit.find_by_person_id(params[:id])
-    @polis = Polis.new
   end
-  
+  # POST customers/build_doublecat_polis
   def save_doublecat_polis
     @vizit = Vizit.find_by_id(params[:vizit][:id])
-    @polis = Polis.new(params[:polis])
-    if @polis.valid?
-      params[:polis][:datepp]= nil
-      params[:vizit][:dvizit]= DateTime.now
-      params[:vizit][:rsmo]= nil
-      
-      if @vizit.update_attributes(params[:vizit]) and @vizit.insurance.polis.update_attributes(params[:polis]) and @vizit.person.op.update_attributes({tip_op: "П062"})
+      if  @vizit.update_attributes(params[:vizit])
+        @vizit.person.op.update_attributes({tip_op: "П062"})
+        # render json: @vizit
         redirect_to @vizit.person, notice: 'Новые данные успешно сохранены.'
       else
-        flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
+        flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
         render :build_doublecat_polis
       end
-    else
-      flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
-      render :build_doublecat_polis
-    end
   end
+  
   def edit
     @person = Person.find_by_id(params[:id])
     
