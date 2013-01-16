@@ -13,7 +13,7 @@ class Person < ActiveRecord::Base
   has_one :representative#, :dependent => :destroy
     
   attr_accessible :c_oksm, :contact, :ddeath, :dr, :id,
-  :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w,:status, 
+  :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w,:status, :created_at, #<<== creat - временно для переноса данных
 	:representative, :doc, :addres_g, :addres_p,
   :doc_attributes, :addres_g_attributes, :addres_p_attributes, :representative_attributes,
   :op_attributes, :vizit_attributes, :personb_attributes, :ats_attributes
@@ -28,18 +28,18 @@ class Person < ActiveRecord::Base
  
   
   
-  validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => true, :if => :can_validate?
-  validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => {:message => "Не должно быть пустым."}
-  validates :fam, :im, :ot, :length => { :maximum => 40, :too_long => "%{count} символов это максимум возможного." }
-  validates :phone, :length => { :maximum => 40, :too_long => "%{count} символов это максимум возможного." }, :allow_blank => true
-  validates :c_oksm, :length => { :is => 3 }
-  validates :ss, :length => { :is => 14 }, :allow_blank => true
-  validates :email, :length => { :maximum => 50, :too_long => "%{count} символов это максимум возможного." }, :allow_blank => true
-  validates :ss, :format => { :with => /^\d{3}-\d{3}-\d{3}(-|\s)\d{2}$/ , :message => "не соответствует шаблону"}, :allow_blank => true
-  
-  validates_associated :doc, :addres_g, :addres_p, :representative
-  
-  before_update :save_old_data
+  # validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => true, :if => :can_validate?
+  # validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => {:message => "Не должно быть пустым."}
+  # validates :fam, :im, :ot, :length => { :maximum => 40, :too_long => "%{count} символов это максимум возможного." }
+  # validates :phone, :length => { :maximum => 40, :too_long => "%{count} символов это максимум возможного." }, :allow_blank => true
+  # validates :c_oksm, :length => { :is => 3 }
+  # validates :ss, :length => { :is => 14 }, :allow_blank => true
+  # validates :email, :length => { :maximum => 50, :too_long => "%{count} символов это максимум возможного." }, :allow_blank => true
+  # validates :ss, :format => { :with => /^\d{3}-\d{3}-\d{3}(-|\s)\d{2}$/ , :message => "не соответствует шаблону"}, :allow_blank => true
+  # 
+  # validates_associated :doc, :addres_g, :addres_p, :representative
+  # 
+  # before_update :save_old_data
   
   protected
   

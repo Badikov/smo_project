@@ -24,13 +24,14 @@ class OpsController < ApplicationController
     @a=[]
     @@where_str = d
     #выбираем юзеров, которые вносили данные за период
-     ops = Op.select("DISTINCT user_id").where(updated_at: (d.beginning_of_day)..(d.end_of_day))
+     # ops = Op.select("DISTINCT user_id").where(updated_at: (d.beginning_of_day)..(d.end_of_day))
+     ops = Op.where(updated_at: (d.beginning_of_day)..(d.end_of_day)).uniq.pluck(:user_id)
     #отбираем филиалы, к которым относятся эти юзеры
-     fil = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops.map(&:user_id)}) 
+     filials = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops}) 
     
-     fil.each do |f|
+     filials.each do |f|
       #ссылка для каждого филиала, в котором вносились данные
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "2.xml", id: f[:id]}
+       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + "1.xml", id: f[:id]}
      end
     # @a << { name:"i42007_1_2111121.xml", id: 1 } << { name:"i42007_2_0211121.xml", id: 2 } << { name:"i42007_3_0211121.xml", id: 3 }
      
@@ -64,11 +65,12 @@ class OpsController < ApplicationController
   def generate_builder(par)
     # _users = User.select("users.id").joins(:filials).where(:filials => { id: par[:id] })
     #отбираем юзеров одного филиала
-    _users = User.select("users.id").where(:filial_id => par[:id])
+    # _users = User.select("users.id").where(:filial_id => par[:id])
+    _users = User.where(:filial_id => par[:id]).pluck(:id)
     
     ops = []
     #!!!!!!!!!! отбирает записи по массиву юзеров одного филиала и дате 
-    _ops = Op.select("id,tip_op,person_id").where(:user_id => _users.map(&:id) , :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))
+    _ops = Op.select("id,tip_op,person_id").where(:user_id => _users , :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))
     
     _ops.each do |op_item|
 	    tmp = {}
@@ -79,6 +81,7 @@ class OpsController < ApplicationController
 	    person = Person.find_by_id(op_item.person_id)
       
 	    doc = Doc.select("docdate, docnum, docser, doctype, mr, name_vp").find_by_person_id(person.id)
+      representative = Representative.find_by_person_id(person.id)
 	    #добавить OLD_DOC & OLD_PERSON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	    old_person = OldPerson.find_by_person_id(person.id)
 	    old_doc = OldDoc.find_by_person_id(person.id)
@@ -89,7 +92,7 @@ class OpsController < ApplicationController
 	    polis = Polis.find_by_insurance_id(insurance.id)
   
 	    op = Hash.new
-	    op = tmp["@attributes"].merge({ person: person, doc: doc, old_person: old_person, old_doc: old_doc, addres_g: addres_g, addres_p: addres_p, vizit: vizit, insurance: insurance, polis: polis })
+	    op = tmp["@attributes"].merge({ person: person, doc: doc, representative: representative, old_person: old_person, old_doc: old_doc, addres_g: addres_g, addres_p: addres_p, vizit: vizit, insurance: insurance, polis: polis })
 	    ops << op
     end
 #       fl_name = "i42007_0_" + Time.now.day.to_s + Time.now.month.to_s + Time.now.year.to_s + "1"
@@ -122,17 +125,31 @@ class OpsController < ApplicationController
            doc.SS( op[:person]["ss"] )
            doc.PHONE( op[:person]["phone"] )
            doc.EMAIL( op[:person]["email"] )
-           if !op[:person]["fiopr"].nil?
-				      str_fiopr = op[:person]["fiopr"]
-				      str_contact = op[:person]["contact"]
-				      str_fiopr.gsub!("^"," ")
-				      str_contact.gsub!("^"," ")
-				      doc.FIOPR( str_fiopr )
-				      doc.CONTACT( str_contact )
-           else
-				      doc.FIOPR( op[:person]["fiopr"] )
-				      doc.CONTACT( op[:person]["contact"] )
+           if op[:representative]
+            str_fiopr = op[:representative]["fam"] + " " + op[:representative]["im"] + " " + op[:representative]["ot"]
+            doc.FIOPR( str_fiopr )
+            dt = ""
+            if op[:representative]["docdate"]
+              dt = op[:representative]["docdate"].to_date.to_s
+              dt = " " + dt + " "
+            end
+            str_contact = op[:representative]["parent"] + " " + op[:representative]["docser"] + " " + op[:representative]["docnum"] + dt + op[:representative]["phone"] unless op[:representative]["phone"].nil?
+            doc.CONTACT( str_contact )
+          else
+            doc.FIOPR()
+            doc.CONTACT()
            end
+          #  if !op[:person]["fiopr"].nil?
+				      # str_fiopr = op[:person]["fiopr"]
+				      # str_contact = op[:person]["contact"]
+				      # str_fiopr.gsub!("^"," ")
+				      # str_contact.gsub!("^"," ")
+				      # doc.FIOPR( str_fiopr )
+				      # doc.CONTACT( str_contact )
+          #  else
+				      # doc.FIOPR( op[:person]["fiopr"] )
+				      # doc.CONTACT( op[:person]["contact"] )
+          #  end
            doc.DDEATH( op[:person]["ddeath"] )
            }
         doc.DOC{
@@ -151,13 +168,6 @@ class OpsController < ApplicationController
 				   doc.W( op[:old_person]["w"] )
 				   doc.DR( op[:old_person]["dr"] )
 				   doc.OLD_ENP( op[:old_person]["old_enp"] )
-        esle
-				   doc.FAM()
-				   doc.IM()
-				   doc.OT()
-				   doc.W()
-				   doc.DR()
-				   doc.OLD_ENP()
         end
            }
         doc.OLD_DOC{
@@ -216,14 +226,7 @@ class OpsController < ApplicationController
               doc.DBEG( op[:polis]["dbeg"].nil? ? nil : op[:polis]["dbeg"].to_date )
               doc.DEND( op[:polis]["dend"] )
               doc.DSTOP( op[:polis]["dstop"] )
-           else
-              doc.VPOLIS()
-              doc.NPOLIS()
-              doc.SPOLIS()
-              doc.DBEG()
-              doc.DEND()
-              doc.DSTOP()
-            end
+           end
               }
            doc.ERP( op[:insurance]["erp"] )
            }

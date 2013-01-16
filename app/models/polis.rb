@@ -2,23 +2,23 @@
 class Polis < ActiveRecord::Base
   belongs_to :insurance, :include => :vizit
   
-  attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp, :insurance_id
+  attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp, :insurance_id, :created_at #<<== creat - временно для переноса данных
     
-  validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
-  validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
-  
-  validates_each :npolis do |record, attr, value|
-    if record.spolis.blank?
-      record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
-    else
-      record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
-      record.errors.add(attr, 'номер временного свидетельства введен не правильно.') unless record.check_numbers?
-    end
-  end
-  # after_validation :foo_val
-  before_create :data_logic
-  # before_save :data_logic
-  before_update :data_logic, :if => :check_changed? 
+  # validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
+  # validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
+  # 
+  # validates_each :npolis do |record, attr, value|
+  #   if record.spolis.blank?
+  #     record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
+  #   else
+  #     record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
+  #     record.errors.add(attr, 'номер временного свидетельства введен не правильно.') unless record.check_numbers?
+  #   end
+  # end
+  # # after_validation :foo_val
+  # before_create :data_logic
+  # # before_save :data_logic
+  # before_update :data_logic, :if => :check_changed? 
   def foo
       return @foo
   end
@@ -74,6 +74,6 @@ class Polis < ActiveRecord::Base
   end
   
   def polis_data_for_doublecat
-    
+    # przcod, id_fl, tip_op, status, fam, im, ot, w, dr, kod, ss, phone, email, fam_pr, im_pr, ot_pr, parents, ser_pr, nom_pr, dat_pr, typ_pr, tel_pr, ddeath, doctype, docser, docnum, docdate, name_vp, mr, bomg, kod_tf, indx, okato, npname, ul, dom, korp, kv, dreg, dvizit, method, petition, rsmo, rpolis, fpolis, ter_st, ogrnsmo, enp, erp, vpolis, spolis, npolis, dbeg, dend, dstop, date_polis, datepp, date_uvoln, date_modif
   end
 end

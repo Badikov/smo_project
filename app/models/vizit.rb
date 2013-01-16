@@ -3,26 +3,26 @@ class Vizit < ActiveRecord::Base
   belongs_to :person
   has_one :insurance, :dependent => :destroy, :include => :polis#, :validate => false
   
-  attr_accessible :id, :dvizit, :fpolis, :method, :petition, :rpolis, :rsmo, :person_id, :insurance,
+  attr_accessible :id, :dvizit, :fpolis, :method, :petition, :rpolis, :rsmo, :person_id, :insurance, :created_at, #<<== creat - временно для переноса данных
   :insurance_attributes
   
   accepts_nested_attributes_for :insurance
   
   alias_method :insurance=, :insurance_attributes=
   
-  validates_associated :insurance
-  
-  validates_each :dvizit do |record, attr, value|
-    logger.debug { value }
-    if record.petition == "1"
-      record.errors.add(attr, 'введите дату ходатайства') if value.nil?
-    end
-  end
-  
-  before_create :dates_logic_create
-  # before_save 
-  before_update :logic_for_update_from_doublecat
-  # around_save :petition_logic
+  # validates_associated :insurance
+  # 
+  # validates_each :dvizit do |record, attr, value|
+  #   logger.debug { value }
+  #   if record.petition == "1"
+  #     record.errors.add(attr, 'введите дату ходатайства') if value.nil?
+  #   end
+  # end
+  # 
+  # before_create :dates_logic_create
+  # # before_save 
+  # before_update :logic_for_update_from_doublecat
+  # # around_save :petition_logic
   
   protected
 

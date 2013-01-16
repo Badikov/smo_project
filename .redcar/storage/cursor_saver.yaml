@@ -272,9 +272,6 @@ cursor_positions:
   - :path: a_17.txt
     :cursor_offset: 76
     :timestamp: 2012-12-17 04:28:53 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 0
-    :timestamp: 2012-10-26 18:55:23 +07:00
   - :path: p_18.txt
     :cursor_offset: 1586
     :timestamp: 2012-12-18 09:44:10 +06:00
@@ -442,9 +439,6 @@ cursor_positions:
   - :path: config.ru
     :cursor_offset: 251
     :timestamp: 2012-11-15 16:33:07 +06:00
-  - :path: app/models/representative.rb
-    :cursor_offset: 156
-    :timestamp: 2012-12-13 01:39:03 +06:00
   - :path: app/controllers/reports_controller.rb
     :cursor_offset: 64
     :timestamp: 2012-12-27 23:18:04 +06:00
@@ -742,4 +736,12 @@ cursor_positions:
   - :path: db/migrate/20130115205809_new_ops_table.rb
     :cursor_offset: 142
     :timestamp: 2013-01-16 03:57:29 +06:00
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 165
+    :timestamp: 2013-01-16 07:20:51 +06:00
+  - :path: app/models/representative.rb
+    :cursor_offset: 107
+    :timestamp: 2013-01-16 07:20:30 +06:00
+    :selection_offset: 101
+    :block_selection_mode: false
 files_to_retain: 0
