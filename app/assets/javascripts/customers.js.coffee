@@ -149,3 +149,35 @@ jQuery ->
     $("#customers_table_search").append data
     #// $.map data, (item) ->
     #//   $("#customers_table_search").append '<tr id=' + item.id + '><td>' + item.fam +  '</td><td>' + item.im +  '</td><td>' + item.ot +  '</td><td>' + item.w +  '</td><td>' + item.dr +  '</td><td>' + item.docser +  '</td><td>' + item.docnum +  '</td></tr>'
+  $('#addres_g_npname').live 'focus', -> 
+    $(@).autocomplete
+     source:(request,response) ->
+      $.ajax 
+       url: '/okatos', 
+       dataType: "json", 
+       data: 
+         term: request.term.toUpperCase() 
+       success: (data) ->response $.map data, (item)-> label: item.namenpt, value: item.namenpt, okato: item.okato,
+     minLength: 2,
+     open: -> $(@).removeClass("ui-corner-all").addClass("ui-corner-top"), 
+     close: -> $(@).removeClass("ui-corner-top").addClass("ui-corner-all"),
+     select: (event, ui) -> 
+      $("#addres_g_okato").val ui.item.okato
+
+  $("#addres_g_ul").live 'focus', ->
+    $(@).typeahead
+      source: (query,process) ->
+        $.ajax
+          url: '/streets',
+          data:
+            term: query.toUpperCase()
+          success: (data) ->
+            process data
+
+  $("#edit_addres_g").live 'click', ->
+    setTimeout(-> 
+      $("div#atlhModal").modal
+        show: true
+        keyboard: false
+        backdrop: false 
+     3000)

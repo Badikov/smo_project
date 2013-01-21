@@ -1,6 +1,7 @@
 <%- model_class = Vizit -%>
 <div class="page-header">
-  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
+  <!-- <h3><%=t '.title', :default => model_class.model_name.human %></h3> -->
+  <h3><%= @tags %></h3>
 </div>
 <div class="person-block">
   <%= @person.fam %> <%= @person.im %> <%= @person.ot %><br />
@@ -42,19 +43,32 @@
     <input id="create_at_t_person_id" type="hidden" value=<%= @person.id %> />
     <% _np = Okato.find_by_namenpt(np_name) %>
     <% lpu_arrey = [] %>
-    <% lpus = Nsilpu.find_by_kdate(_np.kdate) %>
-    <% lpus.each do |lpu| %>
-    <% lpu_arrey << [lpu.namelpu, lpu.kdlpu] %>
-    <% end %>
+    <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
+    <% lpus.each {|lpu|  lpu_arrey << [lpu.namelpu, lpu.kdlpu]}  %>
     <%= select_tag(:kdmu, options_for_select(lpu_arrey), {:include_blank => true, :class => "select optional span5"}) %>
     <%  %>
     <input id="create_at_t_kdatemu" type="hidden" value=<%= _np.kdate %> />
   </div>
   <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     <button id="create_at_t" class="btn btn-primary" disabled="disabled">Save changes</button>
   </div>
 </div>
-    
+<!-- Modal Atl_fakt -->
+<div id="atl_fakt_hModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="faktPrikreplenie" aria-hidden="true">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="faktPrikreplenie">Фактическое прикрепление</h3>
+  </div>
+  <div class="modal-body">
+    <% @at = @person.ats.build %>
+    <%= render :partial => 'ats/form', :locals => { :at => @at } %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="create_at_fakt" class="btn btn-primary" disabled="disabled">Save changes</button>
+  </div>
+</div>    
 
 
 <!--$('a.print').click(function (e) {

@@ -13,7 +13,17 @@ class UploadsController < ApplicationController
     @xml_fl = Hash.from_xml(upload['datafile'].read).to_hash
     items = @xml_fl["DATAPACKET"]["ROWDATA"]["ROW"]
     items.each do |item|
-      tm = item
+      
+      ser = item["POLIS"][0,3]
+      num = item["POLIS"][3,6]
+      date_polis = item["DATEPOLIS"].to_date
+      polis = Polis.find_by_spolis_and_npolis_and_dbeg(ser,num,date_polis)
+      if polis
+        if polis.update_attributes({npolis: item["BLANK"], vpolis: 3,datepp: DateTime.current,dbeg: nil,dend: nil,spolis: nil})
+          polis.insurance.update_attributes({enp: item["ENP"] ,erp: 1})
+          tm << item
+        end
+      end
     end
      # logger.debug @xml_file
     render json: tm #:text => "File has been uploaded successfully"

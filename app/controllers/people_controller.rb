@@ -61,8 +61,8 @@ class PeopleController < ApplicationController
       @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
         
       
-      if @person.save!
-        redirect_to  new_vizit_person_url(@person.id), notice: @person.fam + ' ' + @person.im + ' ' + @person.ot + ' добавлен(а) в базу.'
+      if @person.save(:validate => false)
+        redirect_to  new_vizit_person_url(@person), notice: @person.fam + ' ' + @person.im + ' ' + @person.ot + ' добавлен(а) в базу.'
       else
         flash[:error] = "В программе произошла серьезная ошибка. Обратитесь к администратору."
         render :new

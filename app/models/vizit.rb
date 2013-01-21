@@ -10,19 +10,19 @@ class Vizit < ActiveRecord::Base
   
   alias_method :insurance=, :insurance_attributes=
   
-  # validates_associated :insurance
-  # 
-  # validates_each :dvizit do |record, attr, value|
-  #   logger.debug { value }
-  #   if record.petition == "1"
-  #     record.errors.add(attr, 'введите дату ходатайства') if value.nil?
-  #   end
-  # end
-  # 
-  # before_create :dates_logic_create
-  # # before_save 
-  # before_update :logic_for_update_from_doublecat
-  # # around_save :petition_logic
+  validates_associated :insurance
+  
+  validates_each :dvizit do |record, attr, value|
+    logger.debug { value }
+    if record.petition == "1"
+      record.errors.add(attr, 'введите дату ходатайства') if value.nil?
+    end
+  end
+  
+  before_create :dates_logic_create
+  # before_save 
+  before_update :logic_for_update_from_doublecat
+  # around_save :petition_logic
   
   protected
 

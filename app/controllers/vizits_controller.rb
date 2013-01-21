@@ -13,17 +13,15 @@ class VizitsController < ApplicationController
   # GET /vizits/1
   # GET /vizits/1.json
   def show
-     # 
+    vizit = Vizit.find_by_id(params[:id])
+     @person = vizit.person
+
      # (1..1510).each do |n| 
      #  @person = Person.find_by_id(n)
      #  @person.destroy
      #   
      # end
      # render json: status
-
-     vizit = Vizit.find_by_id(params[:id])
-     @person = vizit.person
-     
      respond_to do |format|
        format.html # show.html.erb
        format.json { render json: @vizit }
@@ -37,7 +35,7 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_16.txt")
+    file = File.open("p_21.txt")
     i = 0
       file.each do |line|
 	
@@ -178,12 +176,20 @@ class VizitsController < ApplicationController
   
   
   def print_polis
+    
     @person = Person.find_by_id(params[:id])
+    
     render :partial => "print_polis", :layout => false
   end
   def print_petition
+    require 'smo.rb'
     #TODO: http://www.delphikingdom.com/padeg_online.asp  --- сервис перевода фамилий в родительный падеж
     @person = Person.find_by_id(params[:id])
+    @fio = Smo.padeg @person.fam, @person.im, @person.ot, @person.w
+    if @fio.nil?
+      @fio = @person.fam + ' ' + @person.im + ' ' + @person.ot
+    end
+    logger.debug {'ФИО - ' + @fio }
     render :partial => "print_petition", :layout => false
   end
   def print_doublecat

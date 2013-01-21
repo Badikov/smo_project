@@ -1,0 +1,11 @@
+
+<div class="page-header">
+  <h3><%=t 'Лечебные учреждения' %></h3>
+</div>
+
+<%= simple_form_for @ate, :url => '/ats' do |f| %>
+
+  <%= f.input :nameate, :label => nil,:collection => Ate.all(:order => 'nameate'),
+    :label_method => :nameate, :value_method => :kdate , :prompt => "Территории Кемеровской области",
+    :input_html => { :class => "span5" }%>
+<% end %>

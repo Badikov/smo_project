@@ -10,9 +10,7 @@ SmoProject::Application.routes.draw do
     end
   end
 
-  get "ats/create_links"
-
-  get "ats/files"
+  
 
   resources :customers do
     collection do
@@ -60,7 +58,13 @@ SmoProject::Application.routes.draw do
   
   # resources :filials
   # resources :home
-  resources :ats
+  resources :ats do
+    collection do
+      match "create_fakt" => 'ats#create_fakt', :as => 'create_fakt'
+      get 'create_links'
+      get 'files'
+    end
+  end
   resources :docs
   resources :addres_gs
   resources :addres_ps
@@ -71,6 +75,7 @@ SmoProject::Application.routes.draw do
   resources :streets
   resources :subektis
   resources :okatos
+  resources :nsilpus
   
   resources :reports do
     collection do

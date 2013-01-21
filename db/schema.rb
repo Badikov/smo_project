@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115205809) do
+ActiveRecord::Schema.define(:version => 20130118192027) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(:version => 20130115205809) do
   end
 
   add_index "addres_ps", ["person_id"], :name => "index_addres_ps_on_person_id"
+
+  create_table "ates", :force => true do |t|
+    t.integer "kdate",                  :null => false
+    t.string  "nameate", :limit => 128
+  end
 
   create_table "ats", :force => true do |t|
     t.integer  "kdatemu"

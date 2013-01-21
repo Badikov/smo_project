@@ -91,7 +91,7 @@ jQuery ->
           $("#person_doc_doctype option[value=14]").attr selected: "selected"
 
 
-  $('#person_addres_p_npname, #person_addres_g_npname').autocomplete
+  $('#person_addres_p_npname, #person_addres_g_npname, #addres_g_npname').autocomplete
      source:(request,response) ->
       $.ajax 
        url: '/okatos', 

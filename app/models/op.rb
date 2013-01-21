@@ -11,7 +11,7 @@ class Op < ActiveRecord::Base
   
   # self.primary_key = "person_id"#"id" #
   
-  before_update :save_id_for_terfond
+  # before_update :save_id_for_terfond
   
   protected
   def save_id_for_terfond

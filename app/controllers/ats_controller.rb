@@ -1,10 +1,21 @@
 # encoding: utf-8
 class AtsController < ApplicationController
   require 'builder'
+  require 'zip/zip'
+  #GET /ats
+  def index
+    @ate = Ate.all
+  end
   
   def create
     @at = At.new(:person_id => params[:person_id], :kdatemu => params[:kdatemu], :kdmu => params[:kdmu])
-    @at.save!
+    @at.save
+    render json: status, :nothing => true
+  end
+  
+  def create_fakt
+    @at = At.new(params[:at])
+    @at.save
     render json: status, :nothing => true
   end
   
@@ -18,7 +29,7 @@ class AtsController < ApplicationController
     
     if people.size != 0
       # имя файла из заявленной даты
-      file_name = "AT_S_180_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_5.xml"
+      file_name = "AT_S_180_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_1.xml"
       hijack_response(generate_builder(people, file_name), file_name)
     else
       render json: people.size == 0 ? 201 : 200, :nothing => true
@@ -30,10 +41,22 @@ class AtsController < ApplicationController
   
   private
   def hijack_response( out_data, file_name )
+    zip_file_name = minus_5(file_name) + ".zip"
 
-    win1251 = out_data#.encode('Windows-1251', 'UTF-8', :xml => :text)
-    send_data( win1251, :type => "text/xml", :filename => file_name )
+    tempfile = File.join('tmp',zip_file_name)
+    logger.debug { tempfile.path }
+    Zip::ZipFile.open(tempfile, Zip::ZipFile::CREATE) do |zipfile|
+      
+      zipfile.get_output_stream(file_name) { |f| f.puts out_data }
+      zipfile.close()
+    end 
+    send_file tempfile, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
+
+    # win1251 = out_data#.encode('Windows-1251', 'UTF-8', :xml => :text)
+    # send_data( win1251, :type => "text/xml", :filename => file_name )
   end
+  
+  
   def generate_builder(people, file_name)
     $KCODE = 'Windows-1251'
     doc = Builder::XmlMarkup.new( :target => out_string = "")

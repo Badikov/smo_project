@@ -15,7 +15,7 @@ class Doc < ActiveRecord::Base
   validates :name_vp, :length => { :maximum => 80, :too_long => "%{count} символов это максимум возможного." }
   validates :mr, :length => { :maximum => 100, :too_long => "%{count} символов это максимум возможного." }
   
-  # before_update :save_old_data_from_doc
+  before_update :save_old_data_from_doc
   # # around_update :make_feed_if_changed
   protected
 

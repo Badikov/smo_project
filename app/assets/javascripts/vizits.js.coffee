@@ -111,6 +111,7 @@ jQuery ->
    3000)
   $("div#atlhModal select#kdmu").change ->
     $("#create_at_t").removeAttr 'disabled'
+
   $("#create_at_t").click ->
     $.ajax
       type: "POST"
@@ -121,7 +122,61 @@ jQuery ->
         kdatemu: $("#create_at_t_kdatemu").val()
         kdmu: $("#kdmu option:selected").attr 'value'
       success: (response) ->
+        $("#create_at_t").attr 'disabled'
         $("div#atlhModal").modal 'hide'
+        atl_fakt $("#create_at_t_person_id").val()
+        if response == 200
+          $('.row')
+            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
+        else
+          $('.row')
+            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+    return false
+
+  atl_fakt = (person) ->
+   setTimeout(-> 
+     $("div#atl_fakt_hModal").modal
+       show: true
+       keyboard: false
+       backdrop: false 
+    3000)
+  $("div#atl_fakt_hModal select#at_kdatemu").change () ->
+    _kdate = $(@).val()
+    _lpus = $("select#at_kdmu")
+    _lpus.html ''
+    $.ajax
+      type: "GET"
+      dataType: 'json'
+      url: '/nsilpus.json'
+      data:
+        kdate: _kdate
+      success: (data) -> 
+        $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.namelpu + '</option>' 
+        _lpus.removeAttr 'disabled'
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+    
+
+  $("select#at_kdmu").change () ->
+    $("#at_date_b").removeAttr 'disabled'
+
+  $("#at_date_b").click ->
+    $(@).datepicker
+      beforeShow: (input) ->
+        $(input).css('background-color', "#ff9")
+      onSelect: (dateText, inst) ->
+        $(@).css('background-color', "")
+        $("#create_at_fakt").removeAttr 'disabled'
+
+  $("#create_at_fakt").click ->
+    $.ajax
+      type: "POST"
+      dataType: 'json'
+      url: '/ats/create_fakt'
+      data:
+        $("form#new_at").serialize() 
+      success: (response) ->
+        $("div#atl_fakt_hModal").modal 'hide'
         if response == 200
           $('.row')
             .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о прикреплении к ЛПУ.</div>'
@@ -131,7 +186,8 @@ jQuery ->
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     return false
 
-      
+
+
     #  $('a.print').click (event) ->
 #    params = "_blank,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes"
 #    newWind = window.open('about:blank', '', params)
