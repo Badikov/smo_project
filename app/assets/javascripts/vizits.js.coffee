@@ -163,13 +163,9 @@ jQuery ->
     $("#at_date_b").focus ->
       $(@).click()
 
-  $("#at_date_b").click ->
-    #$(@).mouseup ->
-      $(@).datepicker
-        beforeShow: (input) ->
-          $(input).css('background-color', "#ff9")
+  $("#at_date_b").datepicker
+        showOn: 'button',
         onSelect: (dateText, inst) ->
-          $(@).css('background-color', "")
           $("#create_at_fakt").removeAttr 'disabled'
 
   $("#create_at_fakt").click ->

@@ -48,8 +48,6 @@ class VizitsController < ApplicationController
 	  s_oksm= Oksm.find_by_kod(kod).alfa3
 	  user_id = cod_podrazdeleniy(przcod)
 	  ss = ss.blank? ? nil : ss
-	  # fiopr = fiopr.blank? ? nil : fiopr
-	  # contact = contact.blank? ? nil : parents + "^" + contact
     dat_pr = dat_pr.blank? ? nil : dat_pr.to_date
     tel_pr = tel_pr.blank? ? nil : tel_pr
 	  dr = dr.blank? ? nil : dr.to_date

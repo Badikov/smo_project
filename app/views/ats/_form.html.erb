@@ -1,8 +1,7 @@
 
 <%= simple_form_for @at do |f| %>
-
-  <%= f.association :ate, :label => nil,:collection => Ate.all(:order => 'nameate'),
-    :label_method => :nameate, :value_method => :kdate , :prompt => "Территории Кемеровской области",
+  <% ate_list = Ate.all(:order => 'nameate') %>
+  <%= f.input :kdatemu, :label => nil,:collection => ate_list.collect{|x| [ x.nameate, x.kdate ]},:prompt => "Территории Кемеровской области",
     :input_html => { :class => "span5" }%>
 
   <%= f.input :kdmu, :as => :select, :collection => nil, :prompt => "Медицинское учреждение", :input_html => { :class => "span5", :disabled => true }%>

@@ -196,7 +196,7 @@
           <div id="collapseSix" class="accordion-body collapse">
             <div class="accordion-inner">
               <dl class="dl-horizontal">
-                <% if @person.addres_g.bomg %>
+                <% if @person.addres_g.bomg == 1 %>
                   <dt>-</dt><dd><%= "БОМЖ" %></dd>
                 <% end %>
                 <% unless @person.addres_g.indx.blank? %><dt>Индекс</dt><dd><%= @person.addres_g.indx %></dd><% end %>

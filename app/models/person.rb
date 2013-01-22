@@ -12,8 +12,8 @@ class Person < ActiveRecord::Base
   has_many :ats
   has_one :representative#, :dependent => :destroy
     
-  attr_accessible :c_oksm, :contact, :ddeath, :dr, :id,
-  :email, :fam, :fiopr, :im, :ot, :phone, :ss, :true_dr, :w,:status, :created_at, #<<== creat - временно для переноса данных
+  attr_accessible :c_oksm, :ddeath, :dr, :id,
+  :email, :fam, :im, :ot, :phone, :ss, :true_dr, :w,:status, :created_at, #<<== creat - временно для переноса данных
 	:representative, :doc, :addres_g, :addres_p,
   :doc_attributes, :addres_g_attributes, :addres_p_attributes, :representative_attributes,
   :op_attributes, :vizit_attributes, :personb_attributes, :ats_attributes
