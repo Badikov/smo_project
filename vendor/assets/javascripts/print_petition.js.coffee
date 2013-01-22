@@ -1,8 +1,4 @@
 jQuery ->
-	fam = $("span#pp_fio").attr 'fam'
-	im = $("span#pp_fio").attr 'im'
-	ot = $("span#pp_fio").attr 'ot'
-
 	rsmo = $("table#pp_rsmo").attr 'myvalue'
 	$("table#pp_rsmo td.selected").each ->
 		if @id is rsmo
@@ -65,42 +61,4 @@ jQuery ->
 		$("span#pp_p_npname").text ''
 	else
 		$("span#pp_p_city").text ''
-
-
-	#$.ajax
-	 # type: "POST"
-	  #dataType: 'text/html'
-	#  crossDomain: true
-	#  contentType: 'application/x-www-form-urlencoded; charset=windows-1251'
-	#  url: "http://www.delphikingdom.com/padeg_online.asp"
-	#  data: $.param(fioFName:im, fioLName:fam, fioMName:ot, nPadeg:2, send:on, Gender:2, Submit: "Проверить")
-	#  xhrFields: withCredentials: true
-	#  success: (data, textStatus, jqXHR) ->
-	#	alert "ok"
-	#  error: (jqXHR, textStatus, errorThrown) ->
-	#  	alert "error"
-	
-
-	#//utf8 to 1251 converter (1 byte format, RU/EN support only + any other symbols) by drgluck
-	#// utf8_decode = (aa) ->
-	#// 	bb = '', c = 0
-	#	
-	#// function utf8_decode (aa) {
-	#//     var bb = '', c = 0;
-	#//     for (var i = 0; i < aa.length; i++) {
-	#//         c = aa.charCodeAt(i);
-	#//         if (c > 127) {
-	#//             if (c > 1024) {
-	#//                     c = 1016;
-	#//                 } else if (c == 1105) {
-	#                     c = 1032;
-	#                 }
-	#                 bb += String.fromCharCode(c - 848);
-	#             }
-	#         } else {
-	#             bb += aa.charAt(i);
-	#         }
-	#     }
-	#     return bb;
-	# }
 	

@@ -1,10 +1,15 @@
 # encoding: utf-8
 class AtsController < ApplicationController
+  before_filter :require_user
   require 'builder'
   require 'zip/zip'
   #GET /ats
   def index
     @ate = Ate.all
+  end
+  #GET /ats/filter
+  def filter
+    
   end
   
   def create

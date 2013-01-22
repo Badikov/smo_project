@@ -25,11 +25,11 @@
 	
   <% if @person.vizit.insurance.polis.vpolis == 2 %>  
     <p>
-      <%= link_to "Печать временного свидетельства", print_polis_url, :id => @person, target: "_blank"  %>
+      <%= link_to "Печать временного свидетельства", print_polis_url(@person), target: "_blank"  %>
     </p>
   <% end -%>
     <p>
-      <%= link_to "Печать заявления о выборе(замене) СМО", print_petition_url, :id => @person, target: "_blank"  %>
+      <%= link_to "Печать заявления о выборе(замене) СМО", print_petition_url(@person), target: "_blank"  %>
     </p>
 
 

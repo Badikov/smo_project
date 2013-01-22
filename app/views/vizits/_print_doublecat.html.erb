@@ -212,27 +212,27 @@
 
     <div class="interval">
       <span>2.1.  Фамилия</span>
-      <span class="content"><%= @person.old_doc.fam if @person.old_doc  %></span>
+      <span class="content"><%= @person.old_person.fam if @person.old_person  %></span>
       <div>(указывается в точном соответствии с записью в полисе)</div>
     </div>
     <div class="interval">
       <span>2.2.  Имя</span>
-      <span class="content"><%= @person.old_doc.im if @person.old_doc  %></span>
+      <span class="content"><%= @person.old_person.im if @person.old_person  %></span>
       <div>(указывается в точном соответствии с записью в полисе)</div>
     </div>
     <div class="interval">
       <span>2.3.  Отчество (при наличии)<sup>5</sup></span>
-      <span class="content"><%= @person.old_doc.ot if @person.old_doc  %></span>
+      <span class="content"><%= @person.old_person.ot if @person.old_person  %></span>
       <div>(указывается в точном соответствии с записью в полисе)</div>
     </div>
 
-    <table class="single_row interval" id="pp_w_old" myvalue=<%= @person.old_doc.w if @person.old_doc %>>
+    <table class="single_row interval" id="pp_w_old" myvalue=<%= @person.old_person.w if @person.old_person %>>
       <tr><td class="context">2.4.  Пол:</td><td class="enp" id="1"></td><td class="context">муж.</td><td class="enp" id="2"></td><td>жен.   (нужное отметить знаком «✔»)</td></tr>
     </table>
 
     <div class="interval-small">
       <span>2.5.  Дата рождения (число, месяц, год)</span>
-      <span class="content"><%= @person.old_doc.dr.strftime('%d.%m.%Y') if @person.old_doc %></span>
+      <span class="content"><%= @person.old_person.dr.strftime('%d.%m.%Y') if @person.old_person %></span>
       <div></div>
     </div>
     <div class="interval">
@@ -269,9 +269,9 @@
     <table class="single_row interval" id="pp_representative_parent" myvalue=<%= @person.representative.parent if @person.representative %>>
       <tr>
         <td class="context">3.5.Отношение к застрахованному лицу,<br>сведения о котором указаны в заявлении</td>
-        <td>мать</td><td class="enp" id="мать"></td>
-        <td>отец</td><td class="enp" id="отец"></td>
-        <td>иное</td><td class="enp" id="иное"></td>
+        <td>мать</td><td class="enp" id="МАТЬ"></td>
+        <td>отец</td><td class="enp" id="ОТЕЦ"></td>
+        <td>иное</td><td class="enp" id="ИНОЕ"></td>
         <td class="left-pad">(нужное отметить знаком «✔»)</td>
       </tr>
     </table>

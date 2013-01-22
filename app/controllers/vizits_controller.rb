@@ -1,5 +1,6 @@
 # encoding: utf-8
 class VizitsController < ApplicationController
+  before_filter :require_user
   # GET /vizits/new
   # GET /vizits/new.json
   def new
@@ -24,7 +25,7 @@ class VizitsController < ApplicationController
      # render json: status
      respond_to do |format|
        format.html # show.html.erb
-       format.json { render json: @vizit }
+       format.json { render json: @person }
      end
   end
   # DELETE /vizits/1
@@ -167,7 +168,7 @@ class VizitsController < ApplicationController
         op.update_attributes({tip_op: tip_op, active: 1})
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
-        flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах."
+        flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах. Проверьте!!! Правильно ли стоят флажки!!!"
         render :new
       end
   end
@@ -183,9 +184,12 @@ class VizitsController < ApplicationController
   end
   def print_petition
     require 'smo.rb'
-    #TODO: http://www.delphikingdom.com/padeg_online.asp  --- сервис перевода фамилий в родительный падеж
     @person = Person.find_by_id(params[:id])
-    @fio = Smo.padeg @person.fam, @person.im, @person.ot, @person.w
+    unless @person.representative
+      @fio = Smo.padeg @person.fam, @person.im, @person.ot, @person.w
+    else
+      @fio = Smo.padeg @person.representative.fam, @person.representative.im, @person.representative.ot, @person.representative.parent == 'ОТЕЦ' ? 1 : 2
+    end
     if @fio.nil?
       @fio = @person.fam + ' ' + @person.im + ' ' + @person.ot
     end

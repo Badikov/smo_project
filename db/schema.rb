@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118192027) do
+ActiveRecord::Schema.define(:version => 20130121233251) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -55,16 +55,19 @@ ActiveRecord::Schema.define(:version => 20130118192027) do
   end
 
   create_table "ats", :force => true do |t|
-    t.integer  "kdatemu"
-    t.integer  "kdmu"
-    t.integer  "person_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "type_at"
+    t.string   "type_at",    :limit => 1, :null => false
+    t.integer  "kdatemu",                 :null => false
+    t.integer  "kdmu",                    :null => false
     t.datetime "date_z"
-    t.datetime "date_b"
+    t.datetime "date_b",                  :null => false
     t.datetime "date_e"
+    t.integer  "person_id",               :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
+
+  add_index "ats", ["kdatemu", "kdmu"], :name => "index_ats_on_kdatemu_and_kdmu"
+  add_index "ats", ["person_id"], :name => "index_ats_on_person_id"
 
   create_table "docs", :force => true do |t|
     t.string   "doctype"
@@ -197,23 +200,24 @@ ActiveRecord::Schema.define(:version => 20130118192027) do
   add_index "ops", ["user_id"], :name => "index_ops_on_user_id"
 
   create_table "people", :force => true do |t|
-    t.string   "fam"
-    t.string   "im"
-    t.string   "ot"
-    t.integer  "w"
-    t.date     "dr"
-    t.integer  "true_dr"
+    t.string   "fam",        :limit => 40, :null => false
+    t.string   "im",         :limit => 40, :null => false
+    t.string   "ot",         :limit => 40, :null => false
+    t.integer  "w",                        :null => false
+    t.date     "dr",                       :null => false
+    t.integer  "true_dr",                  :null => false
     t.string   "c_oksm"
     t.string   "ss"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "fiopr"
-    t.string   "contact"
+    t.string   "phone",      :limit => 40
+    t.string   "email",      :limit => 50
+    t.string   "status",     :limit => 3
     t.date     "ddeath"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "status"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
+
+  add_index "people", ["dr"], :name => "index_people_on_dr"
+  add_index "people", ["fam"], :name => "index_people_on_fam"
 
   create_table "personbs", :force => true do |t|
     t.string   "type"
@@ -226,17 +230,17 @@ ActiveRecord::Schema.define(:version => 20130118192027) do
   add_index "personbs", ["person_id"], :name => "index_personbs_on_person_id"
 
   create_table "polis", :force => true do |t|
-    t.integer  "vpolis"
-    t.string   "npolis"
-    t.string   "spolis"
+    t.integer  "vpolis",                     :null => false
+    t.string   "npolis",       :limit => 20
+    t.string   "spolis",       :limit => 10
+    t.datetime "dbeg"
     t.date     "dend"
     t.date     "dstop"
-    t.integer  "insurance_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.date     "datepolis"
     t.date     "datepp"
-    t.datetime "dbeg"
+    t.date     "datepolis"
+    t.integer  "insurance_id",               :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "polis", ["insurance_id"], :name => "index_polis_on_insurance_id"
@@ -335,15 +339,15 @@ ActiveRecord::Schema.define(:version => 20130118192027) do
   add_index "users", ["filial_id"], :name => "index_users_on_filial_id"
 
   create_table "vizits", :force => true do |t|
+    t.datetime "dvizit",                  :null => false
+    t.string   "method",     :limit => 1, :null => false
+    t.string   "petition",   :limit => 1, :null => false
     t.integer  "rsmo"
     t.integer  "rpolis"
     t.integer  "fpolis"
-    t.integer  "person_id"
+    t.integer  "person_id",               :null => false
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
-    t.string   "petition",   :limit => 1
-    t.string   "method",     :limit => 1
-    t.datetime "dvizit"
   end
 
   add_index "vizits", ["person_id"], :name => "index_vizits_on_person_id"

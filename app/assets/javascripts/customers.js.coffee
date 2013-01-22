@@ -33,7 +33,8 @@ jQuery ->
           success: (data) -> table_rows data
           error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
   
-  $("#customers_table_search.table-hover tbody tr").live "click", ->
+  $("#customers_table_search.table-hover tbody tr").live "click", (e) ->
+    e.preventDefault()
     clear_person_info()
     $("#customers_table_search.table-hover tbody tr").each (i) ->
       if $(@).hasClass "info"

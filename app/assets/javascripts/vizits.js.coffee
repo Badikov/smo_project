@@ -158,15 +158,19 @@ jQuery ->
     
 
   $("select#at_kdmu").change () ->
-    $("#at_date_b").removeAttr 'disabled'
+    #$("#at_date_b").removeAttr 'disabled'
+    #$("form#new_at").click()
+    $("#at_date_b").focus ->
+      $(@).click()
 
   $("#at_date_b").click ->
-    $(@).datepicker
-      beforeShow: (input) ->
-        $(input).css('background-color', "#ff9")
-      onSelect: (dateText, inst) ->
-        $(@).css('background-color', "")
-        $("#create_at_fakt").removeAttr 'disabled'
+    #$(@).mouseup ->
+      $(@).datepicker
+        beforeShow: (input) ->
+          $(input).css('background-color', "#ff9")
+        onSelect: (dateText, inst) ->
+          $(@).css('background-color', "")
+          $("#create_at_fakt").removeAttr 'disabled'
 
   $("#create_at_fakt").click ->
     $.ajax

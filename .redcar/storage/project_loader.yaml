@@ -7,6 +7,3 @@ open_files:
   - app/models/polis.rb
   - app/models/person.rb
   - app/models/doc.rb
-  - app/views/ats/_form.html.erb
-  - app/models/at.rb
-  - app/models/ate.rb

@@ -14,7 +14,7 @@
   <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
   <div id="ot_kogo">
     <p>В ООО Страховая медицинская организация "ЦМС"</p>
-    <p>от<span class="content" fam=<%= @person.fam %> im=<%= @person.im %> ot=<%= @person.ot %> id="pp_fio" ><%= @fio %></span></p>
+    <p>от<span class="content" id="pp_fio"><%= @fio %></span></p>
   </div>
   
   
@@ -68,7 +68,11 @@
     <div class="interval"><span>1.7.  Место рождения</span><span class="content"><%= @person.doc.mr %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
     <% rp = "(расшифровка подписи)" %>
     <% doc_name = Tipdoc.find_by_id(@person.doc.doctype) %>
-    <div class="interval"><span>1.8.  Вид документа, удостоверяющего личность</span><span class="content"><%= doc_name.docname %></span><div></div></div>
+    <div class="interval">
+      <span>1.8.  Вид документа, удостоверяющего личность</span>
+      <span class="content"><%= UnicodeUtils.upcase(doc_name.docname) %></span>
+      <div></div>
+    </div>
     <div class="in-line-cont">
       <div class="interval floating"><span>1.9. Серия</span><span class="content"><%= @person.doc.docser %></span><div></div></div> 
       <div class="interval floating"><span>1.9. Номер</span><span class="content"><%= @person.doc.docnum %></span><div></div></div>
@@ -96,7 +100,7 @@
       <tr><td class="context">а) почтовый индекс</td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td></tr>
     </table>
     <% subj = Subekti.find_by_kod_okato(@person.addres_g.subj)  %>
-    <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= subj.subname  %></span><div>(республика, край, область, округ)</div></div> 
+    <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= UnicodeUtils.upcase(subj.subname)  %></span><div>(республика, край, область, округ)</div></div> 
 
 
 
@@ -131,7 +135,7 @@
       <tr><td class="context">а) почтовый индекс</td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td><td class="enp"></td></tr>
     </table>
     <% subj_p = Subekti.find_by_kod_okato(@person.addres_p.subj) if @person.addres_p  %>
-    <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= subj_p.subname if @person.addres_p  %></span><div>(республика, край, область, округ)</div></div> 
+    <div class="interval marcer-list"><span>б) субъект Российской Федерации</span><span class="content"><%= UnicodeUtils.upcase(subj_p.subname) if @person.addres_p  %></span><div>(республика, край, область, округ)</div></div> 
 <!-- Обработка района, города, населенного пункта в JavaScript -->
     <div class="in-line-cont marcer-list">
       <div class="interval floating"><span>в) район </span><span id="pp_p_rnname" class="content" myval=<%= @person.addres_p.rnname if @person.addres_p %> ><%= @person.addres_p.rnname if @person.addres_p %></span><div></div></div> 
@@ -183,9 +187,9 @@
     <table class="single_row interval" myvalue=<%= @person.representative.parent if @person.representative %> id="pp_representative_parent">
       <tr>
         <td class="context">2.4.Отношение к застрахованному лицу,<br>сведения о котором указаны в заявлении</td>
-        <td>мать</td><td class="enp" id="мать"></td>
-        <td>отец</td><td class="enp" id="отец"></td>
-        <td>иное</td><td class="enp" id="иное"></td>
+        <td>мать</td><td class="enp" id="МАТЬ"></td>
+        <td>отец</td><td class="enp" id="ОТЕЦ"></td>
+        <td>иное</td><td class="enp" id="ИНОЕ"></td>
         <td class="left-pad">(нужное отметить знаком «✔»)</td>
       </tr>
     </table>
