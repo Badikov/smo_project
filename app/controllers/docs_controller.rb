@@ -2,7 +2,7 @@
 class DocsController < ApplicationController
   def index
     statuses =[]
-      file = File.open("a_21.txt")
+      file = File.open("a_23.txt")
         i = 0
           file.each do |line|
       	    if  i > 0

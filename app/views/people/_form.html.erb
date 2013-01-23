@@ -47,9 +47,8 @@
   <%= render :partial => 'representatives/form', :locals => {:form => f} %>
 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn btn-primary', :id => '0856' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                home_path, :class => 'btn' %>
+    <%= f.button :submit, :class => 'btn btn-primary', :id => '0856',:value => 'Сохранить' %>
+    <%= link_to 'Отменить', home_path, :class => 'btn' %>
   </div>
 <% end %>
 

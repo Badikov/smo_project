@@ -7,5 +7,6 @@ open_files:
   - app/models/polis.rb
   - app/models/person.rb
   - app/models/doc.rb
-  - app/models/at.rb
-  - app/views/uploads/numbers.html.erb
+  - app/controllers/ates_controller.rb
+  - app/models/ate.rb
+  - app/models/nsilpu.rb

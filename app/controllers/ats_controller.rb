@@ -5,10 +5,6 @@ class AtsController < ApplicationController
   require 'zip/zip'
   #GET /ats
   def index
-    @ate = Ate.all
-  end
-  #GET /ats/filter
-  def filter
     
   end
   

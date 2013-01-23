@@ -36,16 +36,16 @@ class VizitsController < ApplicationController
   def index
     statuses =[]
     s_oksm = ""
-    file = File.open("p_21.txt")
+    file = File.open("p_23.txt")
     i = 0
       file.each do |line|
 	
-	if  i > 0
+	if  i > 225
 	  # str = line#.delete("null")
     przcod, id_fl, tip_op, status, fam, im, ot, w, dr, kod, ss, phone, email, fam_pr, im_pr, ot_pr, parents, ser_pr, nom_pr, dat_pr, typ_pr, tel_pr, ddeath, doctype, docser, docnum, docdate, name_vp, mr, bomg, kod_tf, indx, okato, npname, ul, dom, korp, kv, dreg, dvizit, method, petition, rsmo, rpolis, fpolis, ter_st, ogrnsmo, enp, erp, vpolis, spolis, npolis, dbeg, dend, dstop, date_polis, datepp, date_uvoln, date_modif = line.chomp("\n").split("\t")
 
 	  # przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif = str.chomp("\n").split("\t")
-	  s_oksm= Oksm.find_by_kod(kod).alfa3
+	  s_oksm= Oksm.find_by_kod(kod).alfa3 unless kod.blank?
 	  user_id = cod_podrazdeleniy(przcod)
 	  ss = ss.blank? ? nil : ss
     dat_pr = dat_pr.blank? ? nil : dat_pr.to_date
@@ -54,7 +54,7 @@ class VizitsController < ApplicationController
 	  ddeath = ddeath.blank? ? nil : ddeath.to_date
 	  docdate =docdate.blank? ? nil : docdate.to_date
 	  dreg = dreg.blank? ? nil : dreg.to_date
-	  dvizit = dvizit.blank? ? nil : dvizit.to_date
+	  dvizit = dvizit.blank? ? '01.01.1901'.to_date : dvizit.to_date
 	  dbeg = dbeg.blank? ? nil : dbeg.to_date
 	  dend = dend.blank? ? nil : dend.to_date
 	  dstop = dstop.blank? ? nil : dstop.to_date
@@ -69,7 +69,9 @@ class VizitsController < ApplicationController
 	  enp = enp.blank? ? nil : enp
 	  spolis = spolis.blank? ? nil : spolis
 	  npolis = npolis.blank? ? nil : npolis
-	  method = method.blank? ? nil : method
+	  vpolis = vpolis.blank? ? 1 : vpolis
+	  method = method.blank? ? 1 : method
+	  petition = petition.blank? ? 0 : petition
     active = date_uvoln.nil? ? 1 : 0
 	  @person = Person.new({status: status,fam: fam, im: im, ot: ot, w: w, dr: dr, true_dr: 1, c_oksm: s_oksm, ss: ss,phone: phone,
 	                        email: email, ddeath: ddeath, created_at: dvizit})
@@ -83,6 +85,7 @@ class VizitsController < ApplicationController
 	  @person.build_vizit({dvizit: dvizit, method: method, petition: petition, rsmo: rsmo, rpolis: rpolis, fpolis: fpolis, created_at: dvizit})
 	  @person.vizit.build_insurance({ter_st: ter_st, ogrnsmo: ogrnsmo, enp: enp, erp: erp, created_at: dvizit})
 	  @person.vizit.insurance.build_polis({vpolis: vpolis, spolis: spolis, npolis: npolis, dbeg: dbeg, dend: dend, dstop: dstop, datepolis: date_polis, datepp: datepp, created_at: dvizit})
+    
     @person.build_op({id: id_fl, tip_op: tip_op, user_id: user_id, date_uvoln: date_uvoln, created_at: dvizit, updated_at: date_modif, active: active})
 
               @person.save
