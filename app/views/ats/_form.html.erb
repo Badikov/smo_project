@@ -1,12 +1,12 @@
 
 <%= simple_form_for @at do |f| %>
   <% ate_list = Ate.all(:order => 'nameate') %>
-  <%= f.input :kdatemu, :label => nil,:collection => ate_list.collect{|x| [ x.nameate, x.kdate ]},:prompt => "Территории Кемеровской области",
+  <%= f.input :kdatemu, :label => nil,:collection => ate_list.collect{|x| [ x.nameate, x.id ]},:prompt => "Территории Кемеровской области",
     :input_html => { :class => "span5" }%>
 
   <%= f.input :kdmu, :as => :select, :collection => nil, :prompt => "Медицинское учреждение", :input_html => { :class => "span5", :disabled => true }%>
 
-  <%= f.input :date_b, :as => :string %>
+  <%= f.input :date_b, :as => :string, :label => "Дата фактического прикрепления" %>
 
   <%= f.input :type_at , :as => :hidden, :input_html => {:value => 'F'} %>
   

@@ -101,60 +101,71 @@ jQuery ->
     onSelect: (dateText, inst) -> 
       $('div.control-group:last').removeClass 'error'
       $('div.control-group:last>div.controls>span.help-inline').remove()
-  
- if $("div#atlhModal")
+ 
+ $("#kdmu").select2()
+
+ inobl = $("div#atlhModal").attr 'inoblastnoy'
+
+ if inobl is "0" 
   setTimeout(-> 
     $("div#atlhModal").modal
       show: true
       keyboard: false
       backdrop: false 
    3000)
-  $("div#atlhModal select#kdmu").change ->
-    $("#create_at_t").removeAttr 'disabled'
+ else
+  $("div#atl_fakt_hModal").modal
+      show: true
+      keyboard: false
+      backdrop: false 
+  
 
-  $("#create_at_t").click ->
-    $.ajax
-      type: "POST"
-      dataType: 'json'
-      url: '/ats'
-      data:
-        person_id: $("#create_at_t_person_id").val()
-        kdatemu: $("#create_at_t_kdatemu").val()
-        kdmu: $("#kdmu option:selected").attr 'value'
-      success: (response) ->
-        $("#create_at_t").attr 'disabled'
-        $("div#atlhModal").modal 'hide'
-        atl_fakt $("#create_at_t_person_id").val()
-        if response == 200
-          $('.row')
-            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
-        else
-          $('.row')
-            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
-      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
-    return false
+ $("div#atlhModal select#kdmu").change ->
+   $("#create_at_t").removeAttr 'disabled'
 
-  atl_fakt = (person) ->
-   setTimeout(-> 
-     $("div#atl_fakt_hModal").modal
-       show: true
-       keyboard: false
-       backdrop: false 
-    3000)
-  $("div#atl_fakt_hModal select#at_kdatemu").change () ->
-    _kdate = $(@).val()
-    _lpus = $("select#at_kdmu")
-    _lpus.html ''
-    $.ajax
-      type: "GET"
-      dataType: 'json'
-      url: '/nsilpus.json'
-      data:
-        kdate: _kdate
-      success: (data) -> 
-        $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.namelpu + '</option>' 
-        _lpus.removeAttr 'disabled'
-      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+ $("#create_at_t").click ->
+   $.ajax
+     type: "POST"
+     dataType: 'json'
+     url: '/ats'
+     data:
+       person_id: $("#create_at_t_person_id").val()
+       kdatemu: $("#create_at_t_kdatemu").val()
+       kdmu: $("#kdmu option:selected").attr 'value'
+     success: (response) ->
+       $("#create_at_t").attr 'disabled'
+       $("div#atlhModal").modal 'hide'
+       atl_fakt $("#create_at_t_person_id").val()
+       if response == 200
+         $('.row')
+           .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
+       else
+         $('.row')
+           .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+   return false
+
+ atl_fakt = (person) ->
+  setTimeout(-> 
+    $("div#atl_fakt_hModal").modal
+      show: true
+      keyboard: false
+      backdrop: false 
+   3000)
+ $("div#atl_fakt_hModal select#at_kdatemu").change () ->
+   _kdate = $(@).val()
+   _lpus = $("select#at_kdmu")
+   _lpus.html ''
+   $.ajax
+     type: "GET"
+     dataType: 'json'
+     url: '/nsilpus.json'
+     data:
+       kdate: _kdate
+     success: (data) -> 
+       $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.namelpu + '</option>' 
+       _lpus.removeAttr 'disabled'
+     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     
 
   $("select#at_kdmu").change () ->

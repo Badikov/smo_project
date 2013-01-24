@@ -34,20 +34,24 @@
 
 
 <!-- Modal -->
-<div id="atlhModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="terPrikreplenie" aria-hidden="true">
+<% _np = Okato.find_by_namenpt(np_name) %>
+    <% unless _np.nil? %>
+    <% lpu_arrey = [] %>
+    <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
+    <% lpus.each {|lpu|  lpu_arrey << [lpu.namelpu, lpu.kdlpu]}  %>
+<% end %>
+
+<div id="atlhModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="terPrikreplenie" aria-hidden="true" inoblastnoy=<%= _np.nil? ? 1 : 0 %>>
   <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="terPrikreplenie">Выбор территориального прикрепления</h3>
   </div>
   <div class="modal-body">
     <input id="create_at_t_person_id" type="hidden" value=<%= @person.id %> />
-    <% _np = Okato.find_by_namenpt(np_name) %>
-    <% lpu_arrey = [] %>
-    <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
-    <% lpus.each {|lpu|  lpu_arrey << [lpu.namelpu, lpu.kdlpu]}  %>
-    <%= select_tag(:kdmu, options_for_select(lpu_arrey), {:include_blank => true, :class => "select optional span5"}) %>
-    <%  %>
-    <input id="create_at_t_kdatemu" type="hidden" value=<%= _np.kdate %> />
+    <% unless _np.nil? %>
+      <%= select_tag(:kdmu, options_for_select(lpu_arrey), {:include_blank => true, :class => "select optional span5"}) %>
+    <% end %>
+    <input id="create_at_t_kdatemu" type="hidden" value=<%= _np.kdate unless _np.nil? %> />
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

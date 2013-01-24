@@ -1,0 +1,5 @@
+<% lpu_arrey = [] %>
+<% @ate.nsilpus.collect{|x| lpu_arrey << [x.namelpu, x.id] }  %>
+<%= select_tag(:kdmu, options_for_select(lpu_arrey), {:include_blank => true, :class => "select optional span5"}) %>  
+ 
+  

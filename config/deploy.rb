@@ -31,6 +31,7 @@ set :scm, :git
 set :scm_username, "alex"
 set :repository, "git://github.com/Badikov/smo_project.git"
 set :branch, "master"
+set :keep_releases, 3
 # set :git_enable_submodules, 1
 
 namespace :deploy do 
@@ -71,5 +72,5 @@ namespace :deploy do
   end
 end  
 
-after 'deploy:update_code', 'deploy:symlink_shared'
+after 'deploy:update_code', 'deploy:symlink_shared', 'deploy:cleanup'
 

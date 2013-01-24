@@ -22,6 +22,7 @@
 //= require dataTables/jquery.dataTables
 //= require rails.validations
 //= require rails.validations.simple_form
-//=require jquery-fileupload/basic
+//= require jquery-fileupload/basic
+//= require select2
 //= require twitter/bootstrap
 //= require_tree . 

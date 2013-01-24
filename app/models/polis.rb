@@ -4,21 +4,21 @@ class Polis < ActiveRecord::Base
   
   attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp, :insurance_id, :created_at #<<== creat - временно для переноса данных
     
-  # validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
-  # validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
-  # 
-  # validates_each :npolis do |record, attr, value|
-  #   if record.spolis.blank?
-  #     record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
-  #   else
-  #     record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
-  #     record.errors.add(attr, 'номер временного свидетельства введен не правильно.') unless record.check_numbers?
-  #   end
-  # end
+  validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
+  validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
+  
+  validates_each :npolis do |record, attr, value|
+    if record.spolis.blank?
+      record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
+    else
+      record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
+      record.errors.add(attr, 'номер временного свидетельства введен не правильно.') unless record.check_numbers?
+    end
+  end
   # after_validation :foo_val
-  # before_create :data_logic
-  # # before_save :data_logic
-  # before_update :data_logic, :if => :check_changed? 
+  before_create :data_logic
+  # before_save :data_logic
+  before_update :data_logic, :if => :check_changed? 
   def foo
       return @foo
   end

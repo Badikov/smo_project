@@ -1,9 +1,11 @@
 <div class="page-header">
   <h3><%=t 'Территории Кемеровской области' %></h3>
 </div>
+<div>
 <% @ates.collect do |x| %>
-<%= link_to x.nameate, edit_ate_path(x.kdate) %><br>
+<%= link_to x.nameate, edit_ate_path(x.id) %><br>
 <% end %>
-
-  
+</div>
+<div>
+</div>
   

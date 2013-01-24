@@ -77,9 +77,9 @@ SmoProject::Application.routes.draw do
   resources :subektis
   resources :okatos
   
-  resources :ates do
-    resources :nsilpus
-  end
+  resources :ates 
+  resources :nsilpus
+  
   
   resources :reports do
     collection do

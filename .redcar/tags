@@ -1,4 +1,4 @@
-1358913098
+1358987487
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -35,6 +35,7 @@ AtsControllerTest	/home/alex/rails_projects/smo_project/test/functional/ats_cont
 AtsHelper	/home/alex/rails_projects/smo_project/app/helpers/ats_helper.rb	module AtsHelper
 AtsHelperTest	/home/alex/rails_projects/smo_project/test/unit/helpers/ats_helper_test.rb	class AtsHelperTest 
 BrowsingTest	/home/alex/rails_projects/smo_project/test/performance/browsing_test.rb	class BrowsingTest 
+ChangeTablesAtesAndNsilpus	/home/alex/rails_projects/smo_project/db/migrate/20130123093733_change_tables_ates_and_nsilpus.rb	class ChangeTablesAtesAndNsilpus 
 ChengeDataTypeInAts	/home/alex/rails_projects/smo_project/db/migrate/20121203053205_chenge_data_type_in_ats.rb	class ChengeDataTypeInAts 
 CreateAddresGs	/home/alex/rails_projects/smo_project/db/migrate/20121007174250_create_addres_gs.rb	class CreateAddresGs 
 CreateAddresPs	/home/alex/rails_projects/smo_project/db/migrate/20121007174832_create_addres_ps.rb	class CreateAddresPs 
@@ -253,9 +254,9 @@ create	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb
 create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def create
-create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def create
 createNextButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createNextButton(i)
 createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createPrevButton(i)
 create_fakt	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_fakt
@@ -272,8 +273,8 @@ death_of_customer	/home/alex/rails_projects/smo_project/app/controllers/customer
 default	/home/alex/rails_projects/smo_project/app/controllers/main_controller.rb	  def default
 destroy	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def destroy
-destroy	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def destroy
+destroy	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def destroy
 doc	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :doc
 down	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def down
 down	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	  def down
@@ -329,9 +330,9 @@ month_in_rus_string	/home/alex/rails_projects/smo_project/app/helpers/vizits_hel
 new	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new
+new	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def new
-new	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def new
 new_fam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new_fam
 newfam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def newfam
 numbers	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def numbers
@@ -381,6 +382,7 @@ up	/home/alex/rails_projects/smo_project/db/migrate/20130121224026_new_people_ta
 up	/home/alex/rails_projects/smo_project/db/migrate/20130121225608_new_vizits_table.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20130121231811_new_polis_table.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20130121233251_new_ats_table.rb	  def up
+up	/home/alex/rails_projects/smo_project/db/migrate/20130123093733_change_tables_ates_and_nsilpus.rb	  def up
 update	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121233251) do
+ActiveRecord::Schema.define(:version => 20130123093733) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20130121233251) do
 
   add_index "addres_ps", ["person_id"], :name => "index_addres_ps_on_person_id"
 
-  create_table "ates", :force => true do |t|
-    t.integer "kdate",                  :null => false
+  create_table "ates", :id => false, :force => true do |t|
+    t.integer "id",                     :null => false
     t.string  "nameate", :limit => 128
   end
 
@@ -127,13 +127,15 @@ ActiveRecord::Schema.define(:version => 20130121233251) do
 
   create_table "nsilpus", :force => true do |t|
     t.integer "kdlpu"
-    t.string  "kdate"
+    t.string  "ate_id"
     t.string  "namelpu"
     t.integer "kdlpu_ur"
     t.integer "kdate_ur"
     t.integer "status"
     t.integer "kdtype"
   end
+
+  add_index "nsilpus", ["ate_id"], :name => "index_nsilpus_on_ate_id"
 
   create_table "okatos", :force => true do |t|
     t.string   "kdnpt"

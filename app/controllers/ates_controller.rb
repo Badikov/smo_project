@@ -12,6 +12,6 @@ class AtesController < ApplicationController
   # GET /ates/1/edit
   def edit
     @ate = Ate.find(params[:id])
-    @nsilpu = Nsilpu.lpus_of_ate(@ate.kdate)
+    # @nsilpu = Nsilpu.lpus_of_ate(@ate.kdate)
   end
 end
