@@ -1,9 +1,18 @@
+<%- model_class = Filial -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
+</div>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+  <dd><%= @filial.id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @filial.title %></dd>
+</dl>
 <p>
-  <b>Title:</b>
-  <%= @filial.title %>
-</p>
-
-
-<%= link_to 'Edit', edit_filial_path(@filial) %> |
-<%= link_to 'Back', filials_path %>
+ 
+<div class="form-actions">
+  <%= link_to 'Изменить',  edit_filial_path(@filial), :class => 'btn btn-primary' %>
+  <%= link_to 'Отменить',  home_path, :class => 'btn'  %>
+  
+</div>

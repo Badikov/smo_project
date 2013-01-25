@@ -1,14 +1,12 @@
 <%= simple_form_for @filial, :html => { :class => 'form-horizontal' } do |f| %>
   
-  <%= f.input :title, :input_html => { :class => "span6" } %>
+  <%= f.input :id, :label => 'Идентификатор',:input_html => { :class => "span2", :disabled => @filial.new_record? ? false : true } %>
+  
+  <%= f.input :title,:label => 'Наименование', :input_html => { :class => "span6" } %>
   
   <div class="form-actions">
-    <%= f.button :submit %>
-    <% if !@filial.new_record? %>
-      <%= link_to t('.show', :default => t("helpers.links.show")),
-		  @filial, :class => 'btn' %>
-    <% end %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                filials_path, :class => 'btn' %>
+    <%= f.button :submit ,:class => 'btn btn-primary', :value => 'Сохранить' %>
+    
+    <%= link_to 'Отменить', filials_path, :class => 'btn' %>
   </div>
 <% end %>

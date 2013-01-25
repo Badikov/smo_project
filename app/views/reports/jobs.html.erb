@@ -1,0 +1,41 @@
+<p>
+<h3>Застрахованные за сегодня</h3>
+  <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
+
+</p>
+<table id="jobs_table_id" class="display">
+    <thead>
+        <tr>
+          <th>Агент</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>дата_рождения</th>
+            <th>тип_опер</th>
+            <th>время_дата</th>
+            
+            <th>ERP</th>
+            <th>Единый</th>
+            <th>серия</th>
+            <th>номер</th>
+        </tr>
+    </thead>
+    <tbody>
+     <% @ops.find_each do |op| %> 
+        <tr>
+            <% user_name = op.user.name.split(" ") %>
+            <td><%= user_name[0] + " " + user_name[1].slice(0,1) + "." %></td>
+            <td><%= op.person.fam %></td>
+            <td><%= op.person.im %></td>
+            <td><%= op.person.ot %></td>
+            <td><%= op.person.dr.strftime('%d.%m.%Y') %></td>
+            <td><%= op.tip_op %></td>
+            <td><%= op.updated_at.strftime('%H:%M %d.%m.%Y') %></td>
+            <td><%= op.person.vizit.insurance.erp %></td>
+            <td><%= op.person.vizit.insurance.enp %></td>
+            <td><%= op.person.vizit.insurance.polis.spolis %></td>
+            <td><%= op.person.vizit.insurance.polis.npolis %></td>
+        </tr>
+     <% end %>   
+    </tbody>
+</table>

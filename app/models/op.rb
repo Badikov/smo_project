@@ -8,7 +8,7 @@ class Op < ActiveRecord::Base
   scope :new_today, -> { where(created_at: (DateTime.current.beginning_of_day)..(DateTime.current.end_of_day)) }
   scope :new_today_active, -> { new_today.where("active= ?", true) }
  
-  
+  scope :jobs_today, -> { where(updated_at: (DateTime.current.beginning_of_day)..(DateTime.current.end_of_day)) }
   # self.primary_key = "person_id"#"id" #
   
   # before_update :save_id_for_terfond

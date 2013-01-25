@@ -13,6 +13,14 @@
   <% filials = Filial.joins(:users).where(:users => {:id => op.user_id}) %>
   <% user = User.find_by_id(op.user_id) %>
 
+  <% if @person.ats.territor %>
+    <% ter_pr = @person.ats.territor.last %>
+  <% end %>
+
+  <% if @person.ats.facktice %>
+    <% fack_pr = @person.ats.facktice.last %>
+  <% end %>
+
   <div class="accordion" id="accordion2">
 
     <% if !op.nil? %>
@@ -30,6 +38,16 @@
               <dt>последнее событие</dt><dd><%= op.tip_op || "-" %></dd>
               <dt>подразделение</dt><dd><%= filials[0].title %></dd>
               <dt>агент</dt><dd><%= user.name %></dd>
+              <% unless ter_pr.blank? %>
+                <% item = Nsilpu.find_by_kdlpu(ter_pr.kdmu) %>
+                <dt>территориальное прикрепление</dt><dd><%= item.namelpu + '   дата пр.' + ter_pr.date_b.strftime('%d.%m.%Y') %></dd>
+              <% end %>
+              <% unless fack_pr.blank? %>
+                <% item = Nsilpu.find_by_kdlpu(fack_pr.kdmu) %>
+                <dt>фактическое прикрепление</dt><dd><%= item.namelpu + '   дата пр.' + fack_pr.date_b.strftime('%d.%m.%Y') %></dd>
+              <% end %>
+
+
               <% if !op.date_uvoln.blank? %>
                 <dt>выбыл</dt><dd><%= op.date_uvoln.strftime('%d.%m.%Y') %></dd>
               <% end %>

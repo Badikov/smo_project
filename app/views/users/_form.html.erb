@@ -1,7 +1,7 @@
 
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   
-  <% if (@user == current_user) and (cannot? :create, User) %>
+  <% if cannot? :create, User %>
     <%= f.input :name, :label => 'Имя, фамилия', :input_html => {disabled: 'disabled'} %>
     <%= f.input :email, :input_html => {disabled: 'disabled'} %>
     <%= f.input :password, :label => 'Новый пароль' %>
@@ -14,11 +14,12 @@
     <%= f.input :password_confirmation, :label => 'Еще раз.....' %>
     <%= f.association :filial,:label => 'Относится к филиалу', :as => :select, :input_html => { class: 'span4' } %>
     <%= f.association :roles,:label => 'Роль в программе', :as => :check_boxes %>
+    
+    <%= f.input :failed_login_count,:label => 'Ошибки доступа' %>
   <% end %>
   
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                home_path, :class => 'btn' %>
+    <%= f.button :submit, :class => 'btn btn-primary',:value => 'Сохранить' %>
+    <%= link_to 'Отменить', home_path, :class => 'btn' %>
   </div>
 <% end %>

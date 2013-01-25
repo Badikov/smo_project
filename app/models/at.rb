@@ -5,6 +5,9 @@ class At < ActiveRecord::Base
   
   attr_accessible :date_b, :date_e, :date_z, :kdatemu, :kdmu, :type_at, :created_at, :id, :person_id, :updated_at
   
+  scope :territor, -> { where("type_at= ?", "T") }
+  scope :facktice, -> { where("type_at= ?", "F") }
+  
   # alias_method :kdatemu=, :kdate=
   
   before_save :insert_dates

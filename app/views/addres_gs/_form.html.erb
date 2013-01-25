@@ -8,13 +8,15 @@
    
        <%= f.input :indx, :label => 'Почтовый индекс' %>
     
-       <%= f.input :okato %>
+       <%= f.input :okato , :hint => 'ОКАТО появится здесь после выбора наслеленного пункта. ' + '<span class="text-error"> КРОМЕ ИНОБЛАСТНЫХ!!!</span>' %>
     
-       <%= f.input :rnname, :label => 'Район', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+       <%= f.input :rnname, :label => 'Сельский район',:placeholder => 'ГУРЬЕВСКИЙ РАЙОН', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
     
-      <%= f.input :npname, :label => 'Населенный пункт' %>
+      <%= f.input :npname, :label => 'Населенный пункт', :placeholder => 'КИСЕЛЕВСК Г.',:input_html => {onkeyup:'this.value=this.value.toUpperCase()'},
+      :hint => 'в выпадающем списке населенные пункты ' + '<span class="text-error">ТОЛЬКО КЕМЕРОВСКОЙ ОБЛАСТИ</span>' + ' инобластные вводить, как показано в шаблоне КИСЕЛЕВСК Г.'  %>
    
-       <%= f.input :ul, :label => 'Улица' %>
+       <%= f.input :ul, :label => 'Улица', :placeholder => 'КИРОВА УЛ',:input_html => {onkeyup:'this.value=this.value.toUpperCase()'},
+      :hint =>'если нужной улицы нет в выпадающем списке, то ввести, как на шаблоне'  %>
       
       <%= f.input :dom, :label => 'Дом', :input_html => { :class => "span1" } %>
    

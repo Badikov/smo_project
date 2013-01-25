@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-   	$('#today_table_id').dataTable
+   	$('#today_table_id, #jobs_table_id').dataTable
     	sPaginationType: "full_numbers"
     	bJQueryUI: true

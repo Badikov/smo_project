@@ -10,14 +10,26 @@ class UserSessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(params[:user_session])
-    if @user_session.save
-      flash[:notice] =  respect_user @user_session.user.name.to_s #"Login successful!"
-#       redirect_back_or_default people_path#account_url(@current_user)
-      redirect_to home_path
-    else
-      render :action => :new
+    
+    
+    @user_session.save do |result|
+      if result
+        flash[:notice] = respect_user @user_session.user.name.to_s
+        redirect_back_or_default account_url
+      else
+        render :action => :new
+      end
     end
-  end
+  end   
+      
+      
+      # flash[:notice] =  respect_user @user_session.user.name.to_s #"Login successful!"
+# #       redirect_back_or_default people_path#account_url(@current_user)
+#       redirect_to home_path
+#     else
+#       render :action => :new
+#     end
+
 
   def destroy
     current_user_session.destroy

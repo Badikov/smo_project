@@ -15,5 +15,6 @@ class User < ActiveRecord::Base
   
   simple_roles
   
-  attr_accessible :name, :password, :password_confirmation, :login, :email, :filial_id, :role_ids, :title
+  attr_accessible :name, :password, :password_confirmation, :login, :email, :filial_id, :role_ids,
+                  :failed_login_count
 end

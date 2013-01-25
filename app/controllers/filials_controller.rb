@@ -1,4 +1,7 @@
+# encoding: utf-8
 class FilialsController < ApplicationController
+  
+  before_filter :require_user
   # GET /filials
   # GET /filials.json
   def index
@@ -44,7 +47,7 @@ class FilialsController < ApplicationController
 
     respond_to do |format|
       if @filial.save
-        format.html { redirect_to @filial, notice: 'Filial was successfully created.' }
+        format.html { redirect_to @filial, notice: 'Добавлен новый филиал.' }
         format.json { render json: @filial, status: :created, location: @filial }
       else
         format.html { render action: "new" }
@@ -60,7 +63,7 @@ class FilialsController < ApplicationController
 
     respond_to do |format|
       if @filial.update_attributes(params[:filial])
-        format.html { redirect_to @filial, notice: 'Filial was successfully updated.' }
+        format.html { redirect_to @filial, notice: 'Информация о филиале успешно обновлена.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

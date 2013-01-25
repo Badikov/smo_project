@@ -1,7 +1,7 @@
 # encoding: utf-8
 class UsersController < ApplicationController
   
-  # before_filter :require_user, :only => [:show, :edit, :update]
+   before_filter :require_user #, :only => [:show, :edit, :update]
   
   def index
     @users = User.all
@@ -24,14 +24,18 @@ class UsersController < ApplicationController
       flash[:notice] = "Новый пользователь успешно добавлен."
       redirect_to users_path#signup_url
     else
-      flash[:notice] = "There was a problem creating you."
+      flash[:notice] = "Не удалось создать нового пользователя."
       render :action => :new
     end
 
   end
   # GET /users/current
   def show
-    @user = current_user
+    if can? :create, User
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
   # GET /users/1/edit
   def edit

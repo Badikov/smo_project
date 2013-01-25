@@ -1,5 +1,11 @@
 SmoProject::Application.routes.draw do
-  get "reports/today"
+  
+  resources :reports do
+    collection do
+      get "today" => "reports#today"
+      get "jobs" => "reports#jobs"
+    end
+  end
 
   resources :uploads do
     collection do
