@@ -15,7 +15,7 @@ class UserSessionsController < ApplicationController
     @user_session.save do |result|
       if result
         flash[:notice] = respect_user @user_session.user.name.to_s
-        redirect_back_or_default account_url
+        redirect_to home_path
       else
         render :action => :new
       end

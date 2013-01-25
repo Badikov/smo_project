@@ -827,9 +827,6 @@ cursor_positions:
   - :path: app/views/users/show.html.erb
     :cursor_offset: 504
     :timestamp: 2013-01-25 05:01:06 +06:00
-  - :path: app/models/user_session.rb
-    :cursor_offset: 574
-    :timestamp: 2013-01-25 04:22:25 +06:00
   - :path: app/views/user_sessions/new.html.erb
     :cursor_offset: 558
     :timestamp: 2013-01-09 21:35:45 +06:00
@@ -866,4 +863,7 @@ cursor_positions:
   - :path: app/views/addres_gs/_form.html.erb
     :cursor_offset: 1283
     :timestamp: 2013-01-25 06:32:22 +06:00
+  - :path: app/models/user_session.rb
+    :cursor_offset: 574
+    :timestamp: 2013-01-25 04:22:25 +06:00
 files_to_retain: 0
