@@ -8,7 +8,7 @@
     
   <%= f.input :doctype, :collection => Tipdoc.all(:order => :docname),
 		    :label_method => :docname, :value_method => :iddoc, :include_blank => false, 
-		    :label => 'Документ', :input_html => {class: "span6"}%>
+		    :label => 'Документ', :input_html => {class: "span6 doc_type"}%>
 
   <%= f.input :docser, :label => 'Серия' %>
 

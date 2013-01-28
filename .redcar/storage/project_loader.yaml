@@ -5,8 +5,5 @@ open_files:
   - app/models/vizit.rb
   - app/models/insurance.rb
   - app/models/polis.rb
-  - app/models/person.rb
-  - app/models/doc.rb
-  - app/controllers/ates_controller.rb
-  - app/models/ate.rb
-  - app/models/nsilpu.rb
+  - app/views/user_sessions/new.html.erb
+  - app/views/ats/_modal_terr.html.erb

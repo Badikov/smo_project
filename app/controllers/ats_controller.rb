@@ -81,7 +81,7 @@ class AtsController < ApplicationController
               doc.TYPE(at.type_at)
               doc.KDATEMU(at.kdatemu)
               doc.KDMU(at.kdmu)
-              doc.DATE_Z(at.date_z.nil? ? nil : at.date_z.to_date)
+              # doc.DATE_Z(at.date_z.nil? ? nil : at.date_z.to_date)
               doc.DATE_B(at.date_b.nil? ? nil : at.date_b.to_date)
               doc.DATE_E(at.date_e.nil? ? nil : at.date_e.to_date)
             }

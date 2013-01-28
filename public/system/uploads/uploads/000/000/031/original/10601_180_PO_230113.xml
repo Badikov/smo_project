@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<DATAPACKET Version="2.0">
+<METADATA>
+<FIELDS>
+<FIELD FieldName="CODEPSK" DisplayLabel="CODEPSK" FieldType="Float" FieldClass="TField"/>
+<FIELD FieldName="POLIS" DisplayLabel="POLIS" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="FAM" DisplayLabel="FAM" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="IM" DisplayLabel="IM" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="OTCH" DisplayLabel="OTCH" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="DR" DisplayLabel="DR" FieldType="Date" FieldClass="TField"/>
+<FIELD FieldName="SEX" DisplayLabel="SEX" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="NAMESTAT" DisplayLabel="NAMESTAT" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="NAMECITY" DisplayLabel="NAMECITY" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="NAMESTREET" DisplayLabel="NAMESTREET" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="HOUSE" DisplayLabel="HOUSE" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="FLAT" DisplayLabel="FLAT" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="CONTRACT" DisplayLabel="CONTRACT" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="NAMESUBCON" DisplayLabel="NAMESUBCON" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="DATEPOLIS" DisplayLabel="DATEPOLIS" FieldType="Date" FieldClass="TField"/>
+<FIELD FieldName="DATEPR" DisplayLabel="DATEPR" FieldType="Date" FieldClass="TField"/>
+<FIELD FieldName="DATEOTKR" DisplayLabel="DATEOTKR" FieldType="Date" FieldClass="TField"/>
+<FIELD FieldName="NAMEOUT" DisplayLabel="NAMEOUT" FieldType="String" FieldClass="TField"/>
+<FIELD FieldName="TYPEPR" DisplayLabel="TYPEPR" FieldType="String" FieldClass="TField"/>
+</FIELDS>
+</METADATA>
+<ROWDATA>
+<ROW CODEPSK="180" POLIS="4256410878000144" FAM="ЗАСЯДКО" IM="ЭЛЬВИРА" OTCH="АЛЕКСАНДРОВНА" DR="21.03.1985" SEX="Ж" NAMESTAT="РАБОТАЮЩИЙ" NAMECITY="НОВОКУЗНЕЦК" NAMESTREET="ТОРЕЗА" HOUSE="113" FLAT="9" CONTRACT="" NAMESUBCON="" DATEPOLIS="27.04.2012" DATEPR="10.01.2013" DATEOTKR="" NAMEOUT="" TYPEPR="Ф"/>
+<ROW CODEPSK="180" POLIS="4258320848000322" FAM="СИЛЬВЕСТРОВ" IM="АЛЕКСЕЙ" OTCH="ВЛАДИМИРОВИЧ" DR="01.01.1976" SEX="М" NAMESTAT="РАБОТАЮЩИЙ" NAMECITY="ТАЙЛЕП" NAMESTREET="НОВАЯ" HOUSE="12" FLAT="1" CONTRACT="" NAMESUBCON="" DATEPOLIS="29.10.2012" DATEPR="09.01.2013" DATEOTKR="" NAMEOUT="" TYPEPR="Ф"/>
+<ROW CODEPSK="180" POLIS="4269850836000030" FAM="СОЛОВЬЕВ" IM="ВИКТОР" OTCH="МИХАЙЛОВИЧ" DR="13.10.1941" SEX="М" NAMESTAT="НЕРАБОТАЮЩИЙ" NAMECITY="НОВОКУЗНЕЦК" NAMESTREET="ФРАНКФУРТА" HOUSE="2" FLAT="33" CONTRACT="" NAMESUBCON="" DATEPOLIS="13.12.2012" DATEPR="17.12.2012" DATEOTKR="" NAMEOUT="" TYPEPR="Ф"/>
+<ROW CODEPSK="180" POLIS="4273050874000612" FAM="СОЛОВЬЕВА" IM="ЛЮДМИЛА" OTCH="ПЕТРОВНА" DR="25.06.1949" SEX="Ж" NAMESTAT="НЕРАБОТАЮЩИЙ" NAMECITY="НОВОКУЗНЕЦК" NAMESTREET="ФРАНКФУРТА" HOUSE="2" FLAT="33" CONTRACT="" NAMESUBCON="" DATEPOLIS="13.12.2012" DATEPR="17.12.2012" DATEOTKR="" NAMEOUT="" TYPEPR="Ф"/>
+<ROW CODEPSK="180" POLIS="031520810" FAM="ФЕДОРОВ" IM="ИГНАТ" OTCH="АЛЕКСАНДРОВИЧ" DR="02.03.1937" SEX="М" NAMESTAT="РАБОТАЮЩИЙ" NAMECITY="НОВОКУЗНЕЦК" NAMESTREET="КИРОВА" HOUSE="76" FLAT="13" CONTRACT="" NAMESUBCON="" DATEPOLIS="14.01.2013" DATEPR="14.01.2013" DATEOTKR="" NAMEOUT="" TYPEPR="Ф"/>
+</ROWDATA>
+</DATAPACKET>

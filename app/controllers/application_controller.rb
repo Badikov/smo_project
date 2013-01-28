@@ -19,13 +19,13 @@ class ApplicationController < ActionController::Base
     fio.each_with_index {|v,i| res += v+' ' if i>0}
     now = Time.current.hour
     if (0..5).include?(now)
-      hel = 'Дрброй ночи, '
+      hel = 'Доброй ночи, '
     elsif (6..11).include?(now)
-      hel = 'Дрброе утро, '
+      hel = 'Доброе утро, '
     elsif (12..17).include?(now)
-      hel = 'Дрбрый день, '
+      hel = 'Добрый день, '
     elsif (18..23).include?(now)
-      hel = 'Дрбрый вечер, '
+      hel = 'Добрый вечер, '
     end
     logger.debug now
     return hel + res

@@ -21,10 +21,13 @@ group :assets do
   gem 'less-rails-bootstrap'
   gem 'twitter-bootstrap-rails'
   gem "select2-rails"
+  gem 'chosen-rails'
   gem 'jquery-fileupload-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 # gem 'will_paginate'
+gem "paperclip", "~> 3.0"
+
 
 gem 'therubyracer'
 gem 'libv8'

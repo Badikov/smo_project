@@ -47,7 +47,8 @@ class Polis < ActiveRecord::Base
   
   protected
   def check_changed?
-    if self.changed.size > 2
+    logger.debug {'changed.size ----->' + self.changed.size.to_s }
+    if self.changed.size >= 2
       true
     else
       false

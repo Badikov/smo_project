@@ -1,0 +1,72 @@
+<div class="page-header">
+  <h3>Загрузка файлов '.Xml'</h3>
+</div>
+  
+  <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload" } do |f| %>
+    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+    <div class="row fileupload-buttonbar">
+      <div class="span7">
+        <!-- The fileinput-button span is used to style the file input field as button -->
+        <span class="btn btn-success fileinput-button">
+          <i class="icon-plus icon-white"></i>
+          <span>Загрузить файл...</span>
+          <%= f.file_field :upload %>
+        </span>
+      </div>
+    </div>
+    
+    <!-- The table listing the files available for upload/download -->
+    
+  <% end %>
+  
+  <% tab = @uploads.map{|upload| upload.to_jq_upload } %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% tab[0].each_key do |key| %>
+          <% unless key == 'url' || key == 'delete_type'  %>
+            <th><%= key %></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% tab.each do |row| %>
+        <tr>
+          <% row.each do |key, value| %>
+            <% unless key == 'url' || key == 'delete_type'  %>
+            <% if key.start_with?('delete')  %>  
+              <td><%= link_to "Удалить",value, 'data-method' => :delete, :class => "delete", :confirm => "Вы уверенны, что нужно удалить ?" %></td>    
+              <% else %>
+              <td><%= value %></td>
+              <% end %>
+              
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+<script>
+  var fileUploadErrors = {
+  maxFileSize: 'File is too big',
+  minFileSize: 'File is too small',
+  acceptFileTypes: 'Filetype not allowed',
+  maxNumberOfFiles: 'Max number of files exceeded',
+  uploadedBytes: 'Uploaded bytes exceed file size',
+  emptyResult: 'Empty file upload result'
+  };
+</script>
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+  <div class="upload">
+    {%=o.name%}
+    <div class="progress"><div class="bar" style="width: 0%"></div></div>
+  </div>
+</script>
+  
+  
+  
+  
+  

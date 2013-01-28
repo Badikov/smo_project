@@ -35,4 +35,12 @@ form#people_search {
   }
   overflow: hidden;
   display: block;
-}    
+} 
+select.doc_type {
+  option {
+    color: #999999;
+  }
+  option[value='14'], option[value='3'] {
+    color: #0D0534
+  }
+}   

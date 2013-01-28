@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123093733) do
+ActiveRecord::Schema.define(:version => 20130127060952) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -296,6 +296,15 @@ ActiveRecord::Schema.define(:version => 20130123093733) do
     t.date     "dateend"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "user_roles", :force => true do |t|

@@ -11,6 +11,8 @@ jQuery ->
   $('form[id*="edit_vizit"] input[id*="vizit_rpolis"]').each (i) ->
     if (i == 0) || (i == 1) || (i == 4)
       $(@).parent().hide()
+    
+  $("#customers_table_search").hide()
 
   $("#customers_search_query").focus()
 
@@ -30,7 +32,9 @@ jQuery ->
           dataType: 'html'
           data:
             term: term.toUpperCase()
-          success: (data) -> table_rows data
+          success: (data) -> 
+            table_rows data
+            $("#customers_table_search").show()
           error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
   
   $("#customers_table_search.table-hover tbody tr").live "click", (e) ->
@@ -129,7 +133,7 @@ jQuery ->
       success: (data) ->
         $("div.person-block").remove()
         $("div.page-body").append data
-        doc_style_()
+        
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     return false
 

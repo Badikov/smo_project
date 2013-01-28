@@ -52,10 +52,15 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-deploy (0.3.2)
       capistrano (~> 2.9)
+    chosen-rails (0.9.11.2)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     client_side_validations (3.2.1)
     client_side_validations-simple_form (2.0.1)
       client_side_validations (~> 3.2.0)
       simple_form (~> 2.0.3)
+    cocaine (0.4.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -105,6 +110,12 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     oj (1.4.7)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -193,6 +204,7 @@ DEPENDENCIES
   cancan
   capistrano
   capistrano-deploy
+  chosen-rails
   client_side_validations
   client_side_validations-simple_form
   coffee-rails (~> 3.2.1)
@@ -205,6 +217,7 @@ DEPENDENCIES
   libv8
   libxml-ruby
   oj
+  paperclip (~> 3.0)
   rails (= 3.2.9)
   ransack
   rubyzip

@@ -102,7 +102,36 @@ jQuery ->
       $('div.control-group:last').removeClass 'error'
       $('div.control-group:last>div.controls>span.help-inline').remove()
  
- $("#kdmu").select2()
+ 
+ #--------------------------------------------------------------------------------------------
+ #----------Модальные окна территориального и фактического прикрепления к лечебному учреждению
+ #--------------------------------------------------------------------------------------------
+ $("div#atlhModal").live 'show', ->
+    $("#kdmu").select2()
+ $("select#kdmu").live 'change', ->
+    $("#create_at_t").removeAttr 'disabled'
+
+ $("#create_at_t").live 'click', ->
+    $.ajax
+     type: "POST"
+     dataType: 'json'
+     url: '/ats'
+     data:
+       person_id: $("#create_at_t_person_id").val()
+       kdatemu: $("#create_at_t_kdatemu").val()
+       kdmu: $("#kdmu option:selected").attr 'value'
+     success: (response) ->
+       $("#create_at_t").attr 'disabled'
+       $("div#atlhModal").modal 'hide'
+       atl_fakt $("#create_at_t_person_id").val()
+       if response == 200
+         $('.row')
+           .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
+       else
+         $('.row')
+           .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+    return false
 
  inobl = $("div#atlhModal").attr 'inoblastnoy'
 
@@ -121,7 +150,7 @@ jQuery ->
   
 
  $("div#atlhModal select#kdmu").change ->
-   $("#create_at_t").removeAttr 'disabled'
+   #$("#create_at_t").removeAttr 'disabled'
 
  $("#create_at_t").click ->
    $.ajax
