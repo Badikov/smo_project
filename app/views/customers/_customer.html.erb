@@ -21,6 +21,8 @@
     <% fack_pr = @person.ats.facktice.last %>
   <% end %>
 
+  <%= render :partial => 'ats/modal_terr', :locals => { :person => @person } %>
+
   <div class="accordion" id="accordion2">
 
     <% if !op.nil? %>
@@ -352,7 +354,7 @@
   <% end %>
 <% end %>
 
-<%= render :partial => 'ats/modal_terr', :locals => { :person => @person } %>
+
 
 <!-- Modal death-->
 <div id="deathModal" class="modal hide fade personale" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
