@@ -13,6 +13,7 @@ jQuery ->
 
   $("#fileupload").fileupload
     dataType: "json"
+    redirect: "/uploads"
     add: (e, data) ->
       types = /(\.|\/)(xml)$/i
       file = data.files[0]
@@ -27,7 +28,8 @@ jQuery ->
         progress = parseInt(data.loaded / data.total * 100, 10)
         data.context.find('.bar').css('width', progress + '%')
 
-  #   done: (e, data)->
+    done: (e, data) ->
+      location.reload()
   #     $.each data.result, (index, file)->
   #       $('<p/>').text file.name 
   #       .appendTo document.body

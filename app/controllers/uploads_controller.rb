@@ -1,6 +1,6 @@
 # encoding: utf-8
 class UploadsController < ApplicationController
-
+  before_filter :require_user
   # GET /uploads
   # GET /uploads.json
   def index
@@ -58,7 +58,10 @@ class UploadsController < ApplicationController
           logger.debug { '----------------> Ok' }
           create_fackt_pricreplenie(items, @upload.upload_file_name)
         else
-          logger.debug {"======> fack "}
+          if @upload.upload_file_name.start_with?("UPAKOVKA")
+            logger.debug {"======> fack "}
+            update_numbers_of_polis(items)
+          end
         end
 
         format.html {
@@ -181,7 +184,34 @@ class UploadsController < ApplicationController
     kdmu = file_name[2,3]
     rows_aray.each do |item|
       person = Person.find_by_fam_and_im_and_ot_and_dr(item["FAM"], item["IM"], item["OTCH"], item["DR"].to_date)
-
+      if person
+        logger.debug { '----------------> Ok' }
+        at = person.ats.where(type_at: "F")
+        if at.size > 0
+          # , :date_e,
+          at.last.update_attributes(kdatemu: kdatemu, kdmu: kdmu, date_b: item["DATEPR"].to_date)
+        else
+          person.ats.create(kdatemu: kdatemu, kdmu: kdmu, type_at: "F", date_b: item["DATEPR"].to_date)
+        end
+      end
     end
   end
+
+  def update_numbers_of_polis(items)
+    items.each do |item|
+      
+       ser = item["POLIS"][0,3]
+       num = item["POLIS"][3,6]
+       date_polis = item["DATEPOLIS"].to_date
+       polis = Polis.find_by_spolis_and_npolis_and_dbeg(ser,num,date_polis)
+       if polis
+         if polis.update_attributes({npolis: item["BLANK"], vpolis: 3,datepp: DateTime.current,dbeg: nil,dend: nil,spolis: nil})
+           polis.insurance.update_attributes({enp: item["ENP"] ,erp: 1})
+           tm << item
+         end
+       end
+    end
+  end
+
+
 end

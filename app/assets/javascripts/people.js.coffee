@@ -125,6 +125,7 @@ jQuery ->
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' + _person.fam + ' ' + _person.im + ' ' + _person.ot + ', ' + _person.dr + ' г. рожд. уже есть в нашей базе.</div>'
       error: (jqXHR, textStatus, errorThrown) ->
         alert errorThrown
-      
+  
+  #kinder: =>  
     
   #console.log(states) .toUpperCase()

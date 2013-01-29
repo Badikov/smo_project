@@ -14,7 +14,7 @@
       <%= f.input :doctype, :collection => Tipdoc.all(:order => :docname),
 		    :label_method => :docname, :value_method => :iddoc, :include_blank => true, 
 		    :label => 'Документ', :priority => [ "Паспорт гражданина Российской Федерации" ], 
-		    :input_html => { :class => "span6" }%>
+		    :input_html => { :class => "span6 doc_type" }%>
     
       <%= f.input :docser, :label => 'Серия' %>
    
