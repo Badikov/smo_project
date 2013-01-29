@@ -4,8 +4,8 @@ class Representative < ActiveRecord::Base
   
   attr_accessible :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate, :phone#, :created_at #<<== creat - временно для переноса данных
     
-  validates :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate,:presence => true, :if => :is_more_younger_than_18?
-  validates :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate,:presence => {:message => "Не должно быть пустым."}
+  # validates :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate,:presence => true, :if => :is_more_younger_than_18?
+  # validates :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate,:presence => {:message => "Не должно быть пустым."}
   
   def person_age_18
       return @person_age_18
