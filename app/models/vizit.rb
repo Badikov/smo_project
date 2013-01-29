@@ -33,8 +33,8 @@ class Vizit < ActiveRecord::Base
     self.insurance.polis.foo = self.rpolis
     self.rpolis = nil unless self.rsmo.nil?
     if self.petition == "1"
-        @self.method = "2"
-        @self.rsmo = nil
+        self.method = "2"
+        self.rsmo = nil
     end
   end
   def logic_for_update_from_doublecat

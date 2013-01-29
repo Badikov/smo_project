@@ -737,9 +737,6 @@ cursor_positions:
   - :path: app/views/customers/edit.html.erb
     :cursor_offset: 91
     :timestamp: 2013-01-15 22:49:55 +06:00
-  - :path: app/views/people/_form.html.erb
-    :cursor_offset: 306
-    :timestamp: 2013-01-26 18:07:49 +06:00
   - :path: app/views/customers/_table_rows.html.erb
     :cursor_offset: 263
     :timestamp: 2013-01-05 02:23:08 +06:00
@@ -772,9 +769,6 @@ cursor_positions:
   - :path: config/routes.rb
     :cursor_offset: 163
     :timestamp: 2013-01-25 05:46:05 +06:00
-  - :path: Gemfile
-    :cursor_offset: 817
-    :timestamp: 2013-01-27 11:45:32 +06:00
   - :path: app/views/layouts/application.html.erb
     :cursor_offset: 1826
     :timestamp: 2013-01-24 06:21:06 +06:00
@@ -791,9 +785,6 @@ cursor_positions:
   - :path: app/models/xml_file.rb
     :cursor_offset: 400
     :timestamp: 2013-01-27 12:33:16 +06:00
-  - :path: app/assets/javascripts/application.js
-    :cursor_offset: 1031
-    :timestamp: 2013-01-27 17:15:55 +06:00
   - :path: app/views/user_sessions/new.html.erb
     :cursor_offset: 558
     :timestamp: 2013-01-09 21:35:45 +06:00
@@ -834,9 +825,6 @@ cursor_positions:
     :timestamp: 2013-01-26 16:45:34 +06:00
     :selection_offset: 501
     :block_selection_mode: false
-  - :path: app/views/representatives/_form.html.erb
-    :cursor_offset: 1006
-    :timestamp: 2013-01-29 02:57:43 +06:00
   - :path: app/models/representative.rb
     :cursor_offset: 17
     :timestamp: 2013-01-29 03:31:48 +06:00
@@ -883,4 +871,18 @@ cursor_positions:
   - :path: app/views/ates/index.html.erb
     :cursor_offset: 159
     :timestamp: 2013-01-24 06:24:15 +06:00
+  - :path: Gemfile
+    :cursor_offset: 1162
+    :timestamp: 2013-01-27 11:45:32 +06:00
+    :selection_offset: 1127
+    :block_selection_mode: false
+  - :path: app/assets/javascripts/application.js
+    :cursor_offset: 1031
+    :timestamp: 2013-01-27 17:15:55 +06:00
+  - :path: app/views/representatives/_form.html.erb
+    :cursor_offset: 227
+    :timestamp: 2013-01-29 09:28:00 +06:00
+  - :path: app/views/people/_form.html.erb
+    :cursor_offset: 1667
+    :timestamp: 2013-01-26 18:07:49 +06:00
 files_to_retain: 0

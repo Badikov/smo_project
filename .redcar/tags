@@ -1,4 +1,4 @@
-1359426683
+1359454143
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -99,6 +99,7 @@ MainController	/home/alex/rails_projects/smo_project/app/controllers/main_contro
 MainControllerTest	/home/alex/rails_projects/smo_project/test/functional/main_controller_test.rb	class MainControllerTest 
 MainHelper	/home/alex/rails_projects/smo_project/app/helpers/main_helper.rb	module MainHelper
 MainHelperTest	/home/alex/rails_projects/smo_project/test/unit/helpers/main_helper_test.rb	class MainHelperTest 
+MyValidator	/home/alex/rails_projects/smo_project/app/models/representative.rb	class MyValidator 
 NewAtsTable	/home/alex/rails_projects/smo_project/db/migrate/20130121233251_new_ats_table.rb	class NewAtsTable 
 NewOpsTable	/home/alex/rails_projects/smo_project/db/migrate/20130115205809_new_ops_table.rb	class NewOpsTable 
 NewPeopleTable	/home/alex/rails_projects/smo_project/db/migrate/20130121224026_new_people_table.rb	class NewPeopleTable 
@@ -327,7 +328,6 @@ initialize	/home/alex/rails_projects/smo_project/app/models/ability.rb	  def ini
 insert_dates	/home/alex/rails_projects/smo_project/app/models/addres_g.rb	  def insert_dates
 insert_dates	/home/alex/rails_projects/smo_project/app/models/at.rb	  def insert_dates
 insurance	/home/alex/rails_projects/smo_project/app/models/vizit.rb	  alias_method :insurance
-is_more_younger_than_18?	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def is_more_younger_than_18?
 jobs	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def jobs
 logic_for_update_from_doublecat	/home/alex/rails_projects/smo_project/app/models/vizit.rb	  def logic_for_update_from_doublecat
 make_feed_if_changed	/home/alex/rails_projects/smo_project/app/models/doc.rb	  def make_feed_if_changed
@@ -403,6 +403,7 @@ update	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update
 update_numbers_of_polis	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update_numbers_of_polis(items)
 upload	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def upload
+validate	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def validate(record)
 vibor_smo	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def vibor_smo(arg)
 vibor_zamena_smo	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def vibor_zamena_smo
 zamena_polis_datas	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def zamena_polis_datas

@@ -108,6 +108,14 @@ jQuery ->
  #--------------------------------------------------------------------------------------------
  $("div#atlhModal").live 'show', ->
     $("#kdmu").select2()
+
+ $("#atl_fakt_hModal").live 'show', ->
+    #$("label[for^='at']").remove()
+    $("#at_kdatemu").select2
+        placeholder: "Территории Кемеровской области"
+    $("#at_kdmu").select2
+        placeholder: "Лечебные учреждения"
+
  $("select#kdmu").live 'change', ->
     $("#create_at_t").removeAttr 'disabled'
 
@@ -192,7 +200,7 @@ jQuery ->
      data:
        kdate: _kdate
      success: (data) -> 
-       $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.namelpu + '</option>' 
+       $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.kdlpu.to_s + '---' + item.namelpu + '</option>' 
        _lpus.removeAttr 'disabled'
      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     
