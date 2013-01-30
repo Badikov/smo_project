@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   
   validates_associated :doc, :addres_g, :addres_p, :representative
   
-  before_validation :set_person_age_18
+  # before_validation :set_person_age_18
   before_update :save_old_data
   
   protected
