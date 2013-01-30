@@ -1,5 +1,5 @@
 <p>
-<h3>Застрахованные за сегодня</h3>
+<h4>Вся работа за сегодня</h4>
   <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
 
 </p>
@@ -31,10 +31,10 @@
             <td><%= op.person.dr.strftime('%d.%m.%Y') %></td>
             <td><%= op.tip_op %></td>
             <td><%= op.updated_at.strftime('%H:%M %d.%m.%Y') %></td>
-            <td><%= op.person.vizit.insurance.erp %></td>
-            <td><%= op.person.vizit.insurance.enp %></td>
-            <td><%= op.person.vizit.insurance.polis.spolis %></td>
-            <td><%= op.person.vizit.insurance.polis.npolis %></td>
+            <td><%= op.person.vizit.insurance.erp if op.person.vizit %></td>
+            <td><%= op.person.vizit.insurance.enp if op.person.vizit %></td>
+            <td><%= op.person.vizit.insurance.polis.spolis if op.person.vizit %></td>
+            <td><%= op.person.vizit.insurance.polis.npolis if op.person.vizit %></td>
         </tr>
      <% end %>   
     </tbody>

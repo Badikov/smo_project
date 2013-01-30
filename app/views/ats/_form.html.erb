@@ -3,9 +3,9 @@
   <% ate_list = Ate.all(:order => 'nameate') %>
   <%= f.input :kdatemu, :collection => ate_list.collect{|x| [ x.nameate, x.id ]}, :input_html => { :class => "span5" }%>
 
-  <%= f.input :kdmu, :as => :select, :collection => nil, :input_html => { :class => "span5", :disabled => true }%>
+  <%= f.input :kdmu, :as => :select, :collection => nil, :input_html => { :class => "span5" }%>
 
-  <%= f.input :date_b, :as => :string, :label => "Дата фактического прикрепления" %>
+  <%= f.input :date_b, :as => :string, :placeholder => 'Дата прикрепления' %>
 
   <%= f.input :type_at , :as => :hidden, :input_html => {:value => 'F'} %>
   
