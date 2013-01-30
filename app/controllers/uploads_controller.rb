@@ -53,7 +53,7 @@ class UploadsController < ApplicationController
         # _json = [@upload.to_jq_upload].to_json
         # 
 
-        logger.debug { items }
+        # logger.debug { items }
         unless @upload.upload_file_name.match(/^\d{5}/).nil?
           logger.debug { '----------------> Ok' }
           create_fackt_pricreplenie(items, @upload.upload_file_name)
@@ -182,10 +182,20 @@ class UploadsController < ApplicationController
   def create_fackt_pricreplenie(rows_aray, file_name)
     kdatemu = file_name[0,2]
     kdmu = file_name[2,3]
-    rows_aray.each do |item|
-      person = Person.find_by_fam_and_im_and_ot_and_dr(item["FAM"], item["IM"], item["OTCH"], item["DR"].to_date)
+    if rows_aray.class == Hash
+      worker_pricrep rows_aray, kdatemu, kdmu
+    else
+      rows_aray.each do |item|
+        worker_pricrep item, kdatemu, kdmu
+      end
+    end
+  end
+
+  def worker_pricrep(item, kdatemu, kdmu)
+    #---прикрепление-открепление фактическое от поликлиник
+    person = Person.find_by_fam_and_im_and_ot_and_dr(item["FAM"], item["IM"], item["OTCH"], item["DR"].to_date)
       if person
-        logger.debug { '----------------> Ok' }
+        # logger.debug { '----------------> Ok' }
         at = person.ats.where(type_at: "F")
         if at.size > 0
           # , :date_e,
@@ -194,24 +204,38 @@ class UploadsController < ApplicationController
           person.ats.create(kdatemu: kdatemu, kdmu: kdmu, type_at: "F", date_b: item["DATEPR"].to_date)
         end
       end
-    end
   end
 
   def update_numbers_of_polis(items)
-    items.each do |item|
-      
-       ser = item["POLIS"][0,3]
-       num = item["POLIS"][3,6]
-       date_polis = item["DATEPOLIS"].to_date
-       polis = Polis.find_by_spolis_and_npolis_and_dbeg(ser,num,date_polis)
-       if polis
-         if polis.update_attributes({npolis: item["BLANK"], vpolis: 3,datepp: DateTime.current,dbeg: nil,dend: nil,spolis: nil})
-           polis.insurance.update_attributes({enp: item["ENP"] ,erp: 1})
-           tm << item
-         end
-       end
+    if items.class == Hash
+      worker items
+    else
+      items.each do |item|
+        worker item
+      end
     end
+    # logger.debug { items.class }
+    
   end
-
+  def worker(item)
+    # logger.debug { item }
+      _polis = item["POLIS"].to_s
+       ser = _polis[0,3]
+       num = _polis[3,6]
+       # date_polis = item["DATEPOLIS"].to_date
+       polis = Polis.find_by_spolis_and_npolis(ser,num)
+       if polis
+          if polis.vpolis == 2
+             polis.insurance.attributes = {enp: item["ENP"] ,erp: 1}
+             if polis.insurance.save(validate: false)
+              # polis.insurance.update_attributes({enp: item["ENP"] ,erp: 1})
+                polis.update_attributes({npolis: item["BLANK"], vpolis: 3,datepp: item["DATE_LOAD"],dbeg: nil,dend: nil,spolis: nil})
+                polis.insurance.vizit.person.op.update_attributes({tip_op: "П040"})
+               
+             #   # tm << item
+             end
+          end
+       end
+  end
 
 end

@@ -8,12 +8,14 @@ class Polis < ActiveRecord::Base
   validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
   
   validates_each :npolis do |record, attr, value|
-    if record.spolis.blank?
-      record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
-    else
-      record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
-      record.errors.add(attr, 'номер временного свидетельства введен не правильно.') unless record.check_numbers?
-    end
+    # if record.datepp.blank?
+        if record.spolis.blank?
+          record.errors.add(attr, 'длинна номера бланка полиса 11 цифр') if value.size != 11
+        else
+          record.errors.add(attr, 'длинна номера временного свидетельства 6 цифр') if value.size != 6
+          record.errors.add(attr, 'номер временного свидетельства введен не правильно.') unless record.check_numbers?
+        end
+      # end
   end
   # after_validation :foo_val
   before_create :data_logic
@@ -48,7 +50,7 @@ class Polis < ActiveRecord::Base
   protected
   def check_changed?
     logger.debug {'changed.size ----->' + self.changed.size.to_s }
-    if self.changed.size >= 2
+    if self.changed.size >= 2 and self.changed.size < 5
       true
     else
       false

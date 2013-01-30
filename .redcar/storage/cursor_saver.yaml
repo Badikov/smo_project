@@ -774,9 +774,6 @@ cursor_positions:
   - :path: app/models/nsilpu.rb
     :cursor_offset: 247
     :timestamp: 2013-01-28 05:39:02 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2013-01-16 17:50:08 +06:00
   - :path: app/assets/stylesheets/people.css.scss
     :cursor_offset: 0
     :timestamp: 2013-01-26 16:39:32 +06:00
@@ -886,4 +883,7 @@ cursor_positions:
   - :path: app/models/personb.rb
     :cursor_offset: 0
     :timestamp: 2012-10-19 16:45:48 +07:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 4466
+    :timestamp: 2013-01-16 17:50:08 +06:00
 files_to_retain: 0
