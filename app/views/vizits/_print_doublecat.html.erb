@@ -266,7 +266,7 @@
       <div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div>
     </div>
 
-    <table class="single_row interval" id="pp_representative_parent" myvalue=<%= @person.representative.parent if @person.representative %>>
+    <table class="single_row interval" id="pp_representative_parent" myvalue=<%= UnicodeUtils.upcase(@person.representative.parent) if @person.representative %>>
       <tr>
         <td class="context">3.5.Отношение к застрахованному лицу,<br>сведения о котором указаны в заявлении</td>
         <td>мать</td><td class="enp" id="МАТЬ"></td>

@@ -184,7 +184,7 @@
     <div class="interval"><span>2.2.  Имя</span><span class="content"><%= @person.representative.im if @person.representative  %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
     <div class="interval"><span>2.3.  Отчество (при наличии)</span><span class="content"><%= @person.representative.ot if @person.representative %></span><div>(указывается в точном соответствии с записью в документе, удостоверяющем личность)</div></div>
    
-    <table class="single_row interval" myvalue=<%= @person.representative.parent if @person.representative %> id="pp_representative_parent">
+    <table class="single_row interval" myvalue=<%= UnicodeUtils.upcase(@person.representative.parent) if @person.representative %> id="pp_representative_parent">
       <tr>
         <td class="context">2.4.Отношение к застрахованному лицу,<br>сведения о котором указаны в заявлении</td>
         <td>мать</td><td class="enp" id="МАТЬ"></td>

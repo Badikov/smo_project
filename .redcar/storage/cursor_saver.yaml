@@ -297,9 +297,6 @@ cursor_positions:
   - :path: config/initializers/simple_form_bootstrap.rb
     :cursor_offset: 0
     :timestamp: 2012-10-08 16:45:57 +07:00
-  - :path: app/views/vizits/_print_petition.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-12-24 03:09:06 +06:00
   - :path: app/assets/javascripts/ops.js.coffee
     :cursor_offset: 1053
     :timestamp: 2012-11-29 15:48:39 +06:00
@@ -371,9 +368,6 @@ cursor_positions:
     :timestamp: 2012-12-27 02:08:05 +06:00
     :selection_offset: 2009
     :block_selection_mode: false
-  - :path: app/views/vizits/_print_doublecat.html.erb
-    :cursor_offset: 498
-    :timestamp: 2012-12-29 16:38:27 +06:00
   - :path: app/assets/javascripts/customers.js.coffee
     :cursor_offset: 0
     :timestamp: 2012-12-25 02:34:31 +06:00
@@ -886,4 +880,10 @@ cursor_positions:
   - :path: app/controllers/ops_controller.rb
     :cursor_offset: 6132
     :timestamp: 2013-01-16 09:53:25 +06:00
+  - :path: app/views/vizits/_print_doublecat.html.erb
+    :cursor_offset: 18095
+    :timestamp: 2013-01-30 08:22:56 +06:00
+  - :path: app/views/vizits/_print_petition.html.erb
+    :cursor_offset: 16747
+    :timestamp: 2013-01-30 08:21:17 +06:00
 files_to_retain: 0
