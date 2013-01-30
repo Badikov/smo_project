@@ -43,9 +43,9 @@ class Person < ActiveRecord::Base
   before_update :save_old_data
   
   protected
-  def set_person_age_18
-    self.representative.person_age_18 = self.dr.advance(:years => 18)
-  end
+  # def set_person_age_18
+  #   self.representative.person_age_18 = self.dr.advance(:years => 18)
+  # end
   
   def can_validate?
     true

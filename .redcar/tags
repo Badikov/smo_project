@@ -1,4 +1,4 @@
-1359512576
+1359523657
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -370,7 +370,6 @@ save_old_doc_datas	/home/alex/rails_projects/smo_project/app/models/doc.rb	  def
 search	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def search
 search_person	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def search_person
 selectStep	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function selectStep(i)
-set_person_age_18	/home/alex/rails_projects/smo_project/app/models/person.rb	  def set_person_age_18
 show	/home/alex/rails_projects/smo_project/app/controllers/home_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def show
