@@ -44,3 +44,9 @@ select.doc_type {
     color: #0D0534
   }
 }   
+select[id$='3i'],select[id$='1i'] {
+  width:100px;
+}
+select[id$='2i'] {
+  width:150px;
+}

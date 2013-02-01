@@ -10,9 +10,9 @@ class Op < ActiveRecord::Base
  
   scope :jobs_today, -> { where(updated_at: (DateTime.current.beginning_of_day)..(DateTime.current.end_of_day)) }
   
-  # def self.count_active
-  #   count(:all, :group => 'active')
-  # end
+  def self.count_active
+    count(:all, :group => 'active')
+  end
   # self.primary_key = "person_id"#"id" #
   
   # before_update :save_id_for_terfond

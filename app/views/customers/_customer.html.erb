@@ -50,8 +50,11 @@
                 </dd>
               
               <% unless fack_pr.blank? %>
-                <% item = Nsilpu.find_by_ate_id_and_kdlpu(fack_pr.kdatemu,fack_pr.kdmu) %>
-                <dt>фактическое прикрепление</dt><dd><%= item.namelpu + '   дата пр.' + fack_pr.date_b.strftime('%d.%m.%Y') %></dd>
+                <% item_f = Nsilpu.find_by_ate_id_and_kdlpu(fack_pr.kdatemu,fack_pr.kdmu) %>
+                <dt>фактическое прикрепление</dt>
+                <dd>
+                  <%= item_f.namelpu + '   дата пр. ' + fack_pr.date_b.strftime('%d.%m.%Y') %>
+                </dd>
               <% end %>
 
 
@@ -96,7 +99,7 @@
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOnePlus">
-              <strong>Преждние сведения о застрахованном лице</strong>
+              <strong>Прежние сведения о застрахованном лице</strong>
             </a>
         </div>
         <div id="collapseOnePlus" class="accordion-body collapse">
@@ -105,7 +108,7 @@
               <dt>ФИО</dt><dd><%= @person.old_person.fam %> <%= @person.old_person.im %> <%= @person.old_person.ot %></dd>
               <dt>пол</dt><dd><%= @person.old_person.w == 1 ? "мужской" : "женский"  %></dd>
               <dt>дата рожд.</dt><dd><%= @person.old_person.dr.strftime('%d.%m.%Y') %></dd>
-              <dt>преждний ЕНП</dt><dd><%= @person.old_person.old_enp %></dd>
+              <dt>прежний ЕНП</dt><dd><%= @person.old_person.old_enp %></dd>
             </dl>
           </div>
         </div>
@@ -129,10 +132,10 @@
               <dt>ФИО</dt><dd><%= parent_name  %></dd>
               <dt>Отношение к застрахованному</dt><dd><%= @person.representative.parent if @person.representative %></dd>
               <dt>Вид документа</dt><dd><%= UnicodeUtils.upcase(doc_parent) %></dd>
-              <dt>Серия</dt><dd><%= @person.representative.docser || "-" %></dd>
-              <dt>Номер</dt><dd><%= @person.representative.docnum || "-" %></dd>
-              <dt>Дата выдачи</dt><dd><%= @person.representative.docdate.strftime('%d.%m.%Y') || "-" if @person.representative %></dd>
-              <dt>Контактный телефон</dt><dd><%= @person.representative.phone  %></dd>
+              <% unless @person.representative.docser.blank? %> <dt>Серия</dt><dd><%= @person.representative.docser %></dd><% end %>
+              <% unless @person.representative.docnum.blank? %> <dt>Номер</dt><dd><%= @person.representative.docnum %></dd><% end %>
+              <% unless @person.representative.docdate.blank? %> <dt>Дата выдачи</dt><dd><%= @person.representative.docdate.strftime('%d.%m.%Y') %></dd><% end %>
+              <% unless @person.representative.phone.blank? %> <dt>Контактный телефон</dt><dd><%= @person.representative.phone  %></dd><% end %>
             </dl>
           </div>
         </div>
@@ -150,11 +153,11 @@
           <dl class="dl-horizontal">
             <% doc_name = Tipdoc.find_by_id(@person.doc.doctype).docname  %>
             <dt>Документ</dt><dd><%= UnicodeUtils.upcase(doc_name) %></dd>
-            <dt>Серия</dt><dd><%= @person.doc.docser %></dd>
-            <dt>Номер</dt><dd><%= @person.doc.docnum %></dd>
-            <dt>Дата выдачи</dt><dd><%= @person.doc.docdate.strftime('%d.%m.%Y') %></dd>
-            <dt>Кем выдан</dt><dd><%= @person.doc.name_vp %></dd>
-            <dt>Место рождения</dt><dd><%= @person.doc.mr %></dd>
+            <% unless @person.doc.docser.blank? %> <dt>Серия</dt><dd><%= @person.doc.docser %></dd><% end %>
+            <% unless @person.doc.docnum.blank? %> <dt>Номер</dt><dd><%= @person.doc.docnum %></dd><% end %>
+            <% unless @person.doc.docdate.blank? %> <dt>Дата выдачи</dt><dd><%= @person.doc.docdate.strftime('%d.%m.%Y') %></dd><% end %>
+            <% unless @person.doc.name_vp.blank? %> <dt>Кем выдан</dt><dd><%= @person.doc.name_vp %></dd><% end %>
+            <% unless @person.doc.mr.blank? %> <dt>Место рождения</dt><dd><%= @person.doc.mr %></dd><% end %>
           </dl>
         </div>
       </div>
@@ -173,7 +176,7 @@
             <dl class="dl-horizontal">
               
               <dt>Документ</dt><dd><%= UnicodeUtils.upcase(@person.doc.ig_doctype) unless @person.doc.ig_doctype.nil? %></dd>
-              <dt>Серия</dt><dd><%= @person.doc.ig_docser || "-" %></dd>
+              <% unless @person.doc.ig_docser.blank? %><dt>Серия</dt><dd><%= @person.doc.ig_docser %></dd><% end %>
               <dt>Номер</dt><dd><%= @person.doc.ig_docnum %></dd>
               <dt>Дата выдачи</dt><dd><%= @person.doc.ig_docdate %></dd>
               <dt>Кем выдан</dt><dd><%= @person.doc.ig_name_vp %></dd>
@@ -191,7 +194,7 @@
       <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-              <strong>Прежднее удостоверение личности</strong>
+              <strong>Ранее действовавшее удостоверение личности</strong>
             </a>
         </div>
         <div id="collapseFive" class="accordion-body collapse">
@@ -296,12 +299,16 @@
         <div id="collapseN" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              <dt>номер полиса</dt><dd><%= insurance.enp || "-" %></dd>
-              <% if polis.vpolis == 2 %>
+              <% unless insurance.enp.blank? %> <dt>номер полиса</dt><dd><%= insurance.enp %></dd><% end %>
+              <% if polis.vpolis == 1 %>
+                <dt>номер полиса</dt><dd><%= polis.npolis %></dd>
+                <dt>дата начала</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
+              <% elsif polis.vpolis == 2 %>
                 <dt>серия временного</dt><dd><%= polis.spolis %></dd>
                 <dt>номер временного</dt><dd><%= polis.npolis %></dd>
                 <dt>дата начала</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') %></dd>
                 <dt>плюс 42 дня</dt><dd><%= polis.dend.strftime('%d.%m.%Y') %></dd>
+                <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
               <% elsif polis.vpolis == 3 %>
                 <dt>номер бланка</dt><dd><%= polis.npolis %></dd>
                 <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') if polis.dbeg %></dd>
@@ -318,37 +325,42 @@
 
 <% if op.date_uvoln.nil? %>
   <div class="person-block personale">
-    <% if vizit.nil? %>
-      <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person},
-      :id => "customers_search_new_vizit",:class => "btn", :role => "button"
-      %>
-    <% else %>  
+    <% if vizit.nil? || polis.vpolis == 1 %>
+      <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person},:id => "customers_search_new_vizit",:class => "btn", :role => "button" %>
+    <% end %>  
       <% if can? :create, User %>
-        <%= link_to t("Выбытие ЗЛ П021"), {:action => "edit_ops", :id => @person}, 
-        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
-        :default => 'Вы уверенны что это лицо выбыло ?')) }, 
-        :id => "customers_search_021",:class => "btn", :role => "button" %>
+
+        <%= link_to t("Выбытие ЗЛ П021"), {:action => "edit_ops", :id => @person},:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm",        :default => 'Вы уверенны что это лицо выбыло ?')) },:id => "customers_search_021",:class => "btn", :role => "button" %>
 
         <a href="#deathModal" role="button" class="btn" data-toggle="modal">Выбытие в связи со смертью П022</a>
 
         <%= link_to t("Удалить дублирующую запись П023"), {:action => "edit_ops_as_doublicat", :id => @person}, 
         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", 
-        :default => 'Вы уверенны что это дубликат ?')) }, 
-        :id => "customers_search_023",:class => "btn", :role => "button" %>
+        :default => 'Вы уверенны что это дубликат ?')) }, :id => "customers_search_023",:class => "btn", :role => "button" %>
+
       <% end %>
-    <% end %>  
+  </div>
+  <div class="person-block personale">
+      <% if can? :create, User %>
+        <%= link_to 'Править ЛС', edit_person_path(@person) , :class => "btn", :role => "button" %>
+        <%= link_to 'Править Документ', edit_doc_path(@person) , :class => "btn", :role => "button" %>
+
+      <% end %>
   </div>
   <% unless polis.nil? %>
     <div class="person-block personale">
       <% if polis.vpolis == 3 and polis.dbeg.blank? %>
+
         <a href="#edit_polisModal" role="button" class="btn" data-toggle="modal">Выдача на руки полиса<br/>после временного свидетельства П060</a>
 
       <% elsif polis.vpolis == 3 and polis.dbeg %>
       
         <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
         :id => "customers_search_edit",:class => "btn", :role => "button" %>
+
         <%= link_to t("Оформление дубликата полиса <br> застрахованного лица П062"), { :action => "build_doublecat_polis", :id => @person } ,
         :id => "customers_search_build_doublecat_polis",:class => "btn", :role => "button" %>
+
       <% end %> 
     </div>
   <% end %>

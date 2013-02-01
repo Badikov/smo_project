@@ -127,5 +127,20 @@ jQuery ->
         alert errorThrown
   
   #kinder: =>  
-    
+
+  
+ 
+  $('*[data-poload]').bind 'click', ->
+    e = $(@)
+    e.unbind 'click'
+    $.get e.data('poload'), (d) ->
+      e.popover
+        content: d
+        html: true
+        placement: 'bottom'
+      .popover 'show'
+  $('#application_brand').popover
+  
+          
+     
   #console.log(states) .toUpperCase()

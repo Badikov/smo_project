@@ -88,8 +88,22 @@ class DocsController < ApplicationController
     end
   end
   # GET /docs/1/edit
-  # def edit
-  #   @doc = Doc.find_by_person_id(params[:id])
-  # end
-    
+  def edit
+    @doc = Doc.find_by_person_id(params[:id])
+  end
+  
+  # PUT /people/1
+  # PUT /people/1.json
+  def update
+    @doc = Doc.find(params[:id])
+    @doc.attributes = params[:doc]
+    @doc.politics = false
+    if @doc.save
+       redirect_to home_path, notice: 'Поправки успешно сохранены. Тип операции не менялся.' 
+     else
+       render action: "edit" 
+    end
+  end
+  
+  
 end

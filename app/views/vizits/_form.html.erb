@@ -26,7 +26,7 @@
 		  :collection => forma_polisa, :input_html => { :class => "span3" } %>
       
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary',:value => 'Сохранить' %>
+    <%= f.button :submit, :class => 'btn-primary',:value => 'Сохранить', :disable_with => 'Saving...' %>
     <%= link_to 'Отменить', home_path, :class => 'btn' %>
   </div>
 <% end %>

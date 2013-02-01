@@ -228,7 +228,6 @@ class UploadsController < ApplicationController
           if polis.vpolis == 2
              polis.insurance.attributes = {enp: item["ENP"] ,erp: 1}
              if polis.insurance.save(validate: false)
-              # polis.insurance.update_attributes({enp: item["ENP"] ,erp: 1})
                 polis.update_attributes({npolis: item["BLANK"], vpolis: 3,datepp: item["DATE_LOAD"],dbeg: nil,dend: nil,spolis: nil})
                 polis.insurance.vizit.person.op.update_attributes({tip_op: "П040"})
                

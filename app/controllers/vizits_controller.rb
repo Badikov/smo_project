@@ -88,7 +88,7 @@ class VizitsController < ApplicationController
     
     @person.build_op({id: id_fl, tip_op: tip_op, user_id: user_id, date_uvoln: date_uvoln, created_at: dvizit, updated_at: date_modif, active: active})
 
-              @person.save
+              # @person.save
 
 
 
@@ -184,16 +184,18 @@ class VizitsController < ApplicationController
     render :partial => "print_polis", :layout => false
   end
   def print_petition
-    require 'smo.rb'
+    # require 'smo.rb'
     @person = Person.find_by_id(params[:id])
     unless @person.representative
-      @fio = Smo.padeg @person.fam, @person.im, @person.ot, @person.w
-    else
-      @fio = Smo.padeg @person.representative.fam, @person.representative.im, @person.representative.ot, @person.representative.parent == 'ОТЕЦ' ? 1 : 2
-    end
-    if @fio.nil?
+      # @fio = Smo.padeg @person.fam, @person.im, @person.ot, @person.w
       @fio = @person.fam + ' ' + @person.im + ' ' + @person.ot
+    else
+      # @fio = Smo.padeg @person.representative.fam, @person.representative.im, @person.representative.ot, @person.representative.parent == 'ОТЕЦ' ? 1 : 2
+      @fio = @person.representative.fam + ' ' + @person.representative.im + ' ' + @person.representative.ot
     end
+    # if @fio.nil?
+    #   @fio = @person.fam + ' ' + @person.im + ' ' + @person.ot
+    # end
     logger.debug {'ФИО - ' + @fio }
     render :partial => "print_petition", :layout => false
   end

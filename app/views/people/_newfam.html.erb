@@ -69,9 +69,8 @@
   
   
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn btn-primary', :id => '' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                home_path, :class => 'btn' %>
+    <%= f.button :submit, :class => 'btn btn-primary', :id => '',:value => 'Сохранить' , :disable_with => 'Saving...' %>
+    <%= link_to 'Отменить', home_path, :class => 'btn' %>
   </div>
   <% end %>
   

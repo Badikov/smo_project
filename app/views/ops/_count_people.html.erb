@@ -1,0 +1,7 @@
+<ul class="counts">
+
+<li>Действующие: <%= @counts[true] %></li>
+  <li>Убыли: <%= @counts[false] %></li>
+  <li>Всего: <%= @counts[false] + @counts[true] %></li>
+
+</ul>

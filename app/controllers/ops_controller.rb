@@ -8,6 +8,12 @@ class OpsController < ApplicationController
 #   load_and_authorize_resource
   
   @@where_str =DateTime 
+  
+  def count_people
+    @counts = Op.count_active
+    logger.debug { @counts }
+    render :partial => 'count_people', :content_type => 'text/html', :layout => false
+  end
    
   def upload
 

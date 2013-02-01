@@ -25,7 +25,7 @@ class Person < ActiveRecord::Base
   alias_method :addres_p=, :addres_p_attributes=
   alias_method :representative=, :representative_attributes=
   
- 
+  attr_accessor :politics
   
   
   validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => true, :if => :can_validate?
@@ -40,12 +40,20 @@ class Person < ActiveRecord::Base
   validates_associated :doc, :addres_g, :addres_p, :representative
   
   # before_validation :set_person_age_18
-  before_update :save_old_data
+  before_update :save_old_data, :if => :politics_for_errors?
   
   protected
   # def set_person_age_18
   #   self.representative.person_age_18 = self.dr.advance(:years => 18)
   # end
+  def politics_for_errors?
+    logger.debug { "===============>" + self.politics.to_s  }
+    unless self.politics.nil?
+      self.politics 
+    else
+      true
+    end
+  end
   
   def can_validate?
     true

@@ -4,8 +4,10 @@ class Doc < ActiveRecord::Base
   belongs_to :person
 
   
-  attr_accessible :docdate, :docnum, :docser, :doctype, :mr, :name_vp, :ig_doctype, :ig_docser, :ig_docnum, :created_at, #<<== creat - временно для переноса данных
+  attr_accessible :docdate, :docnum, :docser, :doctype, :mr, :name_vp, :ig_doctype, :ig_docser, :ig_docnum, #:created_at, #<<== creat - временно для переноса данных
 		  :ig_docdate, :ig_name_vp, :ig_startdate, :ig_enddate, :person_id
+      
+  attr_accessor :politics
   
   validates :docnum, :docdate, :mr, :presence => true, :if => :can_validate?
   validates :docnum, :docdate, :mr, :presence => {:message => "Не должно быть пустым."}
@@ -15,9 +17,18 @@ class Doc < ActiveRecord::Base
   validates :name_vp, :length => { :maximum => 80, :too_long => "%{count} символов это максимум возможного." }
   validates :mr, :length => { :maximum => 100, :too_long => "%{count} символов это максимум возможного." }
   
-  before_update :save_old_data_from_doc
+  before_update :save_old_data_from_doc, :if => :politics_for_errors?
   # # around_update :make_feed_if_changed
+  
   protected
+  def politics_for_errors?
+    logger.debug { "===============>" + self.politics.to_s  }
+    unless self.politics.nil?
+      self.politics 
+    else
+      true
+    end
+  end
 
   def make_feed_if_changed
     changed_ = self.changed?

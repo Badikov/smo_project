@@ -43,9 +43,9 @@ class PeopleController < ApplicationController
   end
 
   # GET /people/1/edit
-  # def edit
-  #   @person = Person.find(params[:id])
-  # end
+  def edit
+    @person = Person.find(params[:id])
+  end
 
   # POST /people
   # POST /people.json
@@ -79,19 +79,17 @@ class PeopleController < ApplicationController
 
   # PUT /people/1
   # PUT /people/1.json
-  # def update
-  #   @person = Person.find(params[:id])
-  # 
-  #   respond_to do |format|
-  #     if @person.update_attributes(params[:person])
-  #       format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @person.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    @person = Person.find(params[:id])
+    @person.attributes = params[:person]
+    @person.politics = false
+     if @person.save
+        redirect_to home_path, notice: 'Поправки успешно сохранены. Тип операции не менялся.' 
+      else
+        render action: "edit" 
+      end
+    
+  end
 
   # DELETE /people/1
   # DELETE /people/1.json
@@ -121,7 +119,7 @@ class PeopleController < ApplicationController
         
         @vizit = @person.vizit
         @vizit.destroy
-        
+        #TODO----в роле method представитель вставляется не совсем правильно....фактически берется старое значение, но оно могло и измениться
         @vizit = @person.build_vizit({method: @person.representative.nil? ? "1" : "2", petition:"0", fpolis:1, rpolis:params[:vizit][:rpolis]})
         @vizit.build_insurance({erp: 1})
         @vizit.insurance.build_polis(params[:polis])
