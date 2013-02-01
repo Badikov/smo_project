@@ -4,13 +4,16 @@ class AddresG < ActiveRecord::Base
   
   attr_accessible :bomg, :dom, :dreg, :indx, :korp, :kv, :npname, :okato, :rnname, :subj, :ul #, :created_at #<<== creat - временно для переноса данных
   
-  validates :npname, :okato,:presence => true
+  validates :npname, :okato,:presence => true, :if => :can_validate?
   validates :npname, :okato,:presence => {:message => "Не должно быть пустым."}
   validates :okato, :length => { :is => 11 }
   
   before_save :insert_dates
   
   protected
+  def can_validate?
+    true
+  end
   
   def insert_dates
     self.rnname = nil if self.rnname.blank?

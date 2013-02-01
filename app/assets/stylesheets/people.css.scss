@@ -50,3 +50,6 @@ select[id$='3i'],select[id$='1i'] {
 select[id$='2i'] {
   width:150px;
 }
+label.checkbox:hover, label.radio:hover {
+  cursor:pointer;
+}

@@ -493,9 +493,6 @@ cursor_positions:
   - :path: app/views/addres_gs/_form_for_edit.html.erb
     :cursor_offset: 1250
     :timestamp: 2013-01-21 06:03:26 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 254
-    :timestamp: 2013-01-21 06:11:10 +06:00
   - :path: app/views/addres_gs/edit.html.erb
     :cursor_offset: 616
     :timestamp: 2013-01-21 06:01:14 +06:00
@@ -819,9 +816,6 @@ cursor_positions:
   - :path: app/controllers/ats_controller.rb
     :cursor_offset: 2654
     :timestamp: 2013-01-27 22:59:39 +06:00
-  - :path: app/assets/stylesheets/people.css.scss
-    :cursor_offset: 864
-    :timestamp: 2013-01-31 22:00:46 +06:00
   - :path: app/views/representatives/_form.html.erb
     :cursor_offset: 227
     :timestamp: 2013-01-29 09:28:00 +06:00
@@ -834,11 +828,6 @@ cursor_positions:
   - :path: app/views/vizits/_form.html.erb
     :cursor_offset: 1391
     :timestamp: 2013-02-01 00:12:49 +06:00
-  - :path: app/views/people/_form.html.erb
-    :cursor_offset: 2459
-    :timestamp: 2013-02-01 00:04:50 +06:00
-    :selection_offset: 2407
-    :block_selection_mode: false
   - :path: app/views/docs/_form.html.erb
     :cursor_offset: 1156
     :timestamp: 2013-01-26 16:45:34 +06:00
@@ -847,9 +836,6 @@ cursor_positions:
   - :path: app/models/op.rb
     :cursor_offset: 621
     :timestamp: 2013-01-30 23:12:28 +06:00
-  - :path: app/views/people/edit.html.erb
-    :cursor_offset: 246
-    :timestamp: 2013-01-31 22:54:11 +06:00
   - :path: app/views/docs/edit.html.erb
     :cursor_offset: 293
     :timestamp: 2013-02-01 02:09:37 +06:00
@@ -878,25 +864,37 @@ cursor_positions:
   - :path: app/models/polis.rb
     :cursor_offset: 589
     :timestamp: 2013-01-30 19:29:31 +06:00
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 3365
-    :timestamp: 2013-02-01 10:32:33 +06:00
-    :selection_offset: 3311
-    :block_selection_mode: false
-  - :path: app/views/people/_edit_form.html.erb
-    :cursor_offset: 1803
-    :timestamp: 2013-02-01 00:04:00 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 1191
-    :timestamp: 2013-02-01 10:35:57 +06:00
-    :selection_offset: 1183
-    :block_selection_mode: false
   - :path: app/models/doc.rb
     :cursor_offset: 1052
     :timestamp: 2013-02-01 10:35:30 +06:00
     :selection_offset: 1022
     :block_selection_mode: false
+  - :path: app/views/people/_form.html.erb
+    :cursor_offset: 1819
+    :timestamp: 2013-02-01 00:04:50 +06:00
+    :selection_offset: 1817
+    :block_selection_mode: false
+  - :path: app/views/people/edit.html.erb
+    :cursor_offset: 246
+    :timestamp: 2013-02-01 15:46:14 +06:00
+  - :path: app/assets/stylesheets/people.css.scss
+    :cursor_offset: 907
+    :timestamp: 2013-02-01 16:09:30 +06:00
+  - :path: app/views/people/_edit_form.html.erb
+    :cursor_offset: 877
+    :timestamp: 2013-02-01 16:12:13 +06:00
   - :path: app/controllers/people_controller.rb
-    :cursor_offset: 3221
-    :timestamp: 2013-02-01 11:04:44 +06:00
+    :cursor_offset: 2724
+    :timestamp: 2013-02-01 16:13:48 +06:00
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 3052
+    :timestamp: 2013-02-01 15:39:01 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 2532
+    :timestamp: 2013-02-01 10:35:57 +06:00
+    :selection_offset: 2500
+    :block_selection_mode: false
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 506
+    :timestamp: 2013-02-01 16:31:10 +06:00
 files_to_retain: 0

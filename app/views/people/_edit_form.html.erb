@@ -1,8 +1,8 @@
 <%= simple_form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
 
-      <%= f.input :status, :label => 'Статус застрахованного', 
+      <%= f.input :status, :label => 'Статус', 
           :collection => status_resource, :include_blank => true, 
-          :input_html => {:class => "span7"} %>  
+          :input_html => { :class => "span7", :title => 'Статус застрахованного' } %>  
 
       <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
  
@@ -12,23 +12,29 @@
     
       <%= f.input :w, :label => 'Пол', :collection => [[ 'Мужской', 1 ], ['Женский', 2]], :as => :radio_buttons, :item_wrapper_class => 'inline' %>
     
-  <%= f.input :dr, :label => 'Дата рождения', 
-  :include_blank => true, :as => :date, :start_year => Date.today.year - 90,:end_year => Date.today.year,
-  :order => [:day, :month, :year] %>
-    
-  <%= f.input :true_dr, :label => 'Признак даты', :as => :select, :include_blank => false, 
-		  :collection => priznok_date, :input_html => { :class => "input-large", :title => 'Признак достоверности даты' } %>
-    
-  <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', 
-  :hint => 'например RUS... Б/Г - без гражданства', 
-  :input_html => { class: 'input-small', value: 'RUS' } %>
-    
-  <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX или ХХХ-ХХХ-ХХХ ХХ', :placeholder => 'XXX-XXX-XXX-XX',
-  :input_html => {:title => 'дефисы вводятся так, как написано в карточке'} %>
+      <%= f.input :dr, :label => 'Дата рождения', :include_blank => true, :as => :date, 
+          :start_year => Date.today.year - 90,:end_year => Date.today.year, :order => [:day, :month, :year] %>
+        
+      <%= f.input :true_dr, :label => 'Признак даты', :as => :select, :include_blank => false, 
+    		  :collection => priznok_date, :input_html => { :class => "input-large", :title => 'Признак достоверности даты' } %>
+        
+      <%= f.input :c_oksm, :label => 'Гражданство ЗЛ', :hint => 'например RUS... Б/Г - без гражданства', :input_html => { class: 'input-small' } %>
+        
+      <%= f.input :ss, :label => 'СНИЛС', :hint => 'XXX-XXX-XXX-XX или ХХХ-ХХХ-ХХХ ХХ' %>
+          
+      <%= f.input :phone, :label => 'Телефон', :as => :tel %>
+          
+      <%= f.input :email, :label => 'Эл. почта', :as => :email %>
       
-  <%= f.input :phone, :label => 'Телефон', :as => :tel %>
-      
-  <%= f.input :email, :label => 'Эл. почта', :as => :email %>
+      <div class="control-group boolean optional">
+        <div class="controls">
+          <input type="hidden" value="0" name="touch">
+            <label class="checkbox">
+            <input id="touch" class="boolean optional" type="checkbox" value="1" name="touch" >
+              исправления для ТерФОМС
+            </label>
+        </div>
+      </div>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary', :value => 'Сохранить', :disable_with => 'Saving...' %>

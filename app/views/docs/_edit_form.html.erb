@@ -21,7 +21,18 @@
   <%= f.input :mr, :label => 'Место рождения', :input_html => {class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()'}  %>
    
   <%= f.input :person_id , :as => :hidden %>
- 
+  
+  <div class="control-group boolean optional">
+    <div class="controls">
+      <input type="hidden" value="0" name="touch">
+        <label class="checkbox">
+        <input id="touch" class="boolean optional" type="checkbox" value="1" name="touch" >
+          исправления для ТерФОМС
+        </label>
+    </div>
+  </div>
+  
+   
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary',:value => 'Сохранить', :disable_with => 'Saving...' %>
     <%= link_to 'Отменить', home_path, :class => 'btn' %>

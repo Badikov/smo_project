@@ -98,8 +98,9 @@ class DocsController < ApplicationController
     @doc = Doc.find(params[:id])
     @doc.attributes = params[:doc]
     @doc.politics = false
+    @doc.person.op.touch if params["touch"] == "1"
     if @doc.save
-       redirect_to home_path, notice: 'Поправки успешно сохранены. Тип операции не менялся.' 
+       redirect_to home_path, notice: "Поправки успешно сохранены.Тип операции не менялся.#{ params['touch'] == '1' ? 'Запись уйдет в ТерФОМС' : '' }" 
      else
        render action: "edit" 
     end

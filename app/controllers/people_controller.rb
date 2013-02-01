@@ -83,12 +83,12 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @person.attributes = params[:person]
     @person.politics = false
+    @person.op.touch if params["touch"] == "1"
      if @person.save
-        redirect_to home_path, notice: 'Поправки успешно сохранены. Тип операции не менялся.' 
-      else
+        redirect_to home_path, notice: "Поправки успешно сохранены.Тип операции не менялся.#{ params['touch'] == '1' ? 'Запись уйдет в ТерФОМС' : '' }" 
+     else
         render action: "edit" 
-      end
-    
+     end
   end
 
   # DELETE /people/1
