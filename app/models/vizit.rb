@@ -30,8 +30,8 @@ class Vizit < ActiveRecord::Base
     logger.debug { "привет из визита create"  }
     self.method = "2" if self.method.nil? #nil если был представитель, на форме method disabled
     self.dvizit = DateTime.now if self.dvizit.nil? #дата визита - сейчас для всех кроме по ходатайству
-    self.insurance.polis.foo = self.rpolis
-    self.rpolis = nil unless self.rsmo.nil?
+    self.insurance.polis.foo = self.rpolis # на случай затирания rpolis в след.строке
+    self.rpolis = nil unless self.rsmo.nil? # 
     if self.petition == "1"
         self.method = "2"
         self.rsmo = nil

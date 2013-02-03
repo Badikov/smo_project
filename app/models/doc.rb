@@ -4,8 +4,7 @@ class Doc < ActiveRecord::Base
   belongs_to :person
 
   
-  attr_accessible :docdate, :docnum, :docser, :doctype, :mr, :name_vp, :ig_doctype, :ig_docser, :ig_docnum, #:created_at, #<<== creat - временно для переноса данных
-		  :ig_docdate, :ig_name_vp, :ig_startdate, :ig_enddate, :person_id
+  attr_accessible :docdate, :docnum, :docser, :doctype, :mr, :name_vp
       
   attr_accessor :politics
   

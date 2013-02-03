@@ -32,7 +32,11 @@
   <%= f.input :email, :label => 'Эл. почта', :as => :email %>
     
  <% end %>
- <%= render :partial => 'docs/form', :locals => {:form => f} %>
+
+ <%= field_set_tag 'Удостоверение личности' do %>
+   <%= render :partial => 'docs/form', :locals => {:form => f} %>
+   <%= render :partial => 'foreigners/form', :locals => {:form => f} %>
+ <% end %>
   
  <%= field_set_tag 'Место жительства' do %>
   

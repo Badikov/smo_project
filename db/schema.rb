@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127060952) do
+ActiveRecord::Schema.define(:version => 20130203130812) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -77,15 +77,8 @@ ActiveRecord::Schema.define(:version => 20130127060952) do
     t.string   "name_vp"
     t.string   "mr"
     t.integer  "person_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "ig_doctype"
-    t.string   "ig_docser"
-    t.string   "ig_docnum"
-    t.date     "ig_docdate"
-    t.string   "ig_name_vp"
-    t.date     "ig_startdate"
-    t.date     "ig_enddate"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "docs", ["person_id"], :name => "index_docs_on_person_id"
@@ -112,6 +105,21 @@ ActiveRecord::Schema.define(:version => 20130127060952) do
   end
 
   add_index "flks", ["at_id"], :name => "index_flks_on_at_id"
+
+  create_table "foreigners", :force => true do |t|
+    t.string   "ig_doctype",   :limit => 100
+    t.string   "ig_docser",    :limit => 20
+    t.string   "ig_docnum",    :limit => 20
+    t.date     "ig_docdate"
+    t.string   "ig_name_vp",   :limit => 150
+    t.date     "ig_startdate"
+    t.date     "ig_enddate"
+    t.integer  "person_id"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "foreigners", ["person_id"], :name => "index_foreigners_on_person_id"
 
   create_table "insurances", :force => true do |t|
     t.string   "ter_st"

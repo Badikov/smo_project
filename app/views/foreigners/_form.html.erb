@@ -1,0 +1,17 @@
+<%= form.simple_fields_for @person.foreigner, :html => { :class => 'form-horizontal' } do |f| %>  
+
+      <%= f.input :ig_doctype, :collection => ig_type_doc, :include_blank => true, 
+		    :label => 'Разрешение на проживание в РФ', :input_html => {class: "span3"}%>
+      
+      <%= f.input :ig_docser, :label => 'Серия'%>
+      
+      <%= f.input :ig_docnum, :label => 'Номер'%>
+      
+      <%= f.input :ig_docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 30,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+     <!-- TODO-->
+      <%= f.input :ig_name_vp, :label => 'Кем выдан', :input_html => { class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()' } %>
+      
+      <%= f.input :ig_startdate,:label => 'с', :include_blank => true,:as => :date, :start_year => Date.today.year - 10,:end_year => Date.today.year,:order => [:day, :month, :year]%>
+      
+      <%= f.input :ig_enddate,:label => 'по', :include_blank => true,:as => :date, :start_year => Date.today.year,:end_year => Date.today.year + 10,:order => [:day, :month, :year] %>
+<% end %>

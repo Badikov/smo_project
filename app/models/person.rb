@@ -1,29 +1,31 @@
 # encoding: utf-8
 class Person < ActiveRecord::Base
   
-  has_one :doc#, :dependent => :destroy
-  has_one :old_person#, :dependent => :destroy
-  has_one :old_doc#, :dependent => :destroy
-  has_one :addres_g#, :dependent => :destroy
-  has_one :addres_p#, :dependent => :destroy
-  has_one :op#, :dependent => :destroy
-  has_one :vizit#, :dependent => :destroy
-  has_one :personb#, :dependent => :destroy
-  has_many :ats
-  has_one :representative#, :dependent => :destroy
+  has_one :doc, :dependent => :destroy
+  has_one :old_person, :dependent => :destroy
+  has_one :old_doc, :dependent => :destroy
+  has_one :addres_g, :dependent => :destroy
+  has_one :addres_p, :dependent => :destroy
+  has_one :op, :dependent => :destroy
+  has_one :vizit, :dependent => :destroy
+  has_one :personb, :dependent => :destroy
+  has_many :ats, :dependent => :destroy
+  has_one :representative, :dependent => :destroy
+  has_one :foreigner, :dependent => :destroy
     
   attr_accessible :c_oksm, :ddeath, :dr, :id,
   :email, :fam, :im, :ot, :phone, :ss, :true_dr, :w,:status, :created_at, #<<== creat - временно для переноса данных
-	:representative, :doc, :addres_g, :addres_p,
+	:representative, :doc, :addres_g, :addres_p,:foreigner,
   :doc_attributes, :addres_g_attributes, :addres_p_attributes, :representative_attributes,
-  :op_attributes, :vizit_attributes, :personb_attributes, :ats_attributes
+  :op_attributes, :vizit_attributes, :personb_attributes, :ats_attributes, :foreigner_attributes
   
-  accepts_nested_attributes_for :doc, :old_person, :old_doc, :addres_g, :addres_p, :op, :vizit, :representative
+  accepts_nested_attributes_for :doc, :old_person, :old_doc, :addres_g, :addres_p, :op, :vizit, :representative, :foreigner
   
   alias_method :doc=, :doc_attributes=
   alias_method :addres_g=, :addres_g_attributes=
   alias_method :addres_p=, :addres_p_attributes=
   alias_method :representative=, :representative_attributes=
+  alias_method :foreigner=, :foreigner_attributes=
   
   attr_accessor :politics
   

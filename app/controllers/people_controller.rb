@@ -31,6 +31,7 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @person.build_doc
+    @person.build_foreigner
     @person.build_addres_g
     @person.build_addres_p
     @person.build_representative
@@ -59,6 +60,7 @@ class PeopleController < ApplicationController
       
       @person.representative.mark_for_destruction  if @person.representative.fam.blank?
       @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
+      @person.foreigner.mark_for_destruction  if @person.foreigner.ig_docdate.blank?
         
       
       if @person.save(:validate => false)
@@ -106,7 +108,7 @@ class PeopleController < ApplicationController
   def newfam
     @person =Person.find_by_id(params[:id])
     @polis = Polis.new
-    @polis.dstop = @person.doc.ig_enddate
+    @polis.dstop = @person.foreigner.ig_enddate if @person.foreigner
     render :layout => false
   end
   
@@ -123,7 +125,7 @@ class PeopleController < ApplicationController
         @vizit = @person.build_vizit({method: @person.representative.nil? ? "1" : "2", petition:"0", fpolis:1, rpolis:params[:vizit][:rpolis]})
         @vizit.build_insurance({erp: 1})
         @vizit.insurance.build_polis(params[:polis])
-        @vizit.insurance.polis.dstop = @person.doc.ig_enddate
+        @vizit.insurance.polis.dstop = @person.foreigner.ig_enddate if @person.foreigner
         if @vizit.save(:validate => false) 
           @vizit.person.op.update_attributes({tip_op: "П061"})
           # render json: params[:person]

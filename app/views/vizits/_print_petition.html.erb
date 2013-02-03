@@ -153,22 +153,31 @@
 
 
     <div class="interval"><span>1.14. Сведения о документе, подтверждающем регистрацию по месту жительства в Российской Федерации<sup>10</sup>:</span></div>
-    <div class="interval marcer-list"><span>а) вид документа</span><span class="content"><%= @person.doc.ig_doctype %></span><div></div></div>
+    <div class="interval marcer-list"><span>а) вид документа</span><span class="content"><%= @person.foreigner.ig_doctype if @person.foreigner %></span><div></div></div>
     <div class="in-line-cont marcer-list">
-      <div class="interval small"><span>б) серия</span><span class="content"><%= @person.doc.ig_docser %></span><div></div></div> 
-      <div class="interval small"><span>в) номер</span><span class="content"><%= @person.doc.ig_docnum %></span><div></div></div>
+      <div class="interval small"><span>б) серия</span><span class="content"><%= @person.foreigner.ig_docser if @person.foreigner %></span><div></div></div> 
+      <div class="interval small"><span>в) номер</span><span class="content"><%= @person.foreigner.ig_docnum if @person.foreigner %></span><div></div></div>
     </div>
     
     <div class="interval marcer-list"><span>г) кем и когда выдан </span>
-      <span class="content"><%= @person.doc.ig_name_vp %><%= " " + @person.doc.ig_docdate.strftime('%d.%m.%Y') if @person.doc.ig_docdate %></span>
+      <span class="content">
+        <%= @person.foreigner.ig_name_vp if @person.foreigner %>
+        <%= " " + @person.foreigner.ig_docdate.strftime('%d.%m.%Y') if @person.foreigner and  @person.foreigner.ig_docdate %>
+      </span>
       <div></div>
     </div>
     
     <div class="interval"><span>  1.15. Срок действия вида на жительство или другого документа, подтверждающего право на проживание (временного проживания) на территории Российской Федерации (для иностранного гражданина и лица без гражданства):</span></div>
 
     <div class="in-line-cont marcer-list">
-      <div class="interval floating"><span>с (число, месяц, год)</span><span class="content"><%= @person.doc.ig_startdate.strftime('%d.%m.%Y') if @person.doc.ig_startdate %></span><div></div></div> 
-      <div class="interval floating"><span>по (число, месяц, год)</span><span class="content"><%= @person.doc.ig_enddate.strftime('%d.%m.%Y') if @person.doc.ig_enddate %></span><div></div></div>
+      <div class="interval floating"><span>с (число, месяц, год)</span>
+        <span class="content">
+          <%= @person.foreigner.ig_startdate.strftime('%d.%m.%Y') if @person.foreigner and  @person.foreigner.ig_startdate %>
+        </span><div></div></div> 
+      <div class="interval floating"><span>по (число, месяц, год)</span>
+        <span class="content">
+          <%= @person.foreigner.ig_enddate.strftime('%d.%m.%Y') if @person.foreigner and  @person.foreigner.ig_enddate %>
+        </span><div></div></div>
     </div>
     
     <div class="interval"><span>1.16. Страховой номер индивидуального лицевого счета (СНИЛС) (при наличии)</span><span class="content"><%= @person.ss  %></span><div></div></div>

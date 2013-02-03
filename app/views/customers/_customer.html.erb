@@ -174,14 +174,15 @@
         <div id="collapseFour" class="accordion-body collapse">
           <div class="accordion-inner">
             <dl class="dl-horizontal">
-              
-              <dt>Документ</dt><dd><%= UnicodeUtils.upcase(@person.doc.ig_doctype) unless @person.doc.ig_doctype.nil? %></dd>
-              <% unless @person.doc.ig_docser.blank? %><dt>Серия</dt><dd><%= @person.doc.ig_docser %></dd><% end %>
-              <dt>Номер</dt><dd><%= @person.doc.ig_docnum %></dd>
-              <dt>Дата выдачи</dt><dd><%= @person.doc.ig_docdate %></dd>
-              <dt>Кем выдан</dt><dd><%= @person.doc.ig_name_vp %></dd>
-              <dt>Выдан с</dt><dd><%= @person.doc.ig_startdate %></dd>
-              <dt>Выдан по</dt><dd><%= @person.doc.ig_enddate %></dd>
+              <% if @person.foreigner %>
+              <dt>Документ</dt><dd><%= UnicodeUtils.upcase(@person.foreigner.ig_doctype) unless @person.foreigner.ig_doctype.nil? %></dd>
+              <% unless @person.foreigner.ig_docser.blank? %><dt>Серия</dt><dd><%= @person.foreigner.ig_docser %></dd><% end %>
+              <dt>Номер</dt><dd><%= @person.foreigner.ig_docnum %></dd>
+              <dt>Дата выдачи</dt><dd><%= @person.foreigner.ig_docdate %></dd>
+              <dt>Кем выдан</dt><dd><%= @person.foreigner.ig_name_vp %></dd>
+              <dt>Выдан с</dt><dd><%= @person.foreigner.ig_startdate %></dd>
+              <dt>Выдан по</dt><dd><%= @person.foreigner.ig_enddate %></dd>
+              <% end %>
             </dl>
           </div>
         </div>
@@ -326,7 +327,7 @@
 <% if op.date_uvoln.nil? %>
   <div class="person-block personale">
     <% if vizit.nil? || polis.vpolis == 1 %>
-      <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person},:id => "customers_search_new_vizit",:class => "btn", :role => "button" %>
+      <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person} ,:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Вы уверенны, что это новый визит ЗЛ ?')) },:id => "customers_search_new_vizit",:class => "btn", :role => "button" %>
     <% end %>  
       <% if can? :create, User %>
 

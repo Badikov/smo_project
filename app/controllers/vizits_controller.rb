@@ -9,7 +9,7 @@ class VizitsController < ApplicationController
     @vizit = person.build_vizit
     @vizit.build_insurance
     @vizit.insurance.build_polis
-    @vizit.insurance.polis.dstop = person.doc.ig_enddate
+    @vizit.insurance.polis.dstop = person.foreigner.ig_enddate if person.foreigner
     # @vizit = Vizit.new
   end
   # GET /vizits/1
@@ -167,6 +167,7 @@ class VizitsController < ApplicationController
  
       if @vizit.save 
         op = Op.find_by_person_id(@vizit.person_id)
+        #TODO затереть дату увольнения, если чел был, ушел и опять вернулся
         op.update_attributes({tip_op: tip_op, active: 1})
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
