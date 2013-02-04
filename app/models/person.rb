@@ -29,6 +29,11 @@ class Person < ActiveRecord::Base
   
   attr_accessor :politics
   
+  def self.get_passport
+    includes(:op => [:user]).joins(:doc).where(['docs.doctype = 3 and people.dr < ?', DateTime.current.months_ago(167)])
+    # joins(:doc).where(:docs => {:doctype => 3}, ['dr < ?', DateTime.current.months_ago(167)]) 
+  end
+  
   
   validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => true, :if => :can_validate?
   validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, :presence => {:message => "Не должно быть пустым."}

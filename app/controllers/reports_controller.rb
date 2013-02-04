@@ -12,4 +12,11 @@ class ReportsController < ApplicationController
   def jobs
     @ops = Op.jobs_today
   end
+  
+  def age14
+    @people = Person.get_passport
+  end
+  def foreigners
+    @foreigners = Foreigner.all_foreigners
+  end
 end

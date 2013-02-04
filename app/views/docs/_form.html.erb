@@ -11,7 +11,7 @@
       
       <%= f.input :docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 30,:end_year => Date.today.year,:order => [:day, :month, :year] %>
     
-      <%= f.input :name_vp, :label => 'Кем выдан', :input_html => {class: 'span6', onkeyup: 'this.value=this.value.toUpperCase()'} %>
+      <%= f.input :name_vp, :label => 'Кем выдан', :as => :text, :input_html => {class: 'span6', rows: '2', onkeyup: 'this.value=this.value.toUpperCase()'} %>
     
       <%= f.input :mr, :label => 'Место рождения', :input_html => {class: "span6", onkeyup: 'this.value=this.value.toUpperCase()'} %>
 

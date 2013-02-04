@@ -1,4 +1,4 @@
-1359925662
+1360005487
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -214,6 +214,8 @@ XmlFile	/home/alex/rails_projects/smo_project/app/models/xml_file.rb	class XmlFi
 XmlFileTest	/home/alex/rails_projects/smo_project/test/unit/xml_file_test.rb	class XmlFileTest 
 addres_g	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :addres_g
 addres_p	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :addres_p
+age14	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def age14
+all_foreigners	/home/alex/rails_projects/smo_project/app/models/foreigner.rb	  def self.all_foreigners
 app_logic	/home/alex/rails_projects/smo_project/app/models/insurance.rb	  def app_logic
 box_wrapper	/home/alex/rails_projects/smo_project/app/helpers/application_helper.rb	  def box_wrapper(&block) 
 build_doublecat_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def build_doublecat_polis
@@ -312,10 +314,12 @@ files	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  
 foo	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def foo
 foo=	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def foo=(value)
 foreigner	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :foreigner
+foreigners	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def foreigners
 forma_polisa	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def forma_polisa
 formapolisa	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def formapolisa(arg)
 generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def generate_builder(people, file_name)
 generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_builder(par)
+get_passport	/home/alex/rails_projects/smo_project/app/models/person.rb	  def self.get_passport
 hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def hijack_response( out_data, file_name )
 hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def hijack_response( out_data, file_name )
 ig_type_doc	/home/alex/rails_projects/smo_project/app/helpers/docs_helper.rb	  def ig_type_doc

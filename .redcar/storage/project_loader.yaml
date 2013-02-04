@@ -5,7 +5,6 @@ open_files:
   - app/models/vizit.rb
   - app/models/insurance.rb
   - app/models/polis.rb
-  - app/views/docs/_edit_form.html.erb
-  - app/views/addres_gs/edit.html.erb
-  - app/views/addres_gs/_form_for_edit.html.erb
-  - app/controllers/addres_gs_controller.rb
+  - app/models/person.rb
+  - app/controllers/people_controller.rb
+  - app/views/people/_newfam.html.erb

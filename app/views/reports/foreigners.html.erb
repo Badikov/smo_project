@@ -1,0 +1,35 @@
+<p>
+<h4>Иностранные граждане с разрешением на проживание в РФ</h4>
+  <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
+
+</p>
+<table id="foreigners_table_id" class="display">
+    <thead>
+        <tr>
+          <th>Агент</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>дата_рождения</th>
+            <th>дата_начала</th>
+            <th>дата_стоп</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+     <% @foreigners.find_each do |foreigner| %> 
+        <tr>
+            <% user_name = foreigner.person.op.user.name.split(" ") %>
+            <td><%= user_name[0] + " " + user_name[1].slice(0,1) + "." %></td>
+            <td><%= foreigner.person.fam %></td>
+            <td><%= foreigner.person.im %></td>
+            <td><%= foreigner.person.ot %></td>
+            <td><%= foreigner.person.dr %></td>
+            <td><%= foreigner.ig_startdate %></td>
+            <td><%= foreigner.ig_enddate %></td>
+            
+            
+        </tr>
+     <% end %>   
+    </tbody>
+</table>
