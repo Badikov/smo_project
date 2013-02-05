@@ -74,6 +74,7 @@ SmoProject::Application.routes.draw do
   resources :addres_gs do
     collection do
       get 'newaddres_g' => 'addres_gs#newaddres_g'
+      put 'newaddres_g/:id' => 'addres_gs#new_addres_g'
     end
   end
   

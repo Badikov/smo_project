@@ -345,7 +345,7 @@
       <% if can? :create, User %>
         <%= link_to 'Править ЛС', edit_person_path(@person) , :class => "btn", :role => "button" %>
         <%= link_to 'Править Документ', edit_doc_path(@person) , :class => "btn", :role => "button" %>
-
+        <%= link_to 'Править Регистрацию', edit_addres_g_path(@person) , :class => "btn", :role => "button" %>
       <% end %>
   </div>
   <% unless polis.nil? %>

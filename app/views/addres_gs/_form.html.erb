@@ -24,6 +24,6 @@
     
       <%= f.input :kv, :label => 'Квартира', :input_html => { :class => "span1" } %>
     
-      <%= f.input :dreg, :label => 'Дата регистрации', :include_blank => true, :as => :date, :start_year => Date.today.year - 40,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+      <%= f.input :dreg, :label => 'Дата регистрации', :include_blank => true, :as => :date, :start_year => Date.today.year - 50,:end_year => Date.today.year,:order => [:day, :month, :year] %>
     
 <% end %>

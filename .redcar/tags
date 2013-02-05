@@ -1,4 +1,4 @@
-1360051011
+1360093507
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -219,9 +219,9 @@ all_foreigners	/home/alex/rails_projects/smo_project/app/models/foreigner.rb	  d
 app_logic	/home/alex/rails_projects/smo_project/app/models/insurance.rb	  def app_logic
 box_wrapper	/home/alex/rails_projects/smo_project/app/helpers/application_helper.rb	  def box_wrapper(&block) 
 build_doublecat_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def build_doublecat_polis
-can_validate?	/home/alex/rails_projects/smo_project/app/models/addres_g.rb	  def can_validate?
 can_validate?	/home/alex/rails_projects/smo_project/app/models/person.rb	  def can_validate?
 can_validate?	/home/alex/rails_projects/smo_project/app/models/doc.rb	  def can_validate?
+can_validate?	/home/alex/rails_projects/smo_project/app/models/addres_g.rb	  def can_validate?
 change	/home/alex/rails_projects/smo_project/db/migrate/20121006081502_create_docs.rb	  def change
 change	/home/alex/rails_projects/smo_project/db/migrate/20121030082833_create_filializations.rb	  def change
 change	/home/alex/rails_projects/smo_project/db/migrate/20121118082955_create_streets.rb	  def change
@@ -298,7 +298,6 @@ down	/home/alex/rails_projects/smo_project/db/migrate/20121104070947_create_user
 down	/home/alex/rails_projects/smo_project/db/migrate/20121025070044_remove_method_petition_from_vizits.rb	  def down
 down	/home/alex/rails_projects/smo_project/db/migrate/20121118045151_add_datepolis_in_polis.rb	  def down
 down	/home/alex/rails_projects/smo_project/db/migrate/20121203053205_chenge_data_type_in_ats.rb	  def down
-edit	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/ates_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def edit
@@ -306,6 +305,7 @@ edit	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb
 edit	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def edit
+edit	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def edit
 edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops
 edit_ops_as_doublicat	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops_as_doublicat
 edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_polis
@@ -358,7 +358,9 @@ new	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	
 new	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def new
+new_addres_g	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def new_addres_g
 new_fam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new_fam
+newaddres_g	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def newaddres_g
 newfam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def newfam
 numbers	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def numbers
 person_age_18	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def person_age_18
@@ -416,12 +418,12 @@ up	/home/alex/rails_projects/smo_project/db/migrate/20130121231811_new_polis_tab
 up	/home/alex/rails_projects/smo_project/db/migrate/20130121233251_new_ats_table.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20130123093733_change_tables_ates_and_nsilpus.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20130203130812_new.rb	  def up
-update	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def update
+update	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def update
 update_numbers_of_polis	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update_numbers_of_polis(items)
 upload	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def upload
 validate	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def validate(record)
