@@ -55,11 +55,7 @@ class DocsController < ApplicationController
     render json: status
   end
   def show
-    (1..962).each do |n| 
-      @at = At.find_by_id(n)
-      @at.destroy
-      
-    end
+    
     render json: status
   end
   # GET /docs/new
@@ -79,6 +75,7 @@ class DocsController < ApplicationController
     
     if @doc.update_attributes(params[:doc])
       # op = Op.find_by_person_id(@doc.person_id)
+      @doc.person.op.touch
       @doc.person.op.update_attributes({tip_op: "П040"})
       
       redirect_to home_path, notice:"Новые паспортные данные успешно сохранились."

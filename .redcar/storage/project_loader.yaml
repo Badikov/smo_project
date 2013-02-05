@@ -7,4 +7,5 @@ open_files:
   - app/models/polis.rb
   - app/models/person.rb
   - app/controllers/people_controller.rb
-  - app/views/people/_newfam.html.erb
+  - app/views/reports/foreigners.html.erb
+  - app/models/foreigner.rb

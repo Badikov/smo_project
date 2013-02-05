@@ -18,8 +18,6 @@ SmoProject::Application.routes.draw do
     end
   end
 
-  
-
   resources :customers do
     collection do
       match 'search' => 'customers#search', :via => [:get]
@@ -64,8 +62,6 @@ SmoProject::Application.routes.draw do
   resource :user, :as => 'account'  # a convenience route
   match 'signup' => 'users#new', :as => :signup
   
-  # resources :filials
-  # resources :home
   resources :ats do
     collection do
       match "create_fakt" => 'ats#create_fakt', :as => 'create_fakt'
@@ -75,7 +71,12 @@ SmoProject::Application.routes.draw do
     end
   end
   resources :docs
-  resources :addres_gs
+  resources :addres_gs do
+    collection do
+      get 'newaddres_g' => 'addres_gs#newaddres_g'
+    end
+  end
+  
   resources :addres_ps
   resources :predstavitels
   resources :vizits 
@@ -87,14 +88,7 @@ SmoProject::Application.routes.draw do
   
   resources :ates 
   resources :nsilpus
-  
-  
-  resources :reports do
-    collection do
-      get 'today'
-    end
-  end
-  
+      
   resources :ops do
     collection do
       get 'files'
