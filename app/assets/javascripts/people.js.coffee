@@ -125,8 +125,14 @@ jQuery ->
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' + _person.fam + ' ' + _person.im + ' ' + _person.ot + ', ' + _person.dr + ' г. рожд. уже есть в нашей базе.</div>'
       error: (jqXHR, textStatus, errorThrown) ->
         alert errorThrown
+    kinder_
   
-  #kinder: =>  
+  kinder_ = () ->
+    y_ = $("select#person_dr_1i option:selected").attr 'value'
+    m_ = $("select#person_dr_2i option:selected").attr 'value'
+    d_ = $("select#person_dr_3i option:selected").attr 'value'
+    dr_ = new Date(y_, m_, d_)
+    cur_ = new Date()
 
   
  

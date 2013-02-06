@@ -800,9 +800,6 @@ cursor_positions:
   - :path: app/views/addres_gs/_form_for_edit.html.erb
     :cursor_offset: 1164
     :timestamp: 2013-02-01 16:35:17 +06:00
-  - :path: app/views/customers/edit.html.erb
-    :cursor_offset: 91
-    :timestamp: 2013-01-15 22:49:55 +06:00
   - :path: db/migrate/20130203120007_create_foreigners.rb
     :cursor_offset: 89
     :timestamp: 2013-02-03 18:58:07 +06:00
@@ -842,14 +839,6 @@ cursor_positions:
   - :path: app/models/at.rb
     :cursor_offset: 402
     :timestamp: 2013-01-27 09:01:23 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 258
-    :timestamp: 2013-02-03 23:30:56 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 433
-    :timestamp: 2013-02-03 22:22:04 +06:00
-    :selection_offset: 386
-    :block_selection_mode: false
   - :path: app/models/foreigner.rb
     :cursor_offset: 298
     :timestamp: 2013-02-04 23:06:10 +06:00
@@ -926,7 +915,16 @@ cursor_positions:
   - :path: app/assets/stylesheets/reports.css.scss
     :cursor_offset: 398
     :timestamp: 2013-02-06 01:06:42 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 258
+    :timestamp: 2013-02-03 23:30:56 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 482
+    :timestamp: 2013-02-03 22:22:04 +06:00
+  - :path: app/views/customers/edit.html.erb
+    :cursor_offset: 746
+    :timestamp: 2013-02-05 22:53:45 +06:00
   - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 1279
-    :timestamp: 2013-02-06 01:42:51 +06:00
+    :cursor_offset: 1144
+    :timestamp: 2013-02-06 01:45:07 +06:00
 files_to_retain: 0
