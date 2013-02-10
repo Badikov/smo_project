@@ -757,9 +757,6 @@ cursor_positions:
   - :path: app/views/layouts/application.html.erb
     :cursor_offset: 817
     :timestamp: 2013-01-31 18:37:40 +06:00
-  - :path: app/controllers/ats_controller.rb
-    :cursor_offset: 2654
-    :timestamp: 2013-01-27 22:59:39 +06:00
   - :path: app/views/representatives/_form.html.erb
     :cursor_offset: 227
     :timestamp: 2013-01-29 09:28:00 +06:00
@@ -839,9 +836,6 @@ cursor_positions:
   - :path: app/models/at.rb
     :cursor_offset: 402
     :timestamp: 2013-01-27 09:01:23 +06:00
-  - :path: app/models/foreigner.rb
-    :cursor_offset: 298
-    :timestamp: 2013-02-04 23:06:10 +06:00
   - :path: app/views/addres_gs/new.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-08 16:07:46 +07:00
@@ -863,18 +857,12 @@ cursor_positions:
   - :path: app/models/old_doc.rb
     :cursor_offset: 141
     :timestamp: 2013-01-06 22:47:10 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 3714
-    :timestamp: 2013-02-04 03:07:42 +06:00
   - :path: app/views/people/_newfam.html.erb
     :cursor_offset: 427
     :timestamp: 2013-02-01 00:07:08 +06:00
   - :path: app/views/addres_gs/_form.html.erb
     :cursor_offset: 1772
     :timestamp: 2013-02-05 21:56:20 +06:00
-  - :path: app/views/addres_gs/edit.html.erb
-    :cursor_offset: 1208
-    :timestamp: 2013-02-05 22:40:57 +06:00
   - :path: app/views/addres_gs/_edit_form.html.erb
     :cursor_offset: 1507
     :timestamp: 2013-02-05 22:56:24 +06:00
@@ -884,18 +872,6 @@ cursor_positions:
   - :path: app/models/doc.rb
     :cursor_offset: 989
     :timestamp: 2013-02-05 13:48:57 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 1602
-    :timestamp: 2013-02-04 16:16:08 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 476
-    :timestamp: 2013-02-05 23:19:21 +06:00
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 3069
-    :timestamp: 2013-02-05 13:41:31 +06:00
-  - :path: app/controllers/addres_gs_controller.rb
-    :cursor_offset: 1090
-    :timestamp: 2013-02-06 00:57:01 +06:00
   - :path: config/routes.rb
     :cursor_offset: 2472
     :timestamp: 2013-02-06 00:52:04 +06:00
@@ -907,14 +883,12 @@ cursor_positions:
     :timestamp: 2013-02-05 01:18:07 +06:00
     :selection_offset: 164
     :block_selection_mode: false
-  - :path: app/views/reports/age14.html.erb
-    :cursor_offset: 156
-    :timestamp: 2013-02-04 16:47:21 +06:00
-    :selection_offset: 142
-    :block_selection_mode: false
   - :path: app/assets/stylesheets/reports.css.scss
     :cursor_offset: 398
     :timestamp: 2013-02-06 01:06:42 +06:00
+  - :path: app/views/addres_gs/edit.html.erb
+    :cursor_offset: 115
+    :timestamp: 2013-02-06 22:56:30 +06:00
   - :path: app/controllers/customers_controller.rb
     :cursor_offset: 258
     :timestamp: 2013-02-03 23:30:56 +06:00
@@ -924,7 +898,40 @@ cursor_positions:
   - :path: app/views/customers/edit.html.erb
     :cursor_offset: 746
     :timestamp: 2013-02-05 22:53:45 +06:00
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 518
+    :timestamp: 2013-02-07 14:14:42 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 2056
+    :timestamp: 2013-02-04 16:16:08 +06:00
+    :selection_offset: 1928
+    :block_selection_mode: false
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 2694
+    :timestamp: 2013-02-05 13:41:31 +06:00
+  - :path: app/views/reports/age14.html.erb
+    :cursor_offset: 823
+    :timestamp: 2013-02-04 16:47:21 +06:00
+    :selection_offset: 816
+    :block_selection_mode: false
+  - :path: app/models/foreigner.rb
+    :cursor_offset: 160
+    :timestamp: 2013-02-04 23:06:10 +06:00
+    :selection_offset: 150
+    :block_selection_mode: false
+  - :path: i_09.txt
+    :cursor_offset: 0
+    :timestamp: 2013-02-09 14:45:40 +06:00
   - :path: app/controllers/ops_controller.rb
     :cursor_offset: 1144
     :timestamp: 2013-02-06 01:45:07 +06:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 3714
+    :timestamp: 2013-02-04 03:07:42 +06:00
+  - :path: app/controllers/ats_controller.rb
+    :cursor_offset: 2654
+    :timestamp: 2013-01-27 22:59:39 +06:00
+  - :path: app/controllers/addres_gs_controller.rb
+    :cursor_offset: 1090
+    :timestamp: 2013-02-06 00:57:01 +06:00
 files_to_retain: 0

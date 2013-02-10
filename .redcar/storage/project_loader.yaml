@@ -3,4 +3,7 @@ open_files:
   - app/controllers/customers_controller.rb
   - app/controllers/vizits_controller.rb
   - app/views/customers/edit.html.erb
-  - app/controllers/ops_controller.rb
+  - app/models/addres_g.rb
+  - app/models/person.rb
+  - app/controllers/docs_controller.rb
+  - app/views/reports/age14.html.erb

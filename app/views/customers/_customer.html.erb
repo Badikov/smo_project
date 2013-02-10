@@ -311,7 +311,7 @@
                 <dt>плюс 42 дня</dt><dd><%= polis.dend.strftime('%d.%m.%Y') %></dd>
                 <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
               <% elsif polis.vpolis == 3 %>
-                <dt>номер бланка</dt><dd><%= polis.npolis %></dd>
+                <dt>номер бланка</dt><dd><%= polis.npolis || "-" %></dd>
                 <dt>дата выдачи</dt><dd><%= polis.dbeg.strftime('%d.%m.%Y') if polis.dbeg %></dd>
                 <dt>срок действия до</dt><dd><%= polis.dstop.strftime('%d.%m.%Y') if polis.dstop %></dd>
               <% end %>

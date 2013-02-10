@@ -78,14 +78,12 @@ jQuery ->
     if _c_oksm.length is 3
       if _c_oksm isnt 'RUS'
         ig.show()
-        $("#person_doc_doctype option:selected").each ->
-          $(@).removeAttr 'selected'
-          $("#person_doc_doctype option[value=9]").attr selected: "selected"
+        _remove_selected()
+        $("#person_doc_doctype option[value=9]").attr selected: "selected"
       else
         ig.hide()
-        $("#person_doc_doctype option:selected").each ->
-          $(@).removeAttr 'selected'
-          $("#person_doc_doctype option[value=14]").attr selected: "selected"
+        _remove_selected()
+        $("#person_doc_doctype option[value=14]").attr selected: "selected"
 
 
   $('#person_addres_p_npname, #person_addres_g_npname, #addres_g_npname').autocomplete
@@ -125,16 +123,20 @@ jQuery ->
             .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>' + _person.fam + ' ' + _person.im + ' ' + _person.ot + ', ' + _person.dr + ' г. рожд. уже есть в нашей базе.</div>'
       error: (jqXHR, textStatus, errorThrown) ->
         alert errorThrown
-    kinder_
+    kinder_()
   
   kinder_ = () ->
     y_ = $("select#person_dr_1i option:selected").attr 'value'
     m_ = $("select#person_dr_2i option:selected").attr 'value'
     d_ = $("select#person_dr_3i option:selected").attr 'value'
-    dr_ = new Date(y_, m_, d_)
+    dr_ = new Date(y_, m_-1, d_)
     cur_ = new Date()
-
-  
+    age = Math.floor (cur_-dr_)/(365.25 * 24 * 60 * 60 * 1000)
+    if 0 <= age < 14
+      _remove_selected()
+      $("#person_doc_doctype option[value=3]").attr selected: "selected"
+      $("#person_doc_doctype option[value=14]").attr disabled: 'disabled'
+      $("#person_doc_docser").attr value: 'II-ЛО'
  
   $('*[data-poload]').bind 'click', ->
     e = $(@)
@@ -147,6 +149,9 @@ jQuery ->
       .popover 'show'
   $('#application_brand').popover
   
-          
+  _remove_selected = () ->
+    $("#person_doc_doctype option:selected").each ->
+      $(@).removeAttr 'selected'
+      
      
   #console.log(states) .toUpperCase()

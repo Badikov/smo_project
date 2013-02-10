@@ -10,6 +10,7 @@ class AddresG < ActiveRecord::Base
   validates :npname, :okato,:presence => {:message => "Не должно быть пустым."}
   validates :okato, :length => { :is => 11 }
   validates :indx, :length => { :is => 6 },:allow_blank => true
+  validates :korp, :kv, :length => { :maximum => 6, :too_long => "%{count} символов это максимум возможного." }, :allow_blank => true
   
   before_save :insert_dates
   

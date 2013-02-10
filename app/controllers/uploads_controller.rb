@@ -226,9 +226,10 @@ class UploadsController < ApplicationController
        polis = Polis.find_by_spolis_and_npolis(ser,num)
        if polis
           if polis.vpolis == 2
-             polis.insurance.attributes = {enp: item["ENP"] ,erp: 1}
+             polis.insurance.attributes = {enp: item["ENP"].to_s ,erp: 1}
              if polis.insurance.save(validate: false)
                 polis.update_attributes({npolis: item["BLANK"], vpolis: 3,datepp: item["DATE_LOAD"],dbeg: nil,dend: nil,spolis: nil})
+                polis.insurance.vizit.person.op.touch
                 polis.insurance.vizit.person.op.update_attributes({tip_op: "П040"})
                
              #   # tm << item
