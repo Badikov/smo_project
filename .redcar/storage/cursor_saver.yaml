@@ -458,11 +458,6 @@ cursor_positions:
   - :path: app/views/ats/files.html.erb
     :cursor_offset: 0
     :timestamp: 2012-11-28 15:21:15 +06:00
-  - :path: ate.txt
-    :cursor_offset: 13
-    :timestamp: 2013-01-19 01:08:02 +06:00
-    :selection_offset: 0
-    :block_selection_mode: false
   - :path: app/views/_form.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-15 12:55:19 +07:00
@@ -951,4 +946,9 @@ cursor_positions:
   - :path: app/controllers/addres_ps_controller.rb
     :cursor_offset: 182
     :timestamp: 2013-02-11 17:23:50 +06:00
+  - :path: ate.txt
+    :cursor_offset: 13
+    :timestamp: 2013-01-19 01:08:02 +06:00
+    :selection_offset: 0
+    :block_selection_mode: false
 files_to_retain: 0
