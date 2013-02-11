@@ -6,4 +6,4 @@ open_files:
   - app/models/addres_g.rb
   - app/models/person.rb
   - app/controllers/docs_controller.rb
-  - app/views/reports/age14.html.erb
+  - app/models/polis.rb

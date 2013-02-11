@@ -1,4 +1,4 @@
-1360538557
+1360595859
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -306,6 +306,7 @@ edit	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	
 edit	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def edit
+edit	/home/alex/rails_projects/smo_project/app/controllers/addres_ps_controller.rb	  def edit
 edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops
 edit_ops_as_doublicat	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops_as_doublicat
 edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_polis
@@ -424,6 +425,7 @@ update	/home/alex/rails_projects/smo_project/app/controllers/people_controller.r
 update	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update
+update	/home/alex/rails_projects/smo_project/app/controllers/addres_ps_controller.rb	  def update
 update_numbers_of_polis	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update_numbers_of_polis(items)
 upload	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def upload
 validate	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def validate(record)

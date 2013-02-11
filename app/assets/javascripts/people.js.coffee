@@ -86,7 +86,7 @@ jQuery ->
         $("#person_doc_doctype option[value=14]").attr selected: "selected"
 
 
-  $('#person_addres_p_npname, #person_addres_g_npname, #addres_g_npname').autocomplete
+  $('#person_addres_p_npname, #person_addres_g_npname, #addres_g_npname, #addres_p_npname').autocomplete
      source:(request,response) ->
       $.ajax 
        url: '/okatos', 
@@ -101,7 +101,8 @@ jQuery ->
 
   okato_ = (field,_okato) ->
    _id = field.id
-   _id = _id.slice(0,16).concat("okato")
+   #_id = _id.slice(0,16).concat("okato")
+   _id = _id.replace('npname','okato')
    $("input#" + _id).attr value: _okato
       
   $("#new_person").keydown (event) -> 
