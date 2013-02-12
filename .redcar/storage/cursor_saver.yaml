@@ -378,9 +378,6 @@ cursor_positions:
     :timestamp: 2012-12-05 11:53:48 +06:00
     :selection_offset: 255
     :block_selection_mode: false
-  - :path: app/views/show.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-10-08 15:58:21 +07:00
   - :path: app/assets/javascripts/vizits.js.coffee
     :cursor_offset: 6288
     :timestamp: 2012-12-25 02:32:32 +06:00
@@ -552,11 +549,6 @@ cursor_positions:
   - :path: app/views/nsilpus/_form.html.erb
     :cursor_offset: 20
     :timestamp: 2013-01-23 18:57:55 +06:00
-  - :path: app/views/vizits/show.html.erb
-    :cursor_offset: 1677
-    :timestamp: 2013-01-22 09:40:57 +06:00
-    :selection_offset: 1657
-    :block_selection_mode: false
   - :path: app/controllers/nsilpus_controller.rb
     :cursor_offset: 141
     :timestamp: 2013-01-19 16:32:47 +06:00
@@ -699,9 +691,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/vizits.css.scss
     :cursor_offset: 432
     :timestamp: 2013-01-29 16:55:59 +06:00
-  - :path: app/views/ats/_form.html.erb
-    :cursor_offset: 375
-    :timestamp: 2013-01-29 16:59:03 +06:00
   - :path: app/views/layouts/account.html.erb
     :cursor_offset: 87
     :timestamp: 2013-01-29 17:11:03 +06:00
@@ -791,9 +780,6 @@ cursor_positions:
   - :path: app/views/foreigners/_form.html.erb
     :cursor_offset: 1127
     :timestamp: 2013-02-03 19:27:44 +06:00
-  - :path: app/views/ats/_modal_terr.html.erb
-    :cursor_offset: 1080
-    :timestamp: 2013-02-04 02:30:30 +06:00
   - :path: app/models/representative.rb
     :cursor_offset: 549
     :timestamp: 2013-01-29 14:21:32 +06:00
@@ -873,9 +859,6 @@ cursor_positions:
   - :path: i_09.txt
     :cursor_offset: 0
     :timestamp: 2013-02-09 14:45:40 +06:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 1144
-    :timestamp: 2013-02-06 01:45:07 +06:00
   - :path: app/controllers/ats_controller.rb
     :cursor_offset: 2654
     :timestamp: 2013-01-27 22:59:39 +06:00
@@ -885,30 +868,6 @@ cursor_positions:
   - :path: app/controllers/people_controller.rb
     :cursor_offset: 4020
     :timestamp: 2013-02-04 03:07:42 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 2568
-    :timestamp: 2013-02-03 23:30:56 +06:00
-    :selection_offset: 2517
-    :block_selection_mode: false
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 75
-    :timestamp: 2013-02-03 22:22:04 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 518
-    :timestamp: 2013-02-07 14:14:42 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 503
-    :timestamp: 2013-02-04 16:16:08 +06:00
-    :selection_offset: 494
-    :block_selection_mode: false
-  - :path: app/controllers/docs_controller.rb
-    :cursor_offset: 2694
-    :timestamp: 2013-02-05 13:41:31 +06:00
-  - :path: app/models/polis.rb
-    :cursor_offset: 136
-    :timestamp: 2013-01-30 19:29:31 +06:00
-    :selection_offset: 131
-    :block_selection_mode: false
   - :path: app/views/addres_gs/_edit_form.html.erb
     :cursor_offset: 1757
     :timestamp: 2013-02-05 22:56:24 +06:00
@@ -951,4 +910,46 @@ cursor_positions:
     :timestamp: 2013-01-19 01:08:02 +06:00
     :selection_offset: 0
     :block_selection_mode: false
+  - :path: app/views/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-10-08 15:58:21 +07:00
+  - :path: app/views/ats/_form.html.erb
+    :cursor_offset: 375
+    :timestamp: 2013-01-29 16:59:03 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 2568
+    :timestamp: 2013-02-03 23:30:56 +06:00
+    :selection_offset: 2517
+    :block_selection_mode: false
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 75
+    :timestamp: 2013-02-03 22:22:04 +06:00
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 518
+    :timestamp: 2013-02-07 14:14:42 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 503
+    :timestamp: 2013-02-04 16:16:08 +06:00
+    :selection_offset: 494
+    :block_selection_mode: false
+  - :path: app/controllers/docs_controller.rb
+    :cursor_offset: 2694
+    :timestamp: 2013-02-05 13:41:31 +06:00
+  - :path: app/models/polis.rb
+    :cursor_offset: 136
+    :timestamp: 2013-01-30 19:29:31 +06:00
+    :selection_offset: 131
+    :block_selection_mode: false
+  - :path: app/views/ats/_modal_fackt.html.erb
+    :cursor_offset: 747
+    :timestamp: 2013-02-12 01:23:22 +06:00
+  - :path: app/views/vizits/show.html.erb
+    :cursor_offset: 1312
+    :timestamp: 2013-02-12 01:26:29 +06:00
+  - :path: app/views/ats/_modal_terr.html.erb
+    :cursor_offset: 1080
+    :timestamp: 2013-02-04 02:30:30 +06:00
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 1144
+    :timestamp: 2013-02-06 01:45:07 +06:00
 files_to_retain: 0

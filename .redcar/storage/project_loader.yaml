@@ -2,8 +2,10 @@
 open_files: 
   - app/controllers/customers_controller.rb
   - app/controllers/vizits_controller.rb
-  - app/views/customers/edit.html.erb
   - app/models/addres_g.rb
   - app/models/person.rb
   - app/controllers/docs_controller.rb
   - app/models/polis.rb
+  - app/views/ats/_modal_terr.html.erb
+  - app/views/vizits/show.html.erb
+  - app/views/ats/_modal_fackt.html.erb

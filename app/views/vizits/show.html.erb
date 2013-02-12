@@ -34,35 +34,7 @@
 
 
 <%= render :partial => 'ats/modal_terr', :locals => { :person => @person } %>
-<!-- Modal Atl_fakt -->
-<div id="atl_fakt_hModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="faktPrikreplenie" aria-hidden="true">
-  <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="faktPrikreplenie">Фактическое прикрепление</h3>
-  </div>
-  <div class="modal-body">
-    <% @at = @person.ats.build %>
-    <%= render :partial => 'ats/form', :locals => { :at => @at } %>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Закрыть</button>
-    <button id="create_at_fakt" class="btn btn-primary" disabled="disabled" disable_with="Please wait...">Сохранить</button>
-  </div>
-</div>    
+<%= render :partial => 'ats/modal_fackt', :locals => { :person => @person } %>
 
 
-<!--$('a.print').click(function (e) {
-            e.preventDefault();
-            var params = "_blank,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
-            //            'location=0,toolbar=0,menubar=0,status=0,scrollbars=1,width=600,height=500'
-            var newWind = window.open('about:blank', '', params);
-            $.get($(this).attr('href'), function (response) {
-                                newWind.document.body.innerHTML = response;
-//                var win = newWind.document.getElementsByTagName('html');
-//                win.innerHTML = response;
-//                                               newWind.document
-                //                for (i = 0; i < newWind.document.styleSheets.length; i++) {
-                //                    alert("Таблица стилей " + i + " называется " + newWind.document.styleSheets(i).title);
-                //                }
-            })
-        });-->
+

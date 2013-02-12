@@ -29,8 +29,13 @@ class AtsController < ApplicationController
     people = Person.joins(:ats).where(:ats => {updated_at: (d.beginning_of_day)..(d.end_of_day)}).group(:person_id)
     
     if people.size != 0
+      if Time.current.hour < 12
+        vers = "1"
+      else
+        vers = "2"
+      end
       # имя файла из заявленной даты
-      file_name = "AT_S_180_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_1.xml"
+      file_name = "AT_S_180_" + d.year.to_s + day_to_str(d.month.to_s) + day_to_str(d.day.to_s) + "_" + vers + ".xml"
       hijack_response(generate_builder(people, file_name), file_name)
     else
       render json: people.size == 0 ? 201 : 200, :nothing => true
@@ -74,7 +79,7 @@ class AtsController < ApplicationController
           doc.IM(person.im)
           doc.OT(person.ot)
           doc.DR(person.dr)
-          doc.NPOLIS(person.vizit.insurance.enp.nil? ? person.vizit.insurance.polis.npolis : person.vizit.insurance.enp)
+          doc.NPOLIS(person.vizit.insurance.enp.blank? ? person.vizit.insurance.polis.npolis : person.vizit.insurance.enp)
           doc.SPOLIS(person.vizit.insurance.polis.spolis)
           person.ats.each do |at|
             doc.AT {
