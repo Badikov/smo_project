@@ -1,0 +1,48 @@
+<%= simple_form_for @representative, :html => { :class => 'form-horizontal', :autocomplete => 'off' } do |f| %>
+  
+  <%= f.input :person_id , :as => :hidden %>    
+  
+  <%= f.input :fam, :label => 'Фамилия', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+ 
+      <%= f.input :im, :label => 'Имя', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+    
+      <%= f.input :ot, :label => 'Отчество', :input_html => {onkeyup:'this.value=this.value.toUpperCase()'} %>
+    
+      <%= f.input :parent, :label => 'Отношение к застрахованному',
+		  :as => :select, :collection => [["МАТЬ",'МАТЬ'],["ОТЕЦ",'ОТЕЦ'],["ИНОЕ",'ИНОЕ']]%>
+    
+      <%= f.input :doctype, :collection => Tipdoc.all(:order => :docname),
+		    :label_method => :docname, :value_method => :iddoc,  
+		    :label => 'Документ', :priority => [ "Паспорт гражданина Российской Федерации" ], 
+		    :input_html => { :class => "span6 doc_type" }%>
+    
+      <%= f.input :docser, :label => 'Серия' %>
+   
+      <%= f.input :docnum, :label => 'Номер' %>
+      
+      <%= f.input :docdate,:label => 'Дата выдачи', :include_blank => true, :as => :date, :start_year => Date.today.year - 20,:end_year => Date.today.year,:order => [:day, :month, :year] %>
+   
+      <%= f.input :phone, :label => 'Телефон', :as => :tel %>
+      
+      <% unless @representative.new_record? %>
+      
+        <div class="control-group boolean optional">
+          <div class="controls">
+            <input type="hidden" value="0" name="touch">
+              <label class="checkbox">
+              <input id="touch" class="boolean optional" type="checkbox" value="1" name="touch" >
+                исправления для ТерФОМС
+              </label>
+          </div>
+        </div>
+      <% end %>
+  
+   
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary',:value => 'Сохранить', :disable_with => 'Saving...' %>
+    <%= link_to 'Отменить', home_path, :class => 'btn' %>
+  </div>
+
+   
+  
+<% end %>

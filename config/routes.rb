@@ -79,7 +79,8 @@ SmoProject::Application.routes.draw do
   end
   
   resources :addres_ps
-  resources :predstavitels
+  resources :representatives
+  match 'representatives/new/:id' => 'representatives#new', :as => :new_representative_for_person
   resources :vizits 
   resources :tipdocs
   resources :oksms

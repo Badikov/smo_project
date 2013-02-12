@@ -353,6 +353,12 @@
         <% if @person.addres_p %>
           <%= link_to 'Править факт. адрес', edit_addres_p_path(@person) , :class => "btn", :role => "button" %>
         <% end %>
+        <% if @person.representative %>
+          <%= link_to("Править Представителя", edit_representative_path(@person.representative),:class =>"btn",:role =>"button") %> 
+          <% else %>
+          <%= link_to("Добавить Представителя", new_representative_for_person_path(@person),:class => "btn",:role =>"button") %>
+        <% end %>
+        
       <% end %>
   </div>
   <% unless polis.nil? %>

@@ -4,7 +4,7 @@ class Representative < ActiveRecord::Base
   
   belongs_to :person
   
-  attr_accessible :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate, :phone#, :created_at #<<== creat - временно для переноса данных
+  attr_accessible :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate, :phone, :person_id#, :created_at #<<== creat - временно для переноса данных
     
   # validates :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate, :allow_blank => true, :unless => :is_more_younger_than_18?
   # validates :fam, :im, :ot, :parent, :doctype, :docser, :docnum, :docdate,:presence => {:message => "Не должно быть пустым."}

@@ -8,6 +8,8 @@ class Vizit < ActiveRecord::Base
   
   accepts_nested_attributes_for :insurance
   
+  attr_accessor :politics
+  
   alias_method :insurance=, :insurance_attributes=
   
   validates_associated :insurance
@@ -21,10 +23,19 @@ class Vizit < ActiveRecord::Base
   
   before_create :dates_logic_create
   # before_save 
-  before_update :logic_for_update_from_doublecat
+  before_update :logic_for_update_from_doublecat, :if => :politics_for_errors?
   # around_save :petition_logic
   
   protected
+  
+  def politics_for_errors?
+    logger.debug { "===============>" + self.politics.to_s  }
+    unless self.politics.nil?
+      self.politics 
+    else
+      true
+    end
+  end
 
   def dates_logic_create
     logger.debug { "привет из визита create"  }

@@ -1,4 +1,4 @@
-1360655151
+1360694612
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -271,6 +271,7 @@ create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.r
 create	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def create
 createNextButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createNextButton(i)
 createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createPrevButton(i)
 create_fackt_pricreplenie	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create_fackt_pricreplenie(rows_aray, file_name)
@@ -307,6 +308,7 @@ edit	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  
 edit	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/addres_ps_controller.rb	  def edit
+edit	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def edit
 edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops
 edit_ops_as_doublicat	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops_as_doublicat
 edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_polis
@@ -359,6 +361,7 @@ new	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	 
 new	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def new
+new	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def new
 new_addres_g	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def new_addres_g
 new_fam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new_fam
 newaddres_g	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def newaddres_g
@@ -370,8 +373,10 @@ polis	/home/alex/rails_projects/smo_project/app/models/insurance.rb	  alias_meth
 polis_data_for_doublecat	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def polis_data_for_doublecat
 politics	/home/alex/rails_projects/smo_project/app/models/person.rb	  attr_accessor :politics
 politics	/home/alex/rails_projects/smo_project/app/models/doc.rb	  attr_accessor :politics
+politics	/home/alex/rails_projects/smo_project/app/models/vizit.rb	  attr_accessor :politics
 politics_for_errors?	/home/alex/rails_projects/smo_project/app/models/person.rb	  def politics_for_errors?
 politics_for_errors?	/home/alex/rails_projects/smo_project/app/models/doc.rb	  def politics_for_errors?
+politics_for_errors?	/home/alex/rails_projects/smo_project/app/models/vizit.rb	  def politics_for_errors?
 prichina_zameni_polisa	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def prichina_zameni_polisa
 print_doublecat	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def print_doublecat
 print_petition	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def print_petition
@@ -426,6 +431,7 @@ update	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	
 update	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/addres_ps_controller.rb	  def update
+update	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def update
 update_numbers_of_polis	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update_numbers_of_polis(items)
 upload	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def upload
 validate	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def validate(record)
