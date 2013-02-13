@@ -868,27 +868,6 @@ cursor_positions:
   - :path: app/views/ats/_form.html.erb
     :cursor_offset: 375
     :timestamp: 2013-01-29 16:59:03 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 2568
-    :timestamp: 2013-02-03 23:30:56 +06:00
-    :selection_offset: 2517
-    :block_selection_mode: false
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 75
-    :timestamp: 2013-02-03 22:22:04 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 518
-    :timestamp: 2013-02-07 14:14:42 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 503
-    :timestamp: 2013-02-04 16:16:08 +06:00
-    :selection_offset: 494
-    :block_selection_mode: false
-  - :path: app/models/polis.rb
-    :cursor_offset: 136
-    :timestamp: 2013-01-30 19:29:31 +06:00
-    :selection_offset: 131
-    :block_selection_mode: false
   - :path: app/views/ats/_modal_fackt.html.erb
     :cursor_offset: 747
     :timestamp: 2013-02-12 01:23:22 +06:00
@@ -905,11 +884,6 @@ cursor_positions:
     :cursor_offset: 1293
     :timestamp: 2013-02-06 01:45:07 +06:00
     :selection_offset: 1217
-    :block_selection_mode: false
-  - :path: app/models/representative.rb
-    :cursor_offset: 17
-    :timestamp: 2013-01-29 14:21:32 +06:00
-    :selection_offset: 0
     :block_selection_mode: false
   - :path: app/views/representatives/_form.html.erb
     :cursor_offset: 726
@@ -974,4 +948,29 @@ cursor_positions:
   - :path: app/models/vizit.rb
     :cursor_offset: 1554
     :timestamp: 2013-02-13 00:09:56 +06:00
+  - :path: app/models/representative.rb
+    :cursor_offset: 223
+    :timestamp: 2013-02-13 00:43:32 +06:00
+  - :path: app/controllers/representatives_controller.rb
+    :cursor_offset: 103
+    :timestamp: 2013-02-13 00:32:33 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 1065
+    :timestamp: 2013-02-03 23:30:56 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 94
+    :timestamp: 2013-02-03 22:22:04 +06:00
+    :selection_offset: 67
+    :block_selection_mode: false
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 518
+    :timestamp: 2013-02-07 14:14:42 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 967
+    :timestamp: 2013-02-04 16:16:08 +06:00
+  - :path: app/models/polis.rb
+    :cursor_offset: 136
+    :timestamp: 2013-01-30 19:29:31 +06:00
+    :selection_offset: 131
+    :block_selection_mode: false
 files_to_retain: 0

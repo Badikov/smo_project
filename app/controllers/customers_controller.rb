@@ -59,7 +59,7 @@ class CustomersController < ApplicationController
     d = DateTime.strptime(d, "%a %b %d %Y %H:%M:%S GMT%z") #if d.empty?
     @person = Person.find_by_id(params[:id])
     
-    @person.update_attributes({ ddeath: d})
+    @person.update_attributes({ ddeath: d.to_date })
     
     @person.op.update_attributes({ active: 0, tip_op: "П022", date_uvoln: DateTime.now })
     
