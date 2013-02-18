@@ -10,16 +10,12 @@ class Op < ActiveRecord::Base
  
   scope :jobs_today, -> { where(updated_at: (DateTime.current.beginning_of_day)..(DateTime.current.end_of_day)) }
   
+  scope :all_active, -> { where("active= ?", true) }
+  scope :all_at_date, ->(date_off) { all_active.where(["created_at < ?", date_off]).pluck(:person_id) }
+  
   def self.count_active
     count(:all, :group => 'active')
   end
-  # self.primary_key = "person_id"#"id" #
   
-  # before_update :save_id_for_terfond
-  
-  protected
-  def save_id_for_terfond
-    self.id = self.person_id
-  end
   
 end

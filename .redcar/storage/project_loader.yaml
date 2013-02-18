@@ -5,3 +5,8 @@ open_files:
   - app/models/addres_g.rb
   - app/models/person.rb
   - app/models/polis.rb
+  - app/views/ops/upload.html.erb
+  - app/models/op.rb
+  - app/models/nsilpu.rb
+  - app/controllers/ops_controller.rb
+  - app/controllers/ats_controller.rb

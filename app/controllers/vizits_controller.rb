@@ -168,7 +168,7 @@ class VizitsController < ApplicationController
       if @vizit.save 
         op = Op.find_by_person_id(@vizit.person_id)
         #TODO затереть дату увольнения, если чел был, ушел и опять вернулся
-        op.update_attributes({tip_op: tip_op, active: 1})
+        op.update_attributes({tip_op: tip_op, active: 1, date_uvoln: nil})
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
         flash[:error] = "Сохранить не получилось, проверьте ошибки в параметрах. Проверьте!!! Правильно ли стоят флажки!!!"
