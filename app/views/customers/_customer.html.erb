@@ -330,7 +330,7 @@
 
 <% if op.date_uvoln.nil? %>
   <div class="person-block personale">
-    <% if vizit.nil? || polis.vpolis == 1 || !op.date_uvoln.blank? %>
+    <% if vizit.nil? || polis.vpolis == 1 || !op.active %>
       <%= link_to t("Новый визит"), {:controller => "vizits", :action => "new", :id => @person} ,:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Вы уверенны, что это новый визит ЗЛ ?')) },:id => "customers_search_new_vizit",:class => "btn", :role => "button" %>
     <% end %>  
       <% if can? :create, User %>
