@@ -5,7 +5,7 @@ jQuery ->
  
   $.datepicker.setDefaults($.extend($.datepicker.regional["ru"]))
   
-  $("#ops_search, #ats_search").attr disabled: 'disabled'
+  $("#ops_search, #ats_search, #all_search").attr disabled: 'disabled'
   
   $("#dp-fild").datepicker
     beforeShow: (input) ->
@@ -51,6 +51,12 @@ jQuery ->
     $('<a id="upload_ats">Скачать файл XML</a>').attr
       href: '/ats/create_links?' + $.param _date
     .appendTo "#ats_links" 
+
+  $("#dp-fild-all").datepicker
+    beforeShow: (input) -> $(input).css 'background-color', "#ff9"
+    onSelect: (dateText, inst) -> 
+      $(@).css 'background-color', "" 
+      $("#all_search").removeAttr 'disabled'
   
   # $("#upload_ats").live "click", ->
   #   $.ajax

@@ -9,8 +9,14 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+   window.history.forward();
+             function noBack() { 
+                  window.history.forward(); 
+             }
+  </script>
 </head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">

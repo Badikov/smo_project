@@ -702,9 +702,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/ops.css.scss
     :cursor_offset: 612
     :timestamp: 2013-01-31 18:58:40 +06:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 817
-    :timestamp: 2013-01-31 18:37:40 +06:00
   - :path: app/views/people/show.html.erb
     :cursor_offset: 842
     :timestamp: 2013-01-22 04:23:41 +06:00
@@ -960,15 +957,16 @@ cursor_positions:
   - :path: app/models/op.rb
     :cursor_offset: 619
     :timestamp: 2013-02-15 02:33:48 +06:00
-  - :path: app/models/nsilpu.rb
-    :cursor_offset: 212
-    :timestamp: 2013-01-28 05:39:02 +06:00
-    :selection_offset: 207
-    :block_selection_mode: false
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 1130
-    :timestamp: 2013-02-06 01:45:07 +06:00
   - :path: app/controllers/ats_controller.rb
     :cursor_offset: 1023
     :timestamp: 2013-02-12 13:22:04 +06:00
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 1130
+    :timestamp: 2013-02-06 01:45:07 +06:00
+  - :path: app/models/nsilpu.rb
+    :cursor_offset: 255
+    :timestamp: 2013-01-28 05:39:02 +06:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 648
+    :timestamp: 2013-02-18 17:43:24 +06:00
 files_to_retain: 0
