@@ -3,11 +3,20 @@ class OpsController < ApplicationController
   require 'builder'
   require 'zip/zip'
   
-  
-  #for CanCan
-#   load_and_authorize_resource
+ 
   
   @@where_str =DateTime 
+  
+  def all_people
+    date_off = DateTime.strptime(params[:date], "%a %b %d %Y %H:%M:%S GMT%z")
+    ops = Op.includes(:person => {:vizit => {:insurance => :polis}}).all_at_date(date_off)
+    # ops = Op.all_at_date(date_off)
+    # logger.debug {"===================>" + ops.size.to_s }
+    # people = Person.where(:id => ops)
+    
+    hijack_response(generate_xml(ops), "cms_" + date_off.to_date.to_s + ".xml")
+    
+  end
   
   def count_people
     @counts = Op.count_active
@@ -73,6 +82,26 @@ class OpsController < ApplicationController
     send_file tempfile, :type => 'application/zip', :disposition => 'attachment', :filename => zip_file_name
      # FileUtils.rm(tempfile.path)
     
+  end
+  def generate_xml(ops)
+    $KCODE = 'Windows-1251'
+    doc = Builder::XmlMarkup.new( :target => out_string = "")
+    doc.instruct! :xml, :version => "1.0", :encoding =>"windows-1251"
+    doc.OPLIST(xmlns: "www.kemoms.ru/xsd/zstr") {
+      doc.NRECORDS(ops.size)
+      ops.each do |op|
+        doc.OP {
+          doc.ID(op.id)
+          doc.FAM(op.person.fam)
+          doc.IM(op.person.im)
+          doc.OT(op.person.ot)
+          doc.DR(op.person.dr)
+          doc.NPOLIS(op.person.vizit.insurance.enp.blank? ? op.person.vizit.insurance.polis.npolis : op.person.vizit.insurance.enp)
+          doc.SPOLIS(op.person.vizit.insurance.polis.spolis)
+        }
+      end
+    }
+    return out_string
   end
   #!!!!!!!!!!!!!!!!Запрос данных из базы
   def generate_builder(par)

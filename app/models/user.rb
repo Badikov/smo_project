@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   belongs_to :filial
   has_many :ops
   
-  validates_presence_of :name, :login, :email, :password, :filial_id, :role_ids
+  validates_presence_of :name, :login, :email, :filial_id, :role_ids #, :password
   validates_uniqueness_of :name,:login, :email, :case_sensitive => false
   
   acts_as_authentic do |c|

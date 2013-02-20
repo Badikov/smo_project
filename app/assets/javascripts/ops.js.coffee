@@ -53,10 +53,18 @@ jQuery ->
     .appendTo "#ats_links" 
 
   $("#dp-fild-all").datepicker
+    changeYear: true
     beforeShow: (input) -> $(input).css 'background-color', "#ff9"
     onSelect: (dateText, inst) -> 
       $(@).css 'background-color', "" 
       $("#all_search").removeAttr 'disabled'
+
+  $("#all_search").click ->
+    _date = {date: $("#dp-fild-all").datepicker 'getDate'}
+    $(@).attr disabled: 'disabled'
+    $('<a id="upload_all">Скачать файл XML</a>').attr
+      href: '/ops/all_people?' + $.param _date
+    .appendTo "#all_links" 
   
   # $("#upload_ats").live "click", ->
   #   $.ajax

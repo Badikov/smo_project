@@ -97,6 +97,7 @@ SmoProject::Application.routes.draw do
       get 'upload'
       get 'create_links'
       get 'count_people'
+      get 'all_people'
     end
   end
   resources :main do

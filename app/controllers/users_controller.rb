@@ -31,11 +31,13 @@ class UsersController < ApplicationController
   end
   # GET /users/current
   def show
-    if can? :create, User
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
+    # if can? :create, User
+    #   @user = User.find(params[:id])
+    # else
+    #   @user = current_user
+    #   
+    # end
+    @user = current_user
   end
   # GET /users/1/edit
   def edit
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]) #current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Акаунт обнавлен!"
-      redirect_to account_url
+      redirect_to home_path
     else
       render :action => :edit
     end

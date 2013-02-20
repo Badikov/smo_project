@@ -17,6 +17,6 @@ class ReportsController < ApplicationController
     @people = Person.get_passport
   end
   def foreigners
-    @foreigners = Foreigner.all_foreigners
+    @foreigners = Foreigner.includes(:person => {:vizit => {:insurance => :polis}}).all_foreigners
   end
 end
