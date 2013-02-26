@@ -64,6 +64,8 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-deploy', :require => false
   gem 'rvm-capistrano'
+  
+  gem 'quiet_assets'
 end
 gem "unicode_utils"
 # To use debugger

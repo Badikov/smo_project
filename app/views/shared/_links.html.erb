@@ -20,8 +20,14 @@
       </a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel_report">
         <li><%= link_to "Застрахованные за сегодня", today_reports_path, tabindex: "-1" %></li>
+        <li><%= link_to "Застрахованные за вчера", yesterday_reports_path, tabindex: "-1" %></li>
+        <li><%= link_to "Застрахованные за ...", home_path, tabindex: "-1", id: "input_date" %></li>
+        <div id="menu_datepicker" type="hidden"></div>
+        <li class="divider"></li>
         <li><%= link_to "Работа за сегодня", jobs_reports_path, tabindex: "-1" %></li>
+        <li class="divider"></li>
         <li><%= link_to "Дети 14-ти лет", age14_reports_path, tabindex: "-1" %></li>
+        <li class="divider"></li>
         <li><%= link_to "Иностранцы", foreigners_reports_path, tabindex: "-1" %></li>
         
       </ul>
@@ -34,6 +40,7 @@
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel_admin">
         <li><%= link_to "Филиалы", filials_path, tabindex: "-1" %></li>
         <li><%= link_to "Users", users_path, tabindex: "-1" %></li>
+        <li class="divider"></li>
         <li><%= link_to "Номера временных свидетельств", numbers_uploads_path, tabindex: "-1" %></li>
         
       </ul>

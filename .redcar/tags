@@ -1,4 +1,4 @@
-1361386497
+1361910941
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -440,5 +440,6 @@ vibor_smo	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	
 vibor_zamena_smo	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def vibor_zamena_smo
 worker	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def worker(item)
 worker_pricrep	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def worker_pricrep(item, kdatemu, kdmu)
+yesterday	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def yesterday
 zamena_polis_datas	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def zamena_polis_datas
 zamena_polisa	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def zamena_polisa(arg)

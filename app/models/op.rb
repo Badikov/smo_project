@@ -14,6 +14,10 @@ class Op < ActiveRecord::Base
   # scope :all_at_date, ->(date_off) { all_active.where(["created_at < ?", date_off]).pluck(:person_id) }
   scope :all_at_date, ->(date_off) { all_active.where(["created_at < ?", date_off]) }
   
+  #вчерашние новые застрахованные
+  scope :new_yesterday, -> { all_active.where(created_at: (DateTime.yesterday.beginning_of_day)..(DateTime.yesterday.end_of_day)) }
+  
+  
   def self.count_active
     count(:all, :group => 'active')
   end

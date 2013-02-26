@@ -5,3 +5,19 @@ jQuery ->
    	$('#today_table_id, #jobs_table_id, #age14_table_id, #foreigners_table_id').dataTable
     	sPaginationType: "full_numbers"
     	bJQueryUI: true
+
+    menu_line = $("#input_date")
+    menu_line
+     .mouseover ->
+      pos = $(@).offset()
+      w = $(@).width()
+      $("#menu_datepicker")
+       .css 
+        'position': 'fixed'
+        'top': pos.top
+        'left': pos.left + w
+       .datepicker()
+       .show()
+     .mouseout ->
+      $("#menu_datepicker").hide()
+     

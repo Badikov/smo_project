@@ -19,4 +19,8 @@ class ReportsController < ApplicationController
   def foreigners
     @foreigners = Foreigner.includes(:person => {:vizit => {:insurance => :polis}}).all_foreigners
   end
+  
+  def yesterday
+    @ops = Op.new_yesterday
+  end
 end
