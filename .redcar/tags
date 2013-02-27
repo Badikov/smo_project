@@ -1,4 +1,4 @@
-1361910941
+1361984958
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -283,6 +283,7 @@ create_roles	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_cre
 current_user	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user
 current_user_session	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user_session
 data_logic	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def data_logic
+date_at	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def date_at
 dates_logic_create	/home/alex/rails_projects/smo_project/app/models/vizit.rb	  def dates_logic_create
 day_to_str	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def day_to_str(str)
 dbeg_dend_and_vpolis	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def dbeg_dend_and_vpolis

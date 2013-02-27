@@ -575,9 +575,6 @@ cursor_positions:
   - :path: app/controllers/application_controller.rb
     :cursor_offset: 797
     :timestamp: 2013-01-27 08:26:06 +06:00
-  - :path: app/controllers/uploads_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2013-01-27 09:54:33 +06:00
   - :path: db/migrate/20130127060952_create_uploads.rb
     :cursor_offset: 267
     :timestamp: 2013-01-27 12:18:23 +06:00
@@ -897,12 +894,6 @@ cursor_positions:
   - :path: app/views/users/_form.html.erb
     :cursor_offset: 970
     :timestamp: 2013-01-25 04:53:12 +06:00
-  - :path: app/controllers/reports_controller.rb
-    :cursor_offset: 441
-    :timestamp: 2013-02-21 00:14:29 +06:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 409
-    :timestamp: 2013-02-20 23:39:28 +06:00
   - :path: app/models/foreigner.rb
     :cursor_offset: 160
     :timestamp: 2013-02-04 23:06:10 +06:00
@@ -931,6 +922,23 @@ cursor_positions:
   - :path: app/helpers/people_helper.rb
     :cursor_offset: 304
     :timestamp: 2012-12-05 17:20:45 +06:00
+  - :path: app/helpers/docs_helper.rb
+    :cursor_offset: 89
+    :timestamp: 2013-01-08 16:07:04 +06:00
+    :selection_offset: 72
+    :block_selection_mode: false
+  - :path: app/views/foreigners/_form.html.erb
+    :cursor_offset: 1127
+    :timestamp: 2013-02-03 19:27:44 +06:00
+  - :path: app/views/reports/tomorrow.html.erb
+    :cursor_offset: 31
+    :timestamp: 2013-02-26 20:29:17 +06:00
+  - :path: app/views/layouts/report.html.erb
+    :cursor_offset: 62
+    :timestamp: 2013-01-29 17:11:24 +06:00
+  - :path: app/assets/javascripts/reports.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2013-02-06 01:03:31 +06:00
   - :path: app/controllers/customers_controller.rb
     :cursor_offset: 0
     :timestamp: 2013-02-14 01:37:18 +06:00
@@ -948,35 +956,38 @@ cursor_positions:
   - :path: app/models/polis.rb
     :cursor_offset: 1185
     :timestamp: 2013-01-30 19:29:31 +06:00
-  - :path: app/helpers/docs_helper.rb
-    :cursor_offset: 89
-    :timestamp: 2013-01-08 16:07:04 +06:00
-    :selection_offset: 72
-    :block_selection_mode: false
-  - :path: app/views/foreigners/_form.html.erb
-    :cursor_offset: 1127
-    :timestamp: 2013-02-03 19:27:44 +06:00
+  - :path: app/controllers/reports_controller.rb
+    :cursor_offset: 481
+    :timestamp: 2013-02-26 20:35:00 +06:00
   - :path: app/views/shared/_links.html.erb
-    :cursor_offset: 1110
-    :timestamp: 2013-02-26 20:27:23 +06:00
+    :cursor_offset: 1185
+    :timestamp: 2013-02-27 11:47:42 +06:00
+  - :path: app/views/reports/_new_people.html.erb
+    :cursor_offset: 1209
+    :timestamp: 2013-02-27 13:13:36 +06:00
+  - :path: app/views/reports/yesterday.html.erb
+    :cursor_offset: 117
+    :timestamp: 2013-02-27 13:17:21 +06:00
   - :path: app/views/reports/today.html.erb
-    :cursor_offset: 1334
-    :timestamp: 2013-01-29 17:37:01 +06:00
-    :selection_offset: 0
+    :cursor_offset: 163
+    :timestamp: 2013-02-27 13:14:54 +06:00
+    :selection_offset: 125
     :block_selection_mode: false
-  - :path: app/views/reports/tomorrow.html.erb
-    :cursor_offset: 31
-    :timestamp: 2013-02-26 20:29:17 +06:00
-  - :path: app/models/op.rb
-    :cursor_offset: 867
-    :timestamp: 2013-02-26 20:34:42 +06:00
   - :path: config/routes.rb
-    :cursor_offset: 283
-    :timestamp: 2013-02-26 20:35:42 +06:00
-  - :path: app/views/layouts/report.html.erb
-    :cursor_offset: 62
-    :timestamp: 2013-01-29 17:11:24 +06:00
-  - :path: app/assets/javascripts/reports.js.coffee
+    :cursor_offset: 324
+    :timestamp: 2013-02-27 14:15:12 +06:00
+  - :path: app/models/op.rb
+    :cursor_offset: 972
+    :timestamp: 2013-02-27 13:42:10 +06:00
+    :selection_offset: 961
+    :block_selection_mode: false
+  - :path: app/controllers/uploads_controller.rb
     :cursor_offset: 0
-    :timestamp: 2013-02-06 01:03:31 +06:00
+    :timestamp: 2013-02-07 15:31:28 +06:00
+  - :path: app/views/reports/date_at.html.erb
+    :cursor_offset: 34
+    :timestamp: 2013-02-27 17:43:19 +06:00
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 421
+    :timestamp: 2013-02-20 23:39:28 +06:00
 files_to_retain: 0

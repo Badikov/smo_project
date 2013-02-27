@@ -7,6 +7,7 @@ SmoProject::Application.routes.draw do
       get "age14" => "reports#age14"
       get "foreigners" => "reports#foreigners"
       get "yesterday" => "reports#yesterday"
+      get "date_at" => "reports#date_at"
     end
   end
 

@@ -4,7 +4,7 @@ class Op < ActiveRecord::Base
   
   
   attr_accessible :id, :active, :tip_op, :updated_at, :user_id, :date_uvoln, :created_at
-  
+  #сегодняшние новые застрахованные
   scope :new_today, -> { where(created_at: (DateTime.current.beginning_of_day)..(DateTime.current.end_of_day)) }
   scope :new_today_active, -> { new_today.where("active= ?", true) }
  
@@ -16,7 +16,8 @@ class Op < ActiveRecord::Base
   
   #вчерашние новые застрахованные
   scope :new_yesterday, -> { all_active.where(created_at: (DateTime.yesterday.beginning_of_day)..(DateTime.yesterday.end_of_day)) }
-  
+  #застрахованные на введенную дату
+  scope :new_date_at, ->(date_at) { all_active.where(created_at: (date_at.beginning_of_day)..(date_at.end_of_day)) }
   
   def self.count_active
     count(:all, :group => 'active')

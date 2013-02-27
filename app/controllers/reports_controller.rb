@@ -23,4 +23,8 @@ class ReportsController < ApplicationController
   def yesterday
     @ops = Op.new_yesterday
   end
+  def date_at
+    @dt = params[:date]
+    @ops = Op.includes([:user,:person => [{:vizit => {:insurance => :polis}},:doc]]).new_date_at(params[:date].to_date)
+  end
 end

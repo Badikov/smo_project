@@ -5,5 +5,5 @@ open_files:
   - app/models/addres_g.rb
   - app/models/person.rb
   - app/models/polis.rb
-  - app/views/foreigners/_form.html.erb
-  - app/helpers/docs_helper.rb
+  - app/controllers/reports_controller.rb
+  - app/views/shared/_links.html.erb
