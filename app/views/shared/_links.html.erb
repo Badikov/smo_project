@@ -23,11 +23,16 @@
         <li><%= link_to "Застрахованные за вчера", yesterday_reports_path, tabindex: "-1" %></li>
         <li class="dropdown-submenu"><%= link_to "Застрахованные за ...", home_path, tabindex: "-1", id: "input_date" %>
           <ul class="dropdown-menu">
-            <div id="menu_datepicker"></div>
+            <div data="0" id="menu_datepicker"></div>
           </ul>
         </li>
         <li class="divider"></li>
         <li><%= link_to "Работа за сегодня", jobs_reports_path, tabindex: "-1" %></li>
+        <li class="dropdown-submenu"><%= link_to "Работа за ...", home_path, tabindex: "-1" %>
+          <ul class="dropdown-menu">
+            <div data="1" id="menu_datepicker_jobs"></div>
+          </ul>
+        </li>
         <li class="divider"></li>
         <li><%= link_to "Дети 14-ти лет", age14_reports_path, tabindex: "-1" %></li>
         <li class="divider"></li>

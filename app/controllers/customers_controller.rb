@@ -70,6 +70,11 @@ class CustomersController < ApplicationController
     # 023 - 
   end
   
+  def edit_ops_foreigner
+    # 025 - снятие с учета иностранца
+    @op = Op.find_by_person_id(params[:id])
+  end
+  
   def edit_polis
     # 060
     d = params[:date]

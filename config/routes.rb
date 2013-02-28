@@ -8,6 +8,7 @@ SmoProject::Application.routes.draw do
       get "foreigners" => "reports#foreigners"
       get "yesterday" => "reports#yesterday"
       get "date_at" => "reports#date_at"
+      get "jobs_date_at" => "reports#jobs_date_at"
     end
   end
 
@@ -28,6 +29,7 @@ SmoProject::Application.routes.draw do
       get 'build_doublecat_polis' => 'customers#build_doublecat_polis'
       post 'build_doublecat_polis' => 'customers#save_doublecat_polis'
       match 'edit_ops' => 'customers#edit_ops'
+      match 'edit_ops_foreigner' => 'customers#edit_ops_foreigner'
       match 'edit_polis' => 'customers#edit_polis'
       match 'death_of_customer' => 'customers#death_of_customer'
       match 'edit_ops_as_doublicat' => 'customers#edit_ops_as_doublicat'

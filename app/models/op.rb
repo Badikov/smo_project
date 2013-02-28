@@ -18,6 +18,8 @@ class Op < ActiveRecord::Base
   scope :new_yesterday, -> { all_active.where(created_at: (DateTime.yesterday.beginning_of_day)..(DateTime.yesterday.end_of_day)) }
   #застрахованные на введенную дату
   scope :new_date_at, ->(date_at) { all_active.where(created_at: (date_at.beginning_of_day)..(date_at.end_of_day)) }
+  #вся работа на введенную дату
+  scope :jobs_date_at, ->(date_at) { where(updated_at: (date_at.beginning_of_day)..(date_at.end_of_day)) }
   
   def self.count_active
     count(:all, :group => 'active')

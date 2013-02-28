@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   end
   
   def jobs
-    @ops = Op.jobs_today
+    @ops = Op.includes([:user,:person => [{:vizit => {:insurance => :polis}}]]).jobs_today
   end
   
   def age14
@@ -26,5 +26,9 @@ class ReportsController < ApplicationController
   def date_at
     @dt = params[:date]
     @ops = Op.includes([:user,:person => [{:vizit => {:insurance => :polis}},:doc]]).new_date_at(params[:date].to_date)
+  end
+  def jobs_date_at
+    @dt = params[:date]
+    @ops = Op.includes([:user,:person => [{:vizit => {:insurance => :polis}}]]).jobs_date_at(params[:date].to_date)
   end
 end
