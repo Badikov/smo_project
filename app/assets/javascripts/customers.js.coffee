@@ -16,7 +16,7 @@ jQuery ->
 
   $("#customers_search_query").focus()
 
-  $("form").live "keydown", (event) -> 
+  $("form").bind "keydown", (event) -> 
     e = event || window.event
     if e.keyCode is 13
       return false
@@ -37,7 +37,7 @@ jQuery ->
             $("#customers_table_search").show()
           error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
   
-  $("#customers_table_search.table-hover tbody tr").live "click", (e) ->
+  $("#customers_table_search.table-hover").on "click","tbody tr", (e) ->
     e.preventDefault()
     clear_person_info()
     $("#customers_table_search.table-hover tbody tr").each (i) ->
@@ -54,32 +54,57 @@ jQuery ->
       success: (data) -> 
         person_info data
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+
+
+  
       
   #-- выбытие застрахованного по П021
-  $("#customers_search_021").live "click", (event) -> 
+  #=======================================================================================================
+  $("div#customers_customer_info").on "click","#customers_search_021", (event) ->
     e = event || window.event
+    if confirm('Вы уверенны что это лицо выбыло ?')
+      $.ajax
+        type: "GET"
+        url: @href
+        success: (response) ->
+          if response is 200
+            $('.row')
+              .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
+          else
+            $('.row')
+              .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
     e.preventDefault()
-    $.ajax
-      type: "GET"
-      url: @href
-      success: (response) ->
-        if response == 200
-          $('.row')
-            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
-        else
-          $('.row')
-            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
- 
-  #-- выбытие застрахованного по П022      
-  $("#dp_date_of_death").live "focus", ->
-    $("#dp_date_of_death").datepicker
+  #-- выбытие застрахованного по П025
+  #=======================================================================================================
+  $("div#customers_customer_info").on "click","#customers_search_025", (event) ->
+    e = event || window.event
+    if confirm('Вы уверенны что это лицо выбыло ?')
+      $.ajax
+        type: "GET"
+        url: @href
+        success: (response) ->
+          if response is 200
+            $('.row')
+              .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
+          else
+            $('.row')
+              .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+    e.preventDefault()
+
+
+
+  #-- выбытие застрахованного по П022
+  #======================================================================================================= 
+  $("div#customers_customer_info").on "focus","#dp_date_of_death", (e) ->
+    $(@).datepicker
+      showOn: 'focus'
       beforeShow: (input) ->
         $(input).css('background-color', "#ff9")
       onSelect: (dateText, inst) ->
         $(@).css('background-color', "")
         $("#customers_search_022").removeAttr 'disabled'
-    
-  $("#customers_search_022").live "click", ->
+
+  $("div#customers_customer_info").on "click","#customers_search_022", (e) ->  
     $.ajax
       type: "POST"
       dataType: 'json'
@@ -89,7 +114,7 @@ jQuery ->
         id: $("#customers_search_customer_id").val()
       success: (response) ->
         $("#deathModal").modal 'hide'
-        if response == 200
+        if response is 200
           $('.row')
             .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
         else
@@ -98,15 +123,19 @@ jQuery ->
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
   
   #-- выдача на руки полиса по П060
-  $("#dp_date_begin").live "focus", ->
-    $("#dp_date_begin").datepicker
+  #=======================================================================================================
+  $("div#customers_customer_info").on "focus","#dp_date_begin", (e) ->
+  #$("#dp_date_begin").bind "focus", ->
+    $(@).datepicker
+      showOn: 'focus'
       beforeShow: (input) ->
         $(input).css('background-color', "#ff9")
       onSelect: (dateText, inst) ->
         $(@).css('background-color', "")
         $("#customers_search_060").removeAttr 'disabled'
 
-  $("#customers_search_060").live "click", ->
+  $("div#customers_customer_info").on "click","#customers_search_060", (e) ->
+  #$("#customers_search_060").bind "click", ->
     $.ajax
       type: "POST"
       dataType: 'json'
@@ -116,7 +145,7 @@ jQuery ->
         id: $("#customers_puts_customer_id").val()
       success: (response) ->
         $("#edit_polisModal").modal 'hide'
-        if response == 200
+        if response is 200
           $('.row')
             .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Данные о выдаче полиса успешно сохранились.</div>'
         else
@@ -125,6 +154,7 @@ jQuery ->
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
 
   #-- подгружает формы на странице http://localhost:3000/customers/{id}/edit
+  #========================================================================================================
   $("#customers_edit_doc, #customers_edit_person, #customers_edit_addres_g").click ->
     $.ajax
       type: "GET"
@@ -136,13 +166,14 @@ jQuery ->
         
       error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
     return false
-
-  $('input[name="vizit[rpolis]"]:radio').live "change", ->
+  #========================================================================================================
+  $("div.page-body").on "change",'input[name="vizit[rpolis]"]:radio', (e) ->
+  #$('input[name="vizit[rpolis]"]:radio').bind "change", ->
     if @value is "2"
       $('div.control-group:gt(8)').not($('div.control-group:gt(14)')).hide("slow")
     else
       $('div.control-group:gt(8)').not($('div.control-group:gt(14)')).show("slow")
-
+  #========================================================================================================
   clear_person_info = () ->
     $("div#customers_customer_info div.personale").remove()
   person_info = (data) ->
@@ -154,7 +185,8 @@ jQuery ->
     $("#customers_table_search").append data
     #// $.map data, (item) ->
     #//   $("#customers_table_search").append '<tr id=' + item.id + '><td>' + item.fam +  '</td><td>' + item.im +  '</td><td>' + item.ot +  '</td><td>' + item.w +  '</td><td>' + item.dr +  '</td><td>' + item.docser +  '</td><td>' + item.docnum +  '</td></tr>'
-  $('#addres_g_npname').live 'focus', -> 
+  
+  $("div.page-body").on "focus","#addres_g_npname", (e) ->
     $(@).autocomplete
      source:(request,response) ->
       $.ajax 
@@ -169,7 +201,7 @@ jQuery ->
      select: (event, ui) -> 
       $("#addres_g_okato").val ui.item.okato
 
-  $("#addres_g_ul").live 'focus', ->
+  $("div.page-body").on "focus","#addres_g_ul", (e) ->
     $(@).typeahead
       source: (query,process) ->
         $.ajax
@@ -179,10 +211,10 @@ jQuery ->
           success: (data) ->
             process data
 
-  $("#edit_addres_g").live 'click', ->
-    setTimeout(-> 
-      $("div#atlhModal").modal
-        show: true
-        keyboard: false
-        backdrop: false 
-     3000)
+  #$("#edit_addres_g").bind 'click', ->
+  #  setTimeout(-> 
+  #    $("div#atlhModal").modal
+  #      show: true
+  #      keyboard: false
+  #      backdrop: false 
+  #   3000)

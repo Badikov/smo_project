@@ -10,12 +10,12 @@ class CustomersController < ApplicationController
       fio_array = params[:term].split(" ")
       case fio_array.size
       when 1
-        @customer = Person.order(:fam, :im).where("fam like ?", "#{fio_array[0]}%")
+        @customer = Person.includes([:op,:doc]).order(:fam, :im).where("fam like ?", "#{fio_array[0]}%")
       when 2
-        @customer = Person.order(:fam, :im)
+        @customer = Person.includes([:op,:doc]).order(:fam, :im)
         .where("fam = \"#{fio_array[0]}\" and im like ?", "#{fio_array[1]}%")
       when 3
-        @customer = Person.order(:fam, :im)
+        @customer = Person.includes([:op,:doc]).order(:fam, :im)
         .where("fam = \"#{fio_array[0]}\" and im = \"#{fio_array[1]}\" and ot like ?", "#{fio_array[2]}%")
       end
     end
@@ -32,7 +32,8 @@ class CustomersController < ApplicationController
   
   
   def search_person
-    @person = Person.find_by_id(params[:id])
+    # @person = Person.find_by_id(params[:id])
+    @person = Person.includes([:op,:vizit,:doc,:addres_g,:representative,:old_person,:old_doc]).find_by_id(params[:id])
 
     render :partial => "customer" 
   end
@@ -73,6 +74,11 @@ class CustomersController < ApplicationController
   def edit_ops_foreigner
     # 025 - снятие с учета иностранца
     @op = Op.find_by_person_id(params[:id])
+    vizit = Vizit.find_by_person_id(params[:id])
+    
+    @op.update_attributes({ active: 0, tip_op: "П025", date_uvoln: DateTime.now })
+    
+    render json: status, :nothing => true
   end
   
   def edit_polis

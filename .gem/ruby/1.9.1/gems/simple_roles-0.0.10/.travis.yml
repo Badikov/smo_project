@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 1.8.7
+  - 1.9.3
+script: "rake"
+gemfile:
+  - Gemfile
+env:
+  - DB=sqlite
+  - DB=mysql
+before_script:
+  - "mysql -e 'create database simple_roles_test;' >/dev/null"

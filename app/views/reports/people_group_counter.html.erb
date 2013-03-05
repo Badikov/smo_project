@@ -1,0 +1,51 @@
+<% child0_4 = @child0_4.count %>
+<% child5_17 = @child5_17.count%>
+<% male18_59 = @male18_59.count%>
+<% female18_54 = @female18_54.count%>
+<% oldmale_60 = @oldmale_60.count%>
+<% oldfemale_55 = @oldfemale_55.count%>
+<p>
+  <h4></h4>
+  <input type="button" id="print" onclick="javascript:print()" value="Печать"/>
+</p>
+
+<table border="1" cellspacing="5" cellpadding="5">
+  <thead>
+    <tr>
+      <th rowspan="2"></th>
+      <th colspan="7">Поло-возрастные группы</th>
+    </tr>
+    <tr>
+      
+      <th>0-4</th>
+      <th>5-17</th>
+      <th>18-59</th>
+      <th>18-54</th>
+      <th>60 и старше</th>
+      <th>55 и старше</th>
+      <th>Всего</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Мужчины</td>
+      <td><%= child0_4[1] %></td>
+      <td><%= child5_17[1]%></td>
+      <td><%= male18_59[1]%></td>
+      <td>0</td>
+      <td><%= oldmale_60[1]%></td>
+      <td>0</td>
+      <td><%= child0_4[1] + child5_17[1] + male18_59[1] + oldmale_60[1] %></td>
+    </tr>
+    <tr>
+      <td>Женщины</td>
+      <td><%= child0_4[2] %></td>
+      <td><%= child5_17[2]%></td>
+      <td>0</td>
+      <td><%= female18_54[2]%></td>
+      <td>0</td>
+      <td><%= oldfemale_55[2]%></td>
+      <td><%= child0_4[2] + child5_17[2] + female18_54[2] + oldfemale_55[2] %></td>
+    </tr>
+  </tbody>
+</table>

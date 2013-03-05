@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-  $("a.numbers-line-remove").live 'click', ->
+  $("a.numbers-line-remove").bind 'click', ->
   	$(@).parent().remove()
   	return false
   $("a.numbers-line-add").click ->

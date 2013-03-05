@@ -96,8 +96,10 @@ jQuery ->
    if e.keyCode is 13
     return false
  
- $("#vizit_dvizit").live "focus", ->
-   $("#vizit_dvizit").datepicker
+ $("form#new_vizit").on "focus","#vizit_dvizit", (e) ->
+ #$("#vizit_dvizit").bind "focus", ->
+   $(@).datepicker
+    showOn: 'focus'
     onSelect: (dateText, inst) -> 
       $('div.control-group:last').removeClass 'error'
       $('div.control-group:last>div.controls>span.help-inline').remove()
@@ -106,20 +108,20 @@ jQuery ->
  #--------------------------------------------------------------------------------------------
  #----------Модальные окна территориального и фактического прикрепления к лечебному учреждению
  #--------------------------------------------------------------------------------------------
- $("div#atlhModal").live 'show', ->
+ $("div#atlhModal").bind 'show', ->
     $("#kdmu").select2()
 
- $("#atl_fakt_hModal").live 'show', ->
-    $("label[for^='at']").remove()
-    $("#at_kdatemu").select2
-        placeholder: "Территории Кемеровской области"
-    $("#at_kdmu").select2
-        placeholder: "Лечебные учреждения"
+ $("#atl_fakt_hModal").show ->
+   $("label[for^='at']").remove()
+   $("#at_kdatemu").select2
+       placeholder: "Территории Кемеровской области"
+   $("#at_kdmu").select2
+       placeholder: "Лечебные учреждения"
 
- $("select#kdmu").live 'change', ->
+ $("select#kdmu").bind 'change', ->
     $("#create_at_t").removeAttr 'disabled'
 
- $("#create_at_t").live 'click', ->
+ $("#create_at_t").bind 'click', ->
     $.ajax
      type: "POST"
      dataType: 'json'
@@ -132,7 +134,7 @@ jQuery ->
        $("#create_at_t").attr 'disabled'
        $("div#atlhModal").modal 'hide'
        atl_fakt $("#create_at_t_person_id").val()
-       if response == 200
+       if response is 200
          $('.row')
            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
        else
@@ -173,7 +175,7 @@ jQuery ->
        $("#create_at_t").attr 'disabled'
        $("div#atlhModal").modal 'hide'
        atl_fakt $("#create_at_t_person_id").val()
-       if response == 200
+       if response is 200
          $('.row')
            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
        else

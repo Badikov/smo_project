@@ -266,8 +266,8 @@ class OpsController < ApplicationController
               doc.NPOLIS( op[:polis]["npolis"] )
               doc.SPOLIS( op[:polis]["spolis"] )
               doc.DBEG( op[:polis]["dbeg"].nil? ? nil : op[:polis]["dbeg"].to_date )
-              doc.DEND( op[:polis]["dend"] )
-              doc.DSTOP( op[:polis]["dstop"] )
+              doc.DEND( op[:polis]["dend"].nil? ? op[:polis]["dstop"] : op[:polis]["dend"].to_date )
+              doc.DSTOP( op[:polis]["dend"].nil? ? nil : op[:polis]["dstop"] )
            end
               }
            doc.ERP( op[:insurance]["erp"] )
