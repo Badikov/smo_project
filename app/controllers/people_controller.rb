@@ -125,7 +125,11 @@ class PeopleController < ApplicationController
         @vizit = @person.build_vizit({method: @person.representative.nil? ? "1" : "2", petition:"0", fpolis:1, rpolis:params[:vizit][:rpolis]})
         @vizit.build_insurance({erp: 1})
         @vizit.insurance.build_polis(params[:polis])
-        @vizit.insurance.polis.dstop = @person.foreigner.ig_enddate if @person.foreigner
+        if @person.foreigner
+          if @person.foreigner.ig_doctype.length > 20
+            @vizit.insurance.polis.dstop = @person.foreigner.ig_enddate
+          end
+        end
         if @vizit.save(:validate => false) 
           @vizit.person.op.update_attributes({tip_op: "П061"})
           # render json: params[:person]

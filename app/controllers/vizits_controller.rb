@@ -9,7 +9,12 @@ class VizitsController < ApplicationController
     @vizit = person.build_vizit
     @vizit.build_insurance
     @vizit.insurance.build_polis
-    @vizit.insurance.polis.dstop = person.foreigner.ig_enddate if person.foreigner
+    if person.foreigner
+      logger.debug { "===============>" + person.foreigner.ig_doctype.length.to_s  }
+      if person.foreigner.ig_doctype.length > 20
+        @vizit.insurance.polis.dstop = person.foreigner.ig_enddate
+      end
+    end
     # @vizit = Vizit.new
   end
   # GET /vizits/1

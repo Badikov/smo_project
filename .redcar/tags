@@ -1,4 +1,4 @@
-1362502517
+1362513334
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -266,12 +266,12 @@ count_people	/home/alex/rails_projects/smo_project/app/controllers/ops_controlle
 create	/home/alex/rails_projects/smo_project/app/controllers/streets_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def create
-create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def create
 createNextButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createNextButton(i)
 createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createPrevButton(i)
@@ -291,8 +291,8 @@ death_of_customer	/home/alex/rails_projects/smo_project/app/controllers/customer
 default	/home/alex/rails_projects/smo_project/app/controllers/main_controller.rb	  def default
 destroy	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def destroy
-destroy	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def destroy
+destroy	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def destroy
 destroy	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def destroy
 doc	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :doc
 down	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def down
@@ -303,13 +303,13 @@ down	/home/alex/rails_projects/smo_project/db/migrate/20121118045151_add_datepol
 down	/home/alex/rails_projects/smo_project/db/migrate/20121203053205_chenge_data_type_in_ats.rb	  def down
 edit	/home/alex/rails_projects/smo_project/app/controllers/ates_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def edit
-edit	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/addres_ps_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def edit
+edit	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def edit
 edit	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit
 edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops
 edit_ops_as_doublicat	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops_as_doublicat
@@ -339,11 +339,11 @@ index	/home/alex/rails_projects/smo_project/app/controllers/okatos_controller.rb
 index	/home/alex/rails_projects/smo_project/app/controllers/nsilpus_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/ates_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def index
-index	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def index
+index	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def index
 initialize	/home/alex/rails_projects/smo_project/app/models/ability.rb	  def initialize(user)
@@ -361,11 +361,11 @@ minus_5	/home/alex/rails_projects/smo_project/app/controllers/application_contro
 month_in_rus_string	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def month_in_rus_string(d_date)
 new	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def new
-new	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def new
+new	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new
 new	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def new
 new_addres_g	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def new_addres_g
 new_fam	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def new_fam
@@ -404,10 +404,10 @@ search_person	/home/alex/rails_projects/smo_project/app/controllers/customers_co
 selectStep	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function selectStep(i)
 show	/home/alex/rails_projects/smo_project/app/controllers/home_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def show
-show	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def show
+show	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def show
 show	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def show
 status_resource	/home/alex/rails_projects/smo_project/app/helpers/people_helper.rb	  def status_resource
 store_location	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def store_location
@@ -430,13 +430,13 @@ up	/home/alex/rails_projects/smo_project/db/migrate/20130121233251_new_ats_table
 up	/home/alex/rails_projects/smo_project/db/migrate/20130123093733_change_tables_ates_and_nsilpus.rb	  def up
 up	/home/alex/rails_projects/smo_project/db/migrate/20130203130812_new.rb	  def up
 update	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def update
-update	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/addres_gs_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/addres_ps_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def update
 update	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def update
+update	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def update
 update_numbers_of_polis	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def update_numbers_of_polis(items)
 upload	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def upload
 validate	/home/alex/rails_projects/smo_project/app/models/representative.rb	  def validate(record)

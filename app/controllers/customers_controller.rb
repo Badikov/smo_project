@@ -76,7 +76,11 @@ class CustomersController < ApplicationController
     @op = Op.find_by_person_id(params[:id])
     vizit = Vizit.find_by_person_id(params[:id])
     
-    @op.update_attributes({ active: 0, tip_op: "П025", date_uvoln: DateTime.now })
+    if (vizit.insurance.polis.dstop > DateTime.current.to_date) || vizit.insurance.polis.dstop.nil?
+      @op.update_attributes({ active: 0, tip_op: "П025", date_uvoln: DateTime.now })
+    else
+      @op.update_attributes({ active: 0, tip_op: "П025", date_uvoln: vizit.insurance.polis.dstop + 1.day })
+    end
     
     render json: status, :nothing => true
   end
