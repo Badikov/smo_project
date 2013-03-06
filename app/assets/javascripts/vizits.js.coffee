@@ -108,8 +108,11 @@ jQuery ->
  #--------------------------------------------------------------------------------------------
  #----------Модальные окна территориального и фактического прикрепления к лечебному учреждению
  #--------------------------------------------------------------------------------------------
- $("div#atlhModal").bind 'show', ->
+ 
+ $("div.span9").on "show","div#atlhModal", (e) ->
     $("#kdmu").select2()
+ $("div.span9, div#customers_customer_info").on "change","select#kdmu", (e) ->
+    $("#create_at_t").removeAttr 'disabled'
 
  $("#atl_fakt_hModal").show ->
    $("label[for^='at']").remove()
@@ -117,12 +120,9 @@ jQuery ->
        placeholder: "Территории Кемеровской области"
    $("#at_kdmu").select2
        placeholder: "Лечебные учреждения"
-
- $("select#kdmu").bind 'change', ->
-    $("#create_at_t").removeAttr 'disabled'
-
- $("#create_at_t").bind 'click', ->
-    $.ajax
+  
+ $("div#customers_customer_info").on "click","#create_at_t", (e) ->
+  $.ajax
      type: "POST"
      dataType: 'json'
      url: '/ats'
@@ -141,7 +141,7 @@ jQuery ->
          $('.row')
            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
-    return false
+  return false
 
  inobl = $("div#atlhModal").attr 'inoblastnoy'
 
@@ -159,7 +159,7 @@ jQuery ->
       backdrop: false 
   
 
- $("div#atlhModal select#kdmu").change ->
+ #$("div#atlhModal select#kdmu").change ->
    #$("#create_at_t").removeAttr 'disabled'
 
  $("#create_at_t").click ->

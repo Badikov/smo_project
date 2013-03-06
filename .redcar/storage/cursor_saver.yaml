@@ -778,9 +778,6 @@ cursor_positions:
   - :path: app/controllers/addres_ps_controller.rb
     :cursor_offset: 574
     :timestamp: 2013-02-11 17:23:50 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 3931
-    :timestamp: 2013-02-04 03:07:42 +06:00
   - :path: db/seeds.rb
     :cursor_offset: 1031
     :timestamp: 2013-02-11 05:09:31 +06:00
@@ -962,23 +959,6 @@ cursor_positions:
   - :path: app/models/foreigner.rb
     :cursor_offset: 292
     :timestamp: 2013-02-04 23:06:10 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 2420
-    :timestamp: 2013-03-05 00:24:17 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 352
-    :timestamp: 2013-03-03 18:51:27 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 518
-    :timestamp: 2013-02-07 14:14:42 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 158
-    :timestamp: 2013-02-04 16:16:08 +06:00
-    :selection_offset: 150
-    :block_selection_mode: false
-  - :path: app/models/polis.rb
-    :cursor_offset: 1185
-    :timestamp: 2013-01-30 19:29:31 +06:00
   - :path: Gemfile
     :cursor_offset: 1681
     :timestamp: 2013-03-05 16:55:29 +06:00
@@ -1000,4 +980,24 @@ cursor_positions:
   - :path: public/numbers/numbers.ini
     :cursor_offset: 0
     :timestamp: 2013-03-05 22:53:21 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 2484
+    :timestamp: 2013-03-06 01:50:08 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 644
+    :timestamp: 2013-03-06 00:37:21 +06:00
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 518
+    :timestamp: 2013-02-07 14:14:42 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 2817
+    :timestamp: 2013-02-04 16:16:08 +06:00
+    :selection_offset: 2760
+    :block_selection_mode: false
+  - :path: app/models/polis.rb
+    :cursor_offset: 1185
+    :timestamp: 2013-01-30 19:29:31 +06:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 3741
+    :timestamp: 2013-03-06 00:34:32 +06:00
 files_to_retain: 0
