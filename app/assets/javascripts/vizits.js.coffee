@@ -117,14 +117,11 @@ jQuery ->
        placeholder: "Лечебные учреждения"
 
 
-  
- $("div.span9").on "show","div#atlhModal", (e) ->
-    $("#kdmu").select2()
- $("div.span9").on "change","select#kdmu", (e) ->
-    $("#create_at_t").removeAttr 'disabled'
-
-
- $("div.span9").on "click","#create_at_t", (e) ->
+ $("div#atlhModal").show ->
+   $("#kdmu").select2()
+ $("div#atlhModal select#kdmu").change ->
+   $("#create_at_t").removeAttr 'disabled'
+ $("div#atlhModal button#create_at_t").click ->
   $.ajax
      type: "POST"
      dataType: 'json'
@@ -145,6 +142,34 @@ jQuery ->
            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
   return false
+
+ $("div#customers_customer_info").delegate "div#atlhModal",'show', ->
+   $("#kdmu").select2()
+   $("#kdmu").focus()
+ $("div#customers_customer_info").delegate "select#kdmu",'change', ->
+   $("#create_at_t").removeAttr 'disabled'
+ $("div#customers_customer_info").delegate "button#create_at_t",'click', ->
+   $.ajax
+     type: "POST"
+     dataType: 'json'
+     url: '/ats'
+     data:
+       person_id: $("#create_at_t_person_id").val()
+       kdatemu: $("#create_at_t_kdatemu").val()
+       kdmu: $("#kdmu option:selected").attr 'value'
+     success: (response) ->
+       $("#create_at_t").attr 'disabled'
+       $("div#atlhModal").modal 'hide'
+       atl_fakt $("#create_at_t_person_id").val()
+       if response is 200
+         $('.row')
+           .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
+       else
+         $('.row')
+           .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+   return false
+ 
 
  inobl = $("div#atlhModal").attr 'inoblastnoy'
 
@@ -197,8 +222,6 @@ jQuery ->
         showOn: 'focus',
         buttonImage: 'datepicker.png',
         buttonImageOnly: true,
-        changeMonth: true
-        changeYear: true
         onSelect: (dateText, inst) ->
           $("#create_at_fakt").removeAttr 'disabled'
 
