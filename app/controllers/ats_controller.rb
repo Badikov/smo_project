@@ -50,7 +50,7 @@ class AtsController < ApplicationController
     zip_file_name = minus_5(file_name) + ".zip"
 
     tempfile = File.join('tmp',zip_file_name)
-    logger.debug { tempfile.path }
+    #logger.debug { tempfile.path }
     Zip::ZipFile.open(tempfile, Zip::ZipFile::CREATE) do |zipfile|
       
       zipfile.get_output_stream(file_name) { |f| f.puts out_data }
