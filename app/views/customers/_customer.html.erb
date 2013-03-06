@@ -46,7 +46,7 @@
               <% end %>  
                 <dd>
                   <%= item.namelpu + '   дата пр. ' + ter_pr.date_b.strftime('%d.%m.%Y') if item %>
-                  <%= link_to 'Изменить', "#atlhModal" , { 'data-toggle'=> "modal" } %>
+                  <%= link_to 'Изменить', "#atlhModal" , { 'data-toggle'=> "modal", 'data-backdrop'=>"static", 'data-keyboard'=>"false" } %>
                 </dd>
               
               <% unless fack_pr.blank? %>

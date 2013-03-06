@@ -108,11 +108,6 @@ jQuery ->
  #--------------------------------------------------------------------------------------------
  #----------Модальные окна территориального и фактического прикрепления к лечебному учреждению
  #--------------------------------------------------------------------------------------------
- 
- $("div.span9").on "show","div#atlhModal", (e) ->
-    $("#kdmu").select2()
- $("div.span9, div#customers_customer_info").on "change","select#kdmu", (e) ->
-    $("#create_at_t").removeAttr 'disabled'
 
  $("#atl_fakt_hModal").show ->
    $("label[for^='at']").remove()
@@ -120,8 +115,16 @@ jQuery ->
        placeholder: "Территории Кемеровской области"
    $("#at_kdmu").select2
        placeholder: "Лечебные учреждения"
+
+
   
- $("div#customers_customer_info").on "click","#create_at_t", (e) ->
+ $("div.span9").on "show","div#atlhModal", (e) ->
+    $("#kdmu").select2()
+ $("div.span9").on "change","select#kdmu", (e) ->
+    $("#create_at_t").removeAttr 'disabled'
+
+
+ $("div.span9").on "click","#create_at_t", (e) ->
   $.ajax
      type: "POST"
      dataType: 'json'
@@ -150,46 +153,23 @@ jQuery ->
     $("div#atlhModal").modal
       show: true
       keyboard: false
-      backdrop: false 
+      backdrop: 'static'
    3000)
  else
   $("div#atl_fakt_hModal").modal
       show: true
       keyboard: false
-      backdrop: false 
+      backdrop: 'static'
   
 
- #$("div#atlhModal select#kdmu").change ->
-   #$("#create_at_t").removeAttr 'disabled'
-
- $("#create_at_t").click ->
-   $.ajax
-     type: "POST"
-     dataType: 'json'
-     url: '/ats'
-     data:
-       person_id: $("#create_at_t_person_id").val()
-       kdatemu: $("#create_at_t_kdatemu").val()
-       kdmu: $("#kdmu option:selected").attr 'value'
-     success: (response) ->
-       $("#create_at_t").attr 'disabled'
-       $("div#atlhModal").modal 'hide'
-       atl_fakt $("#create_at_t_person_id").val()
-       if response is 200
-         $('.row')
-           .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
-       else
-         $('.row')
-           .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
-     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
-   return false
+ 
 
  atl_fakt = (person) ->
   setTimeout(-> 
     $("div#atl_fakt_hModal").modal
       show: true
       keyboard: false
-      backdrop: false 
+      backdrop: 'static' 
    3000)
  $("div#atl_fakt_hModal select#at_kdatemu").change () ->
    _kdate = $(@).val()
@@ -217,6 +197,8 @@ jQuery ->
         showOn: 'focus',
         buttonImage: 'datepicker.png',
         buttonImageOnly: true,
+        changeMonth: true
+        changeYear: true
         onSelect: (dateText, inst) ->
           $("#create_at_fakt").removeAttr 'disabled'
 
