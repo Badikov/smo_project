@@ -117,8 +117,8 @@ jQuery ->
        placeholder: "Лечебные учреждения"
 
 
- $("div#atlhModal").show ->
-   $("#kdmu").select2()
+ #$("div#atlhModal").show ->
+   #$("#kdmu").select2()
  $("div#atlhModal select#kdmu").change ->
    $("#create_at_t").removeAttr 'disabled'
  $("div#atlhModal button#create_at_t").click ->

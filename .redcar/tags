@@ -1,4 +1,4 @@
-1362513912
+1362639448
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -268,17 +268,17 @@ create	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.
 create	/home/alex/rails_projects/smo_project/app/controllers/user_sessions_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create
-create	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/representatives_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def create
 create	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def create
+create	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create
 createNextButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createNextButton(i)
 createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/formToWizard.js	function createPrevButton(i)
 create_fackt_pricreplenie	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create_fackt_pricreplenie(rows_aray, file_name)
 create_fakt	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_fakt
-create_links	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_links
 create_links	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def create_links
+create_links	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_links
 create_roles	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def create_roles
 current_user	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user
 current_user_session	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user_session
@@ -315,20 +315,20 @@ edit_ops	/home/alex/rails_projects/smo_project/app/controllers/customers_control
 edit_ops_as_doublicat	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops_as_doublicat
 edit_ops_foreigner	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_ops_foreigner
 edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def edit_polis
-files	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def files
 files	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def files
+files	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def files
 foo	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def foo
 foo=	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def foo=(value)
 foreigner	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :foreigner
 foreigners	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def foreigners
 forma_polisa	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def forma_polisa
 formapolisa	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def formapolisa(arg)
-generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def generate_builder(people, file_name)
 generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_builder(par)
+generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def generate_builder(people, file_name)
 generate_xml	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_xml(ops)
 get_passport	/home/alex/rails_projects/smo_project/app/models/person.rb	  def self.get_passport
-hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def hijack_response( out_data, file_name )
 hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def hijack_response( out_data, file_name )
+hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def hijack_response( out_data, file_name )
 ig_type_doc	/home/alex/rails_projects/smo_project/app/helpers/docs_helper.rb	  def ig_type_doc
 index	/home/alex/rails_projects/smo_project/app/controllers/home_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/streets_controller.rb	  def index
@@ -341,11 +341,11 @@ index	/home/alex/rails_projects/smo_project/app/controllers/ates_controller.rb	 
 index	/home/alex/rails_projects/smo_project/app/controllers/filials_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/docs_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def index
-index	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/users_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/people_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/vizits_controller.rb	  def index
 index	/home/alex/rails_projects/smo_project/app/controllers/customers_controller.rb	  def index
+index	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def index
 initialize	/home/alex/rails_projects/smo_project/app/models/ability.rb	  def initialize(user)
 insert_dates	/home/alex/rails_projects/smo_project/app/models/at.rb	  def insert_dates
 insert_dates	/home/alex/rails_projects/smo_project/app/models/addres_g.rb	  def insert_dates
