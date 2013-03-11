@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class VizitsController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/vizits_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-cod_podrazdeleniy">#cod_podrazdeleniy</a>
+    
+    <li><a href="#method-i-create">#create</a>
+    
+    <li><a href="#method-i-destroy">#destroy</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-print_doublecat">#print_doublecat</a>
+    
+    <li><a href="#method-i-print_petition">#print_petition</a>
+    
+    <li><a href="#method-i-print_polis">#print_polis</a>
+    
+    <li><a href="#method-i-show">#show</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AddresG.html">AddresG</a>
+  
+    <li><a href="./AddresGsController.html">AddresGsController</a>
+  
+    <li><a href="./AddresGsHelper.html">AddresGsHelper</a>
+  
+    <li><a href="./AddresP.html">AddresP</a>
+  
+    <li><a href="./AddresPsController.html">AddresPsController</a>
+  
+    <li><a href="./AddresPsHelper.html">AddresPsHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./At.html">At</a>
+  
+    <li><a href="./Ate.html">Ate</a>
+  
+    <li><a href="./AtesController.html">AtesController</a>
+  
+    <li><a href="./AtesHelper.html">AtesHelper</a>
+  
+    <li><a href="./AtsController.html">AtsController</a>
+  
+    <li><a href="./AtsHelper.html">AtsHelper</a>
+  
+    <li><a href="./CustomersController.html">CustomersController</a>
+  
+    <li><a href="./CustomersHelper.html">CustomersHelper</a>
+  
+    <li><a href="./Doc.html">Doc</a>
+  
+    <li><a href="./DocsController.html">DocsController</a>
+  
+    <li><a href="./DocsHelper.html">DocsHelper</a>
+  
+    <li><a href="./Filial.html">Filial</a>
+  
+    <li><a href="./Filialization.html">Filialization</a>
+  
+    <li><a href="./FilialsHelper.html">FilialsHelper</a>
+  
+    <li><a href="./Flk.html">Flk</a>
+  
+    <li><a href="./Foreigner.html">Foreigner</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeHelper.html">HomeHelper</a>
+  
+    <li><a href="./Insurance.html">Insurance</a>
+  
+    <li><a href="./InsurancesController.html">InsurancesController</a>
+  
+    <li><a href="./InsurancesHelper.html">InsurancesHelper</a>
+  
+    <li><a href="./MainController.html">MainController</a>
+  
+    <li><a href="./MainHelper.html">MainHelper</a>
+  
+    <li><a href="./MyValidator.html">MyValidator</a>
+  
+    <li><a href="./Nsilpu.html">Nsilpu</a>
+  
+    <li><a href="./NsilpusController.html">NsilpusController</a>
+  
+    <li><a href="./NsilpusHelper.html">NsilpusHelper</a>
+  
+    <li><a href="./Okato.html">Okato</a>
+  
+    <li><a href="./OkatosController.html">OkatosController</a>
+  
+    <li><a href="./OkatosHelper.html">OkatosHelper</a>
+  
+    <li><a href="./Oksm.html">Oksm</a>
+  
+    <li><a href="./OksmsController.html">OksmsController</a>
+  
+    <li><a href="./OksmsHelper.html">OksmsHelper</a>
+  
+    <li><a href="./OldDoc.html">OldDoc</a>
+  
+    <li><a href="./OldPerson.html">OldPerson</a>
+  
+    <li><a href="./OpsController.html">OpsController</a>
+  
+    <li><a href="./OpsHelper.html">OpsHelper</a>
+  
+    <li><a href="./PeopleController.html">PeopleController</a>
+  
+    <li><a href="./PeopleHelper.html">PeopleHelper</a>
+  
+    <li><a href="./Person.html">Person</a>
+  
+    <li><a href="./Personb.html">Personb</a>
+  
+    <li><a href="./Polis.html">Polis</a>
+  
+    <li><a href="./Predstavitel.html">Predstavitel</a>
+  
+    <li><a href="./ReportsController.html">ReportsController</a>
+  
+    <li><a href="./ReportsHelper.html">ReportsHelper</a>
+  
+    <li><a href="./Representative.html">Representative</a>
+  
+    <li><a href="./RepresentativesController.html">RepresentativesController</a>
+  
+    <li><a href="./RepresentativesHelper.html">RepresentativesHelper</a>
+  
+    <li><a href="./Smo.html">Smo</a>
+  
+    <li><a href="./Street.html">Street</a>
+  
+    <li><a href="./StreetsController.html">StreetsController</a>
+  
+    <li><a href="./StreetsHelper.html">StreetsHelper</a>
+  
+    <li><a href="./Subekti.html">Subekti</a>
+  
+    <li><a href="./SubektisController.html">SubektisController</a>
+  
+    <li><a href="./SubektisHelper.html">SubektisHelper</a>
+  
+    <li><a href="./Tipdoc.html">Tipdoc</a>
+  
+    <li><a href="./TipdocsController.html">TipdocsController</a>
+  
+    <li><a href="./TipdocsHelper.html">TipdocsHelper</a>
+  
+    <li><a href="./Upload.html">Upload</a>
+  
+    <li><a href="./UploadsController.html">UploadsController</a>
+  
+    <li><a href="./UploadsHelper.html">UploadsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserSession.html">UserSession</a>
+  
+    <li><a href="./UserSessionsController.html">UserSessionsController</a>
+  
+    <li><a href="./UserSessionsHelper.html">UserSessionsHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Vizit.html">Vizit</a>
+  
+    <li><a href="./VizitsController.html">VizitsController</a>
+  
+    <li><a href="./XmlFile.html">XmlFile</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class VizitsController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-cod_podrazdeleniy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cod_podrazdeleniy</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cod_podrazdeleniy-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cod_podrazdeleniy</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">str</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;001&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;002&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">3</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;003&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">4</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;004&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">5</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;005&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;006&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;007&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;010&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;008&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">6</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;009&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">7</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;011&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">8</span>
+    <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;012&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">9</span>
+      <span class="ruby-keyword">when</span>  <span class="ruby-string">&quot;013&quot;</span>
+      <span class="ruby-identifier">res</span> = <span class="ruby-value">10</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cod_podrazdeleniy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cod_podrazdeleniy-method -->
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /vizits</p>
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@vizit</span> = <span class="ruby-constant">Vizit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:vizit</span>])
+    <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">case</span> (<span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">rsmo</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">rpolis</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;0&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П010&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;10&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П010&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;20&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П031&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;30&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П032&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;40&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П033&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;21&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П034&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;31&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П035&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;41&quot;</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-string">&quot;П036&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">tip_op</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+ 
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">save</span> 
+      <span class="ruby-identifier">op</span> = <span class="ruby-constant">Op</span>.<span class="ruby-identifier">find_by_person_id</span>(<span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">person_id</span>)
+      <span class="ruby-comment">#TODO затереть дату увольнения, если чел был, ушел и опять вернулся</span>
+      <span class="ruby-identifier">op</span>.<span class="ruby-identifier">update_attributes</span>({<span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tip_op</span>, <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">date_uvoln</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>})
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@vizit</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Визит успешно сохранен.'</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Сохранить не получилось, проверьте ошибки в параметрах. Проверьте!!! Правильно ли стоят флажки!!!&quot;</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>DELETE /vizits/1 DELETE /people/1.json 566</p>
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- destroy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- destroy-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 41</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+    <span class="ruby-identifier">statuses</span> =[]
+    <span class="ruby-identifier">s_oksm</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;p_24.txt&quot;</span>)
+    <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">file</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+        
+        <span class="ruby-keyword">if</span>  <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-comment"># str = line#.delete(&quot;null&quot;)</span>
+    <span class="ruby-identifier">przcod</span>, <span class="ruby-identifier">id_fl</span>, <span class="ruby-identifier">tip_op</span>, <span class="ruby-identifier">status</span>, <span class="ruby-identifier">fam</span>, <span class="ruby-identifier">im</span>, <span class="ruby-identifier">ot</span>, <span class="ruby-identifier">w</span>, <span class="ruby-identifier">dr</span>, <span class="ruby-identifier">kod</span>, <span class="ruby-identifier">ss</span>, <span class="ruby-identifier">phone</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">fam_pr</span>, <span class="ruby-identifier">im_pr</span>, <span class="ruby-identifier">ot_pr</span>, <span class="ruby-identifier">parents</span>, <span class="ruby-identifier">ser_pr</span>, <span class="ruby-identifier">nom_pr</span>, <span class="ruby-identifier">dat_pr</span>, <span class="ruby-identifier">typ_pr</span>, <span class="ruby-identifier">tel_pr</span>, <span class="ruby-identifier">ddeath</span>, <span class="ruby-identifier">doctype</span>, <span class="ruby-identifier">docser</span>, <span class="ruby-identifier">docnum</span>, <span class="ruby-identifier">docdate</span>, <span class="ruby-identifier">name_vp</span>, <span class="ruby-identifier">mr</span>, <span class="ruby-identifier">bomg</span>, <span class="ruby-identifier">kod_tf</span>, <span class="ruby-identifier">indx</span>, <span class="ruby-identifier">okato</span>, <span class="ruby-identifier">npname</span>, <span class="ruby-identifier">ul</span>, <span class="ruby-identifier">dom</span>, <span class="ruby-identifier">korp</span>, <span class="ruby-identifier">kv</span>, <span class="ruby-identifier">dreg</span>, <span class="ruby-identifier">dvizit</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">petition</span>, <span class="ruby-identifier">rsmo</span>, <span class="ruby-identifier">rpolis</span>, <span class="ruby-identifier">fpolis</span>, <span class="ruby-identifier">ter_st</span>, <span class="ruby-identifier">ogrnsmo</span>, <span class="ruby-identifier">enp</span>, <span class="ruby-identifier">erp</span>, <span class="ruby-identifier">vpolis</span>, <span class="ruby-identifier">spolis</span>, <span class="ruby-identifier">npolis</span>, <span class="ruby-identifier">dbeg</span>, <span class="ruby-identifier">dend</span>, <span class="ruby-identifier">dstop</span>, <span class="ruby-identifier">date_polis</span>, <span class="ruby-identifier">datepp</span>, <span class="ruby-identifier">date_uvoln</span>, <span class="ruby-identifier">date_modif</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\t&quot;</span>)
+
+          <span class="ruby-comment"># przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif = str.chomp(&quot;\n&quot;).split(&quot;\t&quot;)</span>
+          <span class="ruby-identifier">s_oksm</span>= <span class="ruby-constant">Oksm</span>.<span class="ruby-identifier">find_by_kod</span>(<span class="ruby-identifier">kod</span>).<span class="ruby-identifier">alfa3</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">kod</span>.<span class="ruby-identifier">blank?</span>
+          <span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">cod_podrazdeleniy</span>(<span class="ruby-identifier">przcod</span>)
+          <span class="ruby-identifier">ss</span> = <span class="ruby-identifier">ss</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ss</span>
+    <span class="ruby-identifier">dat_pr</span> = <span class="ruby-identifier">dat_pr</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dat_pr</span>.<span class="ruby-identifier">to_date</span>
+    <span class="ruby-identifier">tel_pr</span> = <span class="ruby-identifier">tel_pr</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">tel_pr</span>
+          <span class="ruby-identifier">dr</span> = <span class="ruby-identifier">dr</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dr</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">ddeath</span> = <span class="ruby-identifier">ddeath</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ddeath</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">docdate</span> =<span class="ruby-identifier">docdate</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">docdate</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">dreg</span> = <span class="ruby-identifier">dreg</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dreg</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">dvizit</span> = <span class="ruby-identifier">dvizit</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-string">'01.01.1901'</span>.<span class="ruby-identifier">to_date</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">dbeg</span> = <span class="ruby-identifier">dbeg</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dbeg</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">dend</span> = <span class="ruby-identifier">dend</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dend</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">dstop</span> = <span class="ruby-identifier">dstop</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dstop</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">date_modif</span> = <span class="ruby-identifier">date_modif</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">date_modif</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">date_polis</span> = <span class="ruby-identifier">date_polis</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">date_polis</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">datepp</span> = <span class="ruby-identifier">datepp</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">datepp</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">date_uvoln</span> = <span class="ruby-identifier">date_uvoln</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">date_uvoln</span>.<span class="ruby-identifier">to_date</span>
+          <span class="ruby-identifier">name_or</span> = <span class="ruby-identifier">name_vp</span>.<span class="ruby-identifier">upcase</span>
+          <span class="ruby-identifier">subj</span> = <span class="ruby-constant">Subekti</span>.<span class="ruby-identifier">find_by_kod_tf</span>(<span class="ruby-identifier">kod_tf</span>).<span class="ruby-identifier">kod_okato</span>     <span class="ruby-comment">#.select(&quot;distinct kod_okato&quot;).where(:kod_tf =&gt; kod_tf).map(&amp;:kod_okato)</span>
+          <span class="ruby-identifier">korp</span> = <span class="ruby-identifier">korp</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">korp</span>
+          <span class="ruby-identifier">kv</span> = <span class="ruby-identifier">kv</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">kv</span>
+          <span class="ruby-identifier">enp</span> = <span class="ruby-identifier">enp</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">enp</span>
+          <span class="ruby-identifier">spolis</span> = <span class="ruby-identifier">spolis</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">spolis</span>
+          <span class="ruby-identifier">npolis</span> = <span class="ruby-identifier">npolis</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">npolis</span>
+          <span class="ruby-identifier">vpolis</span> = <span class="ruby-identifier">vpolis</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">vpolis</span>
+          <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">method</span>
+          <span class="ruby-identifier">petition</span> = <span class="ruby-identifier">petition</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">petition</span>
+    <span class="ruby-identifier">active</span> = <span class="ruby-identifier">date_uvoln</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+          <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>({<span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status</span>,<span class="ruby-identifier">fam</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fam</span>, <span class="ruby-identifier">im</span><span class="ruby-operator">:</span> <span class="ruby-identifier">im</span>, <span class="ruby-identifier">ot</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ot</span>, <span class="ruby-identifier">w</span><span class="ruby-operator">:</span> <span class="ruby-identifier">w</span>, <span class="ruby-identifier">dr</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dr</span>, <span class="ruby-identifier">true_dr</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">c_oksm</span><span class="ruby-operator">:</span> <span class="ruby-identifier">s_oksm</span>, <span class="ruby-identifier">ss</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ss</span>,<span class="ruby-identifier">phone</span><span class="ruby-operator">:</span> <span class="ruby-identifier">phone</span>,
+                                <span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>, <span class="ruby-identifier">ddeath</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ddeath</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+          <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">build_doc</span>({<span class="ruby-identifier">doctype</span><span class="ruby-operator">:</span> <span class="ruby-identifier">doctype</span>, <span class="ruby-identifier">docser</span><span class="ruby-operator">:</span> <span class="ruby-identifier">docser</span>, <span class="ruby-identifier">docnum</span><span class="ruby-operator">:</span> <span class="ruby-identifier">docnum</span>, <span class="ruby-identifier">docdate</span><span class="ruby-operator">:</span> <span class="ruby-identifier">docdate</span>, <span class="ruby-identifier">name_vp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name_or</span>, <span class="ruby-identifier">mr</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mr</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+          <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">build_addres_g</span>({<span class="ruby-identifier">bomg</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bomg</span>, <span class="ruby-identifier">subj</span><span class="ruby-operator">:</span> <span class="ruby-identifier">subj</span>, <span class="ruby-identifier">indx</span><span class="ruby-operator">:</span> <span class="ruby-identifier">indx</span>, <span class="ruby-identifier">okato</span><span class="ruby-operator">:</span> <span class="ruby-identifier">okato</span>, <span class="ruby-identifier">npname</span><span class="ruby-operator">:</span> <span class="ruby-identifier">npname</span>, <span class="ruby-identifier">ul</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ul</span>, <span class="ruby-identifier">dom</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dom</span>, <span class="ruby-identifier">korp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">korp</span>, <span class="ruby-identifier">kv</span><span class="ruby-operator">:</span> <span class="ruby-identifier">kv</span>,<span class="ruby-identifier">dreg</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dreg</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+          <span class="ruby-comment"># # @person.build_addres_p()</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fam_pr</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">im_pr</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">ot_pr</span>.<span class="ruby-identifier">blank?</span>
+          <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">build_representative</span>({<span class="ruby-identifier">fam</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fam_pr</span>, <span class="ruby-identifier">im</span><span class="ruby-operator">:</span> <span class="ruby-identifier">im_pr</span>, <span class="ruby-identifier">ot</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ot_pr</span>, <span class="ruby-identifier">parent</span><span class="ruby-operator">:</span> <span class="ruby-identifier">parents</span>, <span class="ruby-identifier">doctype</span><span class="ruby-operator">:</span> <span class="ruby-identifier">typ_pr</span>, <span class="ruby-identifier">docser</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ser_pr</span>, <span class="ruby-identifier">docnum</span><span class="ruby-operator">:</span> <span class="ruby-identifier">nom_pr</span>, <span class="ruby-identifier">docdate</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dat_pr</span>, <span class="ruby-identifier">phone</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tel_pr</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+    <span class="ruby-keyword">end</span>
+
+          <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">build_vizit</span>({<span class="ruby-identifier">dvizit</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>, <span class="ruby-identifier">method</span><span class="ruby-operator">:</span> <span class="ruby-identifier">method</span>, <span class="ruby-identifier">petition</span><span class="ruby-operator">:</span> <span class="ruby-identifier">petition</span>, <span class="ruby-identifier">rsmo</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rsmo</span>, <span class="ruby-identifier">rpolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rpolis</span>, <span class="ruby-identifier">fpolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fpolis</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+          <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">build_insurance</span>({<span class="ruby-identifier">ter_st</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ter_st</span>, <span class="ruby-identifier">ogrnsmo</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ogrnsmo</span>, <span class="ruby-identifier">enp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">enp</span>, <span class="ruby-identifier">erp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">erp</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+          <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">build_polis</span>({<span class="ruby-identifier">vpolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">vpolis</span>, <span class="ruby-identifier">spolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">spolis</span>, <span class="ruby-identifier">npolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">npolis</span>, <span class="ruby-identifier">dbeg</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dbeg</span>, <span class="ruby-identifier">dend</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dend</span>, <span class="ruby-identifier">dstop</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dstop</span>, <span class="ruby-identifier">datepolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date_polis</span>, <span class="ruby-identifier">datepp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">datepp</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>})
+    
+    <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">build_op</span>({<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">id_fl</span>, <span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-identifier">tip_op</span>, <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">date_uvoln</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date_uvoln</span>, <span class="ruby-identifier">created_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">dvizit</span>, <span class="ruby-identifier">updated_at</span><span class="ruby-operator">:</span> <span class="ruby-identifier">date_modif</span>, <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">active</span>})
+
+              <span class="ruby-comment"># @person.save</span>
+
+
+
+    
+              <span class="ruby-comment"># statuses &lt;&lt;  @person.doc.as_json</span>
+        <span class="ruby-comment"># s_oksm &lt;&lt; user_id &lt;&lt; ss &lt;&lt; dr &lt;&lt; ddeath &lt;&lt; subj &lt;&lt; petition &lt;&lt; method &lt;&lt; date_polis &lt;&lt; dvizit</span>
+        <span class="ruby-comment"># [przcod, id_fl, tip_op, status, fam, im, ot, w, dr, kod, ss, phone, email, fam_pr, im_pr, ot_pr, parents, ser_pr, nom_pr, dat_pr, typ_pr, tel_pr, ddeath, doctype, docser, docnum, docdate, name_vp, mr, bomg, kod_tf, indx, okato, npname, ul, dom, korp, kv, dreg, dvizit, method, petition, rsmo, rpolis, fpolis, ter_st, ogrnsmo, enp, erp, vpolis, spolis, npolis, dbeg, dend, dstop, date_polis, datepp, date_uvoln, date_modif]</span>
+        <span class="ruby-comment"># [przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,kod_tf,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]</span>
+<span class="ruby-comment">      [active,przcod,id_fl,tip_op,status,fam,im,ot,w,dr,kod,ss,phone,email,fiopr,parents,contact,ddeath,doctype,docser,docnum,docdate,name_vp,mr,bomg,subj,indx,okato,npname,ul,dom,korp,kv,dreg,dvizit,method,petition,rsmo,rpolis,fpolis,ter_st,ogrnsmo,enp,erp,vpolis,spolis,npolis,dbeg,dend,dstop,date_polis,datepp,date_uvoln,date_modif]
+</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span> 
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status</span>
+
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /vizits/new GET /vizits/new.json</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-comment"># person.vizit.destroy if person.vizit #????????????????????????????</span>
+  <span class="ruby-ivar">@vizit</span> = <span class="ruby-identifier">person</span>.<span class="ruby-identifier">build_vizit</span>
+  <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">build_insurance</span>
+  <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">build_polis</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">person</span>.<span class="ruby-identifier">foreigner</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-string">&quot;===============&gt;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">person</span>.<span class="ruby-identifier">foreigner</span>.<span class="ruby-identifier">ig_doctype</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>  }
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">person</span>.<span class="ruby-identifier">foreigner</span>.<span class="ruby-identifier">ig_doctype</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>
+      <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">polis</span>.<span class="ruby-identifier">dstop</span> = <span class="ruby-identifier">person</span>.<span class="ruby-identifier">foreigner</span>.<span class="ruby-identifier">ig_enddate</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># @vizit = Vizit.new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-i-print_doublecat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_doublecat</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_doublecat-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_doublecat</span>
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;print_doublecat&quot;</span>, <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_doublecat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_doublecat-method -->
+
+    
+      <div id="method-i-print_petition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_petition</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_petition-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_petition</span>
+  <span class="ruby-comment"># require 'smo.rb'</span>
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">representative</span>
+    <span class="ruby-comment"># @fio = Smo.padeg @person.fam, @person.im, @person.ot, @person.w</span>
+    <span class="ruby-ivar">@fio</span> = <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">fam</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">im</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">ot</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># @fio = Smo.padeg @person.representative.fam, @person.representative.im, @person.representative.ot, @person.representative.parent == 'ОТЕЦ' ? 1 : 2</span>
+    <span class="ruby-ivar">@fio</span> = <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">representative</span>.<span class="ruby-identifier">fam</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">representative</span>.<span class="ruby-identifier">im</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">representative</span>.<span class="ruby-identifier">ot</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># if @fio.nil?</span>
+  <span class="ruby-comment">#   @fio = @person.fam + ' ' + @person.im + ' ' + @person.ot</span>
+  <span class="ruby-comment"># end</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> {<span class="ruby-string">'ФИО - '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@fio</span> }
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;print_petition&quot;</span>, <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_petition-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_petition-method -->
+
+    
+      <div id="method-i-print_polis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_polis</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_polis-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_polis</span>
+  
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;print_polis&quot;</span>, <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- print_polis-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- print_polis-method -->
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /vizits/1 GET /vizits/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/vizits_controller.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-identifier">vizit</span> = <span class="ruby-constant">Vizit</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+   <span class="ruby-ivar">@person</span> = <span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">person</span>
+
+   <span class="ruby-comment"># (1..1510).each do |n| </span>
+   <span class="ruby-comment">#  @person = Person.find_by_id(n)</span>
+   <span class="ruby-comment">#  @person.destroy</span>
+   <span class="ruby-comment">#   </span>
+   <span class="ruby-comment"># end</span>
+   <span class="ruby-comment"># render json: status</span>
+   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># show.html.erb</span>
+     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@person</span> }
+   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

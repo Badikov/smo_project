@@ -6,3 +6,5 @@ open_files:
   - app/models/person.rb
   - app/models/polis.rb
   - app/controllers/people_controller.rb
+  - app/controllers/uploads_controller.rb
+  - doc/app/doc/README_FOR_APP.html

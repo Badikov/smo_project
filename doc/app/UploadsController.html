@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class UploadsController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/uploads_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-create">#create</a>
+    
+    <li><a href="#method-i-create_fackt_pricreplenie">#create_fackt_pricreplenie</a>
+    
+    <li><a href="#method-i-destroy">#destroy</a>
+    
+    <li><a href="#method-i-edit">#edit</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-numbers">#numbers</a>
+    
+    <li><a href="#method-i-save_numbers">#save_numbers</a>
+    
+    <li><a href="#method-i-show">#show</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+    <li><a href="#method-i-update_numbers_of_polis">#update_numbers_of_polis</a>
+    
+    <li><a href="#method-i-worker">#worker</a>
+    
+    <li><a href="#method-i-worker_pricrep">#worker_pricrep</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AddresG.html">AddresG</a>
+  
+    <li><a href="./AddresGsController.html">AddresGsController</a>
+  
+    <li><a href="./AddresGsHelper.html">AddresGsHelper</a>
+  
+    <li><a href="./AddresP.html">AddresP</a>
+  
+    <li><a href="./AddresPsController.html">AddresPsController</a>
+  
+    <li><a href="./AddresPsHelper.html">AddresPsHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./At.html">At</a>
+  
+    <li><a href="./Ate.html">Ate</a>
+  
+    <li><a href="./AtesController.html">AtesController</a>
+  
+    <li><a href="./AtesHelper.html">AtesHelper</a>
+  
+    <li><a href="./AtsController.html">AtsController</a>
+  
+    <li><a href="./AtsHelper.html">AtsHelper</a>
+  
+    <li><a href="./CustomersController.html">CustomersController</a>
+  
+    <li><a href="./CustomersHelper.html">CustomersHelper</a>
+  
+    <li><a href="./Doc.html">Doc</a>
+  
+    <li><a href="./DocsController.html">DocsController</a>
+  
+    <li><a href="./DocsHelper.html">DocsHelper</a>
+  
+    <li><a href="./Filial.html">Filial</a>
+  
+    <li><a href="./Filialization.html">Filialization</a>
+  
+    <li><a href="./FilialsHelper.html">FilialsHelper</a>
+  
+    <li><a href="./Flk.html">Flk</a>
+  
+    <li><a href="./Foreigner.html">Foreigner</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeHelper.html">HomeHelper</a>
+  
+    <li><a href="./Insurance.html">Insurance</a>
+  
+    <li><a href="./InsurancesController.html">InsurancesController</a>
+  
+    <li><a href="./InsurancesHelper.html">InsurancesHelper</a>
+  
+    <li><a href="./MainController.html">MainController</a>
+  
+    <li><a href="./MainHelper.html">MainHelper</a>
+  
+    <li><a href="./MyValidator.html">MyValidator</a>
+  
+    <li><a href="./Nsilpu.html">Nsilpu</a>
+  
+    <li><a href="./NsilpusController.html">NsilpusController</a>
+  
+    <li><a href="./NsilpusHelper.html">NsilpusHelper</a>
+  
+    <li><a href="./Okato.html">Okato</a>
+  
+    <li><a href="./OkatosController.html">OkatosController</a>
+  
+    <li><a href="./OkatosHelper.html">OkatosHelper</a>
+  
+    <li><a href="./Oksm.html">Oksm</a>
+  
+    <li><a href="./OksmsController.html">OksmsController</a>
+  
+    <li><a href="./OksmsHelper.html">OksmsHelper</a>
+  
+    <li><a href="./OldDoc.html">OldDoc</a>
+  
+    <li><a href="./OldPerson.html">OldPerson</a>
+  
+    <li><a href="./OpsController.html">OpsController</a>
+  
+    <li><a href="./OpsHelper.html">OpsHelper</a>
+  
+    <li><a href="./PeopleController.html">PeopleController</a>
+  
+    <li><a href="./PeopleHelper.html">PeopleHelper</a>
+  
+    <li><a href="./Person.html">Person</a>
+  
+    <li><a href="./Personb.html">Personb</a>
+  
+    <li><a href="./Polis.html">Polis</a>
+  
+    <li><a href="./Predstavitel.html">Predstavitel</a>
+  
+    <li><a href="./ReportsController.html">ReportsController</a>
+  
+    <li><a href="./ReportsHelper.html">ReportsHelper</a>
+  
+    <li><a href="./Representative.html">Representative</a>
+  
+    <li><a href="./RepresentativesController.html">RepresentativesController</a>
+  
+    <li><a href="./RepresentativesHelper.html">RepresentativesHelper</a>
+  
+    <li><a href="./Smo.html">Smo</a>
+  
+    <li><a href="./Street.html">Street</a>
+  
+    <li><a href="./StreetsController.html">StreetsController</a>
+  
+    <li><a href="./StreetsHelper.html">StreetsHelper</a>
+  
+    <li><a href="./Subekti.html">Subekti</a>
+  
+    <li><a href="./SubektisController.html">SubektisController</a>
+  
+    <li><a href="./SubektisHelper.html">SubektisHelper</a>
+  
+    <li><a href="./Tipdoc.html">Tipdoc</a>
+  
+    <li><a href="./TipdocsController.html">TipdocsController</a>
+  
+    <li><a href="./TipdocsHelper.html">TipdocsHelper</a>
+  
+    <li><a href="./Upload.html">Upload</a>
+  
+    <li><a href="./UploadsController.html">UploadsController</a>
+  
+    <li><a href="./UploadsHelper.html">UploadsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserSession.html">UserSession</a>
+  
+    <li><a href="./UserSessionsController.html">UserSessionsController</a>
+  
+    <li><a href="./UserSessionsHelper.html">UserSessionsHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Vizit.html">Vizit</a>
+  
+    <li><a href="./VizitsController.html">VizitsController</a>
+  
+    <li><a href="./XmlFile.html">XmlFile</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class UploadsController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /uploads POST /uploads.json</p>
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-identifier">items</span> = []
+
+  <span class="ruby-ivar">@upload</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:upload</span>])
+  <span class="ruby-identifier">xml_fl</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">from_xml</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:upload</span>][<span class="ruby-string">&quot;upload&quot;</span>].<span class="ruby-identifier">read</span>).<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">items</span> = <span class="ruby-identifier">xml_fl</span>[<span class="ruby-string">&quot;DATAPACKET&quot;</span>][<span class="ruby-string">&quot;ROWDATA&quot;</span>][<span class="ruby-string">&quot;ROW&quot;</span>]
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-comment">#определяем тип содержимого файла по названию файла</span>
+      <span class="ruby-comment"># _json = [@upload.to_jq_upload].to_json</span>
+      <span class="ruby-comment"># </span>
+
+      <span class="ruby-comment"># logger.debug { items }</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">upload_file_name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^\d{5}/</span>).<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-string">'----------------&gt; Ok'</span> }
+        <span class="ruby-identifier">create_fackt_pricreplenie</span>(<span class="ruby-identifier">items</span>, <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">upload_file_name</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">upload_file_name</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;UPAKOVKA&quot;</span>)
+          <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> {<span class="ruby-string">&quot;======&gt; fack &quot;</span>}
+          <span class="ruby-identifier">update_numbers_of_polis</span>(<span class="ruby-identifier">items</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> {
+        <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">to_jq_upload</span>].<span class="ruby-identifier">to_json</span>,
+        <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/html'</span>,
+        <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+      }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> [<span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">to_jq_upload</span>].<span class="ruby-identifier">to_json</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@upload</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-create_fackt_pricreplenie" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_fackt_pricreplenie</span><span
+            class="method-args">(rows_aray, file_name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_fackt_pricreplenie-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_fackt_pricreplenie</span>(<span class="ruby-identifier">rows_aray</span>, <span class="ruby-identifier">file_name</span>)
+  <span class="ruby-identifier">kdatemu</span> = <span class="ruby-identifier">file_name</span>[<span class="ruby-value">0</span>,<span class="ruby-value">2</span>]
+  <span class="ruby-identifier">kdmu</span> = <span class="ruby-identifier">file_name</span>[<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rows_aray</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">worker_pricrep</span> <span class="ruby-identifier">rows_aray</span>, <span class="ruby-identifier">kdatemu</span>, <span class="ruby-identifier">kdmu</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">rows_aray</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">worker_pricrep</span> <span class="ruby-identifier">item</span>, <span class="ruby-identifier">kdatemu</span>, <span class="ruby-identifier">kdmu</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create_fackt_pricreplenie-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create_fackt_pricreplenie-method -->
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>DELETE /uploads/1 DELETE /uploads/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@upload</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">destroy</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">uploads_url</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- destroy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- destroy-method -->
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /uploads/1/edit</p>
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@upload</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /uploads GET /uploads.json</p>
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@uploads</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>)
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># index.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@uploads</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">upload</span><span class="ruby-operator">|</span> <span class="ruby-identifier">upload</span>.<span class="ruby-identifier">to_jq_upload</span> } }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /uploads/new GET /uploads/new.json</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@upload</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@upload</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-i-numbers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">numbers</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre class="ruby"><span class="ruby-comment">#   ser = item[&quot;POLIS&quot;][0,3]</span>
+<span class="ruby-comment">#   num = item[&quot;POLIS&quot;][3,6]</span>
+<span class="ruby-comment">#   date_polis = item[&quot;DATEPOLIS&quot;].to_date</span>
+<span class="ruby-comment">#   polis = Polis.find_by_spolis_and_npolis_and_dbeg(ser,num,date_polis)</span>
+<span class="ruby-comment">#   if polis</span>
+<span class="ruby-comment">#     if polis.update_attributes({npolis: item[&quot;BLANK&quot;], vpolis: 3,datepp: DateTime.current,dbeg: nil,dend: nil,spolis: nil})</span>
+<span class="ruby-comment">#       polis.insurance.update_attributes({enp: item[&quot;ENP&quot;] ,erp: 1})</span>
+<span class="ruby-comment">#       tm &lt;&lt; item</span>
+<span class="ruby-comment">#     end</span>
+<span class="ruby-comment">#   end</span>
+<span class="ruby-comment"># end</span>
+ <span class="ruby-comment"># logger.debug @xml_file</span>
+<span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">items</span> <span class="ruby-comment">#:text =&gt; &quot;File has been uploaded successfully&quot;</span>
+</pre>
+
+<p>end</p>
+          
+
+          
+          <div class="method-source-code" id="numbers-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">numbers</span>
+  <span class="ruby-identifier">directory</span> = <span class="ruby-string">&quot;public/numbers&quot;</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;numbers.ini&quot;</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">directory</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@ini_file</span> = <span class="ruby-constant">IniFile</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">to_h</span>
+  
+   <span class="ruby-comment"># render json: @ini_file.values.collect{|x| x[&quot;series&quot;]}</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- numbers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- numbers-method -->
+
+    
+      <div id="method-i-save_numbers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_numbers</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save_numbers-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_numbers</span>
+  <span class="ruby-identifier">directory</span> = <span class="ruby-string">&quot;public/numbers&quot;</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;numbers.ini&quot;</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">directory</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-comment"># ini_file = IniFile.load(path)</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">path</span>)
+  
+  <span class="ruby-identifier">records</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;line&quot;</span>)
+      <span class="ruby-identifier">k_1</span>, <span class="ruby-identifier">k_2</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;_&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">records</span>[<span class="ruby-identifier">k_1</span>].<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">records</span>[<span class="ruby-identifier">k_1</span>] = {<span class="ruby-identifier">k_2</span>.<span class="ruby-identifier">to_sym</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">val</span>}
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">records</span>[<span class="ruby-identifier">k_1</span>] = <span class="ruby-identifier">records</span>[<span class="ruby-identifier">k_1</span>].<span class="ruby-identifier">merge</span>({<span class="ruby-identifier">k_2</span>.<span class="ruby-identifier">to_sym</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">val</span>})
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">n</span>= <span class="ruby-identifier">records</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-identifier">n</span>
+  <span class="ruby-identifier">ini_file</span> = <span class="ruby-constant">IniFile</span>.<span class="ruby-identifier">new</span>( <span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">path</span> )
+  <span class="ruby-identifier">i</span>=<span class="ruby-value">0</span>
+  <span class="ruby-identifier">records</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">val</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">ini_file</span>[<span class="ruby-string">&quot;line&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">val</span>
+      <span class="ruby-identifier">i</span><span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-identifier">i</span>
+  <span class="ruby-comment"># render json: records</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ini_file</span>.<span class="ruby-identifier">write</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">i</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Изменения внесены успешно.'</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_path</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Не все записи были сохранены. Вернитесь в операцию и проверьте, что вы сохранили.'</span>}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:numbers</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">'Не удалось сохранить изменения.'</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save_numbers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save_numbers-method -->
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /uploads/1 GET /uploads/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@upload</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># show.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@upload</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>PUT /uploads/1 PUT /uploads/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-ivar">@upload</span> = <span class="ruby-constant">Upload</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:upload</span>])
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@upload</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Upload was successfully updated.'</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@upload</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+      <div id="method-i-update_numbers_of_polis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_numbers_of_polis</span><span
+            class="method-args">(items)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_numbers_of_polis-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_numbers_of_polis</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">worker</span> <span class="ruby-identifier">items</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">worker</span> <span class="ruby-identifier">item</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># logger.debug { items.class }</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_numbers_of_polis-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_numbers_of_polis-method -->
+
+    
+      <div id="method-i-worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">worker</span><span
+            class="method-args">(item)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="worker-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">worker</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-comment"># logger.debug { item }</span>
+    <span class="ruby-identifier">_polis</span> = <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;POLIS&quot;</span>].<span class="ruby-identifier">to_s</span>
+     <span class="ruby-identifier">ser</span> = <span class="ruby-identifier">_polis</span>[<span class="ruby-value">0</span>,<span class="ruby-value">3</span>]
+     <span class="ruby-identifier">num</span> = <span class="ruby-identifier">_polis</span>[<span class="ruby-value">3</span>,<span class="ruby-value">6</span>]
+     <span class="ruby-comment"># date_polis = item[&quot;DATEPOLIS&quot;].to_date</span>
+     <span class="ruby-identifier">polis</span> = <span class="ruby-constant">Polis</span>.<span class="ruby-identifier">find_by_spolis_and_npolis</span>(<span class="ruby-identifier">ser</span>,<span class="ruby-identifier">num</span>)
+     <span class="ruby-keyword">if</span> <span class="ruby-identifier">polis</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">polis</span>.<span class="ruby-identifier">vpolis</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+           <span class="ruby-identifier">polis</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">attributes</span> = {<span class="ruby-identifier">enp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;ENP&quot;</span>].<span class="ruby-identifier">to_s</span> ,<span class="ruby-identifier">erp</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>}
+           <span class="ruby-keyword">if</span> <span class="ruby-identifier">polis</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">validate</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+              <span class="ruby-identifier">polis</span>.<span class="ruby-identifier">update_attributes</span>({<span class="ruby-identifier">npolis</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;BLANK&quot;</span>], <span class="ruby-identifier">vpolis</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>,<span class="ruby-identifier">datepp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;DATE_LOAD&quot;</span>],<span class="ruby-identifier">dbeg</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,<span class="ruby-identifier">dend</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,<span class="ruby-identifier">spolis</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>})
+              <span class="ruby-identifier">polis</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">person</span>.<span class="ruby-identifier">op</span>.<span class="ruby-identifier">touch</span>
+              <span class="ruby-identifier">polis</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">person</span>.<span class="ruby-identifier">op</span>.<span class="ruby-identifier">update_attributes</span>({<span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П040&quot;</span>})
+             
+           <span class="ruby-comment">#   # tm &lt;&lt; item</span>
+           <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+     <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- worker-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- worker-method -->
+
+    
+      <div id="method-i-worker_pricrep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">worker_pricrep</span><span
+            class="method-args">(item, kdatemu, kdmu)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="worker_pricrep-source">
+            <pre><span class="ruby-comment"># File app/controllers/uploads_controller.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">worker_pricrep</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">kdatemu</span>, <span class="ruby-identifier">kdmu</span>)
+  <span class="ruby-comment">#---прикрепление-открепление фактическое от поликлиник</span>
+  <span class="ruby-identifier">person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_fam_and_im_and_ot_and_dr</span>(<span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;FAM&quot;</span>], <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;IM&quot;</span>], <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;OTCH&quot;</span>], <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;DR&quot;</span>].<span class="ruby-identifier">to_date</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">person</span>
+      <span class="ruby-comment"># logger.debug { '----------------&gt; Ok' }</span>
+      <span class="ruby-identifier">at</span> = <span class="ruby-identifier">person</span>.<span class="ruby-identifier">ats</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">type_at</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;F&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">at</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment"># , :date_e,</span>
+        <span class="ruby-identifier">at</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">kdatemu</span><span class="ruby-operator">:</span> <span class="ruby-identifier">kdatemu</span>, <span class="ruby-identifier">kdmu</span><span class="ruby-operator">:</span> <span class="ruby-identifier">kdmu</span>, <span class="ruby-identifier">date_b</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;DATEPR&quot;</span>].<span class="ruby-identifier">to_date</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">person</span>.<span class="ruby-identifier">ats</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">kdatemu</span><span class="ruby-operator">:</span> <span class="ruby-identifier">kdatemu</span>, <span class="ruby-identifier">kdmu</span><span class="ruby-operator">:</span> <span class="ruby-identifier">kdmu</span>, <span class="ruby-identifier">type_at</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;F&quot;</span>, <span class="ruby-identifier">date_b</span><span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;DATEPR&quot;</span>].<span class="ruby-identifier">to_date</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- worker_pricrep-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- worker_pricrep-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

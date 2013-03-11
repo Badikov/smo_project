@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Polis - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/polis.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-check_changed-3F">#check_changed?</a>
+    
+    <li><a href="#method-i-check_numbers-3F">#check_numbers?</a>
+    
+    <li><a href="#method-i-data_logic">#data_logic</a>
+    
+    <li><a href="#method-i-dbeg_dend_and_vpolis">#dbeg_dend_and_vpolis</a>
+    
+    <li><a href="#method-i-foo">#foo</a>
+    
+    <li><a href="#method-i-foo-3D">#foo=</a>
+    
+    <li><a href="#method-i-polis_data_for_doublecat">#polis_data_for_doublecat</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AddresG.html">AddresG</a>
+  
+    <li><a href="./AddresGsController.html">AddresGsController</a>
+  
+    <li><a href="./AddresGsHelper.html">AddresGsHelper</a>
+  
+    <li><a href="./AddresP.html">AddresP</a>
+  
+    <li><a href="./AddresPsController.html">AddresPsController</a>
+  
+    <li><a href="./AddresPsHelper.html">AddresPsHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./At.html">At</a>
+  
+    <li><a href="./Ate.html">Ate</a>
+  
+    <li><a href="./AtesController.html">AtesController</a>
+  
+    <li><a href="./AtesHelper.html">AtesHelper</a>
+  
+    <li><a href="./AtsController.html">AtsController</a>
+  
+    <li><a href="./AtsHelper.html">AtsHelper</a>
+  
+    <li><a href="./CustomersController.html">CustomersController</a>
+  
+    <li><a href="./CustomersHelper.html">CustomersHelper</a>
+  
+    <li><a href="./Doc.html">Doc</a>
+  
+    <li><a href="./DocsController.html">DocsController</a>
+  
+    <li><a href="./DocsHelper.html">DocsHelper</a>
+  
+    <li><a href="./Filial.html">Filial</a>
+  
+    <li><a href="./Filialization.html">Filialization</a>
+  
+    <li><a href="./FilialsHelper.html">FilialsHelper</a>
+  
+    <li><a href="./Flk.html">Flk</a>
+  
+    <li><a href="./Foreigner.html">Foreigner</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeHelper.html">HomeHelper</a>
+  
+    <li><a href="./Insurance.html">Insurance</a>
+  
+    <li><a href="./InsurancesController.html">InsurancesController</a>
+  
+    <li><a href="./InsurancesHelper.html">InsurancesHelper</a>
+  
+    <li><a href="./MainController.html">MainController</a>
+  
+    <li><a href="./MainHelper.html">MainHelper</a>
+  
+    <li><a href="./MyValidator.html">MyValidator</a>
+  
+    <li><a href="./Nsilpu.html">Nsilpu</a>
+  
+    <li><a href="./NsilpusController.html">NsilpusController</a>
+  
+    <li><a href="./NsilpusHelper.html">NsilpusHelper</a>
+  
+    <li><a href="./Okato.html">Okato</a>
+  
+    <li><a href="./OkatosController.html">OkatosController</a>
+  
+    <li><a href="./OkatosHelper.html">OkatosHelper</a>
+  
+    <li><a href="./Oksm.html">Oksm</a>
+  
+    <li><a href="./OksmsController.html">OksmsController</a>
+  
+    <li><a href="./OksmsHelper.html">OksmsHelper</a>
+  
+    <li><a href="./OldDoc.html">OldDoc</a>
+  
+    <li><a href="./OldPerson.html">OldPerson</a>
+  
+    <li><a href="./OpsController.html">OpsController</a>
+  
+    <li><a href="./OpsHelper.html">OpsHelper</a>
+  
+    <li><a href="./PeopleController.html">PeopleController</a>
+  
+    <li><a href="./PeopleHelper.html">PeopleHelper</a>
+  
+    <li><a href="./Person.html">Person</a>
+  
+    <li><a href="./Personb.html">Personb</a>
+  
+    <li><a href="./Polis.html">Polis</a>
+  
+    <li><a href="./Predstavitel.html">Predstavitel</a>
+  
+    <li><a href="./ReportsController.html">ReportsController</a>
+  
+    <li><a href="./ReportsHelper.html">ReportsHelper</a>
+  
+    <li><a href="./Representative.html">Representative</a>
+  
+    <li><a href="./RepresentativesController.html">RepresentativesController</a>
+  
+    <li><a href="./RepresentativesHelper.html">RepresentativesHelper</a>
+  
+    <li><a href="./Smo.html">Smo</a>
+  
+    <li><a href="./Street.html">Street</a>
+  
+    <li><a href="./StreetsController.html">StreetsController</a>
+  
+    <li><a href="./StreetsHelper.html">StreetsHelper</a>
+  
+    <li><a href="./Subekti.html">Subekti</a>
+  
+    <li><a href="./SubektisController.html">SubektisController</a>
+  
+    <li><a href="./SubektisHelper.html">SubektisHelper</a>
+  
+    <li><a href="./Tipdoc.html">Tipdoc</a>
+  
+    <li><a href="./TipdocsController.html">TipdocsController</a>
+  
+    <li><a href="./TipdocsHelper.html">TipdocsHelper</a>
+  
+    <li><a href="./Upload.html">Upload</a>
+  
+    <li><a href="./UploadsController.html">UploadsController</a>
+  
+    <li><a href="./UploadsHelper.html">UploadsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserSession.html">UserSession</a>
+  
+    <li><a href="./UserSessionsController.html">UserSessionsController</a>
+  
+    <li><a href="./UserSessionsHelper.html">UserSessionsHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Vizit.html">Vizit</a>
+  
+    <li><a href="./VizitsController.html">VizitsController</a>
+  
+    <li><a href="./XmlFile.html">XmlFile</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Polis</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-check_numbers-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_numbers?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_numbers-3F-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_numbers?</span>
+    <span class="ruby-identifier">directory</span> = <span class="ruby-string">&quot;public/numbers&quot;</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;numbers.ini&quot;</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">directory</span>, <span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">ini_file</span> = <span class="ruby-constant">IniFile</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">to_h</span>
+    <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">ini_file</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span>[<span class="ruby-string">&quot;start&quot;</span>].<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">line</span>[<span class="ruby-string">&quot;end&quot;</span>]).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">npolis</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">line</span>[<span class="ruby-string">&quot;series&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">spolis</span>
+        <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">flag</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-string">&quot;серия - номер: true&quot;</span>  }
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-string">&quot;серия - номер: false&quot;</span>  }
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_numbers-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_numbers-3F-method -->
+
+    
+      <div id="method-i-foo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">foo</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="foo-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">foo</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@foo</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- foo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- foo-method -->
+
+    
+      <div id="method-i-foo-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">foo=</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="foo-3D-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">foo=</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-ivar">@foo</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- foo-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- foo-3D-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-check_changed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_changed?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_changed-3F-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_changed?</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> {<span class="ruby-string">'changed.size -----&gt;'</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">changed</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_s</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">changed</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">2</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">changed</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">5</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_changed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_changed-3F-method -->
+
+    
+      <div id="method-i-data_logic" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_logic</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="data_logic-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_logic</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> { <span class="ruby-string">&quot;привет из полиса&quot;</span>  }
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dbeg_dend_and_vpolis</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- data_logic-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- data_logic-method -->
+
+    
+      <div id="method-i-dbeg_dend_and_vpolis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dbeg_dend_and_vpolis</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dbeg_dend_and_vpolis-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dbeg_dend_and_vpolis</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dbeg</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">dvizit</span> <span class="ruby-comment">#дата начала действия документа страхования</span>
+  <span class="ruby-comment"># if self.insurance.erp == 0 || (self.insurance.erp == 1 and self.insurance.vizit.rpolis &gt;= 1) </span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">erp</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">erp</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">foo</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) 
+  <span class="ruby-comment"># или не зарегестрирован в ЕНП(первичный выбор СМО)</span>
+  <span class="ruby-comment"># или зарегестрирован и меняет полис(rpolis &gt; 0 )</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dend</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dbeg</span> <span class="ruby-operator">+</span> <span class="ruby-value">42</span>.<span class="ruby-identifier">day</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vpolis</span> = <span class="ruby-value">2</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vpolis</span> = <span class="ruby-value">3</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">spolis</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">spolis</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">datepp</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">datepp?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dbeg_dend_and_vpolis-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dbeg_dend_and_vpolis-method -->
+
+    
+      <div id="method-i-polis_data_for_doublecat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">polis_data_for_doublecat</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="polis_data_for_doublecat-source">
+            <pre><span class="ruby-comment"># File app/models/polis.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">polis_data_for_doublecat</span>
+  <span class="ruby-comment"># przcod, id_fl, tip_op, status, fam, im, ot, w, dr, kod, ss, phone, email, fam_pr, im_pr, ot_pr, parents, ser_pr, nom_pr, dat_pr, typ_pr, tel_pr, ddeath, doctype, docser, docnum, docdate, name_vp, mr, bomg, kod_tf, indx, okato, npname, ul, dom, korp, kv, dreg, dvizit, method, petition, rsmo, rpolis, fpolis, ter_st, ogrnsmo, enp, erp, vpolis, spolis, npolis, dbeg, dend, dstop, date_polis, datepp, date_uvoln, date_modif</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- polis_data_for_doublecat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- polis_data_for_doublecat-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

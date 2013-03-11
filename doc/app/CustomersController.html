@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class CustomersController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/customers_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-build_doublecat_polis">#build_doublecat_polis</a>
+    
+    <li><a href="#method-i-death_of_customer">#death_of_customer</a>
+    
+    <li><a href="#method-i-edit">#edit</a>
+    
+    <li><a href="#method-i-edit_ops">#edit_ops</a>
+    
+    <li><a href="#method-i-edit_ops_as_doublicat">#edit_ops_as_doublicat</a>
+    
+    <li><a href="#method-i-edit_ops_foreigner">#edit_ops_foreigner</a>
+    
+    <li><a href="#method-i-edit_polis">#edit_polis</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-save_doublecat_polis">#save_doublecat_polis</a>
+    
+    <li><a href="#method-i-search">#search</a>
+    
+    <li><a href="#method-i-search_person">#search_person</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AddresG.html">AddresG</a>
+  
+    <li><a href="./AddresGsController.html">AddresGsController</a>
+  
+    <li><a href="./AddresGsHelper.html">AddresGsHelper</a>
+  
+    <li><a href="./AddresP.html">AddresP</a>
+  
+    <li><a href="./AddresPsController.html">AddresPsController</a>
+  
+    <li><a href="./AddresPsHelper.html">AddresPsHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./At.html">At</a>
+  
+    <li><a href="./Ate.html">Ate</a>
+  
+    <li><a href="./AtesController.html">AtesController</a>
+  
+    <li><a href="./AtesHelper.html">AtesHelper</a>
+  
+    <li><a href="./AtsController.html">AtsController</a>
+  
+    <li><a href="./AtsHelper.html">AtsHelper</a>
+  
+    <li><a href="./CustomersController.html">CustomersController</a>
+  
+    <li><a href="./CustomersHelper.html">CustomersHelper</a>
+  
+    <li><a href="./Doc.html">Doc</a>
+  
+    <li><a href="./DocsController.html">DocsController</a>
+  
+    <li><a href="./DocsHelper.html">DocsHelper</a>
+  
+    <li><a href="./Filial.html">Filial</a>
+  
+    <li><a href="./Filialization.html">Filialization</a>
+  
+    <li><a href="./FilialsHelper.html">FilialsHelper</a>
+  
+    <li><a href="./Flk.html">Flk</a>
+  
+    <li><a href="./Foreigner.html">Foreigner</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./HomeHelper.html">HomeHelper</a>
+  
+    <li><a href="./Insurance.html">Insurance</a>
+  
+    <li><a href="./InsurancesController.html">InsurancesController</a>
+  
+    <li><a href="./InsurancesHelper.html">InsurancesHelper</a>
+  
+    <li><a href="./MainController.html">MainController</a>
+  
+    <li><a href="./MainHelper.html">MainHelper</a>
+  
+    <li><a href="./MyValidator.html">MyValidator</a>
+  
+    <li><a href="./Nsilpu.html">Nsilpu</a>
+  
+    <li><a href="./NsilpusController.html">NsilpusController</a>
+  
+    <li><a href="./NsilpusHelper.html">NsilpusHelper</a>
+  
+    <li><a href="./Okato.html">Okato</a>
+  
+    <li><a href="./OkatosController.html">OkatosController</a>
+  
+    <li><a href="./OkatosHelper.html">OkatosHelper</a>
+  
+    <li><a href="./Oksm.html">Oksm</a>
+  
+    <li><a href="./OksmsController.html">OksmsController</a>
+  
+    <li><a href="./OksmsHelper.html">OksmsHelper</a>
+  
+    <li><a href="./OldDoc.html">OldDoc</a>
+  
+    <li><a href="./OldPerson.html">OldPerson</a>
+  
+    <li><a href="./OpsController.html">OpsController</a>
+  
+    <li><a href="./OpsHelper.html">OpsHelper</a>
+  
+    <li><a href="./PeopleController.html">PeopleController</a>
+  
+    <li><a href="./PeopleHelper.html">PeopleHelper</a>
+  
+    <li><a href="./Person.html">Person</a>
+  
+    <li><a href="./Personb.html">Personb</a>
+  
+    <li><a href="./Polis.html">Polis</a>
+  
+    <li><a href="./Predstavitel.html">Predstavitel</a>
+  
+    <li><a href="./ReportsController.html">ReportsController</a>
+  
+    <li><a href="./ReportsHelper.html">ReportsHelper</a>
+  
+    <li><a href="./Representative.html">Representative</a>
+  
+    <li><a href="./RepresentativesController.html">RepresentativesController</a>
+  
+    <li><a href="./RepresentativesHelper.html">RepresentativesHelper</a>
+  
+    <li><a href="./Smo.html">Smo</a>
+  
+    <li><a href="./Street.html">Street</a>
+  
+    <li><a href="./StreetsController.html">StreetsController</a>
+  
+    <li><a href="./StreetsHelper.html">StreetsHelper</a>
+  
+    <li><a href="./Subekti.html">Subekti</a>
+  
+    <li><a href="./SubektisController.html">SubektisController</a>
+  
+    <li><a href="./SubektisHelper.html">SubektisHelper</a>
+  
+    <li><a href="./Tipdoc.html">Tipdoc</a>
+  
+    <li><a href="./TipdocsController.html">TipdocsController</a>
+  
+    <li><a href="./TipdocsHelper.html">TipdocsHelper</a>
+  
+    <li><a href="./Upload.html">Upload</a>
+  
+    <li><a href="./UploadsController.html">UploadsController</a>
+  
+    <li><a href="./UploadsHelper.html">UploadsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserSession.html">UserSession</a>
+  
+    <li><a href="./UserSessionsController.html">UserSessionsController</a>
+  
+    <li><a href="./UserSessionsHelper.html">UserSessionsHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Vizit.html">Vizit</a>
+  
+    <li><a href="./VizitsController.html">VizitsController</a>
+  
+    <li><a href="./XmlFile.html">XmlFile</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class CustomersController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-build_doublecat_polis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_doublecat_polis</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET customers/build_doublecat_polis?id=</p>
+          
+
+          
+          <div class="method-source-code" id="build_doublecat_polis-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_doublecat_polis</span>
+  <span class="ruby-ivar">@vizit</span> = <span class="ruby-constant">Vizit</span>.<span class="ruby-identifier">find_by_person_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_doublecat_polis-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_doublecat_polis-method -->
+
+    
+      <div id="method-i-death_of_customer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">death_of_customer</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="death_of_customer-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">death_of_customer</span>
+  <span class="ruby-comment"># 022 - снятие с учета в связи со смертью</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:date</span>]
+  
+  <span class="ruby-comment"># d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">d</span>, <span class="ruby-string">&quot;%a %b %d %Y %H:%M:%S GMT%z&quot;</span>) <span class="ruby-comment">#if d.empty?</span>
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">update_attributes</span>({ <span class="ruby-identifier">ddeath</span><span class="ruby-operator">:</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">to_date</span> })
+  
+  <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">op</span>.<span class="ruby-identifier">update_attributes</span>({ <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П022&quot;</span>, <span class="ruby-identifier">date_uvoln</span><span class="ruby-operator">:</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span> })
+  
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status</span>, <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- death_of_customer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- death_of_customer-method -->
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># edit.html.erb</span>
+     
+   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit-method -->
+
+    
+      <div id="method-i-edit_ops" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_ops</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit_ops-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_ops</span>
+  <span class="ruby-comment"># 021 - снятие с учета в связи с постановкой на учет в другом СМО</span>
+  <span class="ruby-ivar">@op</span> = <span class="ruby-constant">Op</span>.<span class="ruby-identifier">find_by_person_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-ivar">@op</span>.<span class="ruby-identifier">update_attributes</span>({ <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П021&quot;</span>, <span class="ruby-identifier">date_uvoln</span><span class="ruby-operator">:</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span> })
+  
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status</span>, <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit_ops-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit_ops-method -->
+
+    
+      <div id="method-i-edit_ops_as_doublicat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_ops_as_doublicat</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit_ops_as_doublicat-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_ops_as_doublicat</span>
+  <span class="ruby-comment"># 023 - </span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit_ops_as_doublicat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit_ops_as_doublicat-method -->
+
+    
+      <div id="method-i-edit_ops_foreigner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_ops_foreigner</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit_ops_foreigner-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_ops_foreigner</span>
+  <span class="ruby-comment"># 025 - снятие с учета иностранца</span>
+  <span class="ruby-ivar">@op</span> = <span class="ruby-constant">Op</span>.<span class="ruby-identifier">find_by_person_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">vizit</span> = <span class="ruby-constant">Vizit</span>.<span class="ruby-identifier">find_by_person_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">polis</span>.<span class="ruby-identifier">dstop</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">to_date</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">polis</span>.<span class="ruby-identifier">dstop</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@op</span>.<span class="ruby-identifier">update_attributes</span>({ <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П025&quot;</span>, <span class="ruby-identifier">date_uvoln</span><span class="ruby-operator">:</span> <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span> })
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@op</span>.<span class="ruby-identifier">update_attributes</span>({ <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П025&quot;</span>, <span class="ruby-identifier">date_uvoln</span><span class="ruby-operator">:</span> <span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">polis</span>.<span class="ruby-identifier">dstop</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">day</span> })
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status</span>, <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit_ops_foreigner-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit_ops_foreigner-method -->
+
+    
+      <div id="method-i-edit_polis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_polis</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="edit_polis-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_polis</span>
+  <span class="ruby-comment"># 060</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:date</span>]
+  
+  <span class="ruby-comment"># d =  'Thu Nov 12 2012 00:00:00 GMT+0700 (NOVT) '</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">d</span>, <span class="ruby-string">&quot;%a %b %d %Y %H:%M:%S GMT%z&quot;</span>) <span class="ruby-comment">#if d.empty?</span>
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-comment"># @op = Op.find_by_person_id(params[:id])</span>
+  <span class="ruby-comment"># @vizit = Vizit.find_by_person_id(params[:id])</span>
+  <span class="ruby-comment"># @person.vizit.insurance.polis.update_attributes({dbeg: DateTime.now, dend: nil, spolis: nil, vpolis: 3})</span>
+  <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">vizit</span>.<span class="ruby-identifier">insurance</span>.<span class="ruby-identifier">polis</span>.<span class="ruby-identifier">update_attributes</span>({<span class="ruby-identifier">dbeg</span><span class="ruby-operator">:</span> <span class="ruby-identifier">d</span>})
+  
+  <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">op</span>.<span class="ruby-identifier">update_attributes</span>({<span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П060&quot;</span>})
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-identifier">status</span>, <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit_polis-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit_polis-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@respon</span> = []
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:term</span>].<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^\d{5}/</span>).<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:op</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:ops</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:term</span>]})
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fio_array</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:term</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">fio_array</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">includes</span>([<span class="ruby-value">:op</span>,<span class="ruby-value">:doc</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-value">:fam</span>, <span class="ruby-value">:im</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;fam like ?&quot;</span>, <span class="ruby-node">&quot;#{fio_array[0]}%&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+      <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">includes</span>([<span class="ruby-value">:op</span>,<span class="ruby-value">:doc</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-value">:fam</span>, <span class="ruby-value">:im</span>)
+      .<span class="ruby-identifier">where</span>(<span class="ruby-node">&quot;fam = \&quot;#{fio_array[0]}\&quot; and im like ?&quot;</span>, <span class="ruby-node">&quot;#{fio_array[1]}%&quot;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+      <span class="ruby-ivar">@customer</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">includes</span>([<span class="ruby-value">:op</span>,<span class="ruby-value">:doc</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-value">:fam</span>, <span class="ruby-value">:im</span>)
+      .<span class="ruby-identifier">where</span>(<span class="ruby-node">&quot;fam = \&quot;#{fio_array[0]}\&quot; and im = \&quot;#{fio_array[1]}\&quot; and ot like ?&quot;</span>, <span class="ruby-node">&quot;#{fio_array[2]}%&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@customer</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">custoner</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@respon</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">fam</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">fam</span>, <span class="ruby-identifier">im</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">im</span>, 
+        <span class="ruby-identifier">ot</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">ot</span>, <span class="ruby-identifier">w</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">w</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-string">'мужской'</span> <span class="ruby-operator">:</span> <span class="ruby-string">'женский'</span>,
+        <span class="ruby-identifier">dr</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">dr</span>, <span class="ruby-identifier">docser</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">docser</span>, <span class="ruby-identifier">docnum</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">docnum</span>,
+        <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-identifier">custoner</span>.<span class="ruby-identifier">op</span>.<span class="ruby-identifier">active</span>}
+    
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;table_rows&quot;</span>, <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-save_doublecat_polis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_doublecat_polis</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST customers/build_doublecat_polis</p>
+          
+
+          
+          <div class="method-source-code" id="save_doublecat_polis-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_doublecat_polis</span>
+  <span class="ruby-ivar">@vizit</span> = <span class="ruby-constant">Vizit</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:vizit</span>][<span class="ruby-value">:id</span>])
+    <span class="ruby-keyword">if</span>  <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:vizit</span>])
+      <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">person</span>.<span class="ruby-identifier">op</span>.<span class="ruby-identifier">update_attributes</span>({<span class="ruby-identifier">tip_op</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;П062&quot;</span>})
+      <span class="ruby-comment"># render json: @vizit</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@vizit</span>.<span class="ruby-identifier">person</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Новые данные успешно сохранены.'</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Сохранить не получилось, проверьте ошибки в параметрах.&quot;</span>
+      <span class="ruby-identifier">render</span> <span class="ruby-value">:build_doublecat_polis</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save_doublecat_polis-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save_doublecat_polis-method -->
+
+    
+      <div id="method-i-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+      <div id="method-i-search_person" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_person</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search_person-source">
+            <pre><span class="ruby-comment"># File app/controllers/customers_controller.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_person</span>
+  <span class="ruby-comment"># @person = Person.find_by_id(params[:id])</span>
+  <span class="ruby-ivar">@person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">includes</span>([<span class="ruby-value">:op</span>,<span class="ruby-value">:vizit</span>,<span class="ruby-value">:doc</span>,<span class="ruby-value">:addres_g</span>,<span class="ruby-value">:representative</span>,<span class="ruby-value">:old_person</span>,<span class="ruby-value">:old_doc</span>]).<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:partial</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;customer&quot;</span> 
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search_person-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search_person-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

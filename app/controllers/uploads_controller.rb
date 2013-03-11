@@ -166,7 +166,7 @@ class UploadsController < ApplicationController
         i+= 1
       end
     end
-    logger.debug i
+    # logger.debug i
     # render json: records
     if ini_file.write
       if n == i
@@ -218,7 +218,7 @@ class UploadsController < ApplicationController
     
   end
   def worker(item)
-    # logger.debug { item }
+     logger.debug { item }
       _polis = item["POLIS"].to_s
        ser = _polis[0,3]
        num = _polis[3,6]
