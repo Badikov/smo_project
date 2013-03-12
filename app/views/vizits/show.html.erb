@@ -32,9 +32,47 @@
       <%= link_to "Печать заявления о выборе(замене) СМО", print_petition_url(@person), target: "_blank"  %>
     </p>
 
+<!-- территориальное прикрепление застрахованного-->
+<% _np = Okato.find_by_namenpt(@person.addres_g.npname) %>
+    <% unless _np.nil? %>
+ <div id="terr">   
+    <% lpu_arrey = [] %>
+    <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
+    <% lpus.each {|lpu|  lpu_arrey << [lpu.kdlpu.to_s + '---' + lpu.namelpu, lpu.kdlpu]}  %>
+    <% @at = @person.ats.build %>
+    <%= simple_form_for @at do |f| %>
+    <h4 >Выбор территориального прикрепления</h4>
+    <%= f.input :person_id , :as => :hidden %>
+    <%= f.input :kdatemu, :as => :hidden, :input_html => {:value => _np.kdate} %>
+    <%= f.input :kdmu, :as => :select, :collection => lpu_arrey, :input_html => { :class => "span5" }%>
+    <%= f.button :submit,:id => 'ter', :class => 'btn-primary',:value => 'Сохранить',:disabled => 'disabled', :disable_with => 'Saving...' %>
+  </div>  
+  <% end %>
+<% end %>
 
-<%= render :partial => 'ats/modal_terr', :locals => { :person => @person } %>
-<%= render :partial => 'ats/modal_fackt', :locals => { :person => @person } %>
+<!-- фактическое прикрепление застрахованного-->
+
+<div id="fackt">
+  <% @at_f = @person.ats.build %>
+  <%= simple_form_for @at_f, :html => { :class => 'form-horizontal' } do |f| %>
+    <% ate_list = Ate.all(:order => 'nameate') %>
+  <h4 >Фактическое прикрепление</h4>
+    <%= f.input :person_id , :as => :hidden %>
+    <%= f.input :type_at , :as => :hidden, :input_html => {:value => 'F'} %>
+    <%= f.input :kdatemu, :collection => ate_list.collect{|x| [ x.nameate, x.id ]}, :input_html => { :class => "span5" }%>
+  
+    <%= f.input :kdmu, :as => :select, :collection => nil, :input_html => { :class => "span5" }%>
+  
+    <%= f.input :date_b, :as => :string, :placeholder => 'Дата прикрепления', :input_html => {:disabled => 'disabled'} %>
+  
+    <%= f.button :submit,:id => 'fack', :class => 'btn-primary',:value => 'Сохранить',:disabled => 'disabled', :disable_with => 'Saving...' %>
+  <% end %>
+</div>
+
+ 
+
+
+
 
 
 

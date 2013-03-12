@@ -5,6 +5,7 @@ open_files:
   - app/models/addres_g.rb
   - app/models/person.rb
   - app/models/polis.rb
-  - app/controllers/people_controller.rb
-  - app/controllers/uploads_controller.rb
-  - doc/app/doc/README_FOR_APP.html
+  - app/views/vizits/show.html.erb
+  - app/models/at.rb
+  - app/controllers/ats_controller.rb
+  - app/views/_form.html.erb

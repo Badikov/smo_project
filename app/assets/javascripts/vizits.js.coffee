@@ -116,9 +116,68 @@ jQuery ->
    $("#at_kdmu").select2
        placeholder: "Лечебные учреждения"
 
+#----------------------------------------------------
+#  это работает
+ $("form#new_at select#at_kdatemu")
+  .select2
+    placeholder: "Территории Кемеровской области"
+  .change ->
+    _kdate = $(@).val()
+    _lpus = $("div#fackt select#at_kdmu")
+    _lpus.html ''
+    $.ajax
+      type: "GET"
+      dataType: 'json'
+      url: '/nsilpus.json'
+      data:
+        kdate: _kdate
+      success: (data) -> 
+        $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.kdlpu + '---' + item.namelpu + '</option>' 
+        $("div#fackt select#at_kdmu").removeAttr 'disabled'
+        $("div#fackt div#s2id_at_kdmu").removeClass "select2-container-disabled"
+      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+ $("div#fackt select#at_kdmu")
+  .change ->
+    $("form#new_at input#at_date_b")
+      .datepicker
+        changeMonth: true
+        changeYear: true
+        maxDate: "d"
+        onSelect: (dateText, inst) ->
+          $("div#fackt input#fack")
+            .click ->
+              $.ajax
+                type: "POST"
+                url: $("div#fackt form#new_at").attr 'action'
+                data: $("div#fackt form#new_at").serialize()
+                success: (data, textStatus, jqXHR) ->
+                  $('.row').before data
+                  $("div#fackt").hide 'slow'
+                error: (jqXHR, textStatus, errorThrown) ->
+              return false
+            .removeAttr 'disabled'
+      .removeAttr 'disabled'
 
- #$("div#atlhModal").show ->
-   #$("#kdmu").select2()
+ $("form#new_at select#at_kdmu")
+  .select2
+    placeholder: "Лечебные учреждения"
+ $("div#terr select#at_kdmu")
+  .change ->
+    $("div#terr input#ter")
+      .click ->
+        $.ajax
+          type: "POST"
+          url: $("div#terr form#new_at").attr 'action'
+          data: $("div#terr form#new_at").serialize()
+          success: (data, textStatus, jqXHR) ->
+            $('.row').before data
+            $("div#terr").hide 'slow'
+          error: (jqXHR, textStatus, errorThrown) ->
+        return false
+      .removeAttr 'disabled'
+ $("label[for^='at']").remove()
+#===========================================================================================================
+
  $("div#atlhModal select#kdmu").change ->
    $("#create_at_t").removeAttr 'disabled'
  $("div#atlhModal button#create_at_t").click ->
@@ -151,19 +210,17 @@ jQuery ->
  $("div#customers_customer_info").delegate "button#create_at_t",'click', ->
    $.ajax
      type: "POST"
-     dataType: 'json'
      url: '/ats'
      data:
        person_id: $("#create_at_t_person_id").val()
        kdatemu: $("#create_at_t_kdatemu").val()
        kdmu: $("#kdmu option:selected").attr 'value'
-     success: (response) ->
+     success: (data, textStatus, jqXHR) ->
        $("#create_at_t").attr 'disabled'
        $("div#atlhModal").modal 'hide'
-       atl_fakt $("#create_at_t_person_id").val()
-       if response is 200
-         $('.row')
-           .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
+       
+       if textStatus is "success"
+         $('.row').before data
        else
          $('.row')
            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
@@ -171,24 +228,7 @@ jQuery ->
    return false
  
 
- inobl = $("div#atlhModal").attr 'inoblastnoy'
-
- if inobl is "0" 
-  setTimeout(-> 
-    $("div#atlhModal").modal
-      show: true
-      keyboard: false
-      backdrop: 'static'
-   3000)
- else
-  $("div#atl_fakt_hModal").modal
-      show: true
-      keyboard: false
-      backdrop: 'static'
-  
-
  
-
  atl_fakt = (person) ->
   setTimeout(-> 
     $("div#atl_fakt_hModal").modal
@@ -218,12 +258,7 @@ jQuery ->
     $("#at_date_b").focus ->
       $(@).click()
 
-  $("#at_date_b").datepicker
-        showOn: 'focus',
-        buttonImage: 'datepicker.png',
-        buttonImageOnly: true,
-        onSelect: (dateText, inst) ->
-          $("#create_at_fakt").removeAttr 'disabled'
+  
 
   $("#create_at_fakt").click ->
     $.ajax

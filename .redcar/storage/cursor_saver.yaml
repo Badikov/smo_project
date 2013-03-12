@@ -420,9 +420,6 @@ cursor_positions:
   - :path: app/views/ats/files.html.erb
     :cursor_offset: 0
     :timestamp: 2012-11-28 15:21:15 +06:00
-  - :path: app/views/_form.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-10-15 12:55:19 +07:00
   - :path: db/migrate/20130118192027_create_ates.rb
     :cursor_offset: 183
     :timestamp: 2013-01-19 01:29:45 +06:00
@@ -511,11 +508,6 @@ cursor_positions:
   - :path: app/controllers/nsilpus_controller.rb
     :cursor_offset: 141
     :timestamp: 2013-01-19 16:32:47 +06:00
-  - :path: app/views/insurances/_form.html.erb
-    :cursor_offset: 331
-    :timestamp: 2012-12-29 23:49:20 +06:00
-    :selection_offset: 307
-    :block_selection_mode: false
   - :path: app/views/users/edit.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-29 16:48:33 +06:00
@@ -554,9 +546,6 @@ cursor_positions:
   - :path: app/controllers/user_sessions_controller.rb
     :cursor_offset: 518
     :timestamp: 2013-01-25 07:07:28 +06:00
-  - :path: app/models/ate.rb
-    :cursor_offset: 93
-    :timestamp: 2013-01-23 16:02:00 +06:00
   - :path: app/models/ability.rb
     :cursor_offset: 209
     :timestamp: 2013-01-08 20:07:02 +06:00
@@ -709,9 +698,6 @@ cursor_positions:
   - :path: app/views/vizits/edit.html.erb
     :cursor_offset: 0
     :timestamp: 2012-10-12 17:16:29 +07:00
-  - :path: app/views/vizits/_form.html.erb
-    :cursor_offset: 1391
-    :timestamp: 2013-02-01 00:12:49 +06:00
   - :path: ate.txt
     :cursor_offset: 13
     :timestamp: 2013-01-19 01:08:02 +06:00
@@ -781,15 +767,9 @@ cursor_positions:
   - :path: app/controllers/representatives_controller.rb
     :cursor_offset: 103
     :timestamp: 2013-02-13 00:32:33 +06:00
-  - :path: app/views/uploads/index.html.erb
-    :cursor_offset: 824
-    :timestamp: 2013-01-29 03:45:41 +06:00
   - :path: app/views/uploads/numbers.html.erb
     :cursor_offset: 1028
     :timestamp: 2012-12-28 22:58:24 +06:00
-  - :path: app/models/at.rb
-    :cursor_offset: 402
-    :timestamp: 2013-01-27 09:01:23 +06:00
   - :path: app/models/nsilpu.rb
     :cursor_offset: 255
     :timestamp: 2013-01-28 05:39:02 +06:00
@@ -881,18 +861,10 @@ cursor_positions:
   - :path: config/routes.rb
     :cursor_offset: 442
     :timestamp: 2013-03-02 14:04:22 +06:00
-  - :path: app/views/shared/_links.html.erb
-    :cursor_offset: 2026
-    :timestamp: 2013-03-02 14:07:05 +06:00
   - :path: app/views/reports/_jobs.html.erb
     :cursor_offset: 432
     :timestamp: 2013-02-28 16:58:25 +06:00
     :selection_offset: 425
-    :block_selection_mode: false
-  - :path: app/controllers/ats_controller.rb
-    :cursor_offset: 1191
-    :timestamp: 2013-02-12 13:22:04 +06:00
-    :selection_offset: 1188
     :block_selection_mode: false
   - :path: app/models/op.rb
     :cursor_offset: 1234
@@ -903,9 +875,6 @@ cursor_positions:
   - :path: app/views/layouts/account.html.erb
     :cursor_offset: 87
     :timestamp: 2013-01-29 17:11:03 +06:00
-  - :path: app/views/users/_form.html.erb
-    :cursor_offset: 970
-    :timestamp: 2013-01-25 04:53:12 +06:00
   - :path: app/views/shared/_error_messages.html.erb
     :cursor_offset: 151
     :timestamp: 2013-01-25 04:36:08 +06:00
@@ -920,18 +889,6 @@ cursor_positions:
     :timestamp: 2013-01-23 09:33:58 +06:00
     :selection_offset: 0
     :block_selection_mode: false
-  - :path: app/views/ats/_form.html.erb
-    :cursor_offset: 375
-    :timestamp: 2013-01-29 16:59:03 +06:00
-  - :path: app/views/ats/_modal_fackt.html.erb
-    :cursor_offset: 747
-    :timestamp: 2013-02-12 01:23:22 +06:00
-  - :path: app/views/vizits/show.html.erb
-    :cursor_offset: 1312
-    :timestamp: 2013-02-12 01:26:29 +06:00
-  - :path: app/views/ats/_modal_terr.html.erb
-    :cursor_offset: 1080
-    :timestamp: 2013-02-04 02:30:30 +06:00
   - :path: app/views/addres_gs/newaddres_g.html.erb
     :cursor_offset: 147
     :timestamp: 2013-02-06 00:49:19 +06:00
@@ -959,9 +916,6 @@ cursor_positions:
   - :path: public/numbers/numbers.ini
     :cursor_offset: 0
     :timestamp: 2013-03-05 22:53:21 +06:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 407
-    :timestamp: 2013-03-03 17:54:53 +06:00
   - :path: lib/smo.rb
     :cursor_offset: 1670
     :timestamp: 2013-01-18 10:03:03 +06:00
@@ -973,29 +927,6 @@ cursor_positions:
     :timestamp: 2012-10-06 15:03:52 +07:00
     :selection_offset: 113
     :block_selection_mode: false
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 2484
-    :timestamp: 2013-03-06 01:50:08 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 644
-    :timestamp: 2013-03-06 00:37:21 +06:00
-  - :path: app/models/addres_g.rb
-    :cursor_offset: 518
-    :timestamp: 2013-02-07 14:14:42 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 2817
-    :timestamp: 2013-02-04 16:16:08 +06:00
-    :selection_offset: 2760
-    :block_selection_mode: false
-  - :path: app/models/polis.rb
-    :cursor_offset: 1185
-    :timestamp: 2013-01-30 19:29:31 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 3741
-    :timestamp: 2013-03-06 00:34:32 +06:00
-  - :path: app/controllers/uploads_controller.rb
-    :cursor_offset: 1803
-    :timestamp: 2013-02-07 15:31:28 +06:00
   - :path: doc/app/doc/README_FOR_APP.html
     :cursor_offset: 0
     :timestamp: 2013-03-11 00:01:02 +06:00
@@ -1013,4 +944,83 @@ cursor_positions:
   - :path: app/assets/javascripts/application.js
     :cursor_offset: 1031
     :timestamp: 2013-01-27 17:15:55 +06:00
+  - :path: app/views/uploads/index.html.erb
+    :cursor_offset: 824
+    :timestamp: 2013-01-29 03:45:41 +06:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 3741
+    :timestamp: 2013-03-06 00:34:32 +06:00
+  - :path: app/controllers/uploads_controller.rb
+    :cursor_offset: 6902
+    :timestamp: 2013-03-11 11:39:27 +06:00
+  - :path: app/models/ate.rb
+    :cursor_offset: 93
+    :timestamp: 2013-01-23 16:02:00 +06:00
+  - :path: app/views/users/_form.html.erb
+    :cursor_offset: 1097
+    :timestamp: 2013-01-25 04:53:12 +06:00
+    :selection_offset: 1023
+    :block_selection_mode: false
+  - :path: app/views/vizits/_form.html.erb
+    :cursor_offset: 163
+    :timestamp: 2013-02-01 00:12:49 +06:00
+    :selection_offset: 148
+    :block_selection_mode: false
+  - :path: app/views/ats/_modal_terr.html.erb
+    :cursor_offset: 1298
+    :timestamp: 2013-02-04 02:30:30 +06:00
+  - :path: app/views/ats/_modal_fackt.html.erb
+    :cursor_offset: 480
+    :timestamp: 2013-02-12 01:23:22 +06:00
+    :selection_offset: 382
+    :block_selection_mode: false
+  - :path: app/views/ats/_form.html.erb
+    :cursor_offset: 515
+    :timestamp: 2013-01-29 16:59:03 +06:00
+    :selection_offset: 1
+    :block_selection_mode: false
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 2484
+    :timestamp: 2013-03-06 01:50:08 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 310
+    :timestamp: 2013-03-06 00:37:21 +06:00
+    :selection_offset: 304
+    :block_selection_mode: false
+  - :path: app/models/addres_g.rb
+    :cursor_offset: 518
+    :timestamp: 2013-02-07 14:14:42 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 2817
+    :timestamp: 2013-02-04 16:16:08 +06:00
+    :selection_offset: 2760
+    :block_selection_mode: false
+  - :path: app/models/polis.rb
+    :cursor_offset: 1185
+    :timestamp: 2013-01-30 19:29:31 +06:00
+  - :path: app/controllers/ats_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2013-03-06 10:37:04 +06:00
+  - :path: app/views/insurances/_form.html.erb
+    :cursor_offset: 331
+    :timestamp: 2012-12-29 23:49:20 +06:00
+    :selection_offset: 307
+    :block_selection_mode: false
+  - :path: app/views/_form.html.erb
+    :cursor_offset: 407
+    :timestamp: 2012-10-15 12:55:19 +07:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 1152
+    :timestamp: 2013-03-03 17:54:53 +06:00
+    :selection_offset: 1145
+    :block_selection_mode: false
+  - :path: app/views/shared/_links.html.erb
+    :cursor_offset: 2026
+    :timestamp: 2013-03-02 14:07:05 +06:00
+  - :path: app/models/at.rb
+    :cursor_offset: 402
+    :timestamp: 2013-01-27 09:01:23 +06:00
+  - :path: app/views/vizits/show.html.erb
+    :cursor_offset: 2761
+    :timestamp: 2013-03-13 02:24:53 +06:00
 files_to_retain: 0

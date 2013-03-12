@@ -9,9 +9,18 @@ class AtsController < ApplicationController
   end
   
   def create
-    @at = At.new(:person_id => params[:person_id], :kdatemu => params[:kdatemu], :kdmu => params[:kdmu])
+    txt_mess = ""
+    if params.include?(:at)
+      @at = At.new(params[:at])
+      txt_mess = "Успешно создана запись о территориальном прикреплении к ЛПУ." unless params[:at].include?(:type_at)
+      txt_mess = "Успешно создана запись о прикреплении к ЛПУ." if params[:at].include?(:type_at)
+    else
+      # raise "SomeError message ..."
+      @at = At.new(:person_id => params[:person_id], :kdatemu => params[:kdatemu], :kdmu => params[:kdmu])
+      txt_mess = "Успешно создана запись о территориальном прикреплении к ЛПУ."
+    end
     @at.save
-    render json: status, :nothing => true
+    render :inline => "<div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>×</button>#{txt_mess}</div>"
   end
   
   def create_fakt
