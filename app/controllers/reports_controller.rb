@@ -46,4 +46,7 @@ class ReportsController < ApplicationController
     @oldmale_60 = Person.joins(:op).where(['ops.active= ? and people.dr <= ?', true, DateTime.current.months_ago(720)]).group(:w)
     @oldfemale_55 = Person.joins(:op).where(['ops.active= ? and people.dr <= ?', true, DateTime.current.months_ago(660)]).group(:w)
   end
+  def error_vizit
+    @people = Person.error_vizit
+  end
 end

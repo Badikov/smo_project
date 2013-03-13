@@ -109,12 +109,48 @@ jQuery ->
  #----------Модальные окна территориального и фактического прикрепления к лечебному учреждению
  #--------------------------------------------------------------------------------------------
 
- $("#atl_fakt_hModal").show ->
+
+
+ $("#customers_customer_info").on 'show', '#atl_fakt_hModal', ->
    $("label[for^='at']").remove()
-   $("#at_kdatemu").select2
-       placeholder: "Территории Кемеровской области"
-   $("#at_kdmu").select2
-       placeholder: "Лечебные учреждения"
+   $("#atl_fakt_hModal select#at_kdatemu")
+    .select2
+      placeholder: "Территории Кемеровской области"
+    .change ->
+      _kdate = $(@).val()
+      _lpus = $("#atl_fakt_hModal select#at_kdmu")
+      _lpus.html ''
+      $.ajax
+        type: "GET"
+        dataType: 'json'
+        url: '/nsilpus.json'
+        data:
+          kdate: _kdate
+        success: (data) -> 
+          $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.kdlpu + '---' + item.namelpu + '</option>'
+        error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
+      _lpus
+        .change ->
+          $("#atl_fakt_hModal input#at_date_b")
+            .datepicker
+              maxDate: "d"
+              onSelect: (dateText, inst) ->
+                $("#atl_fakt_hModal button#create_at_fakt")
+                  .click ->
+                    $(@).attr disabled: 'disabled'
+                    $.ajax
+                      type: "POST"
+                      url: $("#atl_fakt_hModal form#new_at").attr 'action'
+                      data: $("#atl_fakt_hModal form#new_at").serialize()
+                      success: (data, textStatus, jqXHR) ->
+                        $('.row').before data
+                        $("#atl_fakt_hModal").modal 'hide'
+                      error: (jqXHR, textStatus, errorThrown) ->
+                    return false
+                  .removeAttr 'disabled'
+   $("#atl_fakt_hModal select#at_kdmu").select2
+    placeholder: "Лечебные учреждения"
+
 
 #----------------------------------------------------
 #  это работает
@@ -178,29 +214,7 @@ jQuery ->
  $("label[for^='at']").remove()
 #===========================================================================================================
 
- $("div#atlhModal select#kdmu").change ->
-   $("#create_at_t").removeAttr 'disabled'
- $("div#atlhModal button#create_at_t").click ->
-  $.ajax
-     type: "POST"
-     dataType: 'json'
-     url: '/ats'
-     data:
-       person_id: $("#create_at_t_person_id").val()
-       kdatemu: $("#create_at_t_kdatemu").val()
-       kdmu: $("#kdmu option:selected").attr 'value'
-     success: (response) ->
-       $("#create_at_t").attr 'disabled'
-       $("div#atlhModal").modal 'hide'
-       atl_fakt $("#create_at_t_person_id").val()
-       if response is 200
-         $('.row')
-           .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о территориальном прикреплении к ЛПУ.</div>'
-       else
-         $('.row')
-           .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
-     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
-  return false
+
 
  $("div#customers_customer_info").delegate "div#atlhModal",'show', ->
    $("#kdmu").select2()
@@ -229,55 +243,7 @@ jQuery ->
  
 
  
- atl_fakt = (person) ->
-  setTimeout(-> 
-    $("div#atl_fakt_hModal").modal
-      show: true
-      keyboard: false
-      backdrop: 'static' 
-   3000)
- $("div#atl_fakt_hModal select#at_kdatemu").change () ->
-   _kdate = $(@).val()
-   _lpus = $("select#at_kdmu")
-   _lpus.html ''
-   $.ajax
-     type: "GET"
-     dataType: 'json'
-     url: '/nsilpus.json'
-     data:
-       kdate: _kdate
-     success: (data) -> 
-       $.map data, (item)-> _lpus.append '<option value=' + item.kdlpu + '>' + item.kdlpu + '---' + item.namelpu + '</option>' 
-       _lpus.removeAttr 'disabled'
-     error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
-    
-
-  $("select#at_kdmu").change () ->
-    #$("#at_date_b").removeAttr 'disabled'
-    #$("form#new_at").click()
-    $("#at_date_b").focus ->
-      $(@).click()
-
-  
-
-  $("#create_at_fakt").click ->
-    $.ajax
-      type: "POST"
-      dataType: 'json'
-      url: '/ats/create_fakt'
-      data:
-        $("form#new_at").serialize() 
-      success: (response) ->
-        $("div#atl_fakt_hModal").modal 'hide'
-        if response == 200
-          $('.row')
-            .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Успешно создана запись о прикреплении к ЛПУ.</div>'
-        else
-          $('.row')
-            .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
-      error: (jqXHR, textStatus, errorThrown) -> alert errorThrown
-    return false
-
+ 
 
 
     #  $('a.print').click (event) ->

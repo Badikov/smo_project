@@ -33,20 +33,22 @@
     </p>
 
 <!-- территориальное прикрепление застрахованного-->
-<% _np = Okato.find_by_namenpt(@person.addres_g.npname) %>
+<% if @person.addres_g.subj == '32000' %>
+  <% _np = Okato.find_by_okato(@person.addres_g.okato) %>
     <% unless _np.nil? %>
- <div id="terr">   
-    <% lpu_arrey = [] %>
-    <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
-    <% lpus.each {|lpu|  lpu_arrey << [lpu.kdlpu.to_s + '---' + lpu.namelpu, lpu.kdlpu]}  %>
-    <% @at = @person.ats.build %>
-    <%= simple_form_for @at do |f| %>
-    <h4 >Выбор территориального прикрепления</h4>
-    <%= f.input :person_id , :as => :hidden %>
-    <%= f.input :kdatemu, :as => :hidden, :input_html => {:value => _np.kdate} %>
-    <%= f.input :kdmu, :as => :select, :collection => lpu_arrey, :input_html => { :class => "span5" }%>
-    <%= f.button :submit,:id => 'ter', :class => 'btn-primary',:value => 'Сохранить',:disabled => 'disabled', :disable_with => 'Saving...' %>
-  </div>  
+      <div id="terr">   
+      <% lpu_arrey = [] %>
+      <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
+      <% lpus.each {|lpu|  lpu_arrey << [lpu.kdlpu.to_s + '---' + lpu.namelpu, lpu.kdlpu]}  %>
+      <% @at = @person.ats.build %>
+      <%= simple_form_for @at do |f| %>
+        <h4 >Выбор территориального прикрепления</h4>
+        <%= f.input :person_id , :as => :hidden %>
+        <%= f.input :kdatemu, :as => :hidden, :input_html => {:value => _np.kdate} %>
+        <%= f.input :kdmu, :as => :select, :collection => lpu_arrey, :input_html => { :class => "span5" }%>
+        <%= f.button :submit,:id => 'ter', :class => 'btn-primary',:value => 'Сохранить',:disabled => 'disabled', :disable_with => 'Saving...' %>
+        </div>
+      <% end %>
   <% end %>
 <% end %>
 

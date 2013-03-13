@@ -1,9 +1,11 @@
 <!-- Modal территориальное прикрепление застрахованного-->
-<% _np = Okato.find_by_namenpt(person.addres_g.npname) %>
+<% if person.addres_g.subj == '32000' %>
+  <% _np = Okato.find_by_okato(person.addres_g.okato) %>
     <% unless _np.nil? %>
     <% lpu_arrey = [] %>
     <% lpus = Nsilpu.lpus_of_ate(_np.kdate) %>
     <% lpus.each {|lpu|  lpu_arrey << [lpu.kdlpu.to_s + '---' + lpu.namelpu, lpu.kdlpu]}  %>
+    <% end %>
 <% end %>
 
 <div id="atlhModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="terPrikreplenie" aria-hidden="true" inoblastnoy=<%= _np.nil? ? 1 : 0 %>>
@@ -19,7 +21,7 @@
     <input id="create_at_t_kdatemu" type="hidden" value=<%= _np.kdate unless _np.nil? %> />
   </div>
   <div class="modal-footer">
-<!--    <button class="btn" data-dismiss="modal" aria-hidden="true">Отменить</button> -->
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Отменить</button>
     <button id="create_at_t" class="btn btn-primary" disable_with="Saving..." disabled="disabled">Сохранить</button>
   </div>
 </div>

@@ -10,6 +10,7 @@ SmoProject::Application.routes.draw do
       get "date_at" => "reports#date_at"
       get "jobs_date_at" => "reports#jobs_date_at"
       get "people_group_counter" => "reports#people_group_counter"
+      get "error_vizit" => "reports#error_vizit"
     end
   end
 

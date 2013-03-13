@@ -1,0 +1,25 @@
+<table id="" class="display">
+    <thead>
+        <tr>
+            <th>Агент</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>дата_рождения</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+     <% @people.find_each do |person| %> 
+        <tr>
+            <% user_name = person.op.user.name.split(" ") %>
+            <td><%= user_name[0] + " " + user_name[1].slice(0,1) + "." %></td>
+            <td><%= person.fam %></td>
+            <td><%= person.im %></td>
+            <td><%= person.ot %></td>
+            <td><%= person.dr %></td>
+            
+        </tr>
+     <% end %>   
+    </tbody>
+</table>

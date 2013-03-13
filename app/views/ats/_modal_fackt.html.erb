@@ -5,7 +5,7 @@
     <h3 id="faktPrikreplenie">Фактическое прикрепление</h3>
   </div>
   <div class="modal-body">
-    <% @at = @person.ats.build %>
+    <% @at = person.ats.build %>
     <%= render :partial => 'ats/form', :locals => { :at => @at } %>
   </div>
   <div class="modal-footer">

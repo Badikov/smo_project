@@ -22,6 +22,7 @@
   <% end %>
 
   <%= render :partial => 'ats/modal_terr', :locals => { :person => @person } %>
+  <%= render :partial => 'ats/modal_fackt', :locals => { :person => @person } %>
 
   <div class="accordion" id="accordion2">
 
@@ -45,17 +46,19 @@
                 <% item = Nsilpu.find_by_ate_id_and_kdlpu(ter_pr.kdatemu,ter_pr.kdmu) %>
               <% end %>  
                 <dd>
-                  <%= item.namelpu + '   дата пр. ' + ter_pr.date_b.strftime('%d.%m.%Y') if item %>
-                  <%= link_to 'Изменить', "#atlhModal" , { 'data-toggle'=> "modal", 'data-backdrop'=>"static", 'data-keyboard'=>"false" } %>
+                  <%= item.kdlpu.to_s + '---' + item.namelpu + '   дата пр. ' + ter_pr.date_b.strftime('%d.%m.%Y') if item %>
+                  <%= link_to ter_pr.blank? ? 'Прикрепить' : 'Изменить', "#atlhModal",{ 'data-toggle'=> "modal", 'data-backdrop'=>"static", 'data-keyboard'=>"false" } %>
                 </dd>
               
               <% unless fack_pr.blank? %>
                 <% item_f = Nsilpu.find_by_ate_id_and_kdlpu(fack_pr.kdatemu,fack_pr.kdmu) %>
+              <% end %>
                 <dt>фактическое прикрепление</dt>
                 <dd>
-                  <%= item_f.namelpu + '   дата пр. ' + fack_pr.date_b.strftime('%d.%m.%Y') %>
+                  <%= item_f.kdlpu.to_s + '---' + item_f.namelpu + '   дата пр. ' + fack_pr.date_b.strftime('%d.%m.%Y') if item_f %>
+                  <%= link_to fack_pr.blank? ? 'Прикрепить' : 'Изменить', "#atl_fakt_hModal", { 'data-toggle'=> "modal", 'data-backdrop'=>"static", 'data-keyboard'=>"false" } %>
                 </dd>
-              <% end %>
+              
 
 
               <% if !op.date_uvoln.blank? %>

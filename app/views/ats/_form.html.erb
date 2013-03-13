@@ -1,5 +1,5 @@
 
-<%= simple_form_for @at do |f| %>
+<%= simple_form_for @at, :html => { :autocomplete => 'off' } do |f| %>
   <% ate_list = Ate.all(:order => 'nameate') %>
   <%= f.input :kdatemu, :collection => ate_list.collect{|x| [ x.nameate, x.id ]}, :input_html => { :class => "span5" }%>
 

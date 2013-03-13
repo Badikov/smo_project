@@ -34,6 +34,9 @@ class Person < ActiveRecord::Base
     # joins(:doc).where(:docs => {:doctype => 3}, ['dr < ?', DateTime.current.months_ago(167)]) 
   end
   
+  def self.error_vizit
+    includes(:vizit).where("vizits.id is null")
+  end
   
   validates :fam, :im, :ot, :w, :c_oksm, :status, :dr, 
             :presence => true, :if => :can_validate?
