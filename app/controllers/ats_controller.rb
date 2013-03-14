@@ -7,6 +7,12 @@ class AtsController < ApplicationController
   def index
     
   end
+  # DELETE /ats/1
+  def destroy
+    @at = At.find(params[:id])
+    @at.destroy
+    render :inline => '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Прикрепление удалено</div>'
+  end
   
   def create
     txt_mess = ""

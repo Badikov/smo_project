@@ -66,19 +66,17 @@ jQuery ->
       $.ajax
         type: "GET"
         url: @href
-        success: (response) ->
-          if response is 200
-            $('.row')
-              .before '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
-          else
-            $('.row')
-              .before '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>Не удалось выполнить операцию</div>'
+        success: (data, textStatus, jqXHR) ->
+          $('.row').before data
+        error: (jqXHR, textStatus, errorThrown) ->
+          alert errorThrown
+      return false
     e.preventDefault()
   #-- выбытие застрахованного по П025
   #=======================================================================================================
   $("div#customers_customer_info").on "click","#customers_search_025", (event) ->
     e = event || window.event
-    if confirm('Вы уверенны что это лицо выбыло ?')
+    if confirm('Вы уверенны что этот человек выбыл ?')
       $.ajax
         type: "GET"
         url: @href
@@ -210,6 +208,21 @@ jQuery ->
             term: query.toUpperCase()
           success: (data) ->
             process data
+
+  $("div#customers_customer_info").on "click","#fack_pr_delete", (event) ->
+    e = event || window.event
+    if confirm('Вы уверенны ?')
+      $.ajax
+        type: "DELETE"
+        url: @href
+        success: (data, textStatus, jqXHR) ->
+          $('.row').before data
+        error: (jqXHR, textStatus, errorThrown) ->
+          alert errorThrown
+      return false
+      #alert $(@).parent().tagName
+    e.preventDefault()
+
 
   #$("#edit_addres_g").bind 'click', ->
   #  setTimeout(-> 

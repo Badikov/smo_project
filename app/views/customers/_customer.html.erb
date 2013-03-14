@@ -57,6 +57,7 @@
                 <dd>
                   <%= item_f.kdlpu.to_s + '---' + item_f.namelpu + '   дата пр. ' + fack_pr.date_b.strftime('%d.%m.%Y') if item_f %>
                   <%= link_to fack_pr.blank? ? 'Прикрепить' : 'Изменить', "#atl_fakt_hModal", { 'data-toggle'=> "modal", 'data-backdrop'=>"static", 'data-keyboard'=>"false" } %>
+                  <%= link_to 'Удалить', fack_pr, {method: :delete , id: 'fack_pr_delete'} if item_f %>
                 </dd>
               
 

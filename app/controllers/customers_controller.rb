@@ -49,7 +49,7 @@ class CustomersController < ApplicationController
     
     @op.update_attributes({ active: 0, tip_op: "П021", date_uvoln: DateTime.now })
     
-    render json: status, :nothing => true
+    render :inline => '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих</div>'
   end
     
   def death_of_customer

@@ -7,4 +7,4 @@ open_files:
   - app/models/polis.rb
   - app/views/ats/_modal_fackt.html.erb
   - app/views/ats/_form.html.erb
-  - app/views/people/_form.html.erb
+  - app/views/vizits/show.html.erb
