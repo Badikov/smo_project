@@ -386,8 +386,10 @@
             <%= link_to t("Оформление дубликата полиса <br> застрахованного лица П062"), { :action => "build_doublecat_polis", :id => @person } ,
             :id => "customers_search_build_doublecat_polis",:class => "btn", :role => "button" %>
           <% elsif polis.vpolis == 2 %>
-            <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
-            :id => "customers_search_edit",:class => "btn", :role => "button" %>
+            <% if can? :create, User %>
+              <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
+              :id => "customers_search_edit",:class => "btn", :role => "button" %>
+            <% end %>
           <% end %> 
         </div>
     <% end %>

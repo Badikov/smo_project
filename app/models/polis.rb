@@ -2,10 +2,14 @@
 class Polis < ActiveRecord::Base
   belongs_to :insurance, :include => :vizit
   
-  attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, :vpolis, :datepolis, :datepp, :insurance_id, :created_at #<<== creat - временно для переноса данных
+  attr_accessible :dbeg, :dend, :dstop, :npolis, :spolis, 
+                  :vpolis, :datepolis, :datepp, :insurance_id, 
+                  :created_at #<<== creat - временно для переноса данных
     
-  validates :npolis, :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
-  validates :spolis, :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
+  validates :npolis, 
+            :format => { :with => /^\d{6,}$/ , :message => "должны быть только цифры"}, :allow_blank => false
+  validates :spolis, 
+            :length => { :is => 3 }, :allow_blank => true, :format => { :with => /^\d{3}$/ , :message => "должны быть только 3 цифры"}
   
   validates_each :npolis do |record, attr, value|
     # if record.datepp.blank?

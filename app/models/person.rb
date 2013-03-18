@@ -55,7 +55,10 @@ class Person < ActiveRecord::Base
   validates :ss, 
             :format => { :with => /^\d{3}-\d{3}-\d{3}(-|\s)\d{2}$/ , :message => "не соответствует шаблону"}, :allow_blank => true
   
-  validates_associated :doc, :addres_g, :addres_p, :representative
+  validates_associated :doc, 
+                       :addres_g, 
+                       :addres_p, 
+                       :representative
   
   # before_validation :set_person_age_18
   before_update :save_old_data, :if => :politics_for_errors?

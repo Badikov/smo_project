@@ -3,6 +3,11 @@ class AtsController < ApplicationController
   before_filter :require_user
   require 'builder'
   require 'zip/zip'
+  
+  def to_attach
+    ate_ids = At.to_ates
+    @ates = Ate.where(:id => ate_ids).order(:nameate)
+  end
   #GET /ats
   def index
     

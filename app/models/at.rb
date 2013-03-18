@@ -8,6 +8,11 @@ class At < ActiveRecord::Base
   scope :territor, -> { where("type_at= ?", "T") }
   scope :facktice, -> { where("type_at= ?", "F") }
   
+  def self.to_ates
+    # includes(:person => [:op]).where(["ops.active= ?", true]).uniq.pluck(:kdatemu)
+    joins(:person => :op).where(["ops.active= ?", true]).uniq.pluck(:kdatemu)
+  end
+  
    
   before_save :insert_dates
   

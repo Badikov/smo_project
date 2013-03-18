@@ -73,6 +73,7 @@ SmoProject::Application.routes.draw do
       match "create_fakt" => 'ats#create_fakt', :as => 'create_fakt'
       get 'create_links'
       get 'files'
+      get 'to_attach' => 'ats#to_attach'
       
     end
   end
