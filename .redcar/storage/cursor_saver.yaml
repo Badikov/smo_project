@@ -969,9 +969,6 @@ cursor_positions:
   - :path: config/routes.rb
     :cursor_offset: 491
     :timestamp: 2013-03-13 23:25:08 +06:00
-  - :path: app/controllers/reports_controller.rb
-    :cursor_offset: 937
-    :timestamp: 2013-03-13 23:24:10 +06:00
   - :path: app/views/reports/_jobs.html.erb
     :cursor_offset: 432
     :timestamp: 2013-02-28 16:58:25 +06:00
@@ -996,6 +993,15 @@ cursor_positions:
   - :path: app/controllers/uploads_controller.rb
     :cursor_offset: 2664
     :timestamp: 2013-03-11 11:39:27 +06:00
+  - :path: app/views/vizits/show.html.erb
+    :cursor_offset: 2079
+    :timestamp: 2013-03-13 17:58:40 +06:00
+  - :path: app/views/ats/_form.html.erb
+    :cursor_offset: 552
+    :timestamp: 2013-03-14 03:08:26 +06:00
+  - :path: app/views/ats/_modal_fackt.html.erb
+    :cursor_offset: 391
+    :timestamp: 2013-03-14 00:21:04 +06:00
   - :path: app/controllers/customers_controller.rb
     :cursor_offset: 1858
     :timestamp: 2013-03-14 18:09:04 +06:00
@@ -1013,13 +1019,7 @@ cursor_positions:
   - :path: app/models/polis.rb
     :cursor_offset: 1185
     :timestamp: 2013-01-30 19:29:31 +06:00
-  - :path: app/views/ats/_modal_fackt.html.erb
-    :cursor_offset: 391
-    :timestamp: 2013-03-14 00:21:04 +06:00
-  - :path: app/views/ats/_form.html.erb
-    :cursor_offset: 552
-    :timestamp: 2013-03-14 03:08:26 +06:00
-  - :path: app/views/vizits/show.html.erb
-    :cursor_offset: 2079
-    :timestamp: 2013-03-13 17:58:40 +06:00
+  - :path: app/controllers/reports_controller.rb
+    :cursor_offset: 1942
+    :timestamp: 2013-03-13 23:24:10 +06:00
 files_to_retain: 0

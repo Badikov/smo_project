@@ -48,6 +48,7 @@
                 <dd>
                   <%= item.kdlpu.to_s + '---' + item.namelpu + '   дата пр. ' + ter_pr.date_b.strftime('%d.%m.%Y') if item %>
                   <%= link_to ter_pr.blank? ? 'Прикрепить' : 'Изменить', "#atlhModal",{ 'data-toggle'=> "modal", 'data-backdrop'=>"static", 'data-keyboard'=>"false" } %>
+                  <%= link_to 'Удалить', ter_pr, {method: :delete , id: 'ter_pr_delete'} if item %>
                 </dd>
               
               <% unless fack_pr.blank? %>
@@ -384,6 +385,9 @@
             :id => "customers_search_edit",:class => "btn", :role => "button" %>
             <%= link_to t("Оформление дубликата полиса <br> застрахованного лица П062"), { :action => "build_doublecat_polis", :id => @person } ,
             :id => "customers_search_build_doublecat_polis",:class => "btn", :role => "button" %>
+          <% elsif polis.vpolis == 2 %>
+            <%= link_to t("Изменение данных о <br> застрахованном лице"), { :action => "edit", :id => @person } ,
+            :id => "customers_search_edit",:class => "btn", :role => "button" %>
           <% end %> 
         </div>
     <% end %>

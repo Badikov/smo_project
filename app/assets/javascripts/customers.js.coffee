@@ -223,6 +223,19 @@ jQuery ->
       #alert $(@).parent().tagName
     e.preventDefault()
 
+  $("div#customers_customer_info").on "click","#ter_pr_delete", (event) ->
+    e = event || window.event
+    if confirm('Вы уверенны ?')
+      $.ajax
+        type: "DELETE"
+        url: @href
+        success: (data, textStatus, jqXHR) ->
+          $('.row').before data
+        error: (jqXHR, textStatus, errorThrown) ->
+          alert errorThrown
+      return false
+      #alert $(@).parent().tagName
+    e.preventDefault()
 
   #$("#edit_addres_g").bind 'click', ->
   #  setTimeout(-> 
