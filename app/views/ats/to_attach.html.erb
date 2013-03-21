@@ -1,6 +1,6 @@
 <div class="page-header">
-  <h3><%= '' %></h3>
+  <h3><%= 'Количество прикрепленных к ЛУ по территориям' %></h3>
 </div>
 <% @ates.each do |ate| %>
-<p><%= ate.nameate %></p>
+<ul class="ate" data-kdatemu=<%= ate.id %>><%= ate.nameate %></ul>
 <% end %>

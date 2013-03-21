@@ -1,0 +1,5 @@
+<% @mus.each do |mu| %>
+<% _count = At.count_people_in_lpu(mu.ate_id, mu.kdlpu) %>
+<li><%= link_to mu.namelpu + "  (" + _count.to_s + ")", export_ats_path(kdatemu: mu.ate_id, kdmu: mu.kdlpu, format: "xls") %></li>
+<% end %>
+<%=  %>

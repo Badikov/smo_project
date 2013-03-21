@@ -5,7 +5,7 @@ open_files:
   - app/models/addres_g.rb
   - app/models/person.rb
   - app/models/polis.rb
-  - app/controllers/reports_controller.rb
   - app/controllers/ats_controller.rb
   - app/models/at.rb
-  - app/views/ats/to_attach.html.erb
+  - app/views/ats/to_mu.html.erb
+  - app/models/op.rb

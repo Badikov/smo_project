@@ -51,6 +51,7 @@ SmoProject::Application.routes.draw do
       match 'checking' => 'people#checking', :as => :checking
       # match 'search' => 'people#search', :via => [:get, :post], :as => :search
       # get 'result'
+      
     end
   end
   
@@ -74,7 +75,8 @@ SmoProject::Application.routes.draw do
       get 'create_links'
       get 'files'
       get 'to_attach' => 'ats#to_attach'
-      
+      get 'to_mu' => 'ats#to_mu'
+      get 'export' => 'ats#export'
     end
   end
   resources :docs

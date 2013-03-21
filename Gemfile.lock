@@ -172,6 +172,8 @@ GEM
       activemodel (~> 3.0)
     simple_roles (0.0.10)
       activerecord
+    spinjs-rails (1.2.8)
+      rails (>= 3.1)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -232,6 +234,7 @@ DEPENDENCIES
   select2-rails (~> 3.3.0)
   simple_form
   simple_roles
+  spinjs-rails
   sqlite3
   therubyracer
   thin

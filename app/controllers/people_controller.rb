@@ -153,6 +153,8 @@ class PeopleController < ApplicationController
     person = Person.where("fam=\"#{@person.fam}\" and im=\"#{@person.im}\" and ot=\"#{@person.ot}\" and dr=\"#{@person.dr}\"")
     render json: person , :nothing => true
   end
+  
+  
   #GET  /people/search
   # def search
 #     

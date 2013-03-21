@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">CodePsk</Data></Cell>
+        <Cell><Data ss:Type="String">Polis</Data></Cell>
+        <Cell><Data ss:Type="String">Fam</Data></Cell>
+        <Cell><Data ss:Type="String">Im</Data></Cell>
+        <Cell><Data ss:Type="String">Otch</Data></Cell>
+        <Cell><Data ss:Type="String">Dr</Data></Cell>
+        <Cell><Data ss:Type="String">Sex</Data></Cell>
+        <Cell><Data ss:Type="String">NameStat</Data></Cell>
+        <Cell><Data ss:Type="String">NameCity</Data></Cell>
+        <Cell><Data ss:Type="String">NameStreet</Data></Cell>
+        <Cell><Data ss:Type="String">House</Data></Cell>
+        <Cell><Data ss:Type="String">Korpus</Data></Cell>
+        <Cell><Data ss:Type="String">Flat</Data></Cell>
+        <Cell><Data ss:Type="String">Contract</Data></Cell>
+        <Cell><Data ss:Type="String">NameSubcon</Data></Cell>
+        <Cell><Data ss:Type="String">Kdatemu</Data></Cell>
+        <Cell><Data ss:Type="String">Kdmu</Data></Cell>
+        <Cell><Data ss:Type="String">DatePolis</Data></Cell>
+        <Cell><Data ss:Type="String">DatePr</Data></Cell>
+        <Cell><Data ss:Type="String">DateOtkr</Data></Cell>
+        <Cell><Data ss:Type="String">NameOut</Data></Cell>
+        <Cell><Data ss:Type="String">TypePr</Data></Cell>
+      </Row>
+    <% @ats.each do |at| %>
+      <Row>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.vizit.insurance.erp == 1 ? at.person.vizit.insurance.enp : at.person.vizit.insurance.polis.spolis + at.person.vizit.insurance.polis.npolis %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.fam %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.im %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.ot %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.dr %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.w %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.status %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.addres_g.npname if at.person.addres_g.npname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.addres_g.ul if at.person.addres_g.ul %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.addres_g.dom if at.person.addres_g.dom %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.addres_g.korp if at.person.addres_g.korp %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.addres_g.kv if at.person.addres_g.kv %></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= at.kdatemu %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= at.kdmu %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.person.vizit.dvizit.strftime('%d.%m.%Y') if at.person.vizit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.date_b.strftime('%d.%m.%Y') if at.date_b %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.date_e.strftime('%d.%m.%Y') if at.date_e %></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"><%= at.type_at == 'F' ? 'Ф' : 'Т' %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

@@ -4,6 +4,22 @@ class AtsController < ApplicationController
   require 'builder'
   require 'zip/zip'
   
+  def export
+    @ats = At.includes(:person => [:op,:addres_g,:vizit => {:insurance => :polis}])
+             .where(:kdatemu => params[:kdatemu], :kdmu => params[:kdmu], :ops => {:active => 't'} )
+    respond_to do |format|
+      format.html
+      # format.csv { render text: }
+      format.xls
+    end
+  end
+  
+  def to_mu
+    mu_ids = At.to_kdmus(params[:kdatemu])
+    @mus = Nsilpu.where(:ate_id => params[:kdatemu], :kdlpu => mu_ids).order(:namelpu)
+    render :layout => false
+  end
+  # используемые территории прикрепления
   def to_attach
     ate_ids = At.to_ates
     @ates = Ate.where(:id => ate_ids).order(:nameate)

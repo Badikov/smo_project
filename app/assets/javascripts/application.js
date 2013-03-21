@@ -26,4 +26,5 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require select2
 //= require twitter/bootstrap
+//= require jquery.spin
 //= require_tree . 

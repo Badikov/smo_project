@@ -8,11 +8,22 @@ class At < ActiveRecord::Base
   scope :territor, -> { where("type_at= ?", "T") }
   scope :facktice, -> { where("type_at= ?", "F") }
   
+  def self.count_people_in_ate
+    includes(:person => :op).where(["ops.active= ?", true]).count(:person_id, :group => 'kdatemu')
+  end
+  # scope :people_in_lpu, ->(kdatemu, kdmu) { where(["kdatemu= ? and kdmu= ?", kdatemu, kdmu]).uniq.pluck(:person_id) }
+  def self.count_people_in_lpu(kdatemu, kdmu)
+    includes(:person => :op).where(["ops.active= ? and kdatemu= ? and kdmu= ?", true, kdatemu, kdmu]).count(:person_id)
+  end
+  # id территорий, где есть активные застрахованные
   def self.to_ates
     # includes(:person => [:op]).where(["ops.active= ?", true]).uniq.pluck(:kdatemu)
     joins(:person => :op).where(["ops.active= ?", true]).uniq.pluck(:kdatemu)
   end
-  
+  # коды поликлиник на конкретной террирории
+  def self.to_kdmus(kdatemu)
+    where("kdatemu= ?", kdatemu).uniq.pluck(:kdmu)
+  end
    
   before_save :insert_dates
   
