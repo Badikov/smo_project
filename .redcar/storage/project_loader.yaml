@@ -2,10 +2,8 @@
 open_files: 
   - app/controllers/customers_controller.rb
   - app/controllers/vizits_controller.rb
-  - app/models/addres_g.rb
   - app/models/person.rb
   - app/models/polis.rb
-  - app/controllers/ats_controller.rb
-  - app/models/at.rb
-  - app/views/ats/to_mu.html.erb
-  - app/models/op.rb
+  - app/models/insurance.rb
+  - app/models/vizit.rb
+  - app/controllers/ops_controller.rb

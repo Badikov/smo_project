@@ -75,7 +75,7 @@ class CustomersController < ApplicationController
     # 025 - снятие с учета иностранца
     @op = Op.find_by_person_id(params[:id])
     vizit = Vizit.find_by_person_id(params[:id])
-    
+    #TODO --?????????????????????????????????????????????????
     if (vizit.insurance.polis.dstop > DateTime.current.to_date) || vizit.insurance.polis.dstop.nil?
       @op.update_attributes({ active: 0, tip_op: "П025", date_uvoln: DateTime.now })
     else
@@ -109,7 +109,7 @@ class CustomersController < ApplicationController
   def save_doublecat_polis
     @vizit = Vizit.find_by_id(params[:vizit][:id])
       if  @vizit.update_attributes(params[:vizit])
-        @vizit.person.op.update_attributes({tip_op: "П062"})
+        @vizit.person.op.update_attributes({tip_op: "П062", user_id: current_user.id, filial_id: current_user.filial_id})
         # render json: @vizit
         redirect_to @vizit.person, notice: 'Новые данные успешно сохранены.'
       else

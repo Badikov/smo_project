@@ -68,16 +68,31 @@ jQuery ->
      if @checked
       $("form#new_vizit div.optional:eq(2)").show("slow")
       $('label[for="vizit_insurance_polis_npolis"]').text 'Номер временного свидетельства'
-      $("#vizit_fpolis option[value=0]").removeAttr 'selected'
-      $("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
-      $("#vizit_fpolis option[value=1]").removeAttr 'disabled'
+      $("#vizit_fpolis option").each () ->
+        $(@)
+          .removeAttr('disabled')
+          .removeAttr('selected')
+      $("#vizit_fpolis option[value=0]").attr disabled: "disabled"
       $("#vizit_fpolis option[value=1]").attr selected: "selected"
+      #$("#vizit_fpolis option[value=1]").attr selected: 'selected'  
+      #$("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
+      
+
+      #$("#vizit_fpolis option[value=0]").removeAttr 'selected'
+      #$("#vizit_fpolis option[value=0]").attr disabled: 'disabled'
+      #$("#vizit_fpolis option[value=1]").removeAttr 'disabled'
+      #$("#vizit_fpolis option[value=1]").attr selected: "selected"
      else
       $("form#new_vizit div.optional:eq(2)").hide()
       $('label[for="vizit_insurance_polis_npolis"]').text 'Номер бланка полиса единого образца'
-      $("#vizit_fpolis option[value=0]").removeAttr 'disabled'
+      $("#vizit_fpolis option").each () ->
+        $(@)
+          .removeAttr('disabled')
+          .removeAttr('selected')
+      
+      #$("#vizit_fpolis option[value=0]").removeAttr 'disabled'
       $("#vizit_fpolis option[value=0]").attr selected: "selected"
-      $("#vizit_fpolis option[value=1]").removeAttr 'selected'
+      #$("#vizit_fpolis option[value=1]").removeAttr 'selected'
       $("#vizit_fpolis option[value=1]").attr disabled: 'disabled'
  
  $('#vizit_petition').click ->

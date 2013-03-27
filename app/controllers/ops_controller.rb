@@ -40,20 +40,22 @@ class OpsController < ApplicationController
     @@where_str = d
     #выбираем юзеров, которые вносили данные за период
      # ops = Op.select("DISTINCT user_id").where(updated_at: (d.beginning_of_day)..(d.end_of_day))
-     ops = Op.where(updated_at: (d.beginning_of_day)..(d.end_of_day)).uniq.pluck(:user_id)
+     # ops = Op.where(updated_at: (d.beginning_of_day)..(d.end_of_day)).uniq.pluck(:user_id)
+     filials = Op.where(updated_at: (d.beginning_of_day)..(d.end_of_day)).uniq.pluck(:filial_id)
     #отбираем филиалы, к которым относятся эти юзеры
-     filials = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops}) 
+     # filials = Filial.select("DISTINCT filials.id").joins(:users).where(:users => {:id => ops}) 
     
-    logger.debug {"===================>" + Time.current.hour.to_s }
+    logger.debug {"===================>" + filials.to_s }
     if Time.current.hour < 12
       vers = "1"
     else
       vers = "2"
     end
     
-     filials.each do |f|
+     filials.sort.collect do |f|
+      logger.debug {"===================>" + f.to_s }
       #ссылка для каждого филиала, в котором вносились данные
-       @a << { name:"i42007_#{f[:id]}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + vers + ".xml", id: f[:id]}
+       @a << { name:"i42007_#{f.to_s}_" + day_to_str(d.day.to_s) + day_to_str(d.month.to_s) + d.year.to_s.slice(2,2) + vers + ".xml", id:f }
      end
     # @a << { name:"i42007_1_2111121.xml", id: 1 } << { name:"i42007_2_0211121.xml", id: 2 } << { name:"i42007_3_0211121.xml", id: 3 }
      

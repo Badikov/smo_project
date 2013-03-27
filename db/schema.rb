@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203130812) do
+ActiveRecord::Schema.define(:version => 20130327172649) do
 
   create_table "addres_gs", :force => true do |t|
     t.integer  "bomg"
@@ -123,15 +123,13 @@ ActiveRecord::Schema.define(:version => 20130203130812) do
 
   create_table "insurances", :force => true do |t|
     t.string   "ter_st"
-    t.integer  "enp"
+    t.string   "enp",        :limit => 16
     t.string   "ogrnsmo"
     t.integer  "erp"
     t.integer  "vizit_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
-
-  add_index "insurances", ["vizit_id"], :name => "index_insurances_on_vizit_id"
 
   create_table "nsilpus", :force => true do |t|
     t.integer "kdlpu"
@@ -200,10 +198,13 @@ ActiveRecord::Schema.define(:version => 20130203130812) do
     t.integer  "user_id"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+    t.integer  "filial_id"
   end
 
   add_index "ops", ["active"], :name => "index_ops_on_active"
   add_index "ops", ["created_at"], :name => "index_ops_on_created_at"
+  add_index "ops", ["filial_id", "person_id"], :name => "index_ops_on_filial_id_and_person_id", :unique => true
+  add_index "ops", ["filial_id"], :name => "index_ops_on_filial_id"
   add_index "ops", ["person_id"], :name => "index_ops_on_person_id"
   add_index "ops", ["updated_at"], :name => "index_ops_on_updated_at"
   add_index "ops", ["user_id", "person_id"], :name => "index_ops_on_user_id_and_person_id", :unique => true

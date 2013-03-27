@@ -56,7 +56,7 @@ class PeopleController < ApplicationController
     
     if @person.valid?
       
-      @person.build_op({user_id: current_user.id, active: 0})
+      @person.build_op({user_id: current_user.id, filial_id: current_user.filial_id, active: 0})
       
       @person.representative.mark_for_destruction  if @person.representative.fam.blank?
       @person.addres_p.mark_for_destruction  if @person.addres_p.npname.blank?
@@ -131,7 +131,7 @@ class PeopleController < ApplicationController
           end
         end
         if @vizit.save(:validate => false) 
-          @vizit.person.op.update_attributes({tip_op: "П061"})
+          @vizit.person.op.update_attributes({ tip_op: "П061", user_id: current_user.id, filial_id: current_user.filial_id })
           # render json: params[:person]
           redirect_to @person, notice: 'Новые данные успешно сохранены.'
         else

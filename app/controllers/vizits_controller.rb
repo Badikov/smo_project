@@ -173,6 +173,7 @@ class VizitsController < ApplicationController
       if @vizit.save 
         op = Op.find_by_person_id(@vizit.person_id)
         #TODO затереть дату увольнения, если чел был, ушел и опять вернулся
+        # op.update_attributes({tip_op: tip_op, active: 1, date_uvoln: nil, user_id: current_user.id, filial_id: current_user.filial_id})
         op.update_attributes({tip_op: tip_op, active: 1, date_uvoln: nil})
         redirect_to @vizit, notice: 'Визит успешно сохранен.'
       else
