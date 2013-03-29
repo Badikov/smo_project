@@ -50,6 +50,8 @@ gem 'libxml-ruby'
 gem "ransack"
 gem "rubyzip"
 gem "inifile", "~> 2.0.2"
+gem 'axlsx_rails'
+gem 'acts_as_xlsx'
 # gem 'rails-i18n'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

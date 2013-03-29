@@ -3,14 +3,29 @@ class AtsController < ApplicationController
   before_filter :require_user
   require 'builder'
   require 'zip/zip'
+  require 'tempfile'
   
   def export
     @ats = At.includes(:person => [:op,:addres_g,:vizit => {:insurance => :polis}])
              .where(:kdatemu => params[:kdatemu], :kdmu => params[:kdmu], :ops => {:active => 't'} )
     respond_to do |format|
       format.html
+      format.json { render :json => @ats }
       # format.csv { render text: }
       format.xls
+      format.xlsx {
+        xlsx_package = At.includes(:person => [:op,:addres_g,:vizit => {:insurance => :polis}])
+             .where(:kdatemu => params[:kdatemu], :kdmu => params[:kdmu], :ops => {:active => 't'} ).to_xlsx
+        begin
+          temp = Tempfile.new("posts.xlsx")
+          xlsx_package.serialize temp.path
+          logger.debug {"===================>" + temp.path.to_s }
+          send_file temp.path, :filename => "posts.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ensure
+          # temp.close
+          # temp.unlink
+        end
+      }
     end
   end
   

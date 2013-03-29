@@ -29,6 +29,8 @@ class Person < ActiveRecord::Base
   
   attr_accessor :politics
   
+  acts_as_xlsx
+  
   def self.get_passport
     includes(:op => [:user]).joins(:doc).where(['docs.doctype = 3 and people.dr < ?', DateTime.current.months_ago(167)])
     # joins(:doc).where(:docs => {:doctype => 3}, ['dr < ?', DateTime.current.months_ago(167)]) 

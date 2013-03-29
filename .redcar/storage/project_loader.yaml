@@ -6,4 +6,6 @@ open_files:
   - app/models/polis.rb
   - app/models/insurance.rb
   - app/models/vizit.rb
-  - app/controllers/ops_controller.rb
+  - app/controllers/ats_controller.rb
+  - app/models/at.rb
+  - app/views/ats/export.xls.erb

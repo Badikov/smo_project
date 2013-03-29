@@ -10,7 +10,7 @@
   <% end %>
   
   <% op = @person.op   %>
-  <% filials = Filial.joins(:users).where(:users => {:id => op.user_id}) %>
+  <% filial = Filial.find_by_id(op.filial_id) %>
   <% user = User.find_by_id(op.user_id) %>
 
   <% if @person.ats.territor %>
@@ -39,7 +39,7 @@
               <dt>появился</dt><dd><%= op.created_at.strftime('%d.%m.%Y') %></dd>
               <dt>последнее обновление</dt><dd><%= op.updated_at.strftime('%d.%m.%Y') %></dd>
               <dt>последнее событие</dt><dd><%= op.tip_op || "-" %></dd>
-              <dt>подразделение</dt><dd><%= filials[0].title %></dd>
+              <dt>подразделение</dt><dd><%= filial.title %></dd>
               <dt>агент</dt><dd><%= user.name %></dd>
               <dt>территориальное прикрепление</dt>
               <% unless ter_pr.blank? %>
