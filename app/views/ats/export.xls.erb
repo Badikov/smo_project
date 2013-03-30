@@ -31,9 +31,19 @@
         <Cell><Data ss:Type="String">TypePr</Data></Cell>
       </Row>
     <% @ats.each do |at| %>
+      <% polis = "" %>
+      <% if at.type_at == 'F' %>
+        <% if at.person.vizit.insurance.erp == 1 and at.person.vizit.insurance.polis.spolis.blank? and !at.person.vizit.insurance.enp.blank? %>
+          <% polis = at.person.vizit.insurance.enp %>
+        <% elsif !at.person.vizit.insurance.polis.spolis.blank? and !at.person.vizit.insurance.polis.npolis.blank? %>
+          <% polis = at.person.vizit.insurance.polis.spolis + at.person.vizit.insurance.polis.npolis %>
+        <% else %>
+          <% polis = at.person.vizit.insurance.polis.npolis %>
+        <% end %>
+      <% end %>
       <Row>
         <Cell><Data ss:Type="Number"></Data></Cell>
-        <Cell><Data ss:Type="String"><%= at.person.vizit.insurance.erp == 1 ? at.person.vizit.insurance.enp : at.person.vizit.insurance.polis.spolis + at.person.vizit.insurance.polis.npolis %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= polis %></Data></Cell>
         <Cell><Data ss:Type="String"><%= at.person.fam %></Data></Cell>
         <Cell><Data ss:Type="String"><%= at.person.im %></Data></Cell>
         <Cell><Data ss:Type="String"><%= at.person.ot %></Data></Cell>

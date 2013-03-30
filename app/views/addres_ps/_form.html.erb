@@ -15,11 +15,11 @@
    
        <%= f.input :ul, :label => 'Улица' , :input_html => { onkeyup:'this.value=this.value.toUpperCase()', data: {autocomplete_source: streets_path} } %>
       
-      <%= f.input :dom, :label => 'Дом', :input_html => { :class => "span1" } %>
+      <%= f.input :dom, :label => 'Дом', :input_html => { :class => "span1", onkeyup:'this.value=this.value.toUpperCase()' } %>
    
-      <%= f.input :korp, :label => 'Корпус', :input_html => { :class => "span1" } %>
+      <%= f.input :korp, :label => 'Корпус', :input_html => { :class => "span1", onkeyup:'this.value=this.value.toUpperCase()' } %>
     
-      <%= f.input :kv, :label => 'Квартира', :input_html => { :class => "span1" } %>
+      <%= f.input :kv, :label => 'Квартира', :input_html => { :class => "span1", onkeyup:'this.value=this.value.toUpperCase()' } %>
     
   
 <% end %>

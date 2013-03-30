@@ -18,11 +18,11 @@
        <%= f.input :ul, :label => 'Улица', :placeholder => 'КИРОВА УЛ',:input_html => {onkeyup:'this.value=this.value.toUpperCase()'},
       :hint =>'если нужной улицы нет в выпадающем списке, то ввести, как на шаблоне'  %>
       
-      <%= f.input :dom, :label => 'Дом', :input_html => { :class => "span1" } %>
+      <%= f.input :dom, :label => 'Дом', :input_html => { :class => "span1", onkeyup:'this.value=this.value.toUpperCase()' } %>
    
-      <%= f.input :korp, :label => 'Корпус', :input_html => { :class => "span1" } %>
+      <%= f.input :korp, :label => 'Корпус', :input_html => { :class => "span1", onkeyup:'this.value=this.value.toUpperCase()' } %>
     
-      <%= f.input :kv, :label => 'Квартира', :input_html => { :class => "span1" } %>
+      <%= f.input :kv, :label => 'Квартира', :input_html => { :class => "span1", onkeyup:'this.value=this.value.toUpperCase()' } %>
     
       <%= f.input :dreg, :label => 'Дата регистрации', :include_blank => true, :as => :date, :start_year => Date.today.year - 50,:end_year => Date.today.year,:order => [:day, :month, :year] %>
     
