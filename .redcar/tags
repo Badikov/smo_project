@@ -1,4 +1,4 @@
-1364630600
+1364876533
 Ability	/home/alex/rails_projects/smo_project/app/models/ability.rb	class Ability
 AddColumnStatusInTablePerson	/home/alex/rails_projects/smo_project/db/migrate/20121118051044_add_column_status_in_table_person.rb	class AddColumnStatusInTablePerson 
 AddColumnsToDocs	/home/alex/rails_projects/smo_project/db/migrate/20121020065736_add_columns_to_docs.rb	class AddColumnsToDocs 
@@ -287,8 +287,8 @@ createPrevButton	/home/alex/rails_projects/smo_project/app/assets/javascripts/fo
 createResult	/home/alex/rails_projects/smo_project/doc/app/js/searcher.js	function createResult(info)
 create_fackt_pricreplenie	/home/alex/rails_projects/smo_project/app/controllers/uploads_controller.rb	  def create_fackt_pricreplenie(rows_aray, file_name)
 create_fakt	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_fakt
-create_links	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def create_links
 create_links	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def create_links
+create_links	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def create_links
 create_roles	/home/alex/rails_projects/smo_project/db/migrate/20121104070948_create_roles.simple_roles_engine.rb	  def create_roles
 current_user	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user
 current_user_session	/home/alex/rails_projects/smo_project/app/controllers/application_controller.rb	    def current_user_session
@@ -331,16 +331,16 @@ edit_polis	/home/alex/rails_projects/smo_project/app/controllers/customers_contr
 error_vizit	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def error_vizit
 error_vizit	/home/alex/rails_projects/smo_project/app/models/person.rb	  def self.error_vizit
 export	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def export
-files	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def files
 files	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def files
+files	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def files
 foo	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def foo
 foo=	/home/alex/rails_projects/smo_project/app/models/polis.rb	  def foo=(value)
 foreigner	/home/alex/rails_projects/smo_project/app/models/person.rb	  alias_method :foreigner
 foreigners	/home/alex/rails_projects/smo_project/app/controllers/reports_controller.rb	  def foreigners
 forma_polisa	/home/alex/rails_projects/smo_project/app/helpers/vizits_helper.rb	  def forma_polisa
 formapolisa	/home/alex/rails_projects/smo_project/app/helpers/customers_helper.rb	  def formapolisa(arg)
-generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_builder(par)
 generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def generate_builder(people, file_name)
+generate_builder	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_builder(par)
 generate_xml	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def generate_xml(ops)
 get_passport	/home/alex/rails_projects/smo_project/app/models/person.rb	  def self.get_passport
 highlightClickTarget	/home/alex/rails_projects/smo_project/doc/app/js/darkfish.js	function highlightClickTarget( event )
@@ -348,8 +348,8 @@ highlightLocationTarget	/home/alex/rails_projects/smo_project/doc/app/js/darkfis
 highlightQuery	/home/alex/rails_projects/smo_project/doc/app/js/searcher.js	function highlightQuery(info, queries, regexps, highlighters)
 highlightRegexp	/home/alex/rails_projects/smo_project/doc/app/js/searcher.js	function highlightRegexp(info, queries, regexps, highlighters)
 highlightTarget	/home/alex/rails_projects/smo_project/doc/app/js/darkfish.js	function highlightTarget( anchor )
-hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def hijack_response( out_data, file_name )
 hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ats_controller.rb	  def hijack_response( out_data, file_name )
+hijack_response	/home/alex/rails_projects/smo_project/app/controllers/ops_controller.rb	  def hijack_response( out_data, file_name )
 hltSubstring	/home/alex/rails_projects/smo_project/doc/app/js/searcher.js	function hltSubstring(string, pos, length)
 hookDebuggingToggle	/home/alex/rails_projects/smo_project/doc/app/js/darkfish.js	function hookDebuggingToggle()
 hookSearch	/home/alex/rails_projects/smo_project/doc/app/js/darkfish.js	function hookSearch()
