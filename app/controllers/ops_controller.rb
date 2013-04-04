@@ -115,7 +115,7 @@ class OpsController < ApplicationController
     ops = []
     #!!!!!!!!!! отбирает записи по массиву юзеров одного филиала и дате 
     #_ops = Op.select("id,tip_op,person_id").where(:user_id => _users , :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))
-    _ops = Op.select("id,tip_op,person_id").where(:filial_id => par[:id], :active => 't' , :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))
+    _ops = Op.select("id,tip_op,person_id").where(:filial_id => par[:id], :updated_at => (@@where_str.beginning_of_day)..(@@where_str.end_of_day))
     
     _ops.each do |op_item|
 	    tmp = {}

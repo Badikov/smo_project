@@ -323,9 +323,6 @@ cursor_positions:
   - :path: app/assets/javascripts/customers.js.coffee
     :cursor_offset: 0
     :timestamp: 2012-12-25 02:34:31 +06:00
-  - :path: app/models/old_person.rb
-    :cursor_offset: 121
-    :timestamp: 2013-01-07 14:54:43 +06:00
   - :path: app/views/customers/_customer_links.html.erb
     :cursor_offset: 0
     :timestamp: 2012-11-27 16:21:33 +06:00
@@ -694,9 +691,6 @@ cursor_positions:
   - :path: app/views/representatives/_edit_form.html.erb
     :cursor_offset: 159
     :timestamp: 2013-02-12 23:24:36 +06:00
-  - :path: app/models/doc.rb
-    :cursor_offset: 1051
-    :timestamp: 2013-02-05 13:48:57 +06:00
   - :path: app/controllers/docs_controller.rb
     :cursor_offset: 3051
     :timestamp: 2013-02-05 13:41:31 +06:00
@@ -785,12 +779,6 @@ cursor_positions:
   - :path: app/views/ops/_count_people.html.erb
     :cursor_offset: 152
     :timestamp: 2013-01-31 09:44:28 +06:00
-  - :path: app/views/layouts/account.html.erb
-    :cursor_offset: 87
-    :timestamp: 2013-01-29 17:11:03 +06:00
-  - :path: app/views/shared/_error_messages.html.erb
-    :cursor_offset: 151
-    :timestamp: 2013-01-25 04:36:08 +06:00
   - :path: app/views/customers/_death_modal.html.erb
     :cursor_offset: 434
     :timestamp: 2013-03-03 23:31:09 +06:00
@@ -936,9 +924,6 @@ cursor_positions:
     :timestamp: 2013-02-01 00:12:49 +06:00
     :selection_offset: 148
     :block_selection_mode: false
-  - :path: app/helpers/vizits_helper.rb
-    :cursor_offset: 1053
-    :timestamp: 2013-03-21 12:24:46 +06:00
   - :path: db/migrate/20130203130812_new.rb
     :cursor_offset: 303
     :timestamp: 2013-02-03 19:12:28 +06:00
@@ -964,9 +949,6 @@ cursor_positions:
   - :path: app/controllers/home_controller.rb
     :cursor_offset: 0
     :timestamp: 2012-11-01 11:15:18 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 4081
-    :timestamp: 2013-03-28 00:47:30 +06:00
   - :path: app/models/filial.rb
     :cursor_offset: 67
     :timestamp: 2013-03-28 00:30:08 +06:00
@@ -999,9 +981,6 @@ cursor_positions:
   - :path: config/locales/ru.yml
     :cursor_offset: 571
     :timestamp: 2013-02-19 16:48:43 +06:00
-  - :path: app/controllers/ops_controller.rb
-    :cursor_offset: 2143
-    :timestamp: 2013-03-28 02:10:09 +06:00
   - :path: app/views/ats/to_mu.html.erb
     :cursor_offset: 203
     :timestamp: 2013-03-29 11:43:39 +06:00
@@ -1032,10 +1011,31 @@ cursor_positions:
   - :path: app/models/vizit.rb
     :cursor_offset: 1534
     :timestamp: 2013-03-21 12:13:41 +06:00
-  - :path: app/controllers/ats_controller.rb
-    :cursor_offset: 1083
-    :timestamp: 2013-03-28 11:23:22 +06:00
   - :path: app/models/at.rb
     :cursor_offset: 219
     :timestamp: 2013-03-28 11:51:33 +06:00
+  - :path: app/helpers/vizits_helper.rb
+    :cursor_offset: 1053
+    :timestamp: 2013-03-21 12:24:46 +06:00
+  - :path: app/models/old_person.rb
+    :cursor_offset: 121
+    :timestamp: 2013-01-07 14:54:43 +06:00
+  - :path: app/models/doc.rb
+    :cursor_offset: 1051
+    :timestamp: 2013-02-05 13:48:57 +06:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 2732
+    :timestamp: 2013-03-28 00:47:30 +06:00
+  - :path: app/controllers/ops_controller.rb
+    :cursor_offset: 4339
+    :timestamp: 2013-04-04 15:30:12 +07:00
+  - :path: app/controllers/ats_controller.rb
+    :cursor_offset: 1083
+    :timestamp: 2013-03-28 11:23:22 +06:00
+  - :path: app/views/shared/_error_messages.html.erb
+    :cursor_offset: 151
+    :timestamp: 2013-01-25 04:36:08 +06:00
+  - :path: app/views/layouts/account.html.erb
+    :cursor_offset: 87
+    :timestamp: 2013-01-29 17:11:03 +06:00
 files_to_retain: 0

@@ -39,7 +39,9 @@ class Polis < ActiveRecord::Base
       flag = false
       ini_file.values.each do |line|
         if line["start"].upto(line["end"]).to_a.include?(self.npolis) and line["series"] == self.spolis
-          flag = true
+          # проверяем, нет ли уже в базе этой серии-номера
+          _polis = Polis.find_by_spolis_and_npolis(self.spolis, self.npolis)
+          flag = true unless _polis
         end
       end
       if flag
