@@ -24,7 +24,7 @@ ssh_options[:forward_agent] = true
 set :deploy_to, "/home/deployer/webapps/#{application}"
 set :deploy_via, :remote_cache
 set :user, "deployer"
-set :password, "123108"
+
 set :use_sudo, false
 # repo details
 set :scm, :git

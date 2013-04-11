@@ -782,9 +782,6 @@ cursor_positions:
   - :path: app/views/customers/_death_modal.html.erb
     :cursor_offset: 434
     :timestamp: 2013-03-03 23:31:09 +06:00
-  - :path: app/views/user_sessions/new.html.erb
-    :cursor_offset: 296
-    :timestamp: 2013-01-09 21:35:45 +06:00
   - :path: app/views/vizits/new.html.erb
     :cursor_offset: 55
     :timestamp: 2013-01-23 09:33:58 +06:00
@@ -808,9 +805,6 @@ cursor_positions:
   - :path: public/numbers/numbers.ini
     :cursor_offset: 0
     :timestamp: 2013-03-05 22:53:21 +06:00
-  - :path: lib/smo.rb
-    :cursor_offset: 1670
-    :timestamp: 2013-01-18 10:03:03 +06:00
   - :path: doc/app/Vizit.html
     :cursor_offset: 0
     :timestamp: 2013-03-11 00:01:01 +06:00
@@ -993,24 +987,6 @@ cursor_positions:
   - :path: app/views/addres_gs/_form.html.erb
     :cursor_offset: 1775
     :timestamp: 2013-03-30 13:31:45 +06:00
-  - :path: app/controllers/customers_controller.rb
-    :cursor_offset: 4000
-    :timestamp: 2013-03-28 01:14:21 +06:00
-  - :path: app/controllers/vizits_controller.rb
-    :cursor_offset: 7470
-    :timestamp: 2013-03-28 03:02:39 +06:00
-  - :path: app/models/person.rb
-    :cursor_offset: 1366
-    :timestamp: 2013-03-28 10:47:26 +06:00
-  - :path: app/models/polis.rb
-    :cursor_offset: 1791
-    :timestamp: 2013-03-18 22:19:02 +06:00
-  - :path: app/models/insurance.rb
-    :cursor_offset: 562
-    :timestamp: 2013-01-24 03:54:16 +06:00
-  - :path: app/models/vizit.rb
-    :cursor_offset: 1534
-    :timestamp: 2013-03-21 12:13:41 +06:00
   - :path: app/models/at.rb
     :cursor_offset: 219
     :timestamp: 2013-03-28 11:51:33 +06:00
@@ -1038,4 +1014,28 @@ cursor_positions:
   - :path: app/views/layouts/account.html.erb
     :cursor_offset: 87
     :timestamp: 2013-01-29 17:11:03 +06:00
+  - :path: app/controllers/customers_controller.rb
+    :cursor_offset: 4000
+    :timestamp: 2013-03-28 01:14:21 +06:00
+  - :path: app/controllers/vizits_controller.rb
+    :cursor_offset: 7470
+    :timestamp: 2013-03-28 03:02:39 +06:00
+  - :path: app/models/person.rb
+    :cursor_offset: 1366
+    :timestamp: 2013-03-28 10:47:26 +06:00
+  - :path: app/models/polis.rb
+    :cursor_offset: 1657
+    :timestamp: 2013-04-04 21:21:22 +07:00
+  - :path: app/models/insurance.rb
+    :cursor_offset: 562
+    :timestamp: 2013-01-24 03:54:16 +06:00
+  - :path: app/models/vizit.rb
+    :cursor_offset: 1534
+    :timestamp: 2013-03-21 12:13:41 +06:00
+  - :path: lib/smo.rb
+    :cursor_offset: 1670
+    :timestamp: 2013-01-18 10:03:03 +06:00
+  - :path: app/views/user_sessions/new.html.erb
+    :cursor_offset: 296
+    :timestamp: 2013-01-09 21:35:45 +06:00
 files_to_retain: 0
