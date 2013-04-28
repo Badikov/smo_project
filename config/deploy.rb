@@ -5,7 +5,7 @@
 # RVM bootstrap
 # $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require 'rvm/capistrano'
-set :rvm_ruby_string, 'ruby-1.9.3-p286'
+set :rvm_ruby_string, 'ruby-1.9.3-p392'
 set :rvm_type, :user
 # set :bundle_cmd, 'source /home/deployer/.rvm/gems/ruby-1.9.3-p286@rails3tutorial/bin/bundle'
 
@@ -14,6 +14,7 @@ require 'bundler/capistrano'
 set :bundle_without, [:development, :test]
 # main details
 set :application, "smo_project"
+set :user, "master"
 role :web, "217.116.153.106"
 role :app, "217.116.153.106"
 role :db,  "217.116.153.106", :primary => true
@@ -21,9 +22,9 @@ role :db,  "217.116.153.106", :primary => true
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :deploy_to, "/home/deployer/webapps/#{application}"
+set :deploy_to, "/home/#{user}/webapps/#{application}"
 set :deploy_via, :remote_cache
-set :user, "deployer"
+
 
 set :use_sudo, false
 # repo details

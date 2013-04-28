@@ -1008,6 +1008,15 @@ cursor_positions:
   - :path: app/views/layouts/account.html.erb
     :cursor_offset: 87
     :timestamp: 2013-01-29 17:11:03 +06:00
+  - :path: lib/smo.rb
+    :cursor_offset: 1670
+    :timestamp: 2013-01-18 10:03:03 +06:00
+  - :path: app/views/user_sessions/new.html.erb
+    :cursor_offset: 296
+    :timestamp: 2013-01-09 21:35:45 +06:00
+  - :path: .gitignore
+    :cursor_offset: 0
+    :timestamp: 2013-04-12 01:43:39 +07:00
   - :path: app/controllers/customers_controller.rb
     :cursor_offset: 4000
     :timestamp: 2013-03-28 01:14:21 +06:00
@@ -1026,16 +1035,12 @@ cursor_positions:
   - :path: app/models/vizit.rb
     :cursor_offset: 1534
     :timestamp: 2013-03-21 12:13:41 +06:00
-  - :path: lib/smo.rb
-    :cursor_offset: 1670
-    :timestamp: 2013-01-18 10:03:03 +06:00
-  - :path: app/views/user_sessions/new.html.erb
-    :cursor_offset: 296
-    :timestamp: 2013-01-09 21:35:45 +06:00
-  - :path: .gitignore
-    :cursor_offset: 522
-    :timestamp: 2013-04-12 00:58:08 +07:00
   - :path: config/deploy.rb
-    :cursor_offset: 824
+    :cursor_offset: 522
     :timestamp: 2013-04-12 01:43:39 +07:00
+    :selection_offset: 511
+    :block_selection_mode: false
+  - :path: config/database.yml
+    :cursor_offset: 540
+    :timestamp: 2013-04-28 22:41:39 +07:00
 files_to_retain: 0
