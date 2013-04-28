@@ -1,4 +1,7 @@
-<table id="" class="display">
+<p>
+  <h4></h4>
+</p>
+<table id="" class="table table-striped">
     <thead>
         <tr>
             <th>Агент</th>
@@ -6,7 +9,7 @@
             <th>Имя</th>
             <th>Отчество</th>
             <th>дата_рождения</th>
-            
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +21,7 @@
             <td><%= person.im %></td>
             <td><%= person.ot %></td>
             <td><%= person.dr %></td>
-            
+            <td><%= link_to 'Удалить', person, :confirm => "Вы уверены, что нужно удалить #{person.fam}?", :method => :delete %></td>
         </tr>
      <% end %>   
     </tbody>

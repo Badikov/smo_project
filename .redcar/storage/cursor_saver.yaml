@@ -497,11 +497,6 @@ cursor_positions:
   - :path: app/views/filials/show.html.erb
     :cursor_offset: 556
     :timestamp: 2013-01-25 01:53:07 +06:00
-  - :path: app/views/filials/index.html.erb
-    :cursor_offset: 667
-    :timestamp: 2013-01-25 01:45:54 +06:00
-    :selection_offset: 640
-    :block_selection_mode: false
   - :path: app/views/filials/_form.html.erb
     :cursor_offset: 211
     :timestamp: 2013-01-25 02:06:58 +06:00
@@ -674,9 +669,6 @@ cursor_positions:
   - :path: app/assets/stylesheets/application.css.scss
     :cursor_offset: 698
     :timestamp: 2013-01-23 17:00:59 +06:00
-  - :path: app/assets/stylesheets/bootstrap_and_overrides.css.less
-    :cursor_offset: 1403
-    :timestamp: 2013-02-12 22:25:40 +06:00
   - :path: app/views/docs/_edit_form.html.erb
     :cursor_offset: 1039
     :timestamp: 2013-02-01 14:43:19 +06:00
@@ -843,14 +835,6 @@ cursor_positions:
     :timestamp: 2013-02-28 16:58:25 +06:00
     :selection_offset: 425
     :block_selection_mode: false
-  - :path: app/views/reports/age14.html.erb
-    :cursor_offset: 895
-    :timestamp: 2013-02-04 16:47:21 +06:00
-    :selection_offset: 131
-    :block_selection_mode: false
-  - :path: app/views/reports/error_vizit.html.erb
-    :cursor_offset: 613
-    :timestamp: 2013-03-13 23:23:22 +06:00
   - :path: app/views/people/_form.html.erb
     :cursor_offset: 112
     :timestamp: 2013-02-13 13:08:43 +06:00
@@ -887,9 +871,6 @@ cursor_positions:
     :timestamp: 2013-01-28 05:39:02 +06:00
     :selection_offset: 122
     :block_selection_mode: false
-  - :path: config/application.rb
-    :cursor_offset: 59
-    :timestamp: 2013-03-20 10:06:14 +06:00
   - :path: app/views/people/export.xls.erb
     :cursor_offset: 1304
     :timestamp: 2013-03-20 11:53:32 +06:00
@@ -966,9 +947,6 @@ cursor_positions:
   - :path: app/views/ats/export.xlsx.axlsx
     :cursor_offset: 315
     :timestamp: 2013-03-28 10:02:13 +06:00
-  - :path: config/locales/ru.yml
-    :cursor_offset: 571
-    :timestamp: 2013-02-19 16:48:43 +06:00
   - :path: app/views/ats/to_mu.html.erb
     :cursor_offset: 203
     :timestamp: 2013-03-29 11:43:39 +06:00
@@ -993,9 +971,6 @@ cursor_positions:
   - :path: app/models/doc.rb
     :cursor_offset: 1051
     :timestamp: 2013-02-05 13:48:57 +06:00
-  - :path: app/controllers/people_controller.rb
-    :cursor_offset: 2732
-    :timestamp: 2013-03-28 00:47:30 +06:00
   - :path: app/controllers/ops_controller.rb
     :cursor_offset: 4339
     :timestamp: 2013-04-04 15:30:12 +07:00
@@ -1035,12 +1010,37 @@ cursor_positions:
   - :path: app/models/vizit.rb
     :cursor_offset: 1534
     :timestamp: 2013-03-21 12:13:41 +06:00
-  - :path: config/deploy.rb
-    :cursor_offset: 522
-    :timestamp: 2013-04-12 01:43:39 +07:00
-    :selection_offset: 511
-    :block_selection_mode: false
   - :path: config/database.yml
     :cursor_offset: 540
     :timestamp: 2013-04-28 22:41:39 +07:00
+  - :path: config/deploy.rb
+    :cursor_offset: 105
+    :timestamp: 2013-04-28 22:17:35 +07:00
+    :selection_offset: 45
+    :block_selection_mode: false
+  - :path: app/assets/stylesheets/bootstrap_and_overrides.css.less
+    :cursor_offset: 1836
+    :timestamp: 2013-04-29 01:13:05 +07:00
+  - :path: app/views/filials/index.html.erb
+    :cursor_offset: 178
+    :timestamp: 2013-01-25 01:45:54 +06:00
+    :selection_offset: 151
+    :block_selection_mode: false
+  - :path: app/views/reports/age14.html.erb
+    :cursor_offset: 895
+    :timestamp: 2013-02-04 16:47:21 +06:00
+    :selection_offset: 131
+    :block_selection_mode: false
+  - :path: app/views/reports/error_vizit.html.erb
+    :cursor_offset: 745
+    :timestamp: 2013-04-29 01:36:34 +07:00
+  - :path: app/controllers/people_controller.rb
+    :cursor_offset: 2832
+    :timestamp: 2013-04-29 01:30:35 +07:00
+  - :path: config/locales/ru.yml
+    :cursor_offset: 571
+    :timestamp: 2013-02-19 16:48:43 +06:00
+  - :path: config/application.rb
+    :cursor_offset: 1507
+    :timestamp: 2013-04-29 01:49:39 +07:00
 files_to_retain: 0
