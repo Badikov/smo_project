@@ -72,6 +72,20 @@ jQuery ->
           alert errorThrown
       return false
     e.preventDefault()
+  #-- выбытие застрахованного по П023
+  #=======================================================================================================
+  $("div#customers_customer_info").on "click","#customers_search_023", (event) ->
+    e = event || window.event
+    if confirm('Вы уверенны что это дубликат ?')
+      $.ajax
+        type: "GET"
+        url: @href
+        success: (data, textStatus, jqXHR) ->
+          $('.row').before data
+        error: (jqXHR, textStatus, errorThrown) ->
+          alert errorThrown
+      return false
+    e.preventDefault()
   #-- выбытие застрахованного по П025
   #=======================================================================================================
   $("div#customers_customer_info").on "click","#customers_search_025", (event) ->

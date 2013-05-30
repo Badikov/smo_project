@@ -6,4 +6,3 @@ open_files:
   - app/models/polis.rb
   - app/models/insurance.rb
   - app/models/vizit.rb
-  - config/deploy.rb

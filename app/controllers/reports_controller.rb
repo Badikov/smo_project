@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   layout "report"
   def today
-    @ops = Op.new_today_active
+    @ops = Op.includes([:user,:person => [{:vizit => {:insurance => :polis}},:doc]]).new_today_active
     
     respond_to do |format|
     format.html

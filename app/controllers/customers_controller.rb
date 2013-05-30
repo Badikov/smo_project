@@ -68,7 +68,12 @@ class CustomersController < ApplicationController
   end
   
   def edit_ops_as_doublicat
-    # 023 - 
+    # 023 - удаление дублирующей записи в терфонде
+    @op = Op.find_by_person_id(params[:id])
+    
+    @op.update_attributes({ active: 0, tip_op: "П023", date_uvoln: DateTime.now })
+    
+    render :inline => '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Застрахованное лицо выведено из действующих как дублирующая запись</div>'
   end
   
   def edit_ops_foreigner
@@ -76,6 +81,7 @@ class CustomersController < ApplicationController
     @op = Op.find_by_person_id(params[:id])
     vizit = Vizit.find_by_person_id(params[:id])
     #TODO --?????????????????????????????????????????????????
+    # 
     if (vizit.insurance.polis.dstop > DateTime.current.to_date) || vizit.insurance.polis.dstop.nil?
       @op.update_attributes({ active: 0, tip_op: "П025", date_uvoln: DateTime.now })
     else
